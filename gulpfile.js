@@ -10,7 +10,7 @@ const sass = require("gulp-sass")
 const paths = {
   html: {
     dest: "./dist/",
-    templates: "./src/templates/",
+    templates: "./src/html/",
     src: "./src/html/**/*.nj",
   },
   root: "./dist/",

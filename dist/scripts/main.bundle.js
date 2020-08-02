@@ -86,14 +86,27 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/scripts/buttons.js":
+/*!********************************!*\
+  !*** ./src/scripts/buttons.js ***!
+  \********************************/
+/*! exports provided: btn */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"btn\", function() { return btn; });\nconsole.log(\"123\");\nvar btn = \"button\";\n\n//# sourceURL=webpack:///./src/scripts/buttons.js?");
+
+/***/ }),
+
 /***/ "./src/scripts/index.js":
 /*!******************************!*\
   !*** ./src/scripts/index.js ***!
   \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("console.log(\"asdad\");\n\n//# sourceURL=webpack:///./src/scripts/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _buttons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./buttons */ \"./src/scripts/buttons.js\");\n\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  console.log(\"DOM fully loaded and parsed\", _buttons__WEBPACK_IMPORTED_MODULE_0__[\"btn\"]);\n});\n\n//# sourceURL=webpack:///./src/scripts/index.js?");
 
 /***/ })
 

@@ -12,8 +12,6 @@ const config = {
         loader: "eslint-loader",
         options: {
           failOnError: true,
-          // emitError: true,
-          // emitWarning: true,
         },
       },
       {
