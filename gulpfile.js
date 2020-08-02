@@ -1,17 +1,15 @@
 const gulpWebpack = require("gulp-webpack")
 const webpack = require("webpack")
 const webpackConfig = require("./webpack.config.js")
-const postcss = require("gulp-postcss")
 const gulp = require("gulp")
 const del = require("del")
 const sync = require("browser-sync")
-const sourcemaps = require("gulp-sourcemaps")
 const nunjucksRender = require("gulp-nunjucks-render")
 const sass = require("gulp-sass")
 
 const paths = {
   html: {
-    dest: "./dist/pages/",
+    dest: "./dist/",
     templates: "./src/templates/",
     src: "./src/html/**/*.nj",
   },
@@ -53,14 +51,11 @@ const styles = () =>
 exports.styles = styles
 
 // Server
-const server = () => {
+function server() {
   sync.init({
-    ui: false,
-    notify: false,
-    server: {
-      baseDir: "dist",
-    },
+    server: paths.root,
   })
+  sync.watch(paths.root + "/**/*.*", sync.reload)
 }
 
 exports.server = server
@@ -84,6 +79,24 @@ const scripts = () =>
 
 exports.scripts = scripts
 
+// Copy
+
+// const copy = () => {
+//   return gulp.src([
+//           'src/fonts/**/*',
+//           'src/images/**/*',
+//       ], {
+//           base: 'src'
+//       })
+//       .pipe(gulp.dest('dist'))
+//       .pipe(sync.stream({
+//           once: true
+//       }));
+// };
+
 // Default
-gulp.task("default", gulp.series(clean, gulp.parallel(html, styles, scripts)))
-//gulp.parallel(watch, server)
+gulp.task(
+  "default",
+  gulp.series(clean, gulp.parallel(html, styles, scripts), gulp.parallel(watch, server)),
+)
+//

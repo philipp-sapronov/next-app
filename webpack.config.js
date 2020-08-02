@@ -1,6 +1,3 @@
-const webpack = require("webpack")
-const path = require("path")
-
 const config = {
   mode: "development",
   entry: "./src/scripts/index.js",
