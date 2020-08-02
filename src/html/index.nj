@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <head>
-  {% include "template/head.nj" %}
-  {% include "template/seo.nj" %}
+  {% include "links/head.nj" %}
+  {% include "links/seo.nj" %}
 </head>
 <body>
   {% include "app.nj" %}
-  {% include "template/scripts.nj" %}
+  {% include "links/scripts.nj" %}
 </body>

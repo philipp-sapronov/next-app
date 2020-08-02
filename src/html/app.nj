@@ -1,1 +1,7 @@
-<!DOCTYPE html>
+{% include "sections/hero.nj" %}
+{% include "sections/pipeline.nj" %}
+{% include "sections/pricing.nj" %}
+{% include "sections/why.nj" %}
+{% include "sections/teachers.nj" %}
+{% include "sections/feadbacks.nj" %}
+{% include "sections/leading.nj" %}

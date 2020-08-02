@@ -11,12 +11,12 @@ const paths = {
   html: {
     dest: "./dist/",
     templates: "./src/html/",
-    src: "./src/html/**/*.nj",
+    src: "./src/html/*.nj",
   },
   root: "./dist/",
   scripts: {
     dest: "./dist/scripts/",
-    src: "./src/scripts/**/*.js",
+    src: "./src/scripts/*.js",
   },
   styles: {
     main: "./src/sass/main.scss",
@@ -95,8 +95,5 @@ exports.scripts = scripts
 // };
 
 // Default
-gulp.task(
-  "default",
-  gulp.series(clean, gulp.parallel(html, styles, scripts), gulp.parallel(watch, server)),
-)
-//
+gulp.task("default", gulp.series(clean, gulp.parallel(html, styles, scripts)))
+//gulp.parallel(watch, server)

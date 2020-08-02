@@ -1,4 +1,0 @@
-<title>Main Page</title>
-{# styles boundle #}
-<link rel="stylesheet" href="./styles/main.css">
-{# javascript boundle #}

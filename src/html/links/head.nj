@@ -1,0 +1,6 @@
+<title>Main Page</title>
+{# styles boundle #}
+<link rel="stylesheet" href="./styles/main.css">
+
+{# google fonts #}
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
