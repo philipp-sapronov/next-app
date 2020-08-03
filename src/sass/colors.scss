@@ -1,0 +1,39 @@
+$green: #0bc481;
+$red: #ff6a21;
+$yellow: #ffc700;
+
+$gray-dark: #495f70;
+$gray-light: #f2f6fb;
+$gray-overlay: #fafafe;
+
+$white: white;
+$black: black;
+
+$var-green: --green;
+$var-red: --red;
+$var-yellow: --yellow;
+$var-gray-dark: --gray-dark;
+$var-gray-light: --gray-light;
+$var-gray-overlay: --gray-overlay;
+$var-white: --white;
+$var-black: --black;
+
+$color-green: var($var-green, $green);
+$color-red: var($var-red, $green);
+$color-yellow: var($var-yellow, $green);
+$color-gray-dark: var($var-gray-dark, $green);
+$color-gray-light: var($var-gray-light, $green);
+$color-gray-overlay: var($var-gray-overlay, $green);
+$color-white: var($var-white, $green);
+$color-black: var($var-black, $green);
+
+:root {
+  $var-green: $green;
+  $var-red: $red;
+  $var-yellow: $yellow;
+  $var-gray-dark: $gray-dark;
+  $var-gray-light: $gray-light;
+  $var-gray-overlay: $gray-overlay;
+  $var-black: $black;
+  $var-white: $white;
+}

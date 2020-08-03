@@ -1,0 +1,13 @@
+{% block header %}
+  {% include "layout/header.nj" %}
+{% endblock %}
+
+<main class="main">
+  {% block main %}
+  main content
+{% endblock %}
+</main>
+
+{% block footer %}
+  {% include "layout/footer.nj" %}
+{% endblock %}

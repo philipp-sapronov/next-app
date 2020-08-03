@@ -1,10 +1,6 @@
 <!-- Set up your HTML -->
-<div class="owl-carousel">
-  <div> Your Content </div>
-  <div> Your Content </div>
-  <div> Your Content </div>
-  <div> Your Content </div>
-  <div> Your Content </div>
-  <div> Your Content </div>
-  <div> Your Content </div>
+{% import "components/buttons.nj" as buttons %}
+
+<div class="hero hero-wrapper">
+  <div class="hero-wrapper"></div>
 </div>

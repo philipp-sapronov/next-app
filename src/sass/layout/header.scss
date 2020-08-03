@@ -1,0 +1,20 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  height: 64px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  &__logo {
+  }
+
+  &__nav {
+  }
+}

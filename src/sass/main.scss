@@ -1,1 +1,12 @@
 @import "./fonts.scss";
+@import "./colors.scss";
+
+//layout
+@import "./layout/header.scss";
+
+// sections
+@import "./sections/hero.scss";
+
+body {
+  overflow-x: hidden;
+}

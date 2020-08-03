@@ -1,0 +1,19 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  height: 64px; }
+  .header__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px; }
+
+.hero {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--green, #0bc481); }
+
+body {
+  overflow-x: hidden; }

@@ -1,0 +1,7 @@
+{% macro filled() %}
+  <button>filled</button>
+{% endmacro %}
+
+{% macro outline() %}
+  <button>outline</button>
+{% endmacro %}
