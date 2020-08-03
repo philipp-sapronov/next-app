@@ -1,11 +1,11 @@
-const gulpWebpack = require("gulp-webpack")
-const webpack = require("webpack")
-const webpackConfig = require("./webpack.config.js")
-const gulp = require("gulp")
 const del = require("del")
-const sync = require("browser-sync")
+const gulp = require("gulp")
+const gulpWebpack = require("gulp-webpack")
 const nunjucksRender = require("gulp-nunjucks-render")
 const sass = require("gulp-sass")
+const sync = require("browser-sync")
+const webpack = require("webpack")
+const webpackConfig = require("./webpack.config.js")
 
 const paths = {
   html: {
@@ -17,11 +17,13 @@ const paths = {
   root: "./dist/",
   scripts: {
     dest: "./dist/scripts/",
+    watch: "./src/scripts/**/*.js",
     src: "./src/scripts/*.js",
   },
   styles: {
     main: "./src/sass/main.scss",
-    src: "./src/sass/**/*.scss",
+    watch: "./src/sass/**/*.scss",
+    src: "./src/sass/*.scss",
     dest: "./dist/styles",
   },
 }
@@ -64,8 +66,8 @@ exports.server = server
 // Watch
 const watch = () => {
   gulp.watch(paths.html.watch, gulp.series(html))
-  gulp.watch(paths.styles.src, gulp.series(styles))
-  gulp.watch(paths.scripts.src, gulp.series(scripts))
+  gulp.watch(paths.styles.watch, gulp.series(styles))
+  gulp.watch(paths.scripts.watch, gulp.series(scripts))
   // gulp.watch(["src/fonts/**/*", "src/images/**/*"], gulp.series(copy))
 }
 
@@ -94,10 +96,10 @@ exports.scripts = scripts
 //           once: true
 //       }));
 // };
+// exports.copy = copy
 
 // Default
 gulp.task(
   "default",
   gulp.series(clean, gulp.parallel(html, styles, scripts), gulp.parallel(watch, server)),
 )
-//gulp.parallel(watch, server)
