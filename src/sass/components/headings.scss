@@ -1,0 +1,34 @@
+.section-heading {
+  width: max-content;
+  &.--light {
+    .section-heading__text {
+      color: $color-white;
+    }
+    .section-heading__dash {
+      background-color: $color-white;
+    }
+  }
+
+  &.--center {
+    margin-left: auto;
+    margin-right: auto;
+    .section-heading__text,
+    .section-heading__dash {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  & .section-heading__text {
+    font-size: 36px;
+    color: $color-gray-dark;
+    font-weight: 500;
+  }
+
+  & .section-heading__dash {
+    width: 60px;
+    height: 7px;
+    background-color: $color-gray-dark;
+    margin-bottom: 18px;
+  }
+}

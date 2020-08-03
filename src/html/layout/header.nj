@@ -1,9 +1,14 @@
 {% import "components/logo.nj" as logo %}
+{% import "components/buttons.nj" as buttons %}
+
 <header class="header">
   <div class="header__inner">
     <div class="header__logo">
       <div class="logo">{{ logo.full() }}</div>
     </div>
-    <div class="header__nav">nav</div>
-  </div>
-</header>
+    <div class="header__nav">
+      {{buttons.main("btn btn--empty btn--light", "+38 (068) 228-08-08")}}
+      {{buttons.main("btn btn--outlined btn--light btn--small btn--dropdown", "Заказать звонок")}}
+      {{buttons.main("btn btn--empty btn--light btn--small btn--square btn--uppercased btn--dropdown", "ru")}}
+    </div>
+  </header>

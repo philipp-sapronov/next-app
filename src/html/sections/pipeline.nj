@@ -1,0 +1,11 @@
+{% import "components/headings.nj" as headings %}
+
+<div class="pipeline section">
+  <div class="pipeline__inner">
+    <div class="heading-wrapper">
+      {{ headings.section("--center", "Как проходят занятия") }}
+    </div>
+    <div class="bg-layer"></div>
+  </div>
+
+</div>

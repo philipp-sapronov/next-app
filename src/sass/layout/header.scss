@@ -16,5 +16,8 @@
   }
 
   &__nav {
+    & > *:not(:last-child) {
+      margin-right: 40px;
+    }
   }
 }

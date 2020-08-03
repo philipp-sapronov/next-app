@@ -1,0 +1,20 @@
+.pipeline {
+  height: 200vh;
+  background-color: $color-gray-light;
+  position: relative;
+  &__inner {
+    & .bg-layer {
+      background-color: $color-gray-layer;
+      clip-path: polygon(0 35%, 100% 0, 100% 100%, 0% 100%);
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+    }
+  }
+
+  .heading-wrapper {
+  }
+}

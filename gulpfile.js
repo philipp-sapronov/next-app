@@ -57,6 +57,7 @@ exports.styles = styles
 function server() {
   sync.init({
     server: paths.root,
+    notify: false,
   })
   sync.watch(paths.root + "/**/*.*", sync.reload)
 }

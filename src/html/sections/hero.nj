@@ -1,6 +1,6 @@
 <!-- Set up your HTML -->
 {% import "components/buttons.nj" as buttons %}
-
+{% import "components/headings.nj" as headings %}
 <div class="hero hero-wrapper">
   <div class="hero-wrapper"></div>
 </div>
