@@ -11,6 +11,7 @@ const paths = {
   html: {
     dest: "./dist/",
     templates: "./src/html/",
+    watch: "./src/html/**/*.nj",
     src: "./src/html/*.nj",
   },
   root: "./dist/",
@@ -62,7 +63,7 @@ exports.server = server
 
 // Watch
 const watch = () => {
-  gulp.watch(paths.html.src, gulp.series(html))
+  gulp.watch(paths.html.watch, gulp.series(html))
   gulp.watch(paths.styles.src, gulp.series(styles))
   gulp.watch(paths.scripts.src, gulp.series(scripts))
   // gulp.watch(["src/fonts/**/*", "src/images/**/*"], gulp.series(copy))
@@ -95,5 +96,8 @@ exports.scripts = scripts
 // };
 
 // Default
-gulp.task("default", gulp.series(clean, gulp.parallel(html, styles, scripts)))
+gulp.task(
+  "default",
+  gulp.series(clean, gulp.parallel(html, styles, scripts), gulp.parallel(watch, server)),
+)
 //gulp.parallel(watch, server)

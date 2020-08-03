@@ -1,3 +1,5 @@
+const webpack = require("webpack")
+
 const config = {
   mode: "development",
   entry: "./src/scripts/index.js",
@@ -31,6 +33,10 @@ const config = {
         },
       },
     },
+  },
+  externals: {
+    jquery: "jQuery",
+    // owlCarousel:
   },
 }
 

@@ -106,7 +106,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _buttons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./buttons */ \"./src/scripts/buttons.js\");\n\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  console.log(\"DOM fully loaded and parsed\", _buttons__WEBPACK_IMPORTED_MODULE_0__[\"btn\"]);\n});\n\n//# sourceURL=webpack:///./src/scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _buttons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./buttons */ \"./src/scripts/buttons.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ \"jquery\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconsole.log(jquery__WEBPACK_IMPORTED_MODULE_1___default.a);\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  console.log(\"DOM fully loaded and parsed\", _buttons__WEBPACK_IMPORTED_MODULE_0__[\"btn\"]);\n  jquery__WEBPACK_IMPORTED_MODULE_1___default()(\".owl-carousel\").owlCarousel();\n});\n\n//# sourceURL=webpack:///./src/scripts/index.js?");
+
+/***/ }),
+
+/***/ "jquery":
+/*!*************************!*\
+  !*** external "jQuery" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = jQuery;\n\n//# sourceURL=webpack:///external_%22jQuery%22?");
 
 /***/ })
 
