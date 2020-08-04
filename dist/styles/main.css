@@ -199,23 +199,162 @@
     margin-bottom: 18px; }
 
 .hero {
-  width: 100vw;
   height: 100vh;
   background-color: var(--color-green);
   padding: 200px 100px; }
 
 .pipeline {
-  height: 200vh;
   background-color: var(--color-gray-light, #f2f6fb);
   position: relative; }
-  .pipeline__inner .bg-layer {
-    background-color: var(--color-gray-layer, #ebf3f7);
-    clip-path: polygon(0 35%, 100% 0, 100% 100%, 0% 100%);
+  .pipeline__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; }
+    .pipeline__inner .bg-layer {
+      background-color: var(--color-gray-layer, #ebf3f7);
+      clip-path: polygon(0 55%, 100% 0, 100% 100%, 0% 100%);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%; }
+
+.pipeline__cards {
+  margin-top: 120px;
+  position: relative;
+  overflow: hidden;
+  padding: 20px; }
+  .pipeline__cards .cards__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 100px 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-row-gap: 100px; }
+    @media screen and (max-width: 768px) {
+      .pipeline__cards .cards__wrapper {
+        grid-template-columns: 1fr;
+        grid-row-gap: 0;
+        grid-auto-rows: minmax(150px, auto); } }
+
+.pipeline__point {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  .pipeline__point.--first:before {
     position: absolute;
+    height: calc(50% + 30px);
+    background-color: var(--color-gray-light, #f2f6fb);
+    width: 20px;
+    display: block;
+    content: "";
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -30px); }
+  .pipeline__point.--last:before {
+    position: absolute;
+    height: calc(50% + 30px);
+    background-color: var(--color-gray-layer, #ebf3f7);
+    width: 20px;
+    display: block;
+    content: "";
     bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50%; }
+    left: 50%;
+    transform: translate(-50%, 30px); }
+  .pipeline__point:after {
+    background-color: var(--color-green);
+    border-radius: 12px;
+    position: absolute;
+    content: "";
+    display: block;
+    height: 12px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px; }
+    @media screen and (max-width: 768px) {
+      .pipeline__point:after {
+        left: 0;
+        transform: translate(-50%, -50%); } }
+
+.pipeline__line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-1px);
+  height: 100%;
+  width: 1px; }
+  @media screen and (max-width: 768px) {
+    .pipeline__line {
+      left: 20px; } }
+
+.pipeline__tips {
+  font-family: "Caveat", cursive;
+  align-self: center;
+  width: 75%;
+  font-size: 20px; }
+  @media screen and (max-width: 768px) {
+    .pipeline__tips {
+      display: none; } }
+  .pipeline__tips.--left {
+    justify-self: right;
+    text-align: right; }
+  .pipeline__tips.--right {
+    justify-self: left;
+    text-align: left; }
+
+.pipeline__card {
+  max-width: 600px;
+  border-radius: 7px;
+  background-color: var(--color-white, white);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.14);
+  font-size: 16px;
+  padding: 30px;
+  position: relative; }
+  .pipeline__card.--right {
+    margin-left: auto; }
+  .pipeline__card.--left {
+    margin-left: 0; }
+  .pipeline__card .card__inner {
+    display: flex;
+    align-items: center;
+    height: 100%; }
+    @media screen and (max-width: 998px) {
+      .pipeline__card .card__inner {
+        flex-wrap: wrap; } }
+  .pipeline__card .card__img {
+    margin-right: 30px;
+    width: 70px;
+    height: 70px; }
+    @media screen and (max-width: 768px) {
+      .pipeline__card .card__img {
+        width: 60px;
+        height: 60px;
+        flex-wrap: wrap;
+        position: absolute;
+        top: -130px;
+        left: 0; } }
+  .pipeline__card .card__icon {
+    border: 1px solid var(--color-gray-dark, #495f70);
+    width: 100%;
+    height: 100%;
+    border-radius: 50px; }
+  .pipeline__card .card__heading {
+    margin: 0;
+    margin: 16px 0; }
+    @media screen and (max-width: 768px) {
+      .pipeline__card .card__heading {
+        flex-wrap: wrap;
+        position: absolute;
+        top: -130px;
+        left: 80px;
+        margin: 24px 0; } }
+  .pipeline__card .card__content {
+    margin: 0; }
+
+.pipeline__cta {
+  display: flex;
+  justify-content: center;
+  padding-top: 120px; }
 
 body {
   overflow-x: hidden; }
