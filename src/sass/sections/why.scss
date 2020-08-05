@@ -1,0 +1,147 @@
+.why {
+  background-color: $color-gray-dark;
+}
+
+.why__reasons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: $pipeline-offset;
+}
+
+.reason__card {
+  align-items: center;
+  box-sizing: border-box;
+  color: $color-white;
+  display: flex;
+  height: 251px;
+  position: relative;
+  width: 45%;
+
+  @media screen and (max-width: 998px) {
+    width: 100%;
+  }
+
+  & .card__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    @media screen and (max-width: 998px) {
+      right: -30px;
+      left: unset;
+    }
+  }
+
+  &:first-child {
+    @media screen and (max-width: 998px) {
+      padding-right: 50px;
+      padding-left: 0;
+    }
+    & > .card__bg {
+      visibility: hidden;
+      // display: none;
+    }
+  }
+
+  &:nth-child(2) {
+    z-index: 999;
+    padding-left: 100px;
+
+    @media screen and (max-width: 998px) {
+      padding-right: 50px;
+      padding-left: 0;
+    }
+
+    & > .card__bg {
+      visibility: visible;
+
+      @media screen and (max-width: 998px) {
+        visibility: hidden;
+      }
+    }
+
+    & > .card__bg .svg-path {
+      fill: $color-green;
+    }
+  }
+
+  &:nth-child(3) {
+    z-index: 999;
+    @media screen and (max-width: 998px) {
+      padding-right: 50px;
+    }
+    & > .card__bg {
+      visibility: hidden;
+      @media screen and (max-width: 998px) {
+        visibility: visible;
+      }
+    }
+    & > .card__bg .svg-path {
+      fill: $color-green;
+    }
+  }
+
+  &:nth-child(4) {
+    @media screen and (max-width: 998px) {
+      padding-right: 50px;
+      padding-left: 0;
+    }
+
+    padding-left: 100px;
+
+    & > .card__bg {
+      visibility: visible;
+    }
+
+    & .card__bg .svg-path {
+      fill: $color-yellow;
+    }
+  }
+
+  &:nth-child(5) {
+    @media screen and (max-width: 998px) {
+      padding-right: 50px;
+      padding-left: 0;
+    }
+    & > .card__bg {
+      visibility: hidden;
+    }
+  }
+
+  & .card__inner {
+    box-sizing: border-box;
+    display: flex;
+    max-height: 250px;
+    max-width: 500px;
+    overflow: hidden;
+    padding-top: 50px;
+    position: relative;
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.reason__number {
+  font-size: 100px;
+  font-weight: 600;
+  margin-right: 30px;
+  line-height: 1;
+  margin-bottom: 20px;
+  &:before {
+    display: block;
+    width: 60px;
+    height: 12px;
+    background-color: $color-white;
+    content: "";
+
+    @media screen and (max-width: 998px) {
+      width: 30px;
+      height: 6px;
+    }
+  }
+
+  @media screen and (max-width: 998px) {
+    font-size: 50px;
+  }
+}

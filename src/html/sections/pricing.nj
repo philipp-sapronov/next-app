@@ -3,7 +3,7 @@
 
 {% macro tick() %}
   <svg width="20" height="15" viewBox="0 0 20 15" >
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4128 2.09535L6.68179 14.8003L0 8.13216L1.41277 6.7165L6.68179 11.9748L18 0.679688L19.4128 2.09535Z" fill="#496970"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4128 2.09535L6.68179 14.8003L0 8.13216L1.41277 6.7165L6.68179 11.9748L18 0.679688L19.4128 2.09535Z" fill="#0cce87"/>
   </svg>
 {% endmacro %}
 

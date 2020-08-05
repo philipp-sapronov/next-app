@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   $(".owl-carousel").owlCarousel({
     center: true,
     loop: true,
-    margin: 70,
+    margin: 50,
     items: 3,
     smartSpeed: 500,
     stagePadding: 10,

@@ -1,0 +1,49 @@
+{% import "components/headings.nj" as headings %}
+
+{% macro cardBg() %}
+  <svg width="1833" height="350" viewBox="0 0 1833 350"  xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_d)">
+      <path d="M25 21H1808L1760.5 272H86.5L25 21Z" class="svg-path"/>
+    </g>
+    <defs>
+      <filter id="filter0_d" x="0" y="0" width="1833" height="350" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+        <feOffset dy="4"/>
+        <feGaussianBlur stdDeviation="12.5"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+      </filter>
+    </defs>
+  </svg>
+
+{% endmacro %}
+
+{% macro reasonCard(number = "", text = "") %}
+  <div class="reason__card">
+    <div class="card__bg">
+      {{ cardBg() }}
+    </div>
+    <div class="card__inner">
+      <div class="reason__number">{{ number }}</div>
+      <div class="reason__text">{{ text }}</div>
+    </div>
+  </div>
+{% endmacro %}
+
+<section class="why section">
+  <div class="why__inner container">
+    <div class="heading-wrapper">
+      {{ headings.section("--center --light", "Почему выбирают нас") }}
+      <div class="why__reasons">
+        {{ reasonCard("01", "Не просто научим языку, но еще и покажем, как обучаться правильно. Раскроем тайну метода SQRRR, с помощью которого Вам покорится не только английский язык, но и любые другие новые знания") }}
+        {{ reasonCard("02", "Всё обучение построено на интерактивах: игры, видео и  аудио -  у Вас не будет шанса не усвоить материал. А еще - NO PATTERNS ! Каждому студенту мы подбираем индивидуальную программу занятий ") }}
+        {{ reasonCard("03", "Все занятия проходят онлайн (Zoom/Skype), а значит - прощайте пробки, привет пижамка. Время урока тоже  выбираете Вы сами, и если завтра нужно отоспаться - наша школа предоставит такую возможность") }}
+        {{ reasonCard("04", "Обучаем по лучшим учебникам Британии, доступ к которым наши студенты получают  совершенно бесплатно! А для усвоения новой лексики мы приготовили специальный тренажер с полным пакетом слов, заданиями для практики и тестами ") }}
+        {{ reasonCard("05", "Обучение по принципу Student centered: максимум времени говорит студент и минимум учитель (70/30).Море позитива в общении с преподавателем, который точно станет Вашим новым другом ") }}
+      </div>
+    </div>
+  </div>
+
+</section>
