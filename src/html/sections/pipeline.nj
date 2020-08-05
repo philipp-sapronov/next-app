@@ -15,9 +15,9 @@
   </div>
 {% endmacro %}
 
-<div class="pipeline section">
+<section class="pipeline section">
   <div class="bg-layer"></div>
-  <div class="pipeline__inner">
+  <div class="pipeline__inner container">
     <div class="heading-wrapper">
       {{ headings.section("--center", "Как проходят занятия") }}
     </div>
@@ -67,5 +67,4 @@
       {{buttons.main("btn btn--filled btn--green btn--large", "Начать бесплатно")}}
     </div>
   </div>
-
-</div>
+</section>

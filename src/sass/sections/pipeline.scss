@@ -5,10 +5,6 @@ $pipeline-offset: 120px;
   position: relative;
 
   &__inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
     position: relative;
   }
 }
@@ -45,7 +41,6 @@ $pipeline-offset: 120px;
   margin-bottom: $pipeline-offset;
 
   &.--last {
-    padding: 0 20px;
     margin-bottom: 0;
   }
 
@@ -78,6 +73,10 @@ $pipeline-offset: 120px;
   @media screen and (max-width: 768px) {
     margin-bottom: 0;
     flex-direction: column;
+
+    &.--last {
+      padding: 0 20px;
+    }
 
     & .pipeline__card {
       order: 2;

@@ -154,3 +154,9 @@
     @include button-text($color-gray-dark);
   }
 }
+
+.slider-buttons {
+  & > *:first-child {
+    margin-right: 10px;
+  }
+}
