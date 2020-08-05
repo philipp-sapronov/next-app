@@ -74,7 +74,7 @@
     {{ buttons.slider() }}
   </div>
   <div class="pricing__carousel-wrapper">
-    <div class="owl-carousel">
+    <div id="pricing-carousel"  class="pricing-carousel owl-carousel">
       {{ card() }}
       {{ card() }}
       {{ card() }}

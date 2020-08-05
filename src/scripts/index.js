@@ -6,12 +6,20 @@ console.log($)
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM fully loaded and parsed", btn)
 
-  $(".owl-carousel").owlCarousel({
+  $("#pricing-carousel").owlCarousel({
     center: true,
     loop: true,
     margin: 50,
     items: 3,
     smartSpeed: 500,
     stagePadding: 10,
+  })
+
+  $("#teachers-carousel").owlCarousel({
+    // center: true,
+    loop: true,
+    margin: 50,
+    items: 1,
+    smartSpeed: 500,
   })
 })

@@ -6,7 +6,7 @@
     overflow: hidden;
     position: absolute;
     height: 500px;
-    bottom: 0;
+    bottom: -50px;
     right: 25%;
 
     @media screen and (max-width: 998px) {
@@ -14,7 +14,7 @@
       & svg {
         width: 800px;
       }
-      bottom: -50px;
+      bottom: -100px;
       right: unset;
       left: 10%;
     }
@@ -25,7 +25,7 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: $pipeline-offset;
-  margin-bottom: 300px;
+  margin-bottom: 250px;
 }
 
 .reason__card {
