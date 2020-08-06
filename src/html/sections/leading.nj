@@ -1,0 +1,85 @@
+{% import "components/headings.nj" as headings %}
+{% import "components/buttons.nj" as buttons %}
+
+<section class="leading section">
+  <div class="leading__inner container">
+    <div class="heading-wrapper">
+      {{ headings.section("--center --light", "Заявка на бесплатный урок") }}
+    </div>
+
+    <div class="leading__content">
+      <div class="left-side">
+        <h4 class="content__heading">Полноценный урок длительностью 30 минут, во время которого Вы успеете:</h4>
+        <ul class="list">
+          <div class="content__line">
+            <svg width="3" height="100%">
+              <line x1="100%" y1="0%" x2="0%" y2="100%" stroke="#fff" stroke-width="2" stroke-dasharray="3 8"></line>
+            </svg>
+          </div>
+          <li class="list__item">
+            <span class="item__number">01</span>
+            <p class="item__text"> Определить свой уровень знаний на сегодняшний день</p>
+          </li>
+          <li class="list__item">
+            <span class="item__number">02</span>
+            <p class="item__text"> Прочувствовать методику обучения и понять принцип работы</p>
+          </li>
+          <li class="list__item">
+            <span class="item__number">03</span>
+            <p class="item__text"> Познакомиться (а может и подружиться) с преподавателем.</p>
+          </li>
+          <li class="list__item">
+            <span class="item__number">04</span>
+            <p class="item__text"> Вводный урок не обязывает Вас к записи на полное обучение </p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="right-side">
+        <div class="leading__card">
+          <div class="card-layer"></div>
+          <div class="card__inner">
+            <form class="leading__form from">
+              <div class="form__item success">
+                <label class="input-label" for="input-name">Имя</label>
+                <input class="input-text" placeholder="Ваше имя..." id="input-name" type="text">
+                <span class="input-msg"></span>
+              </div>
+
+              <div class="form__item">
+                <label class="input-label" for="input-email">Email</label>
+                <input class="input-text" placeholder="Ваше email..." id="input-email" type="text">
+                <span class="input-msg"></span>
+              </div>
+
+              <div class="form__item error">
+                <label class="input-label" for="input-phone">Телефон</label>
+                <input class="input-text" placeholder="Ваше телефон..." id="input-phone" type="text">
+                <span class="input-msg">Некорректный номер телефона</span>
+              </div>
+
+              <div class="form__submit-wrapper">
+                {{buttons.main("form__submit-btn btn btn--filled btn--red btn--large btn--uppercased", "отправить заявку")}}
+                <p class="confirm-msg">Нажимая, вы принимаете условия оферты</p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="additional-msg">
+          <div class="additional-msg__arrow">
+            <svg width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M42.1652 3.30163C38.4386 10.4235 29.4733 25.4312 23.4243 28.4868" stroke="white" stroke-width="2"/>
+              <path d="M77.1506 113.623C53.1323 101.055 12.3749 62.3628 41.492 8.1341" stroke="white" stroke-width="2" stroke-dasharray="2 4"/>
+              <path d="M42.6976 2.28516C40.1661 8.30439 37.2866 21.4854 46.0205 26.0554" stroke="white" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <span class="additional-msg__text">
+        Вы точно проведете время с пользой, поэтому скорее осталвяйте заявку!
+        </span>
+        </div>
+      </div>
+
+    </div>
+  </section>

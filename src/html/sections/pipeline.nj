@@ -64,7 +64,7 @@
       {{ pipelineCard("--right --empty", "Production", "Любимая часть урока: не потому, что он подходит к концу, а потому, что тут у нас ситуативная игра, во время которой студент применяет  все знания, полученные на занятии.") }}
     </div>
     <div class="pipeline__cta">
-      {{buttons.main("btn btn--filled btn--green btn--large", "Начать бесплатно")}}
+      {# {{buttons.main("btn btn--filled btn--red btn--large", "Начать бесплатно")}} #}
     </div>
   </div>
 </section>

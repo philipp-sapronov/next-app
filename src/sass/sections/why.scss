@@ -1,7 +1,7 @@
 .why {
   background-color: $color-gray-dark;
   position: relative;
-
+  overflow: hidden;
   & .image__wrapper {
     overflow: hidden;
     position: absolute;

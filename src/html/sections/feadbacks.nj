@@ -1,0 +1,30 @@
+{% import "components/headings.nj" as headings %}
+{% import "components/buttons.nj" as buttons %}
+{% import "components/cards.nj" as cards %}
+
+<section class="feedbacks section">
+  <div class="feedbacks__inner container">
+    <div class="heading-wrapper">
+      {{ headings.section("--left", "Отзывы наших учеников") }}
+      {{ buttons.slider("--dark") }}
+    </div>
+    <div class="feedbacks__carousel-wrapper">
+      <div id="feedbacks-carousel"  class="feedbacks-carousel owl-carousel">
+        {{ cards.feedback() }}
+        {{ cards.feedback() }}
+        {{ cards.feedback() }}
+        {{ cards.feedback() }}
+        {{ cards.feedback() }}
+        {{ cards.feedback() }}
+        {{ cards.feedback() }}
+        {{ cards.feedback() }}
+        {{ cards.feedback() }}
+      </div>
+    </div>
+
+    <div class="feedbacks__cta">
+      {{buttons.main("btn btn--outlined btn--red btn--large", "Начать бесплатно")}}
+    </div>
+  </div>
+
+</section>

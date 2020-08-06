@@ -1,0 +1,62 @@
+{% import "components/avatar.nj" as avatars %}
+
+{% macro header(classes) %}
+  <div class="card__header {{ classes }}">
+    <div class="header__avatar">
+      {{ avatars.main() }}
+    </div>
+    <div class="header__content">
+      <div class="name">
+        <span>Александра Никифорова</span></div>
+      <div class="year">
+        <span>24 года</span></div>
+      <div class="socials">
+        <span>vk fb li</span></div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro card(header, content) %}
+  <div class="personality__card">
+    <div class="card-layer"></div>
+    <div class="card__inner">
+      {{ header }}
+      <div class="card__divider"></div>
+      <div class="card__content">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro feedbackContent() %}
+  <div class="feedback-card__content">
+    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
+    <span class="details">Курс: Подготовка к ЗНО</span>
+  </div>
+{% endmacro %}
+
+{% macro teacherContent() %}
+  <div class="teacher-card__content">
+    <div class="item">
+      <b class="heading">Образование:</b>
+      <span>Филолог</span>
+    </div>
+    <div class="item">
+      <b class="heading">Опыт работы:</b>
+      <span>4 года</span>
+    </div>
+    <div class="item">
+      <b class="heading">Увлечения:</b>
+      <span>Любит  настольные игры, кушать попкорн и играть на флейте</span>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro feedback() %}
+  {{ card(header("flexible"), feedbackContent()) }}
+{% endmacro %}
+
+{% macro teacher() %}
+  {{ card(header(), teacherContent()) }}
+{% endmacro %}

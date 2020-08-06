@@ -1,53 +1,6 @@
 {% import "components/headings.nj" as headings %}
 {% import "components/buttons.nj" as buttons %}
-
-{% macro avatar(text) %}
-  <div class="avatar">
-    <img class="avatar__image" src="" alt="photo">
-  </div>
-{% endmacro %}
-
-{% macro listItem(text) %}
-  <li class="list__item">
-    <div class="list__item-icon"></div>
-    <span>{{ text }}</span></li>
-{% endmacro %}
-
-{% macro card() %}
-  <div class="teachers__card">
-
-    <div class="card-layer"></div>
-    <div class="card__inner">
-
-      <div class="card__inner">
-        {{ avatar() }}
-        <div class="name">
-          <span>Александра Никифорова</span></div>
-        <div class="year">
-          <span>24 года</span></div>
-        <div class="socials">
-          <span>vk fb li</span></div>
-
-        <div class="card__divider"></div>
-
-        <div class="facts">
-          <div class="fact">
-            <span class="heading">Образование:</span>
-            <span>Филолог</span>
-          </div>
-          <div class="fact">
-            <span class="heading">Опыт работы:</span>
-            <span>4 года</span>
-          </div>
-          <div class="fact">
-            <span class="heading">Увлечения:</span>
-            {# <span>Любит  настольные игры, кушать попкорн и играть на флейте</span> #}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-{% endmacro %}
+{% import "components/cards.nj" as cards %}
 
 <section class="teachers section">
   <div class="teachers__inner ">
@@ -69,9 +22,9 @@
           <div class="carousel-wrapper">
 
             <div id="teachers-carousel" class="owl-carousel">
-              {{ card() }}
-              {{ card() }}
-              {{ card() }}
+              {{ cards.teacher() }}
+              {{ cards.teacher() }}
+              {{ cards.teacher() }}
             </div>
           </div>
         </div>
@@ -93,7 +46,6 @@
           <li class="teachers__option">
             <span>Любят то, что делают</span>
           </li>
-
         </ul>
       </div>
     </div>

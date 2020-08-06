@@ -1,0 +1,5 @@
+{% macro main(image = "./assets/pic.png") %}
+  <div class="avatar">
+    <img class="avatar__image" src={{ image }} alt="photo">
+  </div>
+{% endmacro %}

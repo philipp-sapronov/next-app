@@ -109,7 +109,11 @@ $pipeline-offset: 120px;
 .pipeline__cards {
   margin-top: $pipeline-offset;
   position: relative;
-  padding: 20px 20px 0 0;
+  padding: 0 20px;
+
+  @media screen and (max-width: 768px) {
+    padding-left: 0;
+  }
 }
 
 .pipeline__point {
@@ -124,7 +128,7 @@ $pipeline-offset: 120px;
   &:before {
     content: "";
     display: block;
-    height: calc(50% + 30px);
+    height: 50%;
     left: 50%;
     position: absolute;
     width: 20px;
@@ -137,7 +141,7 @@ $pipeline-offset: 120px;
     &:before {
       background-color: $color-gray-light;
       top: 0;
-      transform: translate(-50%, -30px);
+      transform: translateX(-50%);
     }
   }
 
@@ -145,7 +149,7 @@ $pipeline-offset: 120px;
     &:before {
       background-color: $color-gray-layer;
       bottom: 0;
-      transform: translate(-50%, 30px);
+      transform: translateX(-50%);
     }
   }
 
@@ -173,7 +177,7 @@ $pipeline-offset: 120px;
   left: 50%;
   top: 0;
   transform: translateX(-1px);
-  height: calc(100% + 300px);
+  height: calc(100% + 250px);
   width: 1px;
 
   @media screen and (max-width: 768px) {

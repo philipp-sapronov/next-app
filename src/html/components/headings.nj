@@ -1,6 +1,6 @@
 {% macro section(classes = "", text = "") %}
   <div class="section-heading {{ classes }}">
     <div class="section-heading__dash"></div>
-    <div class="section-heading__text">{{ text }}</div>
+    <h3 class="section-heading__text">{{ text }}</h3>
   </div>
 {% endmacro %}

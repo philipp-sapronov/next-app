@@ -85,22 +85,23 @@ exports.scripts = scripts
 
 // Copy
 
-// const copy = () => {
-//   return gulp.src([
-//           'src/fonts/**/*',
-//           'src/images/**/*',
-//       ], {
-//           base: 'src'
-//       })
-//       .pipe(gulp.dest('dist'))
-//       .pipe(sync.stream({
-//           once: true
-//       }));
-// };
-// exports.copy = copy
+const copy = () => {
+  return gulp
+    .src(["src/assets/**/*"], {
+      base: "src",
+    })
+    .pipe(gulp.dest("dist"))
+    .pipe(
+      sync.stream({
+        once: true,
+      }),
+    )
+}
+
+exports.copy = copy
 
 // Default
 gulp.task(
   "default",
-  gulp.series(clean, gulp.parallel(html, styles, scripts), gulp.parallel(watch, server)),
+  gulp.series(clean, gulp.parallel(html, styles, scripts, copy), gulp.parallel(watch, server)),
 )
