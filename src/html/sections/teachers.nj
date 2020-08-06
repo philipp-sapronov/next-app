@@ -51,29 +51,55 @@
 
 <section class="teachers section">
   <div class="teachers__inner ">
-    <div class="left-side">
-      <div class="left-side__inner">
+    <div class="teachers__header">
+      <div class="left-side">
         <div class="buttons__wrapper">
           {{ buttons.slider() }}
         </div>
-        <div class="carousel-wrapper">
-
-          <div id="teachers-carousel" class="owl-carousel">
-            {{ card() }}
-            {{ card() }}
-            {{ card() }}
-          </div>
+      </div>
+      <div class="right-side">
+        <div class="heading-wrapper">
+          {{ headings.section("--left --light", "Наши курсы") }}
         </div>
       </div>
     </div>
-    <div class="right-side">
+    <div class="teachers__content">
+      <div class="left-side">
+        <div class="left-side__inner">
+          <div class="carousel-wrapper">
 
-      <div class="heading-wrapper">
-        {{ headings.section("--left --light", "Наши курсы") }}
+            <div id="teachers-carousel" class="owl-carousel">
+              {{ card() }}
+              {{ card() }}
+              {{ card() }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <ul class="teachers__options">
+          <li class="teachers__option">
+            <span>Отличаются многолетним опытом работы с различными категориями студентов</span>
+          </li>
+          <li class="teachers__option">
+            <span>Изучают индивидуальные особенности Вашего восприятия и подберают самую эффективную систему обучения</span>
+          </li>
+          <li class="teachers__option">
+            <span>Становятся Вашими друзьями, с которыми всегда приятно поделиться новостью и посмеяться крутой над шуткой (если она английская)</span>
+          </li>
+          <li class="teachers__option">
+            <span>Жаждут ваших достижений, радуются каждому шагу и бурно обсуждают его (по-английски, конечно же)</span>
+          </li>
+          <li class="teachers__option">
+            <span>Любят то, что делают</span>
+          </li>
 
+        </ul>
       </div>
     </div>
-
+    <div class="teachers__cta">
+      {{buttons.main("btn btn--filled btn--green btn--large", "Начать бесплатно")}}
+    </div>
   </div>
 
 </section>

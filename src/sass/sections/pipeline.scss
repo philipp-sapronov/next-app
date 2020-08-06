@@ -75,7 +75,7 @@ $pipeline-offset: 120px;
     flex-direction: column;
 
     &.--last {
-      padding: 0 20px;
+      padding: 0 20px 0 0;
     }
 
     & .pipeline__card {
@@ -109,7 +109,7 @@ $pipeline-offset: 120px;
 .pipeline__cards {
   margin-top: $pipeline-offset;
   position: relative;
-  padding: 20px 20px 0;
+  padding: 20px 20px 0 0;
 }
 
 .pipeline__point {
@@ -177,7 +177,7 @@ $pipeline-offset: 120px;
   width: 1px;
 
   @media screen and (max-width: 768px) {
-    left: 20px;
+    left: 0;
     height: calc(100% + 100px);
   }
 }

@@ -11,7 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
     loop: true,
     margin: 50,
     items: 3,
-    smartSpeed: 500,
+    mouseDrag: false,
+    dragEndSpeed: 500,
+    responsive: {
+      600: {
+        items: 1,
+      },
+      1000: {
+        items: 3,
+      },
+    },
+    // smartSpeed: 1000,
     stagePadding: 10,
   })
 
@@ -20,6 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     loop: true,
     margin: 50,
     items: 1,
-    smartSpeed: 500,
+    // smartSpeed: 500,
   })
 })
