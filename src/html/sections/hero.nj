@@ -55,7 +55,7 @@
           <circle cx="423" cy="37" r="2"/>
         </symbol>
         <symbol id="point__7" viewBox="0 0 606 480" width="100%" height="100%">
-          <circle cx="154" cy="50" r="2"/>
+          <circle cx="154" cy="50" r="4"/>
         </symbol>
         <symbol id="point__8" viewBox="0 0 606 480" width="100%" height="100%">
           <circle cx="53" cy="146" r="2"/>
@@ -94,7 +94,7 @@
         {# USE PATHS #}
         <div class="circle__1" >
           <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
-            <use class="stroke--yellow fill-yellow" stroke-width="8" href="#point__1"/>
+            <use class="stroke--yellow fill--yellow" stroke-width="8" href="#point__1"/>
             <use class="stroke--yellow"  stroke-width="2" href="#path"/>
           </svg>
         </div>
@@ -103,8 +103,8 @@
         <div class="circle__2" >
           <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
             <use class="stroke--yellow"  stroke-width="1" href="#path"/>
-            <use class="stroke--yellow fill-yellow" stroke-width="4" href="#point__7"/>
-            <use class="stroke--yellow fill-yellow" stroke-width="4" href="#point__4"/>
+            <use class="stroke--yellow fill--yellow" stroke-width="2" href="#point__7"/>
+            <use class="stroke--yellow fill--yellow" stroke-width="4" href="#point__4"/>
           </svg>
         </div>
 
@@ -112,16 +112,15 @@
         <div class="circle__3" >
           <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
             <use stroke-dasharray="4 6" class="stroke--yellow"  stroke-width="1" href="#path"/>
-            <use class="stroke--red fill-red" stroke-width="4" href="#point__6"/>
+            <use class="stroke--red fill--red" stroke-width="4" href="#point__6"/>
           </svg>
         </div>
 
         {# USE PATHS #}
         <div class="circle__4" >
           <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
-            <use class="stroke--white fill-white" stroke-width="4" href="#point__8"/>
-
             <use stroke-dasharray="2 10" class="stroke--yellow"  stroke-width="1" href="#path"/>
+            <use class="stroke--white fill--white" href="#point__8"/>
           </svg>
         </div>
 

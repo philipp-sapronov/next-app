@@ -5,14 +5,15 @@
   position: relative;
 
   & .teachers__inner {
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-small) {
       padding: 0 20px;
     }
   }
 
   & .teachers__header {
     display: flex;
-    @media screen and (max-width: 998px) {
+
+    @media screen and (max-width: $bp-down-medium) {
       flex-wrap: wrap;
 
       & .left-side {
@@ -29,7 +30,7 @@
     display: flex;
     margin-top: 50px;
 
-    @media screen and (max-width: 998px) {
+    @media screen and (max-width: $bp-down-medium) {
       flex-wrap: wrap;
 
       & .left-side {
@@ -38,16 +39,21 @@
     }
   }
 
-  & .buttons__wrapper {
+  & .slider-buttons__wrapper {
     max-width: 620px;
     margin-left: auto;
+
+    @media screen and (max-width: $bp-down-small) {
+      margin: 30px auto 10px auto;
+      width: 100%;
+    }
   }
 
   & .left-side {
     width: 50%;
     flex-shrink: 0;
 
-    @media screen and (max-width: 998px) {
+    @media screen and (max-width: $bp-down-medium) {
       width: 100%;
     }
 
@@ -55,7 +61,7 @@
       overflow: hidden;
       width: calc(100% - 80px);
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: $bp-down-small) {
         width: 100%;
       }
     }
@@ -66,7 +72,7 @@
     padding-right: 20px;
     flex-shrink: 0;
 
-    @media screen and (max-width: 998px) {
+    @media screen and (max-width: $bp-down-medium) {
       width: 100%;
     }
   }
@@ -78,7 +84,7 @@
     margin-right: 20px;
     max-width: 520px;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-small) {
       max-width: unset;
       margin-right: 0;
     }
@@ -88,7 +94,7 @@
     padding: 10px 0;
     overflow: unset;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-small) {
       overflow: hidden;
     }
   }
@@ -114,11 +120,11 @@
   justify-content: space-between;
   cursor: default;
 
-  @media screen and (max-width: 998px) {
+  @media screen and (max-width: $bp-down-medium) {
     height: 480px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $bp-down-small) {
     padding-left: 20px;
   }
 
@@ -162,7 +168,7 @@
     content: "";
     display: block;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-small) {
       left: -25px;
     }
   }

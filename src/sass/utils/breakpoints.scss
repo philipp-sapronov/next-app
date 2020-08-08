@@ -1,0 +1,20 @@
+$bp-down-extra-large: 1440px;
+$bp-down-large: 1280px;
+$bp-down-medium: 960px;
+$bp-down-small: 600px;
+$bp-down-extra-small: 420px;
+$bp-down-ipad: 768px;
+$bp-down-ipad-pro: 1024px;
+
+$bp-up-extra-large: $bp-down-extra-large + 1;
+$bp-up-large: $bp-down-large + 1;
+$bp-up-medium: $bp-down-medium + 1;
+$bp-up-small: $bp-down-small + 1;
+$bp-up-extra-small: $bp-down-extra-small + 1;
+$bp-up-ipad: $bp-down-ipad + 1;
+$bp-up-ipad-pro: $bp-down-ipad-pro + 1;
+
+@mixin margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

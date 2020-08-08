@@ -50,7 +50,9 @@
 <div class="pricing__inner container">
   <div class="heading-wrapper">
     {{ headings.section("--left --light", "Наши курсы") }}
-    {{ buttons.slider() }}
+    <div class="slider-buttons__wrapper">
+      {{ buttons.slider("btn--light") }}
+    </div>
   </div>
   <div class="pricing__carousel-wrapper">
     <div id="pricing-carousel"  class="pricing-carousel owl-carousel">

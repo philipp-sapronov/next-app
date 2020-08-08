@@ -6,6 +6,11 @@ $pipeline-offset: 120px;
 
   &__inner {
     position: relative;
+    padding-bottom: $pipeline-offset;
+
+    @media screen and (max-width: $bp-down-medium) {
+      padding-bottom: $pipeline-offset / 3;
+    }
   }
 }
 
@@ -19,19 +24,19 @@ $pipeline-offset: 120px;
   right: 0;
   height: 50%;
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: $bp-down-large) {
     clip-path: polygon(0 45%, 100% 0, 100% 100%, 0% 100%);
   }
 
-  @media screen and (max-width: 998) {
+  @media screen and (max-width: $bp-down-medium) {
     clip-path: polygon(0 35%, 100% 0, 100% 100%, 0% 100%);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $bp-down-ipad) {
     clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: $bp-down-extra-small) {
     clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
   }
 }
@@ -70,7 +75,7 @@ $pipeline-offset: 120px;
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $bp-down-ipad) {
     margin-bottom: 0;
     flex-direction: column;
 
@@ -111,8 +116,9 @@ $pipeline-offset: 120px;
   position: relative;
   padding: 0 20px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $bp-down-ipad) {
     padding-left: 0;
+    margin-top: $pipeline-offset / 3;
   }
 }
 
@@ -121,7 +127,7 @@ $pipeline-offset: 120px;
   width: 100px;
   min-width: 100px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $bp-down-ipad) {
     height: 140px;
   }
 
@@ -132,7 +138,7 @@ $pipeline-offset: 120px;
     left: 50%;
     position: absolute;
     width: 20px;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-ipad) {
       left: 0;
     }
   }
@@ -165,7 +171,7 @@ $pipeline-offset: 120px;
     transform: translate(-50%, -50%);
     width: 12px;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-ipad) {
       left: 0;
       transform: translate(-50%, -50%);
     }
@@ -180,7 +186,7 @@ $pipeline-offset: 120px;
   height: calc(100% + 250px);
   width: 1px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $bp-down-ipad) {
     left: 0;
     height: calc(100% + 100px);
   }
@@ -193,7 +199,7 @@ $pipeline-offset: 120px;
   width: calc(50% - 50px);
   font-size: 20px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $bp-down-ipad) {
     align-self: flex-start;
     padding: 20px 20px 0;
     max-width: 400px;
@@ -204,7 +210,7 @@ $pipeline-offset: 120px;
     justify-self: right;
     text-align: right;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-ipad) {
       justify-self: left;
       text-align: left;
     }
@@ -227,12 +233,12 @@ $pipeline-offset: 120px;
   position: relative;
   flex-grow: 1;
 
-  @media screen and (max-width: 998px) {
+  @media screen and (max-width: $bp-down-medium) {
     flex-wrap: wrap;
-    max-width: 500px;
+    max-width: $bp-down-extra-small;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $bp-down-ipad) {
     width: 100%;
   }
 
@@ -243,14 +249,14 @@ $pipeline-offset: 120px;
   }
   &.--right {
     margin-left: auto;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-ipad) {
       margin-left: 20px;
     }
   }
 
   &.--left {
     margin-left: 0;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-ipad) {
       margin-left: 20px;
     }
   }
@@ -259,7 +265,7 @@ $pipeline-offset: 120px;
     display: flex;
     align-items: center;
     height: 100%;
-    @media screen and (max-width: 998px) {
+    @media screen and (max-width: $bp-down-medium) {
       flex-wrap: wrap;
     }
   }
@@ -270,11 +276,11 @@ $pipeline-offset: 120px;
     flex-shrink: 0;
     height: 70px;
 
-    @media screen and (max-width: 998px) {
+    @media screen and (max-width: $bp-down-medium) {
       margin-bottom: 20px;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-ipad) {
       width: 60px;
       height: 60px;
       flex-wrap: wrap;
@@ -299,7 +305,7 @@ $pipeline-offset: 120px;
     margin: 0;
     margin-bottom: 16px;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $bp-down-ipad) {
       flex-wrap: wrap;
       position: absolute;
       top: -100px;

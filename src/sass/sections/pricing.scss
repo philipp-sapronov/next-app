@@ -10,6 +10,18 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    align-items: center;
+
+    @media screen and (max-width: $bp-down-small) {
+      flex-wrap: wrap;
+    }
+
+    & .slider-buttons__wrapper {
+      @media screen and (max-width: $bp-down-small) {
+        margin: 30px auto 10px auto;
+        width: 100%;
+      }
+    }
   }
 
   & .image__wrapper {

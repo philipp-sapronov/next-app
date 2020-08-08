@@ -6,7 +6,9 @@
   <div class="feedbacks__inner container">
     <div class="heading-wrapper">
       {{ headings.section("--left", "Отзывы наших учеников") }}
-      {{ buttons.slider("--dark") }}
+      <div class="slider-buttons__wrapper">
+        {{ buttons.slider("btn--dark") }}
+      </div>
     </div>
     <div class="feedbacks__carousel-wrapper">
       <div id="feedbacks-carousel"  class="feedbacks-carousel owl-carousel">

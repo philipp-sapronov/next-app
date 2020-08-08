@@ -4,18 +4,24 @@
 
 <section class="teachers section">
   <div class="teachers__inner ">
+
+    {# --HEADER #}
+
     <div class="teachers__header">
       <div class="left-side">
-        <div class="buttons__wrapper">
-          {{ buttons.slider() }}
+        <div class="slider-buttons__wrapper">
+          {{ buttons.slider("btn--light") }}
         </div>
       </div>
       <div class="right-side">
         <div class="heading-wrapper">
-          {{ headings.section("--left --light", "Наши курсы") }}
+          {{ headings.section("--left --light", "Наши преподователи") }}
         </div>
       </div>
     </div>
+
+    {# -- CONTENT #}
+
     <div class="teachers__content">
       <div class="left-side">
         <div class="left-side__inner">
@@ -53,5 +59,4 @@
       {{buttons.main("btn btn--filled btn--green btn--large", "Начать бесплатно")}}
     </div>
   </div>
-
 </section>

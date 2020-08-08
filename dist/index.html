@@ -127,7 +127,7 @@
           <circle cx="423" cy="37" r="2"/>
         </symbol>
         <symbol id="point__7" viewBox="0 0 606 480" width="100%" height="100%">
-          <circle cx="154" cy="50" r="2"/>
+          <circle cx="154" cy="50" r="4"/>
         </symbol>
         <symbol id="point__8" viewBox="0 0 606 480" width="100%" height="100%">
           <circle cx="53" cy="146" r="2"/>
@@ -166,7 +166,7 @@
         
         <div class="circle__1" >
           <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
-            <use class="stroke--yellow fill-yellow" stroke-width="8" href="#point__1"/>
+            <use class="stroke--yellow fill--yellow" stroke-width="8" href="#point__1"/>
             <use class="stroke--yellow"  stroke-width="2" href="#path"/>
           </svg>
         </div>
@@ -175,8 +175,8 @@
         <div class="circle__2" >
           <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
             <use class="stroke--yellow"  stroke-width="1" href="#path"/>
-            <use class="stroke--yellow fill-yellow" stroke-width="4" href="#point__7"/>
-            <use class="stroke--yellow fill-yellow" stroke-width="4" href="#point__4"/>
+            <use class="stroke--yellow fill--yellow" stroke-width="2" href="#point__7"/>
+            <use class="stroke--yellow fill--yellow" stroke-width="4" href="#point__4"/>
           </svg>
         </div>
 
@@ -184,16 +184,15 @@
         <div class="circle__3" >
           <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
             <use stroke-dasharray="4 6" class="stroke--yellow"  stroke-width="1" href="#path"/>
-            <use class="stroke--red fill-red" stroke-width="4" href="#point__6"/>
+            <use class="stroke--red fill--red" stroke-width="4" href="#point__6"/>
           </svg>
         </div>
 
         
         <div class="circle__4" >
           <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
-            <use class="stroke--white fill-white" stroke-width="4" href="#point__8"/>
-
             <use stroke-dasharray="2 10" class="stroke--yellow"  stroke-width="1" href="#path"/>
+            <use class="stroke--white fill--white" href="#point__8"/>
           </svg>
         </div>
 
@@ -345,9 +344,7 @@
   </div>
 
     </div>
-    <div class="pipeline__cta">
-      
-    </div>
+
   </div>
 </section>
   
@@ -369,26 +366,28 @@
     <h3 class="section-heading__text">Наши курсы</h3>
   </div>
 
-    
+    <div class="slider-buttons__wrapper">
+      
   <div class="slider-buttons">
     
-  <button type="button" class="btn--square btn--medium btn--outlined btn--light">
+  <button type="button" class="slider-btn btn--square btn--medium btn--outlined btn--light">
     <span class="btn__label">
-  <svg width="32" height="24" viewBox="0 0 32 24">
-    <path d="M0.939339 10.9393C0.353552 11.5251 0.353552 12.4749 0.939339 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939339 10.9393ZM32 10.5L2 10.5V13.5L32 13.5V10.5Z" fill="white"/>
+  <svg  width="32" height="24" viewBox="0 0 32 24">
+    <path class="slider-arrow" d="M0.939339 10.9393C0.353552 11.5251 0.353552 12.4749 0.939339 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939339 10.9393ZM32 10.5L2 10.5V13.5L32 13.5V10.5Z"/>
   </svg>
 </span></button>
 
     
-  <button type="button" class="btn--square btn--medium btn--outlined btn--light">
+  <button type="button" class="slider-btn btn--square btn--medium btn--outlined btn--light">
     <span class="btn__label">
   <svg width="32" height="24" viewBox="0 0 32 24">
-    <path d="M31.0607 13.0607C31.6464 12.4749 31.6464 11.5251 31.0607 10.9393L21.5147 1.3934C20.9289 0.807613 19.9792 0.807613 19.3934 1.3934C18.8076 1.97919 18.8076 2.92893 19.3934 3.51472L27.8787 12L19.3934 20.4853C18.8076 21.0711 18.8076 22.0208 19.3934 22.6066C19.9792 23.1924 20.9289 23.1924 21.5147 22.6066L31.0607 13.0607ZM-1.31134e-07 13.5L30 13.5L30 10.5L1.31134e-07 10.5L-1.31134e-07 13.5Z" fill="white"/>
+    <path class="slider-arrow" d="M31.0607 13.0607C31.6464 12.4749 31.6464 11.5251 31.0607 10.9393L21.5147 1.3934C20.9289 0.807613 19.9792 0.807613 19.3934 1.3934C18.8076 1.97919 18.8076 2.92893 19.3934 3.51472L27.8787 12L19.3934 20.4853C18.8076 21.0711 18.8076 22.0208 19.3934 22.6066C19.9792 23.1924 20.9289 23.1924 21.5147 22.6066L31.0607 13.0607ZM-1.31134e-07 13.5L30 13.5L30 10.5L1.31134e-07 10.5L-1.31134e-07 13.5Z"/>
   </svg>
 </span></button>
 
   </div>
 
+    </div>
   </div>
   <div class="pricing__carousel-wrapper">
     <div id="pricing-carousel"  class="pricing-carousel owl-carousel">
@@ -1249,24 +1248,27 @@
 
 <section class="teachers section">
   <div class="teachers__inner ">
+
+    
+
     <div class="teachers__header">
       <div class="left-side">
-        <div class="buttons__wrapper">
+        <div class="slider-buttons__wrapper">
           
   <div class="slider-buttons">
     
-  <button type="button" class="btn--square btn--medium btn--outlined btn--light">
+  <button type="button" class="slider-btn btn--square btn--medium btn--outlined btn--light">
     <span class="btn__label">
-  <svg width="32" height="24" viewBox="0 0 32 24">
-    <path d="M0.939339 10.9393C0.353552 11.5251 0.353552 12.4749 0.939339 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939339 10.9393ZM32 10.5L2 10.5V13.5L32 13.5V10.5Z" fill="white"/>
+  <svg  width="32" height="24" viewBox="0 0 32 24">
+    <path class="slider-arrow" d="M0.939339 10.9393C0.353552 11.5251 0.353552 12.4749 0.939339 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939339 10.9393ZM32 10.5L2 10.5V13.5L32 13.5V10.5Z"/>
   </svg>
 </span></button>
 
     
-  <button type="button" class="btn--square btn--medium btn--outlined btn--light">
+  <button type="button" class="slider-btn btn--square btn--medium btn--outlined btn--light">
     <span class="btn__label">
   <svg width="32" height="24" viewBox="0 0 32 24">
-    <path d="M31.0607 13.0607C31.6464 12.4749 31.6464 11.5251 31.0607 10.9393L21.5147 1.3934C20.9289 0.807613 19.9792 0.807613 19.3934 1.3934C18.8076 1.97919 18.8076 2.92893 19.3934 3.51472L27.8787 12L19.3934 20.4853C18.8076 21.0711 18.8076 22.0208 19.3934 22.6066C19.9792 23.1924 20.9289 23.1924 21.5147 22.6066L31.0607 13.0607ZM-1.31134e-07 13.5L30 13.5L30 10.5L1.31134e-07 10.5L-1.31134e-07 13.5Z" fill="white"/>
+    <path class="slider-arrow" d="M31.0607 13.0607C31.6464 12.4749 31.6464 11.5251 31.0607 10.9393L21.5147 1.3934C20.9289 0.807613 19.9792 0.807613 19.3934 1.3934C18.8076 1.97919 18.8076 2.92893 19.3934 3.51472L27.8787 12L19.3934 20.4853C18.8076 21.0711 18.8076 22.0208 19.3934 22.6066C19.9792 23.1924 20.9289 23.1924 21.5147 22.6066L31.0607 13.0607ZM-1.31134e-07 13.5L30 13.5L30 10.5L1.31134e-07 10.5L-1.31134e-07 13.5Z"/>
   </svg>
 </span></button>
 
@@ -1279,12 +1281,15 @@
           
   <div class="section-heading --left --light">
     <div class="section-heading__dash"></div>
-    <h3 class="section-heading__text">Наши курсы</h3>
+    <h3 class="section-heading__text">Наши преподователи</h3>
   </div>
 
         </div>
       </div>
     </div>
+
+    
+
     <div class="teachers__content">
       <div class="left-side">
         <div class="left-side__inner">
@@ -1463,7 +1468,6 @@
 
     </div>
   </div>
-
 </section>
   
 
@@ -1478,26 +1482,28 @@
     <h3 class="section-heading__text">Отзывы наших учеников</h3>
   </div>
 
-      
+      <div class="slider-buttons__wrapper">
+        
   <div class="slider-buttons">
     
-  <button type="button" class="btn--square btn--medium btn--outlined btn--light">
+  <button type="button" class="slider-btn btn--square btn--medium btn--outlined btn--dark">
     <span class="btn__label">
-  <svg width="32" height="24" viewBox="0 0 32 24">
-    <path d="M0.939339 10.9393C0.353552 11.5251 0.353552 12.4749 0.939339 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939339 10.9393ZM32 10.5L2 10.5V13.5L32 13.5V10.5Z" fill="white"/>
+  <svg  width="32" height="24" viewBox="0 0 32 24">
+    <path class="slider-arrow" d="M0.939339 10.9393C0.353552 11.5251 0.353552 12.4749 0.939339 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939339 10.9393ZM32 10.5L2 10.5V13.5L32 13.5V10.5Z"/>
   </svg>
 </span></button>
 
     
-  <button type="button" class="btn--square btn--medium btn--outlined btn--light">
+  <button type="button" class="slider-btn btn--square btn--medium btn--outlined btn--dark">
     <span class="btn__label">
   <svg width="32" height="24" viewBox="0 0 32 24">
-    <path d="M31.0607 13.0607C31.6464 12.4749 31.6464 11.5251 31.0607 10.9393L21.5147 1.3934C20.9289 0.807613 19.9792 0.807613 19.3934 1.3934C18.8076 1.97919 18.8076 2.92893 19.3934 3.51472L27.8787 12L19.3934 20.4853C18.8076 21.0711 18.8076 22.0208 19.3934 22.6066C19.9792 23.1924 20.9289 23.1924 21.5147 22.6066L31.0607 13.0607ZM-1.31134e-07 13.5L30 13.5L30 10.5L1.31134e-07 10.5L-1.31134e-07 13.5Z" fill="white"/>
+    <path class="slider-arrow" d="M31.0607 13.0607C31.6464 12.4749 31.6464 11.5251 31.0607 10.9393L21.5147 1.3934C20.9289 0.807613 19.9792 0.807613 19.3934 1.3934C18.8076 1.97919 18.8076 2.92893 19.3934 3.51472L27.8787 12L19.3934 20.4853C18.8076 21.0711 18.8076 22.0208 19.3934 22.6066C19.9792 23.1924 20.9289 23.1924 21.5147 22.6066L31.0607 13.0607ZM-1.31134e-07 13.5L30 13.5L30 10.5L1.31134e-07 10.5L-1.31134e-07 13.5Z"/>
   </svg>
 </span></button>
 
   </div>
 
+      </div>
     </div>
     <div class="feedbacks__carousel-wrapper">
       <div id="feedbacks-carousel"  class="feedbacks-carousel owl-carousel">

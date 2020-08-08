@@ -159,4 +159,16 @@
   & > *:first-child {
     margin-right: 10px;
   }
+
+  & .btn--light .slider-arrow {
+    fill: $color-white;
+  }
+
+  & .btn--dark .slider-arrow {
+    fill: $color-gray-dark;
+  }
+  width: max-content;
+  @media screen and (max-width: $bp-down-small) {
+    margin: 0 auto;
+  }
 }

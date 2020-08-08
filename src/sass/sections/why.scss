@@ -9,7 +9,7 @@
     bottom: -50px;
     right: 25%;
 
-    @media screen and (max-width: 998px) {
+    @media screen and (max-width: $bp-down-medium) {
       transform: scaleX(-1);
       & svg {
         width: 800px;
@@ -26,6 +26,9 @@
   flex-wrap: wrap;
   margin-top: $pipeline-offset;
   margin-bottom: 250px;
+  @media screen and (max-width: $bp-down-medium) {
+    margin-top: $pipeline-offset / 3;
+  }
 }
 
 .reason__card {
@@ -36,7 +39,7 @@
   position: relative;
   width: 50%;
 
-  @media screen and (max-width: 998px) {
+  @media screen and (max-width: $bp-down-medium) {
     padding-right: 20px;
     width: 100%;
   }
@@ -51,7 +54,7 @@
     padding: 20px;
     position: relative;
 
-    @media screen and (max-width: 998px) {
+    @media screen and (max-width: $bp-down-medium) {
       padding: 50px 50px 50px 20px;
       margin-left: 0;
     }
@@ -69,7 +72,7 @@
     height: 100%;
     width: 100%;
 
-    @media screen and (max-width: 998px) {
+    @media screen and (max-width: $bp-down-medium) {
       clip-path: polygon(0 0, 100% 0, calc(90%) 100%, 0 100%);
     }
   }
@@ -82,9 +85,10 @@
       background-color: transparent;
     }
 
-    @media screen and (min-width: 998px) {
-      & .reason__text {
-        padding-right: 100px;
+    @media screen and (max-width: $bp-down-medium) {
+      min-height: unset;
+      & .card__inner {
+        padding-bottom: 0;
       }
     }
   }
@@ -95,20 +99,20 @@
     & > .card__bg {
       visibility: visible;
 
-      @media screen and (max-width: 998px) {
+      @media screen and (max-width: $bp-down-medium) {
         clip-path: none;
         background-color: transparent;
       }
     }
 
-    @media screen and (min-width: 998px) {
+    @media screen and (min-width: $bp-up-medium) {
       & .card__inner {
         margin-left: 80px;
         max-width: 540px;
       }
     }
 
-    @media screen and (max-width: 998px) {
+    @media screen and (max-width: $bp-down-medium) {
       filter: none;
     }
   }
@@ -117,13 +121,13 @@
     z-index: 2;
 
     & > .card__bg {
-      @media screen and (min-width: 998px) {
+      @media screen and (min-width: $bp-up-medium) {
         clip-path: none;
         background-color: transparent;
       }
     }
 
-    @media screen and (min-width: 998px) {
+    @media screen and (min-width: $bp-up-medium) {
       filter: none;
       & .reason__text {
         padding-right: 80px;
@@ -136,7 +140,7 @@
       background-color: $color-yellow;
     }
 
-    @media screen and (min-width: 998px) {
+    @media screen and (min-width: $bp-up-medium) {
       & .card__inner {
         margin-left: 80px;
         max-width: 540px;
@@ -152,7 +156,7 @@
       background-color: transparent;
     }
 
-    @media screen and (min-width: 998px) {
+    @media screen and (min-width: $bp-up-medium) {
       & .reason__text {
         padding-right: 100px;
       }
@@ -173,13 +177,13 @@
     height: 12px;
     width: 60px;
 
-    @media screen and (max-width: 998px) {
+    @media screen and (max-width: $bp-down-medium) {
       width: 40px;
       height: 8px;
     }
   }
 
-  @media screen and (max-width: 998px) {
+  @media screen and (max-width: $bp-down-medium) {
     font-size: 60px;
   }
 }
