@@ -1,0 +1,7 @@
+<div class="modal modal-call-offer">
+  <div class="modal__inner">hallo modal</div>
+</div>
+
+<div class="dropdown">
+  <div class="dropdown__inner">hallo dropdown</div>
+</div>

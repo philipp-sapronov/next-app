@@ -8,4 +8,5 @@
   {% include "sections/teachers.nj" %}
   {% include "sections/feadbacks.nj" %}
   {% include "sections/leading.nj" %}
+  {% include "components/modal.nj" %}
 {% endblock %}

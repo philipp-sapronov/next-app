@@ -1,7 +1,7 @@
 {% import "components/headings.nj" as headings %}
 {% import "components/buttons.nj" as buttons %}
 
-<section class="leading section">
+<section id="leadform-section" class="leading section">
   <div class="leading__inner container">
     <div class="heading-wrapper">
       {{ headings.section("--center --light", "Заявка на бесплатный урок") }}

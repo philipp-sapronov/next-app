@@ -4,6 +4,7 @@
   cursor: pointer;
   transition: all $transition-smooth;
   position: relative;
+  text-decoration: none;
 }
 
 @mixin button-filled($color: $color-gray-dark, $color-hover: $color-gray-dark) {
@@ -156,6 +157,7 @@
 }
 
 .slider-buttons {
+  cursor: pointer;
   & > *:first-child {
     margin-right: 10px;
   }
@@ -167,6 +169,11 @@
   & .btn--dark .slider-arrow {
     fill: $color-gray-dark;
   }
+
+  & .slider-btn > * {
+    pointer-events: none !important;
+  }
+
   width: max-content;
   @media screen and (max-width: $bp-down-small) {
     margin: 0 auto;

@@ -17,7 +17,7 @@
 
 {% macro slider(classes) %}
   <div class="slider-buttons">
-    {{main("slider-btn btn--square btn--medium btn--outlined " + classes, sliderArrowLeft())}}
-    {{main("slider-btn btn--square btn--medium btn--outlined " + classes, sliderArrowRight())}}
+    {{main("slider-btn prev-btn btn--square btn--medium btn--outlined " + classes, sliderArrowLeft())}}
+    {{main("slider-btn next-btn btn--square btn--medium btn--outlined " + classes, sliderArrowRight())}}
   </div>
 {% endmacro %}

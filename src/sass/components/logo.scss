@@ -1,0 +1,14 @@
+$logo-height: 79px;
+$logo-width: 104px;
+
+.logo {
+  width: $logo-width;
+  height: $logo-height;
+
+  & .logo__text {
+    fill: $color-white;
+  }
+  & .logo__rect {
+    fill: $color-yellow;
+  }
+}

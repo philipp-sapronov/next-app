@@ -25,7 +25,7 @@
     </div>
 
     <div class="feedbacks__cta">
-      {{buttons.main("btn btn--outlined btn--red btn--large", "Начать бесплатно")}}
+      {{buttons.main("cta-btn btn btn--outlined btn--red btn--large", "Начать бесплатно")}}
     </div>
   </div>
 

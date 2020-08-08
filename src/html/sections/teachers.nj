@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class="teachers__cta">
-      {{buttons.main("btn btn--filled btn--green btn--large", "Начать бесплатно")}}
+      {{buttons.main("cta-btn btn btn--filled btn--green btn--large", "Начать бесплатно")}}
     </div>
   </div>
 </section>

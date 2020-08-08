@@ -11,7 +11,7 @@
       <div class="title__dash"></div>
       <h1 class="title">{{ "Don’t study hard \n study smart!" }}</h1>
       <div class="hero-cta__wrapper">
-        {{ buttons.main("hero-cta btn--filled btn--red btn--uppercased", "Начать бесплатно")}}
+        {{ buttons.main("cta-btn hero-cta btn--filled btn--red btn--uppercased", "Начать бесплатно")}}
 
       </div>
       <div class="additional-msg__wrapper">

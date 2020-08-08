@@ -37,9 +37,7 @@
       <span class="price__amount">270</span>
       <span class="price__unit">грн / час</span>
     </div>
-    <div class="cta__wrapper">
-      {{ buttons.main("cta__btn btn--uppercased", "Начать бесплатно")}}
-    </div>
+
   </div>
 </div>
 {% endmacro %}
@@ -64,6 +62,9 @@
       {{ card() }}
       {{ card() }}
     </div>
+  </div>
+  <div class="teachers__cta">
+    {{buttons.main("cta-btn btn btn--filled btn--red btn--large", "Начать бесплатно")}}
   </div>
 </div>
 <div class="image__wrapper">
