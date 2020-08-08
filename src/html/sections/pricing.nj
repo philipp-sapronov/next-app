@@ -19,9 +19,7 @@
 {% macro card() %}
   <div class="pricing__card">
 
-    <div class="card__bg">
-      <div class="card-layer"></div>
-    </div>
+    <div class="card-layer"></div>
 
     <div class="card__inner">
       <div class="heading__wrapper">

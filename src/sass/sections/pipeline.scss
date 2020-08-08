@@ -275,7 +275,8 @@ $pipeline-offset: 120px;
     width: 70px;
     flex-shrink: 0;
     height: 70px;
-
+    border: 2px solid $color-green;
+    border-radius: 50px;
     @media screen and (max-width: $bp-down-medium) {
       margin-bottom: 20px;
     }
@@ -291,10 +292,12 @@ $pipeline-offset: 120px;
   }
 
   & .card__icon {
-    border: 2px solid $color-green;
     width: 100%;
     height: 100%;
-    border-radius: 50px;
+    padding: 12px;
+    box-sizing: border-box;
+
+    object-fit: contain;
   }
 
   & .card__text {

@@ -1,7 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { btn } from "./buttons"
 import $ from "jquery"
 
 console.log($)
+
+const $bpSmall = 601
+const $bpMedium = 961
+const $bpIpad = 769
+const $bpLarge = 1281
+const $bpIpadPro = 1025
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM fully loaded and parsed", btn)
@@ -15,12 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
       0: {
         items: 1,
       },
-      998: {
+      [$bpIpad]: {
+        center: false,
+        items: 2,
+      },
+      [$bpIpadPro]: {
+        stagePadding: 20,
         items: 3,
       },
     },
-    // smartSpeed: 1000,
-    stagePadding: 10,
   })
 
   $("#feedbacks-carousel").owlCarousel({
@@ -32,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         center: true,
         items: 1,
       },
-      998: {
+      [$bpIpad]: {
         center: false,
         items: 2,
       },
@@ -45,7 +55,18 @@ document.addEventListener("DOMContentLoaded", function () {
     loop: true,
     margin: 50,
     items: 1,
-
+    responsive: {
+      0: {
+        items: 1,
+      },
+      [$bpIpad]: {
+        center: true,
+        items: 2,
+      },
+      [$bpMedium]: {
+        items: 1,
+      },
+    },
     // smartSpeed: 500,
   })
 })
