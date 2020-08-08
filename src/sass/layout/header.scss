@@ -5,6 +5,7 @@
   width: 100%;
   background-color: transparent;
   height: 64px;
+  z-index: 999;
 
   &__inner {
     display: flex;
@@ -20,4 +21,14 @@
       margin-right: 40px;
     }
   }
+}
+
+.header-fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $color-green;
+  height: 50px;
+  z-index: 999;
 }

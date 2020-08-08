@@ -1,6 +1,51 @@
 <!-- Set up your HTML -->
 {% import "components/buttons.nj" as buttons %}
 {% import "components/headings.nj" as headings %}
+{% import "icons/heroIcon.nj" as icons %}
+
 <div class="hero hero-wrapper">
-  <div class="hero-wrapper"></div>
+  <div class="hero__inner">
+    <div class="images">
+      <div class="icon__wrapper">
+        <div class="icon__inner">
+          {# {{ icons.full() }} #}
+          <img class="hero-cirles" src="./assets/hero-circles.svg" alt="image">
+        </div>
+      </div>
+      <div class="icon__wrapper">
+        <div class="icon__inner">
+          <svg  width="2010" height="1572" viewBox="0 0 2010 1572" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="background-path" d="M1277.55 741.506L1277.55 741.628L1277.55 741.75C1279.98 791.308 1264.35 854.454 1218.26 905.167C1172.27 955.762 1095.48 994.506 974.549 994.506C904.05 994.506 849.372 960.701 811.096 918.438C772.71 876.053 751.228 825.595 747.007 793.357C736.135 710.333 753.757 652.555 797.012 615.294C840.611 577.736 911.348 560.006 1009.05 560.006C1082.31 560.006 1149.57 565.758 1198.44 591.299C1222.73 603.997 1242.41 621.557 1256.07 645.76C1269.74 669.998 1277.55 701.222 1277.55 741.506Z" stroke="#FFC700" stroke-width="10"/>
+            <clipPath id="clip-photo">
+              <path d="M1277.55 741.506L1277.55 741.628L1277.55 741.75C1279.98 791.308 1264.35 854.454 1218.26 905.167C1172.27 955.762 1095.48 994.506 974.549 994.506C904.05 994.506 849.372 960.701 811.096 918.438C772.71 876.053 751.228 825.595 747.007 793.357C736.135 710.333 753.757 652.555 797.012 615.294C840.611 577.736 911.348 560.006 1009.05 560.006C1082.31 560.006 1149.57 565.758 1198.44 591.299C1222.73 603.997 1242.41 621.557 1256.07 645.76C1269.74 669.998 1277.55 701.222 1277.55 741.506Z" stroke="#FFC700" stroke-width="10"/>
+            </clipPath>
+            <image  x="739" y="555" width="544" height="445" 
+         preserveAspectRatio="xMinYMin slice" clip-path="url(#clip-photo)"  xlink:href="./assets/pic2.png"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="title__wrapper">
+      <h2 class="subtitle">Английский  онлайн</h2>
+      <div class="title__dash"></div>
+      <h1 class="title">{{ "Don’t study hard \n study smart!" }}</h1>
+      <div class="hero-cta__wrapper">
+        {{ buttons.main("hero-cta btn--filled btn--red btn--uppercased", "Начать бесплатно")}}
+
+      </div>
+      <div class="additional-msg__wrapper">
+        <div class="additional-msg__arrow">
+          <svg width="42" height="38" viewBox="0 0 42 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.32075 1.5C3.32075 5 2.8566 12.6 1 15" stroke="white" stroke-width="2"/>
+            <path d="M42 37C29.2359 37 3.78491 30.3 4.09435 3.5" stroke="white" stroke-width="2" stroke-dasharray="2 4"/>
+            <path d="M3.3208 1C3.57866 3.83333 5.25476 9.5 9.89627 9.5" stroke="white" stroke-width="2"/>
+          </svg>
+
+        </div>
+        <p class="additional-msg">Готовы отвечать уверенноe "Yes" на очередные вопросы о знании английского?</p>
+      </div>
+    </div>
+  </div>
+
 </div>
