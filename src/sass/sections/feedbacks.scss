@@ -10,11 +10,12 @@
   & .heading-wrapper {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     align-items: center;
 
     @media screen and (max-width: $bp-down-small) {
       flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
     & .slider-buttons__wrapper {
@@ -131,5 +132,5 @@
 .feedbacks__cta {
   display: flex;
   justify-content: center;
-  padding-top: 80px;
+  padding-top: $pipeline-offset / 3;
 }

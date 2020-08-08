@@ -1,40 +1,101 @@
 .teachers {
   overflow: hidden;
   background-color: $color-yellow;
-  min-height: 100vh;
   position: relative;
 
   & .teachers__inner {
+    @media screen and (max-width: $bp-down-medium) {
+      padding: 0 $spacing-large;
+    }
+
     @media screen and (max-width: $bp-down-small) {
-      padding: 0 20px;
+      padding: 0 $spacing-small;
     }
   }
 
   & .teachers__header {
     display: flex;
 
-    @media screen and (max-width: $bp-down-medium) {
-      flex-wrap: wrap;
+    @media screen and (min-width: $bp-up-medium) {
+      padding: 0 $spacing-large;
+    }
 
-      & .left-side {
+    @media screen and (max-width: $bp-down-small) {
+      flex-wrap: wrap;
+    }
+
+    @media screen and (min-width: $bp-up-small) {
+      margin-bottom: 50px;
+    }
+
+    & .left-side {
+      width: 50%;
+      @media screen and (max-width: $bp-down-medium) {
         order: 2;
+        width: 100%;
+      }
+      @media screen and (min-width: $bp-up-small) and (max-width: $bp-down-medium) {
+        width: min-content;
+        margin-left: auto;
+      }
+    }
+
+    & .right-side {
+      @media screen and (max-width: $bp-down-medium) {
+        order: 1;
+        width: 100%;
       }
 
-      & .right-side {
-        order: 1;
+      @media screen and (min-width: $bp-up-small) and (max-width: $bp-down-medium) {
+        width: 50%;
       }
     }
   }
 
   & .teachers__content {
     display: flex;
-    margin-top: 50px;
 
     @media screen and (max-width: $bp-down-medium) {
       flex-wrap: wrap;
 
       & .left-side {
         margin-bottom: 40px;
+      }
+    }
+
+    & .left-side {
+      width: 50%;
+      flex-shrink: 0;
+
+      @media screen and (max-width: $bp-down-medium) {
+        width: 100%;
+      }
+
+      & .left-side__inner {
+        width: calc(100% - 150px);
+
+        @media screen and (min-width: $bp-down-medium) and (max-width: $bp-down-large) {
+          width: calc(100% - 100px);
+        }
+
+        @media screen and (min-width: $bp-down-medium) {
+          overflow: hidden;
+          padding-left: 50px;
+        }
+
+        @media screen and (max-width: $bp-down-medium) {
+          width: 100%;
+        }
+      }
+    }
+
+    & .right-side {
+      width: 50%;
+      padding-right: 20px;
+      flex-shrink: 0;
+
+      @media screen and (max-width: $bp-down-medium) {
+        width: 100%;
       }
     }
   }
@@ -44,47 +105,21 @@
     margin-left: auto;
 
     @media screen and (max-width: $bp-down-small) {
-      margin: 30px auto 10px auto;
+      margin: 30px auto 30px auto;
       width: 100%;
     }
   }
 
-  & .left-side {
-    width: 50%;
-    flex-shrink: 0;
-
-    @media screen and (max-width: $bp-down-medium) {
-      width: 100%;
-    }
-
-    & .left-side__inner {
-      overflow: hidden;
-      width: calc(100% - 80px);
-
-      @media screen and (max-width: $bp-down-small) {
-        width: 100%;
-      }
-    }
-  }
-
-  & .right-side {
-    width: 50%;
-    padding-right: 20px;
-    flex-shrink: 0;
-
-    @media screen and (max-width: $bp-down-medium) {
-      width: 100%;
-    }
-  }
+  //  -- LEFT SIDE
 }
 
 .teachers {
   & .carousel-wrapper {
     margin-left: auto;
     margin-right: 20px;
-    max-width: 520px;
+    max-width: 500px;
 
-    @media screen and (max-width: $bp-down-small) {
+    @media screen and (max-width: $bp-down-medium) {
       max-width: unset;
       margin-right: 0;
     }
@@ -93,10 +128,6 @@
   & .owl-stage-outer {
     padding: 10px 0;
     overflow: unset;
-
-    @media screen and (max-width: $bp-down-small) {
-      overflow: hidden;
-    }
   }
 }
 

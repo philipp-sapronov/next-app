@@ -10,7 +10,7 @@
 
   box-sizing: border-box;
 
-  @media screen and (max-width: 998px) {
+  @media screen and (max-width: $bp-down-small) {
     padding: 0 20px;
   }
 }
