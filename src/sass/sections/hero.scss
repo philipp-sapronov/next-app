@@ -1,17 +1,39 @@
+$zIndex-circles: 10;
+$zIndex-circle-main: 20;
+
+@mixin circle($scaleX, $scaleY) {
+  top: 0;
+  left: 0;
+  // X, Y
+  transform: scale($scaleX, $scaleY);
+  z-index: $zIndex-circles;
+  position: absolute;
+  width: 100%;
+}
+
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   background-color: $color-green;
-  padding: 200px 100px;
+  padding: 200px 100px 100px;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  @media screen and (min-width: 1600px) {
-    padding: 200px;
+
+  @media screen and (max-width: 768px) {
+    padding: 100px 20px;
   }
+
+  @media screen and (min-width: 1600px) {
+    padding: 200px 200px 100px;
+  }
+
   & .hero__inner {
     height: 100%;
     display: flex;
-    align-items: center;
+
+    @media screen and (max-width: 998px) {
+      flex-wrap: wrap;
+    }
   }
 
   & .hero-cta__wrapper {
@@ -25,14 +47,10 @@
   }
 
   & .title__wrapper {
+    padding-top: 50px;
     max-width: 500px;
-  }
-
-  & .title__dash {
-    width: 60px;
-    height: 10px;
-    background-color: $color-white;
-    margin: 30px 0;
+    position: relative;
+    z-index: 2;
   }
 
   & .title {
@@ -41,23 +59,60 @@
     white-space: pre-line;
     text-align: left;
     margin: 0 0 40px;
+
+    @media screen and (max-width: 998px) {
+      font-size: 48px;
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 36px;
+    }
   }
 
   & .subtitle {
     text-transform: uppercase;
     color: $color-white;
     margin: 0px;
+    font-size: 24px;
+
+    @media screen and (max-width: 998px) {
+      font-size: 18px;
+    }
   }
 
+  & .title__dash {
+    width: 60px;
+    height: 10px;
+    background-color: $color-white;
+    margin: 30px 0;
+
+    @media screen and (max-width: 998px) {
+      width: 40px;
+      height: 6px;
+    }
+  }
   & .additional-msg__wrapper {
     max-width: 300px;
     position: relative;
     transform: translate(40%, 20px);
+
+    @media screen and (max-width: 768px) {
+      transform: translate(0, 20px);
+      max-width: 250px;
+    }
   }
+
   & .additional-msg__arrow {
     position: absolute;
     top: -20px;
     left: -50px;
+
+    @media screen and (max-width: 768px) {
+      transform: scale(-1, 1) rotateZ(20deg);
+      top: -10px;
+      left: unset;
+      right: -35px;
+    }
   }
 
   & .additional-msg {
@@ -65,25 +120,97 @@
     color: $color-white;
     font-size: 28px;
     margin: 0;
+
+    @media screen and (max-width: 768px) {
+      // text-align: center;
+      font-size: 22px;
+    }
   }
 
   // -- IMAGES
+  & .images {
+    width: 50%;
+    margin: 0 auto;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
 
-  & .icon__wrapper {
-    position: absolute;
-    top: 50%;
-    left: 70%;
+    @media screen and (max-width: 998px) {
+      width: 100%;
+      margin: 120px auto 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-top: 80px;
+    }
   }
 
-  & .icon__inner {
-    transform: translate(-50%, -50%);
-  }
-  & .hero-circles {
-    object-fit: cover;
+  & .image__wrapper {
+    position: relative;
+    min-width: 280px;
   }
 
-  & .background-path {
-    stroke-width: 30px;
+  & .stroke--yellow {
     stroke: $color-yellow;
+  }
+
+  & .fill--white {
+    fill: $color-white;
+  }
+
+  & .stroke--white {
+    stroke: $color-white;
+  }
+
+  & .fill--red {
+    fill: $color-red;
+  }
+
+  & .stroke--red {
+    stroke: $color-red;
+  }
+
+  & .fill--yellow {
+    fill: $color-yellow;
+  }
+
+  & .circle {
+    &__main {
+      position: relative;
+      z-index: $zIndex-circle-main;
+    }
+
+    &__1 {
+      @include circle(1.2, 1.16);
+    }
+
+    &__2 {
+      @include circle(1.45, 1.35);
+    }
+
+    &__3 {
+      @include circle(1.64, 1.5);
+      opacity: 0.8;
+    }
+
+    &__4 {
+      @include circle(1.9, 1.7);
+      opacity: 0.7;
+    }
+
+    &__5 {
+      @include circle(2.2, 2);
+      opacity: 0.6;
+    }
+
+    &__6 {
+      @include circle(2.5, 2.4);
+      opacity: 0.5;
+    }
+
+    &__7 {
+      @include circle(2.7, 2.6);
+      opacity: 0.5;
+    }
   }
 }

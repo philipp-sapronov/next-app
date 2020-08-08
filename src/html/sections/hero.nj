@@ -5,26 +5,6 @@
 
 <div class="hero hero-wrapper">
   <div class="hero__inner">
-    <div class="images">
-      <div class="icon__wrapper">
-        <div class="icon__inner">
-          {# {{ icons.full() }} #}
-          <img class="hero-cirles" src="./assets/hero-circles.svg" alt="image">
-        </div>
-      </div>
-      <div class="icon__wrapper">
-        <div class="icon__inner">
-          <svg  width="2010" height="1572" viewBox="0 0 2010 1572" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="background-path" d="M1277.55 741.506L1277.55 741.628L1277.55 741.75C1279.98 791.308 1264.35 854.454 1218.26 905.167C1172.27 955.762 1095.48 994.506 974.549 994.506C904.05 994.506 849.372 960.701 811.096 918.438C772.71 876.053 751.228 825.595 747.007 793.357C736.135 710.333 753.757 652.555 797.012 615.294C840.611 577.736 911.348 560.006 1009.05 560.006C1082.31 560.006 1149.57 565.758 1198.44 591.299C1222.73 603.997 1242.41 621.557 1256.07 645.76C1269.74 669.998 1277.55 701.222 1277.55 741.506Z" stroke="#FFC700" stroke-width="10"/>
-            <clipPath id="clip-photo">
-              <path d="M1277.55 741.506L1277.55 741.628L1277.55 741.75C1279.98 791.308 1264.35 854.454 1218.26 905.167C1172.27 955.762 1095.48 994.506 974.549 994.506C904.05 994.506 849.372 960.701 811.096 918.438C772.71 876.053 751.228 825.595 747.007 793.357C736.135 710.333 753.757 652.555 797.012 615.294C840.611 577.736 911.348 560.006 1009.05 560.006C1082.31 560.006 1149.57 565.758 1198.44 591.299C1222.73 603.997 1242.41 621.557 1256.07 645.76C1269.74 669.998 1277.55 701.222 1277.55 741.506Z" stroke="#FFC700" stroke-width="10"/>
-            </clipPath>
-            <image  x="739" y="555" width="544" height="445" 
-         preserveAspectRatio="xMinYMin slice" clip-path="url(#clip-photo)"  xlink:href="./assets/pic2.png"/>
-          </svg>
-        </div>
-      </div>
-    </div>
 
     <div class="title__wrapper">
       <h2 class="subtitle">Английский  онлайн</h2>
@@ -44,6 +24,132 @@
 
         </div>
         <p class="additional-msg">Готовы отвечать уверенноe "Yes" на очередные вопросы о знании английского?</p>
+      </div>
+    </div>
+
+    {# IMAGES #}
+
+    <div class="images">
+
+      {# MESSAGES #}
+
+      {# PATH #}
+
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="point__1" viewBox="0 0 606 480" width="100%" height="100%">
+          <circle cx="239" cy="460" r="4"/>
+        </symbol>
+        <symbol id="point__2" viewBox="0 0 606 480" width="100%" height="100%">
+          <circle cx="239" cy="460" r="4"/>
+        </symbol>
+        <symbol id="point__3" viewBox="0 0 606 480" width="100%" height="100%">
+          <circle cx="481" cy="403" r="4"/>
+        </symbol>
+        <symbol id="point__4" viewBox="0 0 606 480" width="100%" height="100%">
+          <circle cx="578" cy="223" r="2"/>
+        </symbol>
+        <symbol id="point__5" viewBox="0 0 606 480" width="100%" height="100%">
+          <circle cx="482" cy="50" r="4"/>
+        </symbol>
+        <symbol id="point__6" viewBox="0 0 606 480" width="100%" height="100%">
+          <circle cx="423" cy="37" r="2"/>
+        </symbol>
+        <symbol id="point__7" viewBox="0 0 606 480" width="100%" height="100%">
+          <circle cx="154" cy="50" r="2"/>
+        </symbol>
+        <symbol id="point__8" viewBox="0 0 606 480" width="100%" height="100%">
+          <circle cx="53" cy="146" r="2"/>
+        </symbol>
+
+        <symbol id="path" viewBox="0 0 606 480" width="100%" height="100%">
+          <path id="clipping-path" d="M577 209.507L577 209.629L577.006 209.751C579.429 259.309 563.8 322.455 517.708 373.168C471.723 423.762 394.932 462.507 274 462.507C203.501 462.507 148.824 428.702 110.548 386.439C72.1615 344.054 50.6795 293.596 46.4579 261.358C35.5857 178.334 53.208 120.556 96.4628 83.2951C140.062 45.7373 210.799 28.0068 308.5 28.0067C381.763 28.0066 449.018 33.7587 497.887 59.2996C522.183 71.998 541.865 89.5582 555.518 113.761C569.191 137.999 577 169.223 577 209.507Z"/>
+        </symbol>
+      </svg>
+
+      {# IMAGE #}
+      <div class="image__wrapper">
+        <div class="circle__main">
+          <svg class="svg-image" viewBox="0 0 606 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {# CLIP PATH #}
+            <clipPath id="clip-photo">
+              <use class="stroke--yellow"  stroke-width="14" href="#clipping-path"/>
+            </clipPath>
+            {# BACKGROUND IMAGE #}
+            <image  x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMinYMin slice" clip-path="url(#clip-photo)"  xlink:href="./assets/pic2.png"/>
+            {# STROKE AROUND IMAGE #}
+            <use class="stroke--yellow"  stroke-width="14" href="#path"/>
+            {# TEXT LAYER FIRST #}
+            <path d="M512.779 99.0749L512.723 99.061L493.78 108.975L491.741 92.6891C475.265 84.1662 447.353 76.775 447.606 39.7685C447.858 2.76206 500.323 0.0475382 529.798 2.73596C555.278 2.85584 611.047 15.0945 604.085 67.731C597.133 120.296 526.407 102.503 512.779 99.0749Z" fill="#FFC700"/>
+            <text transform="translate(491.644 7.44531) rotate(16.8754)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Caveat" font-size="48" letter-spacing="0em">
+              <tspan x="0" y="46.84">Hello!</tspan>
+            </text>
+            {# TEXT LAYER SECOND #}
+            <path d="M55.057 323.251C97.9861 282.946 117.072 317.544 121.248 339.882L138.615 338.854L126.011 352.937C131.833 361.529 136.485 386.321 108.513 416.747C80.5416 447.172 49.5289 423.812 37.519 408.329C25.4779 396.763 12.1279 363.556 55.057 323.251Z" fill="#FF6A21"/>
+            <text transform="translate(38.3743 374.27) rotate(-53.8573)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Caveat" font-size="48" letter-spacing="0em">
+              <tspan x="0" y="46.84">Hi!</tspan>
+            </text>
+          </svg>
+        </div>
+
+        {# USE PATHS #}
+        <div class="circle__1" >
+          <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
+            <use class="stroke--yellow fill-yellow" stroke-width="8" href="#point__1"/>
+            <use class="stroke--yellow"  stroke-width="2" href="#path"/>
+          </svg>
+        </div>
+
+        {# USE PATHS #}
+        <div class="circle__2" >
+          <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
+            <use class="stroke--yellow"  stroke-width="1" href="#path"/>
+            <use class="stroke--yellow fill-yellow" stroke-width="4" href="#point__7"/>
+            <use class="stroke--yellow fill-yellow" stroke-width="4" href="#point__4"/>
+          </svg>
+        </div>
+
+        {# USE PATHS #}
+        <div class="circle__3" >
+          <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
+            <use stroke-dasharray="4 6" class="stroke--yellow"  stroke-width="1" href="#path"/>
+            <use class="stroke--red fill-red" stroke-width="4" href="#point__6"/>
+          </svg>
+        </div>
+
+        {# USE PATHS #}
+        <div class="circle__4" >
+          <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
+            <use class="stroke--white fill-white" stroke-width="4" href="#point__8"/>
+
+            <use stroke-dasharray="2 10" class="stroke--yellow"  stroke-width="1" href="#path"/>
+          </svg>
+        </div>
+
+        {# USE PATHS #}
+        <div class="circle__5" >
+
+          <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
+            <use stroke-dasharray="2 10" class="stroke--yellow"  stroke-width="1" href="#path"/>
+            <use class="fill--yellow" href="#point__3"/>
+          </svg>
+        </div>
+
+        <div class="circle__6" >
+          <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
+            <use stroke-dasharray="2 10" class="stroke--yellow"  stroke-width="1" href="#path"/>
+          </svg>
+        </div>
+
+        <div class="circle__7" >
+          <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
+            <use stroke-dasharray="2 10" class="stroke--yellow"  stroke-width="1" href="#path"/>
+          </svg>
+        </div>
+
+      </div>
+
+      <div class="icon__wrapper">
+        <div class="icon__inner"></div>
       </div>
     </div>
   </div>
