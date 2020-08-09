@@ -39,10 +39,14 @@
   border-top-color: inherit;
 }
 
-@mixin button-text($color: $color-white) {
+@mixin button-text($color: $color-white, $color-hover: transparent) {
   border: none;
   background-color: transparent;
   color: $color;
+  transition: all $transition-smooth;
+  &:hover {
+    background-color: $color-hover;
+  }
 }
 
 .btn {
@@ -137,22 +141,39 @@
 
   &.btn--green {
     @include button-text($color-green);
+
+    &.btn--hover {
+      @include button-text($color-green, $color-green-opaque);
+    }
   }
 
   &.btn--red {
     @include button-text($color-red);
+    &.btn--hover {
+      @include button-text($color-red, $color-red-opaque);
+    }
   }
 
   &.btn--yellow {
     @include button-text($color-yellow);
+    &.btn--hover {
+      @include button-text($color-yellow, $color-yellow-opaque);
+    }
   }
 
   &.btn--light {
     @include button-text($color-white);
+
+    &.btn--hover {
+      @include button-text($color-white, $color-white-opaque);
+    }
   }
 
   &.btn--dark {
     @include button-text($color-gray-dark);
+    &.btn--hover {
+      @include button-text($color-gray-dark, $color-gray-dark-opaque);
+    }
   }
 }
 

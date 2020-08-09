@@ -44,6 +44,11 @@ $white-opaque: transparentize(
   $amount: 0.8,
 );
 
+$color-gray-dark-opaque: transparentize(
+  $color: $gray-dark,
+  $amount: 0.8,
+);
+
 $var-green: --color-green;
 $var-red: --color-red;
 $var-yellow: --color-yellow;

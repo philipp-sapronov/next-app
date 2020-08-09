@@ -11,4 +11,12 @@ $logo-width: 104px;
   & .logo__rect {
     fill: $color-yellow;
   }
+
+  @media screen and (max-width: $bp-down-medium) {
+    width: $logo-width / 1.2;
+    height: $logo-height / 1.2;
+    & .logo__full-text {
+      display: none;
+    }
+  }
 }

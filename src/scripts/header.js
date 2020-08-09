@@ -1,9 +1,9 @@
+import { TRANSITION_DELAY } from "./constants"
+
 const smallHeaderClass = "header-small"
 const activeClass = "active"
 const visibleClass = "visible"
 const heroSection = "hero"
-
-const delay = 500
 
 export const initHeader = () => {
   const handleScroll = () => {
@@ -21,7 +21,7 @@ export const initHeader = () => {
       setTimeout(() => {
         if (!$header) return
         $header.classList.remove(visibleClass)
-      }, delay)
+      }, TRANSITION_DELAY)
 
       return
     }

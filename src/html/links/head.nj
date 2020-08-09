@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{# externals #}
 {% include "links/seo.nj" %}
 {% include "links/stylesheets.nj" %}
-<meta name="viewport" content="width=device-width, initial-scale=1">

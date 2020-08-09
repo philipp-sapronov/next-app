@@ -63,7 +63,7 @@
       {{ card() }}
     </div>
   </div>
-  <div class="teachers__cta">
+  <div class="pricing__cta">
     {{buttons.main("cta-btn btn btn--filled btn--red btn--large", "Начать бесплатно")}}
   </div>
 </div>

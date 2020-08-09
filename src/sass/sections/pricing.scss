@@ -1,7 +1,6 @@
 .pricing {
   overflow: hidden;
   background-color: $color-green;
-  min-height: 100vh;
   position: relative;
   & .pricing__inner {
   }
@@ -104,6 +103,7 @@
     display: flex;
     justify-content: center;
   }
+
   & .card__inner {
     position: relative;
     //
@@ -148,7 +148,6 @@
   }
   & .price__wrapper {
     text-align: center;
-    margin-bottom: 15px;
   }
 
   & .price__amount {
@@ -162,4 +161,10 @@
     width: 40px;
     display: inline-block;
   }
+}
+
+.pricing__cta {
+  display: flex;
+  justify-content: center;
+  padding-top: $pipeline-offset / 3;
 }

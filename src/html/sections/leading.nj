@@ -39,7 +39,7 @@
         <div class="leading__card">
           <div class="card-layer"></div>
           <div class="card__inner">
-            <form class="leading__form from">
+            <form class="leading__form form">
               <div class="form__item success">
                 <label class="input-label" for="input-name">Имя</label>
                 <input class="input-text" placeholder="Ваше имя..." id="input-name" type="text">

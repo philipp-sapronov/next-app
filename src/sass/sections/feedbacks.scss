@@ -43,24 +43,6 @@
     padding: 10px 0;
     overflow: visible;
   }
-
-  & .owl-item.active.center {
-    & .card__bg {
-      transform: scaleY(1);
-    }
-
-    & .cta__btn {
-      border: 2px solid $color-red;
-      background-color: $color-red;
-      color: $color-white;
-      opacity: 1;
-      // padding: 25px 20px;
-
-      &:hover {
-        background-color: $color-red-lighter;
-      }
-    }
-  }
 }
 
 .feedbacks__card {

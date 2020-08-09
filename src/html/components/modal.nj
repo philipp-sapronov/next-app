@@ -1,7 +1,18 @@
-<div class="modal modal-call-offer">
-  <div class="modal__inner">hallo modal</div>
-</div>
+{% import "components/buttons.nj" as buttons %}
 
-<div class="dropdown">
-  <div class="dropdown__inner">hallo dropdown</div>
+<div class="modal modal-call-offer">
+  <div class="modal__arrow"></div>
+  <form class="form">
+
+    <div class="form__item">
+      <label class="input-label">Телефон<span style="color: var(--color-red, red);">*</span>
+        <input class="input-text" placeholder="Телефон..."type="text">
+      </label>
+    </div>
+
+    <div class="form__submit-wrapper">
+      {{buttons.main("form__submit-btn btn btn--filled btn--green btn--large btn--uppercased", "Перезвоните мне")}}
+    </div>
+  </form>
+
 </div>
