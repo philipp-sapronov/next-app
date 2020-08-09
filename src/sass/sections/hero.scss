@@ -34,6 +34,10 @@ $zIndex-circle-main: 20;
     padding: 150px 20px 100px 20px;
   }
 
+  @media (max-width: $bp-down-small) {
+    padding: 100px 20px;
+  }
+
   & .hero__inner {
     height: 100%;
     display: flex;

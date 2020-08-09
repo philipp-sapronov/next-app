@@ -24,6 +24,7 @@ body {
   font-family: #{$font-primary};
   font-weight: 400;
   color: $color-gray-dark;
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1 {
