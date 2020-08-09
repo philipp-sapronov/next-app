@@ -1,29 +1,38 @@
 {% import "components/logo.nj" as logo %}
 {% import "components/buttons.nj" as buttons %}
+{% import "icons/index.nj" as icons %}
 
-<header class="header-main">
+<header class="header header-main">
   <div class="header__inner">
     <div class="header__logo">
       {{ logo.full() }}
+      {{ logo.small() }}
     </div>
     <div class="header__nav">
-      <a class="btn btn--empty btn--light" href={{ "tel:" + "+38 (068) 228-08-08" }}>{{ "+38 (068) 228-08-08" }}</a>
+      <a class="phone-btn btn btn--empty btn--light" href={{ "tel:" + "+38 (068) 228-08-08" }}>{{ "+38 (068) 228-08-08" }}</a>
+      <button class="call-offer-btn icon--btn btn--outlined btn--light  btn--dropdown">
+        {{ icons.phone() }}
+      </button>
+      {#  #}
       {{buttons.main("call-offer-btn btn btn--outlined btn--light btn--small btn--dropdown default", "Заказать звонок")}}
-      {{buttons.main("language-menu-btn btn btn--empty btn--hover btn--light btn--small btn--square btn--uppercased btn--dropdown", "ru")}}
+      {# {{buttons.main("language-menu-btn btn btn--empty btn--hover btn--light btn--small btn--square btn--uppercased btn--dropdown", "ru")}} #}
 
     </div>
   </div>
 </header>
 
-<div class="header-small">
+<div class="header header-small">
   <div class="header__inner">
     <div class="header__logo">
       {{ logo.small() }}
     </div>
     <div class="header__nav">
       <a class="phone-btn btn btn--empty btn--hover btn--light" href={{ "tel:" + "+38 (068) 228-08-08" }}>{{ "+38 (068) 228-08-08" }}</a>
+      <button class="call-offer-btn icon--btn btn--outlined btn--light  btn--dropdown">
+        {{ icons.phone() }}
+      </button>
       {{buttons.main("call-offer-btn btn btn--outlined btn--light  btn--dropdown", "Заказать звонок")}}
-      {{buttons.main("language-menu-btn btn btn--empty btn--hover btn--light btn--square btn--uppercased btn--dropdown", "ru")}}
+      {# {{buttons.main("language-menu-btn btn btn--empty btn--hover btn--light btn--square btn--uppercased btn--dropdown", "ru")}} #}
     </div>
   </div>
 </div>

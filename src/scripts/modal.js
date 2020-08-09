@@ -11,7 +11,7 @@ export const openModal = ($el) => {
   if (!$el) return
   $el.classList.add(modals.activeClass)
 
-  document.style.overflowY = "hidden"
+  document.body.style.overflowY = "hidden"
 
   setTimeout(() => {
     $el && $el.classList.add(modals.visibleClass)
@@ -19,7 +19,7 @@ export const openModal = ($el) => {
 }
 
 export const closeModal = ($el) => {
-  document.style.overflowY = "visible"
+  document.body.style.overflowY = "visible"
   if (!$el) return
 
   $el.classList.remove(modals.visibleClass)

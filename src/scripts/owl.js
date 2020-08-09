@@ -1,10 +1,6 @@
 import $ from "jquery"
 
-// const $bpSmall = 601
-const $bpMedium = 961
-const $bpIpad = 769
-// const $bpLarge = 1281
-const $bpIpadPro = 1025
+import {$bpIpad, $bpIpadPro, $bpMedium} from './constants'
 
 const nextBtn = "next-btn"
 const prevBtn = "prev-btn"

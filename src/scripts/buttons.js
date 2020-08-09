@@ -1,5 +1,5 @@
 import { closeModal, openModal, getModal, isActive, modals } from "./modal"
-
+import { $bpDownSmall } from "./constants"
 const buttonsSelectors = {
   languageMenuClass: "language-menu-btn",
   mainCtaClass: "cta-btn",
@@ -61,17 +61,15 @@ const subscribeCallOfferButton = () => {
 
     const $modal = getModal()
     const $arrow = $modal.querySelector(`.${modals.arrowClass}`)
-    console.log(rect, "rect")
 
-    if (currentTarget.classList.contains("default")) {
-      $modal.style.position = `absolute`
+    $modal.style.top = `${window.pageYOffset + rect.bottom + 12}px`
+
+    if (window.innerWidth <= $bpDownSmall) {
+      $modal.style.right = `20px`
     } else {
-      $modal.style.position = `fixed`
+      $modal.style.right = `${window.innerWidth - rect.right}px`
     }
 
-    $modal.style.top = `${rect.bottom + 20}px`
-    $modal.style.left = `${rect.right}px`
-    $modal.style.transform = `translateX(-100%)`
     $arrow.style.right = `${rect.width / 2}px`
     $arrow.style.transform = `translateX(50%)`
 
