@@ -277,6 +277,8 @@ $pipeline-offset: 120px;
     height: 70px;
     border: 2px solid $color-green;
     border-radius: 50px;
+    box-sizing: border-box;
+    padding: 9px;
     @media screen and (max-width: $bp-down-medium) {
       margin-bottom: 20px;
     }

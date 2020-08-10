@@ -6,7 +6,10 @@ const sass = require("gulp-sass")
 const sync = require("browser-sync")
 const webpack = require("webpack")
 const webpackConfig = require("./webpack.config.js")
-// const util = require('gulp-util');
+const terser = require("gulp-terser")
+const util = require("gulp-util")
+const postcss = require("gulp-postcss")
+const htmlmin = require("gulp-htmlmin")
 
 const isProduction = process.env.MODE === "production"
 
@@ -43,6 +46,14 @@ const html = () =>
         path: [paths.html.templates], // String or Array
       }),
     )
+    .pipe(
+      isProduction
+        ? htmlmin({
+            removeComments: true,
+            collapseWhitespace: true,
+          })
+        : util.noop(),
+    )
     .pipe(gulp.dest(paths.html.dest))
 
 exports.html = html
@@ -52,6 +63,7 @@ const styles = () =>
   gulp
     .src(paths.styles.main)
     .pipe(sass().on("error", sass.logError))
+    .pipe(isProduction ? postcss([require("autoprefixer"), require("postcss-csso")]) : util.noop())
     .pipe(gulp.dest(paths.styles.dest))
 
 exports.styles = styles
@@ -60,7 +72,6 @@ exports.styles = styles
 function server() {
   if (isProduction) {
     return Promise.resolve()
-
   }
 
   sync.init({
@@ -91,6 +102,7 @@ const scripts = () =>
   gulp
     .src(paths.scripts.src)
     .pipe(gulpWebpack(webpackConfig, webpack))
+    .pipe(isProduction ? terser() : util.noop())
     .pipe(gulp.dest(paths.scripts.dest))
 
 exports.scripts = scripts

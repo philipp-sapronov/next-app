@@ -2542,6 +2542,14 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+css-tree@1.0.0-alpha.39:
+  version "1.0.0-alpha.39"
+  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.0.0-alpha.39.tgz#2bff3ffe1bb3f776cf7eefd91ee5cba77a149eeb"
+  integrity sha512-7UvkEYgBAHRG9Nt980lYxjsTrCyHFN53ky3wVsDkiMdVqylqRt+Zc+jm5qw7/qyOvN2dHSYtX0e4MbCCExSvnA==
+  dependencies:
+    mdn-data "2.0.6"
+    source-map "^0.6.1"
+
 css@2.X, css@^2.2.1:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/css/-/css-2.2.4.tgz#c646755c73971f2bba6a601e2cf2fd71b1298929"
@@ -2551,6 +2559,13 @@ css@2.X, css@^2.2.1:
     source-map "^0.6.1"
     source-map-resolve "^0.5.2"
     urix "^0.1.0"
+
+csso@^4.0.2:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/csso/-/csso-4.0.3.tgz#0d9985dc852c7cc2b2cacfbbe1079014d1a8e903"
+  integrity sha512-NL3spysxUkcrOgnpsT4Xdl2aiEiBG6bXswAABQVHcMrfjjBisFOKwLDOmf4wf32aPdcJws1zds2B0Rg+jqMyHQ==
+  dependencies:
+    css-tree "1.0.0-alpha.39"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -3955,11 +3970,12 @@ gulp-sourcemaps@^2.6.5:
     strip-bom-string "1.X"
     through2 "2.X"
 
-gulp-terser@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/gulp-terser/-/gulp-terser-1.3.0.tgz#6423fdb7dd15cc376e28063b5271271a928084bd"
-  integrity sha512-EvizE1LJLfOh3/EmpJoq9iqYziObOkTzFgN4KvxfB0ICp3+W5H+MOO9B7Xq5Iuu9N+RKByNJLmqR+Ph13U1vtQ==
+gulp-terser@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/gulp-terser/-/gulp-terser-1.3.2.tgz#c91a71c31de0c40a94330bfd43b20c2a40df9a6b"
+  integrity sha512-hLx9Ww9PX304R3E7pMyL+jFftH47QXQCgKE6IZajbz7OoqAPMdr+sTxBpaujgIVkdbnJwJ7AFhfrcyy/cjBgZQ==
   dependencies:
+    is-promise "^4.0.0"
     plugin-error "^1.0.1"
     terser ">=4"
     through2 "^4.0.2"
@@ -4602,6 +4618,11 @@ is-promise@^2.1:
   resolved "https://registry.yarnpkg.com/is-promise/-/is-promise-2.2.2.tgz#39ab959ccbf9a774cf079f7b40c7a26f763135f1"
   integrity sha512-+lP4/6lKUBfQjZ2pdxThZvLUAafmZb8OAxFb8XXtiQmS35INgr85hdOGoEs124ez1FCnZJt6jau/T+alh58QFQ==
 
+is-promise@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/is-promise/-/is-promise-4.0.0.tgz#42ff9f84206c1991d26debf520dd5c01042dd2f3"
+  integrity sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==
+
 is-relative@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-relative/-/is-relative-1.0.0.tgz#a1bb6935ce8c5dba1e8b9754b9b2dcc020e2260d"
@@ -5177,6 +5198,11 @@ md5.js@^1.3.4:
     hash-base "^3.0.0"
     inherits "^2.0.1"
     safe-buffer "^5.1.2"
+
+mdn-data@2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.6.tgz#852dc60fcaa5daa2e8cf6c9189c440ed3e042978"
+  integrity sha512-rQvjv71olwNHgiTbfPZFkJtjNMciWgswYeciZhtvWLO8bmX3TnhyA62I6sTWOyZssWHJJjY6/KiWwqQsWWsqOA==
 
 memoizee@0.4.X:
   version "0.4.14"
@@ -6143,6 +6169,13 @@ posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
+
+postcss-csso@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-csso/-/postcss-csso-4.0.0.tgz#30fef9303ecbeb0424dab1228275416fc7186a50"
+  integrity sha512-Yh9Ug0w3+T/LZIh1vGJQY8+hE13yFRHpINoAmgOhvu9lBmG1jyHkAprGHEHlGjWODJzB4DCNBVBb6Cs0QEoglQ==
+  dependencies:
+    csso "^4.0.2"
 
 postcss-load-config@^2.0.0:
   version "2.1.0"
