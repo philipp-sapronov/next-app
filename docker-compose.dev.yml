@@ -1,0 +1,19 @@
+version: "3.4"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      target: dev
+      args:
+        env: development
+        port: 3000
+    command: npm run dev
+    container_name: dev_elm
+    image: app/frontend:dev
+    ports:
+      - 3000:3000
+    # stdin_open: true
+    # tty: true
+    volumes:
+      - ./frontend/src:/usr/app/src
