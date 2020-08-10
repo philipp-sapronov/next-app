@@ -6,6 +6,9 @@ const sass = require("gulp-sass")
 const sync = require("browser-sync")
 const webpack = require("webpack")
 const webpackConfig = require("./webpack.config.js")
+// const util = require('gulp-util');
+
+const isProduction = process.env.MODE === "production"
 
 const paths = {
   html: {
@@ -55,6 +58,11 @@ exports.styles = styles
 
 // Server
 function server() {
+  if (isProduction) {
+    return Promise.resolve()
+
+  }
+
   sync.init({
     server: paths.root,
     notify: false,
@@ -66,6 +74,10 @@ exports.server = server
 
 // Watch
 const watch = () => {
+  if (isProduction) {
+    return Promise.resolve()
+  }
+
   gulp.watch(paths.html.watch, gulp.series(html))
   gulp.watch(paths.styles.watch, gulp.series(styles))
   gulp.watch(paths.scripts.watch, gulp.series(scripts))
