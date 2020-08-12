@@ -44,8 +44,8 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "cleave.js": "^1.6.0",
     "gulp-util": "^3.0.8",
+    "inputmask": "^5.0.5",
     "postcss-csso": "^4.0.0"
   }
 }

@@ -12,3 +12,4 @@
 
 {# Main build #}
 <script src="./scripts/main.bundle.js"></script>
+<script src="./scripts/vendors.bundle.js"></script>
