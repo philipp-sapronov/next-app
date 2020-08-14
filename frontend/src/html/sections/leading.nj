@@ -59,7 +59,7 @@
               </div>
 
               <div class="form__submit-wrapper">
-                {{buttons.main("form__submit-btn btn btn--filled btn--red btn--large btn--uppercased", "отправить заявку")}}
+                <button class="form__submit-btn btn btn--filled btn--red btn--large btn--uppercased" type="submit">Отправить заявку</button>
                 <p class="confirm-msg">Нажимая, вы принимаете условия оферты</p>
               </div>
             </form>

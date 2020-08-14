@@ -1,3 +1,4 @@
+import { TelegramBotService } from './bot.service';
 import { UserDbParams } from './schema';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Module } from '@nestjs/common';
@@ -16,6 +17,6 @@ import { EmailService } from './mail.service';
     ]),
   ],
   controllers: [UsersController],
-  providers: [UsersService, EmailService],
+  providers: [UsersService, EmailService, TelegramBotService],
 })
 export class UsersModule {}

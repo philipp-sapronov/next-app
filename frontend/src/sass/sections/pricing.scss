@@ -31,6 +31,15 @@
     left: 0;
     bottom: 0;
     transform: translate(-50%, 50%);
+    width: 80%;
+    max-width: 1000px;
+    @media screen and (max-width: $bp-down-medium) {
+      width: 150%;
+    }
+
+    @media screen and (max-width: $bp-down-small) {
+      width: 200%;
+    }
   }
 }
 
