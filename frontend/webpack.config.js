@@ -36,7 +36,6 @@ const config = {
   },
   externals: {
     jquery: "jQuery",
-    // owlCarousel:
   },
 }
 
