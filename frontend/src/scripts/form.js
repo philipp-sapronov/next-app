@@ -1,9 +1,6 @@
 import Inputmask from "inputmask"
 
-const ENDPOINT = process.env.ENDPOINT
-console.log(ENDPOINT, "Initialize form")
-
-const url = `http://${ENDPOINT}/applications/create`
+const url = `${window.location.protocol}//${window.location.host}/api/applications/create`
 
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 

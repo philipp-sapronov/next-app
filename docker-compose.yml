@@ -20,7 +20,8 @@ services:
     build:
       context: ./api
     container_name: api
-    env_file: "./list.env"
+    env_file:
+      - ./.env
     command: "yarn start"
     networks:
       - main
@@ -29,8 +30,9 @@ services:
     build:
       context: ./frontend
       target: prod
-    container_name: front
-    env_file: "./list.env"
+      args:
+        - NODE_ENV=${NODE_ENV}
+    container_name: frontend
     volumes:
       - ./frontend/nginx.conf:/etc/nginx/nginx.conf
     networks:

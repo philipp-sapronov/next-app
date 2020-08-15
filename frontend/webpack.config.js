@@ -1,7 +1,10 @@
 const webpack = require("webpack")
 
+const NODE_ENV = process.env.NODE_ENV || "development"
+console.log(NODE_ENV, 'NODE ENV')
+
 const config = {
-  mode: "development",
+  mode: NODE_ENV,
   entry: "./src/scripts/index.js",
   output: {
     filename: "[name].bundle.js",

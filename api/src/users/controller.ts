@@ -38,7 +38,7 @@ export class UsersController {
       };
 
       this.botService.sendMessage(user);
-      return;
+
       const result = await this.mailerService.sendNewApplication(appMailParams);
 
       if (!result?.messageId) {
