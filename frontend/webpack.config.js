@@ -38,6 +38,7 @@ const config = {
     jquery: "jQuery",
     // owlCarousel:
   },
+  plugins: [new webpack.EnvironmentPlugin(["ENDPOINT"])],
 }
 
 module.exports = config

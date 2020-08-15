@@ -5,10 +5,11 @@ import { AppService } from './service';
 import { UsersModule } from '../users/module';
 import { MailerModule } from '@nestjs-modules/mailer';
 
-const Mongoose = MongooseModule.forRoot(
-  'mongodb+srv://phl:Qwerty@first.9tyc5.mongodb.net/first?retryWrites=true&w=majority',
-  { useNewUrlParser: true, useUnifiedTopology: true },
-);
+const MONGO_URL = process.env.MONGO_URL;
+const Mongoose = MongooseModule.forRoot(MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const MAILER_HOST = 'smtp.zoho.eu';
 const MAILER_PORT = 587;

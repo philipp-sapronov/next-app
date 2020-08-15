@@ -4,8 +4,8 @@ import { IUser } from './interface';
 import * as TelegramBot from 'node-telegram-bot-api';
 import * as moment from 'moment-timezone';
 
-const TOKEN = '1198886651:AAHok1MxC0rLcgWzupiDjYvTo0rdFWL4mZs';
-const GROUP_ID = -365549739;
+const TOKEN = process.env.TELEGRAM_TOKEN;
+const GROUP_ID = process.env.TELEGRAM_GROUP_ID;
 
 const editTextMessage = (text: string): string => {
   console.log(text, 'text');

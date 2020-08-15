@@ -14,21 +14,21 @@ services:
       - main
     volumes:
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf
+
   api:
     build:
       context: ./api
-      args:
-        env: production
     container_name: api
+    env_file: "./list.env"
     networks:
       - main
+
   frontend:
     build:
       context: ./frontend
       target: prod
-      args:
-        env: production
     container_name: front
+    env_file: "./list.env"
     volumes:
       - ./frontend/nginx.conf:/etc/nginx/nginx.conf
     networks:

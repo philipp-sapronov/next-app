@@ -1,6 +1,10 @@
 import Inputmask from "inputmask"
 
-const url = "http://localhost:8080/applications/create"
+const ENDPOINT = process.env.ENDPOINT
+console.log(ENDPOINT, "Initialize form")
+
+const url = `http://${ENDPOINT}/applications/create`
+
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 export const initForm = () => {
@@ -9,8 +13,6 @@ export const initForm = () => {
   const $inputName = $form.querySelector("input[name='name']")
   const $inputEmail = $form.querySelector("input[name='email']")
   const $inputPhone = $form.querySelector("input[name='phone']")
-
-  console.log("Initialize form")
 
   Inputmask({ mask: "+380 999999999", jitMasking: true }).mask($inputPhone)
 
