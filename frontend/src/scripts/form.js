@@ -159,12 +159,16 @@ export const initForm = () => {
       }),
     })
       .then((response) => {
-        // if (!response.ok) return Promise.reject(response)
+        if (!response.ok) return Promise.reject(response)
         clearForm($form)
         state.refresh()
+        alert("Your application has been sent successfully!")
         console.log(response)
       })
-      .catch(console.error)
+      .catch((response) => {
+        alert("An error occurred while sending to the server!")
+        return console.error(response)
+      })
   }
 
   $form.addEventListener("submit", handleSubmit)
