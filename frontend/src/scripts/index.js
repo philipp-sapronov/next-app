@@ -5,11 +5,11 @@ import { initHeader } from "./header"
 import { initForm } from "./form"
 
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("123")
   try {
     subscribe()
     initOwls()
     initHeader()
-    console.log("123")
     initForm()
   } catch (e) {
     console.log(e, "Catch at root")

@@ -8,6 +8,7 @@ services:
   proxy:
     build: ./proxy
     container_name: proxy
+    #    restart: "until_stopped"
     ports:
       - "80:80"
     networks:
@@ -20,6 +21,7 @@ services:
       context: ./api
     container_name: api
     env_file: "./list.env"
+    command: "yarn start"
     networks:
       - main
 
