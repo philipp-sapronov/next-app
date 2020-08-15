@@ -7,11 +7,11 @@
   <div class="hero__inner">
 
     <div class="title__wrapper">
-      <h2 class="subtitle">Английский  онлайн</h2>
+      <h2 class="subtitle">{{ hero.subtitle }}</h2>
       <div class="title__dash"></div>
-      <h1 class="title">{{ "Don’t study hard \n study smart!" }}</h1>
+      <h1 class="title">{{ hero.title }}</h1>
       <div class="hero-cta__wrapper">
-        {{ buttons.main("cta-btn hero-cta btn--filled btn--red btn--uppercased", "Начать бесплатно")}}
+        {{ buttons.main("cta-btn hero-cta btn--filled btn--red btn--uppercased", {{ buttons.begin }})}}
 
       </div>
       <div class="additional-msg__wrapper">
@@ -23,7 +23,7 @@
           </svg>
 
         </div>
-        <p class="additional-msg">Готовы отвечать уверенноe "Yes" на очередные вопросы о знании английского?</p>
+        <p class="additional-msg">{{ hero.tip }}</p>
       </div>
     </div>
 

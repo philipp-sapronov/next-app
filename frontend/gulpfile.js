@@ -10,6 +10,7 @@ const terser = require("gulp-terser")
 const util = require("gulp-util")
 const postcss = require("gulp-postcss")
 const htmlmin = require("gulp-htmlmin")
+const translations = require("./translations")
 
 const isProduction = process.env.MODE === "production"
 
