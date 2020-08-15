@@ -6,22 +6,22 @@ import { UsersModule } from '../users/module';
 import { MailerModule } from '@nestjs-modules/mailer';
 
 const MONGO_URL = process.env.MONGO_URL;
+const MAILER_HOST = process.env.MAILER_HOST;
+const MAILER_PORT = process.env.MAILER_PORT;
+const MAILER_AUTH_USER = process.env.MAILER_AUTH_USER;
+const MAILER_AUTH_PASSWORD = process.env.MAILER_AUTH_PASSWORD;
+
 const Mongoose = MongooseModule.forRoot(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-const MAILER_HOST = 'smtp.zoho.eu';
-const MAILER_PORT = 587;
-const MAILER_AUTH_USER = 'admin@test-env.space';
-const MAILER_AUTH_PASSWORD = 'Qwerty12##';
 
 @Module({
   imports: [
     MailerModule.forRoot({
       transport: {
         host: MAILER_HOST,
-        port: MAILER_PORT,
+        port: Number(MAILER_PORT),
         secure: false,
         auth: {
           user: MAILER_AUTH_USER,
