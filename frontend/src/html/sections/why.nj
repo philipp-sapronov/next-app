@@ -1,6 +1,7 @@
 {% import "components/headings.nj" as headings %}
 
 {% macro plane() %}
+  {# move to sprite #}
   <svg width="1181" height="580" viewBox="0 0 1181 580" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M1053.1 53.2131L1116.11 60.044L1074.7 112.582L1053.1 53.2131Z" stroke="white" stroke-width="3"/>
     <line y1="-1.5" x2="58.4886" y2="-1.5" transform="matrix(0.895822 -0.385128 0.394887 0.944204 1063.81 84.2382)" stroke="white" stroke-width="3"/>
@@ -10,13 +11,11 @@
     <ellipse cx="679.268" cy="332.832" rx="6" ry="6.46036" transform="rotate(-6.86328 679.268 332.832)" fill="white"/>
     <ellipse cx="929.391" cy="226.811" rx="6" ry="6.46036" transform="rotate(-6.86328 929.391 226.811)" fill="white"/>
   </svg>
-
 {% endmacro %}
 
 {% macro reasonCard(number = "", text = "") %}
   <div class="reason__card">
     <div class="card__bg">
-
       <div class="card__inner">
         <div class="reason__number">{{ number }}</div>
         <div class="reason__text">{{ text }}</div>
@@ -28,13 +27,11 @@
 <section class="why section">
   <div class="why__inner">
     <div class="heading-wrapper">
-      {{ headings.section("--center --light", "Почему выбирают нас") }}
+      {{ headings.section("--center --light", why.title) }}
       <div class="why__reasons">
-        {{ reasonCard("01", "Не просто научим языку, но еще и покажем, как обучаться правильно. Раскроем тайну метода SQRRR, с помощью которого Вам покорится не только английский язык, но и любые другие новые знания") }}
-        {{ reasonCard("02", "Всё обучение построено на интерактивах: игры, видео и  аудио -  у Вас не будет шанса не усвоить материал. А еще - NO PATTERNS ! Каждому студенту мы подбираем индивидуальную программу занятий ") }}
-        {{ reasonCard("03", "Все занятия проходят онлайн (Zoom/Skype), а значит - прощайте пробки, привет пижамка. Время урока тоже  выбираете Вы сами, и если завтра нужно отоспаться - наша школа предоставит такую возможность") }}
-        {{ reasonCard("04", "Обучаем по лучшим учебникам Британии, доступ к которым наши студенты получают  совершенно бесплатно! А для усвоения новой лексики мы приготовили специальный тренажер с полным пакетом слов, заданиями для практики и тестами ") }}
-        {{ reasonCard("05", "Обучение по принципу Student centered: максимум времени говорит студент и минимум учитель (70/30).Море позитива в общении с преподавателем, который точно станет Вашим новым другом ") }}
+        {% for item in why.cards %}
+          {{ reasonCard(item.number, item.text) }}
+        {% endfor %}
       </div>
     </div>
   </div>

@@ -1,17 +1,22 @@
 {% import "components/avatar.nj" as avatars %}
 
-{% macro header(classes) %}
+{% macro header(params, classes) %}
   <div class="card__header {{ classes }}">
     <div class="header__avatar">
-      {{ avatars.main() }}
+      {{ avatars.main(params.avatar) }}
     </div>
     <div class="header__content">
       <div class="name">
-        <span>Александра Никифорова</span></div>
+        <span>{{ params.name }}
+        </span>
+      </div>
       <div class="year">
-        <span>24 года</span></div>
+        <span>{{ params.age }}</span></div>
       <div class="socials">
-        <span>vk fb li</span></div>
+        {% for item in params.socials %}
+          <span>{{ item }}</span>
+        {% endfor %}
+      </div>
     </div>
   </div>
 {% endmacro %}
@@ -29,34 +34,34 @@
   </div>
 {% endmacro %}
 
-{% macro feedbackContent() %}
+{% macro feedbackContent(params) %}
   <div class="feedback-card__content">
-    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
+    <p class="text">{{ params.text }}</p>
     <span class="details">Курс: Подготовка к ЗНО</span>
   </div>
 {% endmacro %}
 
-{% macro teacherContent() %}
+{% macro teacherContent(params) %}
   <div class="teacher-card__content">
     <div class="item">
-      <b class="heading">Образование:</b>
-      <span>Филолог</span>
+      <b class="heading">{{ params.education.title }}:</b>
+      <span>{{ params.education.text}}</span>
     </div>
     <div class="item">
-      <b class="heading">Опыт работы:</b>
-      <span>4 года</span>
+      <b class="heading">{{ params.experience.title }}:</b>
+      <span>{{ params.experience.text }}</span>
     </div>
     <div class="item">
-      <b class="heading">Увлечения:</b>
-      <span>Любит  настольные игры, кушать попкорн и играть на флейте</span>
+      <b class="heading">{{ params.hobbies.title }}:</b>
+      <span>{{ params.hobbies.text}}</span>
     </div>
   </div>
 {% endmacro %}
 
-{% macro feedback() %}
-  {{ card(header("flexible"), feedbackContent()) }}
+{% macro feedback(params) %}
+  {{ card(header(params, "flexible"), feedbackContent(params)) }}
 {% endmacro %}
 
-{% macro teacher() %}
-  {{ card(header(), teacherContent()) }}
+{% macro teacher(params) %}
+  {{ card(header(params), teacherContent(params)) }}
 {% endmacro %}

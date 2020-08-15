@@ -225,11 +225,13 @@
     position: relative;
     text-align: center;
     margin-top: 30px;
+
     & .additional-msg__arrow {
       position: absolute;
       left: 0;
       top: 0;
       transform: translate(-70%, -50%);
+      width: 100px;
 
       @media screen and (max-width: $bp-down-medium) {
         transform: translate(0, -20%) scale(0.7);

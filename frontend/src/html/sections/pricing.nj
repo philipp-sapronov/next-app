@@ -1,5 +1,5 @@
 {% import "components/headings.nj" as headings %}
-{% import "components/buttons.nj" as buttons %}
+{% import "components/buttons.nj" as button %}
 {% import "icons/pricing.nj" as icons %}
 
 {% macro tick() %}
@@ -44,18 +44,18 @@
   <div class="heading-wrapper">
     {{ headings.section("--left --light", pricing.title) }}
     <div class="slider-buttons__wrapper">
-      {{ buttons.slider("btn--light") }}
+      {{ button.slider("btn--light") }}
     </div>
   </div>
   <div class="pricing__carousel-wrapper">
     <div id="pricing-carousel"  class="pricing-carousel owl-carousel">
-      {% for item in pipeline.cards %}
+      {% for item in pricing.cards %}
         {{ card(item) }}
       {% endfor %}
     </div>
   </div>
   <div class="pricing__cta">
-    {{buttons.main("cta-btn btn btn--filled btn--red btn--large", buttons.begin)}}
+    {{ button.main("cta-btn btn btn--filled btn--red btn--large", buttons.begin) }}
   </div>
 </div>
 <div class="image__wrapper">

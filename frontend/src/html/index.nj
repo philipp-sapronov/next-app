@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <head>
   {% include "links/head.nj" %}
-  {% include "links/seo.nj" %}
 </head>
-<body>
-  {% include "app.nj" %}
+<body class="lang_ru">
+  {% include "app/app.nj" %}
 </body>

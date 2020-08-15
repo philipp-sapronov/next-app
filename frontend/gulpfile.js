@@ -10,10 +10,10 @@ const terser = require("gulp-terser")
 const util = require("gulp-util")
 const postcss = require("gulp-postcss")
 const htmlmin = require("gulp-htmlmin")
+// const data = require("gulp-data")
 const translations = require("./translations")
-
+console.log(translations, "tr")
 const isProduction = process.env.NODE_ENV === "production"
-console.log(process.env.NODE_ENV, "NODE_ENV gulp")
 
 const paths = {
   html: {
@@ -45,6 +45,7 @@ const html = () =>
     .src(paths.html.src)
     .pipe(
       nunjucksRender({
+        data: translations.ru,
         path: [paths.html.templates], // String or Array
       }),
     )

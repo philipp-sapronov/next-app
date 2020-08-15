@@ -7,9 +7,6 @@
 {# OWL Carousel #}
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-{# Magnific Popup #}
-{# <script src="magnific-popup/jquery.magnific-popup.js"></script> #}
-
 {# Main build #}
 <script defer src="./scripts/vendors.bundle.js"></script>
 <script defer src="./scripts/main.bundle.js"></script>

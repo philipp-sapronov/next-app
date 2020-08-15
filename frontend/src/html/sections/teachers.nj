@@ -1,5 +1,5 @@
 {% import "components/headings.nj" as headings %}
-{% import "components/buttons.nj" as buttons %}
+{% import "components/buttons.nj" as button %}
 {% import "components/cards.nj" as cards %}
 
 <section class="teachers section">
@@ -10,12 +10,12 @@
     <div class="teachers__header">
       <div class="left-side">
         <div class="slider-buttons__wrapper">
-          {{ buttons.slider("btn--light") }}
+          {{ button.slider("btn--light") }}
         </div>
       </div>
       <div class="right-side">
         <div class="heading-wrapper">
-          {{ headings.section("--left --light", "Наши преподователи") }}
+          {{ headings.section("--left --light", teachers.title) }}
         </div>
       </div>
     </div>
@@ -26,37 +26,26 @@
       <div class="left-side">
         <div class="left-side__inner">
           <div class="carousel-wrapper">
-
             <div id="teachers-carousel" class="owl-carousel">
-              {{ cards.teacher() }}
-              {{ cards.teacher() }}
-              {{ cards.teacher() }}
+              {% for item in teachers.cards %}
+                {{ cards.teacher(item) }}
+              {% endfor %}
             </div>
           </div>
         </div>
       </div>
       <div class="right-side">
         <ul class="teachers__options">
-          <li class="teachers__option">
-            <span>Отличаются многолетним опытом работы с различными категориями студентов</span>
-          </li>
-          <li class="teachers__option">
-            <span>Изучают индивидуальные особенности Вашего восприятия и подберают самую эффективную систему обучения</span>
-          </li>
-          <li class="teachers__option">
-            <span>Становятся Вашими друзьями, с которыми всегда приятно поделиться новостью и посмеяться крутой над шуткой (если она английская)</span>
-          </li>
-          <li class="teachers__option">
-            <span>Жаждут ваших достижений, радуются каждому шагу и бурно обсуждают его (по-английски, конечно же)</span>
-          </li>
-          <li class="teachers__option">
-            <span>Любят то, что делают</span>
-          </li>
+          {% for item in teachers.options %}
+            <li class="teachers__option">
+              <span>{{ item }}</span>
+            </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
     <div class="teachers__cta">
-      {{buttons.main("cta-btn btn btn--filled btn--green btn--large", "Начать бесплатно")}}
+      {{button.main("cta-btn btn btn--filled btn--green btn--large", buttons.begin)}}
     </div>
   </div>
 </section>

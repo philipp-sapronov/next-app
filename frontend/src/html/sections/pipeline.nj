@@ -50,7 +50,7 @@
         </div>
         {# card #}
         <div class="cards__row  --even">
-          {{ pipelineCard("--left", "presantation", pipeline.card_4.title, pipeline.card_4.text ) }}
+          {{ pipelineCard("--left", "presentation", pipeline.card_4.title, pipeline.card_4.text ) }}
           <div class="pipeline__point  --even"></div>
           <div class="pipeline__tips"></div>
         </div>

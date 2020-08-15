@@ -1,5 +1,5 @@
 <!-- Set up your HTML -->
-{% import "components/buttons.nj" as buttons %}
+{% import "components/buttons.nj" as button %}
 {% import "components/headings.nj" as headings %}
 {% import "icons/heroIcon.nj" as icons %}
 
@@ -11,17 +11,14 @@
       <div class="title__dash"></div>
       <h1 class="title">{{ hero.title }}</h1>
       <div class="hero-cta__wrapper">
-        {{ buttons.main("cta-btn hero-cta btn--filled btn--red btn--uppercased", {{ buttons.begin }})}}
+        {{ button.main("cta-btn hero-cta btn--filled btn--red btn--uppercased", buttons.begin)}}
 
       </div>
       <div class="additional-msg__wrapper">
         <div class="additional-msg__arrow">
-          <svg width="42" height="38" viewBox="0 0 42 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.32075 1.5C3.32075 5 2.8566 12.6 1 15" stroke="white" stroke-width="2"/>
-            <path d="M42 37C29.2359 37 3.78491 30.3 4.09435 3.5" stroke="white" stroke-width="2" stroke-dasharray="2 4"/>
-            <path d="M3.3208 1C3.57866 3.83333 5.25476 9.5 9.89627 9.5" stroke="white" stroke-width="2"/>
+          <svg>
+            <use xlink:href="./assets/svg-min/sprite.svg#hero-arrow"/>
           </svg>
-
         </div>
         <p class="additional-msg">{{ hero.tip }}</p>
       </div>

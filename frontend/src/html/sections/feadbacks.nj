@@ -1,32 +1,24 @@
 {% import "components/headings.nj" as headings %}
-{% import "components/buttons.nj" as buttons %}
+{% import "components/buttons.nj" as button %}
 {% import "components/cards.nj" as cards %}
 
 <section class="feedbacks section">
   <div class="feedbacks__inner container">
     <div class="heading-wrapper">
-      {{ headings.section("--left", "Отзывы наших учеников") }}
+      {{ headings.section("--left", feedbacks.title) }}
       <div class="slider-buttons__wrapper">
-        {{ buttons.slider("btn--dark") }}
+        {{ button.slider("btn--dark") }}
       </div>
     </div>
     <div class="feedbacks__carousel-wrapper">
       <div id="feedbacks-carousel"  class="feedbacks-carousel owl-carousel">
-        {{ cards.feedback() }}
-        {{ cards.feedback() }}
-        {{ cards.feedback() }}
-        {{ cards.feedback() }}
-        {{ cards.feedback() }}
-        {{ cards.feedback() }}
-        {{ cards.feedback() }}
-        {{ cards.feedback() }}
-        {{ cards.feedback() }}
+        {% for item in feedbacks.cards %}
+          {{ cards.feedback(item) }}
+        {% endfor %}
       </div>
     </div>
-
     <div class="feedbacks__cta">
-      {{buttons.main("cta-btn btn btn--outlined btn--red btn--large", "Начать бесплатно")}}
+      {{button.main("cta-btn btn btn--outlined btn--red btn--large", buttons.begin)}}
     </div>
   </div>
-
 </section>
