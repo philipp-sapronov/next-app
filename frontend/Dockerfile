@@ -9,9 +9,12 @@ RUN yarn install
 COPY gulpfile.js .eslintrc.json .babelrc .prettierrc.json webpack.config.js ./
 COPY src ./src
 
-ARG env
+ARG NODE_ENV
+ARG ENDPOINT
+
 #ARG port
-ENV MODE=$env
+ENV NODE_ENV=$NODE_ENV
+ENV ENDPOINT=$ENDPOINT
 #ENV PORT=$port
 
 #### Build stage ####
