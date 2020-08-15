@@ -1,7 +1,7 @@
 version: "3.4"
 
 networks:
-  frontend:
+  main:
     driver: bridge
 
 services:
@@ -11,10 +11,17 @@ services:
     ports:
       - "80:80"
     networks:
-      - frontend
+      - main
     volumes:
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf
-
+  api:
+    build:
+      context: ./api
+      args:
+        env: production
+    container_name: api
+    networks:
+      - main
   frontend:
     build:
       context: ./frontend
@@ -25,4 +32,4 @@ services:
     volumes:
       - ./frontend/nginx.conf:/etc/nginx/nginx.conf
     networks:
-      - frontend
+      - main
