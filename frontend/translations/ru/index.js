@@ -104,22 +104,22 @@ exports.why = {
   ],
 }
 
+const teacher = {
+  avatar: "./assets/pic.png",
+  name: "Александра Никифорова",
+  age: "24 года",
+  socials: ["fb", "in", "li"],
+  education: { text: "Филолог", title: "Образование" },
+  experience: { title: "Опыт работы", text: "4 года" },
+  hobbies: {
+    title: "Увлечения",
+    text: "Любит  настольные игры, кушать попкорн и играть на флейте",
+  },
+}
+
 exports.teachers = {
   title: "Наши преподователи",
-  cards: [
-    {
-      avatar: "./assets/pic.png",
-      name: "Александра Никифорова",
-      age: "24 года",
-      socials: ["fb", "in", "li"],
-      education: { text: "Филолог", title: "Образование" },
-      experience: { title: "Опыт работы", text: "4 года" },
-      hobbies: {
-        title: "Увлечения",
-        text: "Любит  настольные игры, кушать попкорн и играть на флейте",
-      },
-    },
-  ],
+  cards: [teacher, teacher, teacher],
   options: [
     "Отличаются многолетним опытом работы с различными категориями студентов",
     "Изучают индивидуальные особенности Вашего восприятия и подберают самую эффективную систему обучения",
@@ -128,19 +128,20 @@ exports.teachers = {
     "Любят то, что делают",
   ],
 }
+
+const feddback = {
+  avatar: "./assets/pic.png",
+  name: "Александра Никифорова",
+  age: "24 года",
+  socials: ["fb", "in", "li"],
+  course: "Разговорный английский",
+  text:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+}
+
 exports.feedbacks = {
   title: "Отзывы наших учеников",
-  cards: [
-    {
-      avatar: "./assets/pic.png",
-      name: "Александра Никифорова",
-      age: "24 года",
-      socials: ["fb", "in", "li"],
-      course: "Разговорный английский",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-    },
-  ],
+  cards: [feddback, feddback, feddback, feddback],
 }
 
 exports.leading = {
