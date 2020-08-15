@@ -32,19 +32,19 @@
                             <div class="form__item success">
                                 <label class="input-label" for="input-name">{{ leading.form.inputName.label }}</label>
                                 <input class="input-text" name="name" placeholder="{{ leading.form.inputName.placeholder }}" id="input-name" type="text">
-                                <span class="input-msg"></span>
+                                <span class="input-msg" data-name="name"></span>
                             </div>
 
                             <div class="form__item">
                                 <label class="input-label" for="input-email">{{ leading.form.inputEmail.label }}</label>
                                 <input class="input-text" name="email"  placeholder="{{ leading.form.inputEmail.placeholder }}" id="input-email" type="text">
-                                <span class="input-msg"></span>
+                                <span class="input-msg" data-name="email"></span>
                             </div>
 
                             <div class="form__item error">
                                 <label class="input-label" for="input-phone">{{ leading.form.inputPhone.label }}</label>
                                 <input class="input-text" name="phone"  placeholder="{{ leading.form.inputPhone.placeholder }}" id="input-phone" type="text">
-                                <span class="input-msg"></span>
+                                <span class="input-msg" data-name="phone"></span>
                             </div>
 
                             <div class="form__submit-wrapper">

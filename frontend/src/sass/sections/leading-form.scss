@@ -1,3 +1,5 @@
+$color-error: #ff2121;
+
 .leading {
   background-color: $color-green;
 
@@ -197,6 +199,13 @@
         box-sizing: border-box;
         background-color: transparent;
 
+        &.success {
+          border: 1px solid $color-green;
+        }
+        &.error {
+          border: 1px solid $color-error;
+        }
+
         &::placeholder {
           color: $color-gray-dark;
           opacity: 0.3;
@@ -210,13 +219,8 @@
         font-size: 12px;
         font-style: italic;
         padding: 10px 0;
-      }
-
-      & .success {
-        //
-      }
-      & .error {
-        //
+        min-height: 15px;
+        color: $color-error;
       }
     }
   }
