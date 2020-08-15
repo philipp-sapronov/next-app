@@ -1,32 +1,42 @@
+import { ApplicationStatus, ChatType } from './enums';
 import { Injectable } from '@nestjs/common';
-import { Document } from 'mongoose';
 import { IUser } from './interface';
 import * as TelegramBot from 'node-telegram-bot-api';
 import * as moment from 'moment-timezone';
 
+const TOKEN = '1198886651:AAHok1MxC0rLcgWzupiDjYvTo0rdFWL4mZs';
 const GROUP_ID = -365549739;
 
-const template = (params: IUser) => {
-  return `
-<b>New Application from ${params.name}</b><pre>
-Name: ${params.name}
-Phone: ${params.phone}
-Email: ${params.email}
-
-Date: ${moment.tz(new Date(), 'Europe/Kiev').format('MMMM DD, YYYY HH:mm')}
-</pre>
-`;
+const editTextMessage = (text: string): string => {
+  console.log(text, 'text');
+  return text
+    .replace(ApplicationStatus.active, `${ApplicationStatus.inactive}`)
+    .replace('🌟', '✅');
 };
 
-type ArticleDocument = Document & IUser;
-const TOKEN = '1198886651:AAHok1MxC0rLcgWzupiDjYvTo0rdFWL4mZs';
+const callbackMessages = {
+  SET_AS_READ: 'set_message_as_read',
+};
 
-enum ChatType {
-  private = 'private',
-  group = 'group',
-  supergroup = 'supergroup',
-  channel = 'channel',
-}
+const translations = {
+  [callbackMessages.SET_AS_READ]: 'Отметить как прочитанное',
+};
+
+const template = (params: IUser): string => {
+  return `
+🚀  *Заявка*
+
+👩  Name: ${params.name}
+
+☎️  Phone: ${params.phone}
+
+✉️  Email: ${params.email}
+
+🌟  Status: ${ApplicationStatus.active}
+
+📅  ${moment.tz(new Date(), 'Europe/Kiev').format('MMMM DD, YYYY HH:mm')}
+`;
+};
 
 @Injectable()
 export class TelegramBotService {
@@ -40,31 +50,58 @@ export class TelegramBotService {
     this.bot = new TelegramBot(TOKEN, {
       polling: true,
     });
-    this.onStart();
+
+    this.subscribe();
     this.onGroupId();
   }
 
-  private onStart() {
-    this.bot.onText(/\/start/, (msg: TelegramBot.Message, arr) => {
+  private subscribe() {
+    this.bot.onText(/\/start/, (msg: TelegramBot.Message) => {
       if (!this.isAllowedChat(msg.chat)) return;
 
-      this.bot.sendMessage(GROUP_ID, `You have typed: ${arr?.[0]}`);
+      this.bot.sendMessage(GROUP_ID, 'I am working 🦊');
+    });
+
+    this.bot.on('callback_query', (query: TelegramBot.CallbackQuery) => {
+      if (!query.data) {
+        this.bot.answerCallbackQuery({
+          show_alert: true,
+          text: 'Something went wrong! Please try again',
+          callback_query_id: query.id,
+        });
+      }
+
+      if (query.data === callbackMessages.SET_AS_READ) {
+        return this.bot.editMessageText(editTextMessage(query.message.text), {
+          message_id: query.message.message_id,
+          chat_id: query.message.chat.id,
+          parse_mode: 'Markdown',
+        });
+      }
     });
   }
 
   private onGroupId() {
-    this.bot.onText(/^setGroupId/, (msg: TelegramBot.Message) => {
+    this.bot.onText(/^getGroupId/, (msg: TelegramBot.Message) => {
       if (!this.isAllowedChat(msg.chat)) return;
 
       this.bot.sendMessage(msg.chat.id, msg.chat.id.toString());
     });
   }
 
-  async sendMessage(params: IUser) {
-    return await this.bot.sendMessage(GROUP_ID, template(params), { parse_mode: 'HTML' });
-  }
-
-  async getUpdates() {
-    return await this.bot.getUpdates();
+  async sendMessage(params: IUser): Promise<TelegramBot.Message> {
+    return await this.bot.sendMessage(GROUP_ID, template(params), {
+      parse_mode: 'Markdown',
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: translations[callbackMessages.SET_AS_READ],
+              callback_data: callbackMessages.SET_AS_READ,
+            },
+          ],
+        ],
+      },
+    });
   }
 }

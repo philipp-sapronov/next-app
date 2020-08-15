@@ -8,3 +8,15 @@ export enum UserStatus {
   active = '20-active',
   deleted = '30-deleted',
 }
+
+export enum ApplicationStatus {
+  active = 'Активный',
+  inactive = 'Прочитано',
+}
+
+export enum ChatType {
+  private = 'private',
+  group = 'group',
+  supergroup = 'supergroup',
+  channel = 'channel',
+}

@@ -20,9 +20,7 @@ export class UsersController {
   @Post('create')
   async create(@Body() data: CreateUserDto /* use validation pipe */): Promise<void> {
     try {
-      const user =
-        (await this.usersService.findOne({ email: data.email })) ||
-        (await this.usersService.create(data));
+      const user = await this.usersService.create(data);
 
       if (!user) throw new Error('CANNOT CREATE USER');
 
@@ -40,17 +38,17 @@ export class UsersController {
       };
 
       this.botService.sendMessage(user);
-
+      return;
       const result = await this.mailerService.sendNewApplication(appMailParams);
 
       if (!result?.messageId) {
-        console.log('EMAIL 1 WAS NOT RECEIVED');
+        console.log('error email 1');
       }
 
       const result2 = await this.mailerService.sendLeadGreetingMessage(clientMailParams);
 
       if (!result2?.messageId) {
-        console.log('EMAIL 2 WAS NOT RECEIVED');
+        console.log('error email 2');
       }
     } catch (e) {
       throw new Error(e);
