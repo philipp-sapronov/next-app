@@ -544,3 +544,5 @@ modules.xml
 
 node_modules
 /frontend/dist/
+/api/dist/
+*.env
