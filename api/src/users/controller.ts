@@ -1,9 +1,16 @@
 import { TelegramBotService } from './bot.service';
 import { CreateUserDto } from './dto';
-import { Controller, Post, Body, Get } from '@nestjs/common';
-import { IUser } from './interface';
+import {
+  Controller,
+  Post,
+  Body,
+  Get,
+  UsePipes,
+  BadRequestException,
+} from '@nestjs/common';
 import { UsersService } from './user.service';
 import { EmailService } from './mail.service';
+import { ClassValidationPipe } from '../app/validation.pipe';
 
 @Controller('applications')
 export class UsersController {
@@ -18,11 +25,14 @@ export class UsersController {
   }
   //
   @Post('create')
-  async create(@Body() data: CreateUserDto /* use validation pipe */): Promise<void> {
+  @UsePipes(new ClassValidationPipe())
+  async create(@Body() data: CreateUserDto): Promise<void> {
+    if (!data) throw new BadRequestException();
+
     try {
       const user = await this.usersService.create(data);
 
-      if (!user) throw new Error('CANNOT CREATE USER');
+      if (!user) throw new BadRequestException();
 
       const appMailParams = {
         createdAt: user.createdAt,
