@@ -3,12 +3,10 @@ import { Injectable } from '@nestjs/common';
 import { IUser } from './interface';
 import * as TelegramBot from 'node-telegram-bot-api';
 import * as moment from 'moment-timezone';
-
-const TOKEN = process.env.TELEGRAM_TOKEN;
-const GROUP_ID = process.env.TELEGRAM_GROUP_ID;
+import { ConfigService } from '@nestjs/config';
+import { EnvVariables } from '../app/config';
 
 const editTextMessage = (text: string): string => {
-  console.log(text, 'text');
   return text
     .replace(ApplicationStatus.active, `${ApplicationStatus.inactive}`)
     .replace('🌟', '✅');
@@ -41,13 +39,16 @@ const template = (params: IUser): string => {
 @Injectable()
 export class TelegramBotService {
   public bot: TelegramBot;
+  private groupId: string;
 
   private isAllowedChat(chat: TelegramBot.Chat) {
     return chat?.type === ChatType.group;
   }
 
-  constructor() {
-    this.bot = new TelegramBot(TOKEN, {
+  constructor(private configService: ConfigService<EnvVariables>) {
+    this.groupId = this.configService.get('TELEGRAM_GROUP_ID');
+
+    this.bot = new TelegramBot(this.configService.get('TELEGRAM_TOKEN'), {
       polling: true,
     });
 
@@ -59,7 +60,7 @@ export class TelegramBotService {
     this.bot.onText(/\/start/, (msg: TelegramBot.Message) => {
       if (!this.isAllowedChat(msg.chat)) return;
 
-      this.bot.sendMessage(GROUP_ID, 'I am working 🦊');
+      this.bot.sendMessage(this.groupId, 'I am working 🦊');
     });
 
     this.bot.on('callback_query', (query: TelegramBot.CallbackQuery) => {
@@ -90,7 +91,7 @@ export class TelegramBotService {
   }
 
   async sendMessage(params: IUser): Promise<TelegramBot.Message> {
-    return await this.bot.sendMessage(GROUP_ID, template(params), {
+    return await this.bot.sendMessage(this.groupId, template(params), {
       parse_mode: 'Markdown',
       reply_markup: {
         inline_keyboard: [

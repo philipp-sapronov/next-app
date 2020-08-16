@@ -4,32 +4,45 @@ import { AppController } from './controller';
 import { AppService } from './service';
 import { UsersModule } from '../users/module';
 import { MailerModule } from '@nestjs-modules/mailer';
-
-const MONGO_URL = process.env.MONGO_URL;
-const MAILER_HOST = process.env.MAILER_HOST;
-const MAILER_PORT = process.env.MAILER_PORT;
-const MAILER_AUTH_USER = process.env.MAILER_AUTH_USER;
-const MAILER_AUTH_PASSWORD = process.env.MAILER_AUTH_PASSWORD;
-
-const Mongoose = MongooseModule.forRoot(MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import * as path from 'path';
+import vars, { EnvVariables } from './config';
 
 @Module({
   imports: [
-    MailerModule.forRoot({
-      transport: {
-        host: MAILER_HOST,
-        port: Number(MAILER_PORT),
-        secure: false,
-        auth: {
-          user: MAILER_AUTH_USER,
-          pass: MAILER_AUTH_PASSWORD,
-        },
+    ConfigModule.forRoot({
+      ignoreEnvFile: process.env.NODE_ENV === 'production',
+      envFilePath: path.join(__dirname, '..', '..', '..', '.env'),
+      load: [vars],
+      isGlobal: true,
+    }),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService<EnvVariables>) => {
+        return {
+          uri: configService.get('MONGO_URL'),
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        };
       },
     }),
-    Mongoose,
+    MailerModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+
+      useFactory: async (configService: ConfigService<EnvVariables>) => ({
+        transport: {
+          host: configService.get('MAILER_HOST'),
+          port: configService.get('MAILER_PORT'),
+          secure: false,
+          auth: {
+            user: configService.get('MAILER_AUTH_USER'),
+            pass: configService.get('MAILER_AUTH_PASSWORD'),
+          },
+        },
+      }),
+    }),
     UsersModule,
   ],
   controllers: [AppController],
