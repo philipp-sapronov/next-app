@@ -190,3 +190,9 @@ exports.buttons = {
   begin: "Начать бесплатно",
   sendApplication: "Отправить заявку",
 }
+
+exports.common = {
+  countryCode: {
+    ["UA"]: "+380",
+  },
+}

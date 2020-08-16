@@ -29,7 +29,7 @@
                     <div class="card-layer"></div>
                     <div class="card__inner">
                         <form class="leading__form form">
-                            <div class="form__item success">
+                            <div class="form__item">
                                 <label class="input-label" for="input-name">{{ leading.form.inputName.label }}</label>
                                 <input class="input-text" name="name" placeholder="{{ leading.form.inputName.placeholder }}" id="input-name" type="text">
                                 <span class="input-msg" data-name="name"></span>
@@ -41,9 +41,18 @@
                                 <span class="input-msg" data-name="email"></span>
                             </div>
 
-                            <div class="form__item error">
+                            <div class="form__item">
                                 <label class="input-label" for="input-phone">{{ leading.form.inputPhone.label }}</label>
-                                <input class="input-text" name="phone"  placeholder="{{ leading.form.inputPhone.placeholder }}" id="input-phone" type="text">
+                                <div class="input-wrapper">
+                                    <span class="countryCode">
+                                        <svg width="20" height="12" viewBox="0 0 20 12" fill="none">
+                                            <rect width="20" height="6" fill="#00D1FF"/>
+                                            <rect y="6" width="20" height="6" fill="#F8EE00"/>
+                                        </svg>
+                                        {{ common.countryCode.UA }}
+                                    </span>
+                                    <input class="input-text" name="phone"  placeholder="{{ leading.form.inputPhone.placeholder }}" id="input-phone" type="text">
+                                </div>
                                 <span class="input-msg" data-name="phone"></span>
                             </div>
 

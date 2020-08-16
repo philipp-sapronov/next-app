@@ -1,14 +1,15 @@
-const { buttons, hero, pipeline, pricing, why, teachers, feedbacks, leading } = require("./ru")
+const { buttons, hero, pipeline, pricing, why, teachers, feedbacks, leading, common } = require("./ru")
 
 module.exports = {
   ru: {
     buttons,
+    common,
+    feedbacks,
     hero,
+    leading,
     pipeline,
     pricing,
-    why,
     teachers,
-    feedbacks,
-    leading,
+    why,
   },
 }

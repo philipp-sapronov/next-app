@@ -206,12 +206,15 @@ $color-error: #ff2121;
           border: 1px solid $color-error;
         }
 
+        &[name="phone"] {
+          padding-left: 85px;
+        }
+
         &::placeholder {
           color: $color-gray-dark;
           opacity: 0.3;
           font-style: italic;
         }
-        //
       }
 
       & .input-msg {
@@ -221,6 +224,24 @@ $color-error: #ff2121;
         padding: 10px 0;
         min-height: 15px;
         color: $color-error;
+      }
+
+      & .input-wrapper {
+        position: relative;
+
+        & .countryCode {
+          position: absolute;
+          top: 50%;
+          left: 20px;
+          height: 40px;
+          width: 58px;
+          display: flex;
+          align-items: center;
+          transform: translateY(-50%);
+          & > :first-child {
+            margin-right: 5px;
+          }
+        }
       }
     }
   }

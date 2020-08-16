@@ -3,9 +3,10 @@ import Inputmask from "inputmask"
 const url = `${window.location.protocol}//${window.location.host}/api/applications/create`
 
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-const PHONE_LENGTH = 9
+const PHONE_LENGTH = 13
 const NAME_MIN_LENGTH = 2
 const messageRequired = "This field cannot be empty"
+const CODE_UA = "+380"
 
 const setInputError = ($form, params) => {
   const $msg = $form.querySelector(`.input-msg[data-name="${params.name}"]`)
@@ -39,6 +40,10 @@ const initialState = () => ({
   $phone: { error: messageRequired, value: null, name: "phone" },
 })
 
+const formatPhoneNumber = (value) => {
+  return CODE_UA + value.split(" ").join('')
+}
+
 const matchName = (value) => {
   const isMatched = value.trim().length >= NAME_MIN_LENGTH
   return {
@@ -55,7 +60,9 @@ const matchEmail = (value) => {
 }
 
 const matchPhone = (value) => {
-  const isMatched = value.trim().length === PHONE_LENGTH
+  const isMatched = formatPhoneNumber(value.trim()).length === PHONE_LENGTH
+
+  console.log(formatPhoneNumber(value.trim()), 'phone')
   return {
     error: isMatched ? null : "Incorrect phone",
     match: isMatched,
@@ -119,7 +126,7 @@ export const initForm = () => {
   const $inputPhone = $form.querySelector("input[name='phone']")
 
   if (!$inputName || !$inputEmail || !$inputPhone) return console.error("Cannot find form inputs")
-  Inputmask({ mask: "999999999", jitMasking: true }).mask($inputPhone)
+  Inputmask({ mask: "99 9999999", jitMasking: true }).mask($inputPhone)
 
   const state = new State($form)
 
@@ -155,7 +162,7 @@ export const initForm = () => {
       body: JSON.stringify({
         email: state.email.value,
         name: state.name.value,
-        phone: state.phone.value,
+        phone: formatPhoneNumber(state.phone.value),
       }),
     })
       .then((response) => {
