@@ -11,8 +11,8 @@ const util = require("gulp-util")
 const postcss = require("gulp-postcss")
 const htmlmin = require("gulp-htmlmin")
 // const data = require("gulp-data")
-const translations = require("./translations")
-console.log(translations, "tr")
+const translations = require("./src/translations")
+
 const isProduction = process.env.NODE_ENV === "production"
 
 const paths = {
