@@ -546,3 +546,5 @@ node_modules
 /frontend/dist/
 /api/dist/
 *.env
+
+.next/
