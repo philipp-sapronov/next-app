@@ -1,0 +1,331 @@
+$pipeline-offset: 120px;
+
+.pipeline {
+  background-color: $color-gray-light;
+  position: relative;
+
+  &__inner {
+    position: relative;
+    padding-bottom: $pipeline-offset;
+
+    @media screen and (max-width: $bp-down-medium) {
+      padding-bottom: $pipeline-offset / 3;
+    }
+  }
+}
+
+.pipeline .bg-layer {
+  background-color: $color-gray-layer;
+  clip-path: polygon(0 55%, 100% 0, 100% 100%, 0% 100%);
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+
+  @media screen and (max-width: $bp-down-large) {
+    clip-path: polygon(0 45%, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  @media screen and (max-width: $bp-down-medium) {
+    clip-path: polygon(0 35%, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  @media screen and (max-width: $bp-down-ipad) {
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  @media screen and (max-width: $bp-down-extra-small) {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+.cards__row {
+  display: flex;
+  margin-bottom: $pipeline-offset;
+
+  &.--last {
+    margin-bottom: 0;
+  }
+
+  & .pipeline__card {
+    order: 3;
+  }
+
+  & .pipeline__point {
+    order: 2;
+  }
+
+  & .pipeline__tips {
+    order: 1;
+  }
+
+  &.--even {
+    & .pipeline__card {
+      order: 1;
+    }
+
+    & .pipeline__point {
+      order: 2;
+    }
+
+    & .pipeline__tips {
+      order: 3;
+    }
+  }
+
+  @media screen and (max-width: $bp-down-ipad) {
+    margin-bottom: 0;
+    flex-direction: column;
+
+    &.--last {
+      padding: 0 20px 0 0;
+    }
+
+    & .pipeline__card {
+      order: 2;
+    }
+
+    & .pipeline__point {
+      order: 1;
+    }
+
+    & .pipeline__tips {
+      order: 3;
+    }
+
+    &.--even {
+      & .pipeline__card {
+        order: 2;
+      }
+
+      & .pipeline__point {
+        order: 1;
+      }
+
+      & .pipeline__tips {
+        order: 3;
+      }
+    }
+  }
+}
+
+.pipeline__cards {
+  margin-top: $pipeline-offset;
+  position: relative;
+  padding: 0 20px;
+
+  @media screen and (max-width: $bp-down-ipad) {
+    padding-left: 0;
+    margin-top: $pipeline-offset / 3;
+  }
+}
+
+.pipeline__point {
+  position: relative;
+  width: 100px;
+  min-width: 100px;
+
+  @media screen and (max-width: $bp-down-ipad) {
+    height: 140px;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    height: 50%;
+    left: 50%;
+    position: absolute;
+    width: 20px;
+    @media screen and (max-width: $bp-down-ipad) {
+      left: 0;
+    }
+  }
+
+  &.--first {
+    &:before {
+      background-color: $color-gray-light;
+      top: 0;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.--last {
+    &:before {
+      background-color: $color-gray-layer;
+      bottom: 0;
+      transform: translateX(-50%);
+    }
+  }
+
+  &:after {
+    background-color: $color-green;
+    border-radius: 12px;
+    position: absolute;
+    content: "";
+    display: block;
+    height: 12px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+
+    @media screen and (max-width: $bp-down-ipad) {
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.pipeline__line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-1px);
+  height: calc(100% + 250px);
+  width: 1px;
+
+  @media screen and (max-width: $bp-down-ipad) {
+    left: 0;
+    height: calc(100% + 100px);
+  }
+}
+
+.pipeline__tips {
+  font-family: $font-secondary;
+  align-self: center;
+  max-width: calc(50% - 50px);
+  width: calc(50% - 50px);
+  font-size: 20px;
+
+  @media screen and (max-width: $bp-down-ipad) {
+    align-self: flex-start;
+    padding: 20px 20px 0;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  &.--left {
+    justify-self: right;
+    text-align: right;
+
+    @media screen and (max-width: $bp-down-ipad) {
+      justify-self: left;
+      text-align: left;
+    }
+  }
+  &.--right {
+    justify-self: left;
+    text-align: left;
+  }
+}
+
+.pipeline__card {
+  border-radius: 7px;
+  max-width: calc(50% - 50px);
+  width: calc(50% - 50px);
+  box-sizing: border-box;
+  background-color: $color-white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.14);
+  font-size: 16px;
+  padding: 30px;
+  position: relative;
+  flex-grow: 1;
+
+  @media screen and (max-width: $bp-down-medium) {
+    flex-wrap: wrap;
+    max-width: $bp-down-extra-small;
+  }
+
+  @media screen and (max-width: $bp-down-ipad) {
+    width: 100%;
+  }
+
+  &.--empty {
+    background-color: transparent;
+    border: 2px solid $color-green;
+    box-shadow: unset;
+  }
+  &.--right {
+    margin-left: auto;
+    @media screen and (max-width: $bp-down-ipad) {
+      margin-left: 20px;
+    }
+  }
+
+  &.--left {
+    margin-left: 0;
+    @media screen and (max-width: $bp-down-ipad) {
+      margin-left: 20px;
+    }
+  }
+
+  & .card__inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    @media screen and (max-width: $bp-down-medium) {
+      flex-wrap: wrap;
+    }
+  }
+
+  & .card__icon-wrapper {
+    margin-right: 30px;
+    width: 70px;
+    flex-shrink: 0;
+    height: 70px;
+    border: 2px solid $color-green;
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 9px;
+    @media screen and (max-width: $bp-down-medium) {
+      margin-bottom: 20px;
+    }
+
+    @media screen and (max-width: $bp-down-ipad) {
+      width: 60px;
+      height: 60px;
+      flex-wrap: wrap;
+      position: absolute;
+      top: -100px;
+      left: 0;
+    }
+  }
+
+  & .card__icon {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+
+    object-fit: contain;
+  }
+
+  & .card__text {
+    //
+  }
+
+  & .card__heading {
+    margin: 0;
+    margin-bottom: 16px;
+
+    @media screen and (max-width: $bp-down-ipad) {
+      flex-wrap: wrap;
+      position: absolute;
+      top: -100px;
+      left: 80px;
+      margin: 24px 0;
+    }
+  }
+
+  & .card__content {
+    margin: 0;
+  }
+}
+
+.pipeline__cta {
+  display: flex;
+  justify-content: center;
+  padding-top: $pipeline-offset;
+}

@@ -1,0 +1,112 @@
+$green: #0bc481;
+$red: #ff6a21;
+$yellow: #ffc700;
+
+$gray-dark: #495f70;
+$gray-light: #f2f6fb;
+$gray-layer-light: #f8faff;
+$gray-layer: #ebf3f7;
+$white: white;
+$black: #1a353c;
+
+$green-lighter: lighten(
+  $color: $green,
+  $amount: 2,
+);
+
+$red-lighter: lighten(
+  $color: $red,
+  $amount: 7,
+);
+
+$yellow-lighter: lighten(
+  $color: $yellow,
+  $amount: 12,
+);
+
+$green-opaque: transparentize(
+  $color: $green,
+  $amount: 0.8,
+);
+
+$red-opaque: transparentize(
+  $color: $red,
+  $amount: 0.8,
+);
+
+$yellow-opaque: transparentize(
+  $color: $yellow,
+  $amount: 0.8,
+);
+
+$white-opaque: transparentize(
+  $color: $white,
+  $amount: 0.8,
+);
+
+$color-gray-dark-opaque: transparentize(
+  $color: $gray-dark,
+  $amount: 0.8,
+);
+
+$var-green: --color-green;
+$var-red: --color-red;
+$var-yellow: --color-yellow;
+$var-green-lighter: --color-green-lighter;
+$var-red-lighter: --color-red-lighter;
+$var-yellow-lighter: --color-yellow-lighter;
+$var-green-opaque: --color-green-opaque;
+$var-red-opaque: --color-red-opaque;
+$var-yellow-opaque: --color-yellow-opaque;
+
+$var-gray-dark: --color-gray-dark;
+$var-gray-light: --color-gray-light;
+$var-gray-layer-light: --color-gray-layer-light;
+$var-gray-layer: --color-gray-layer;
+
+$var-white: --color-white;
+$var-white-opaque: --color-white-opaque;
+$var-black: --color-black;
+
+// accent
+$color-green: var($var-green);
+$color-red: var($var-red);
+$color-yellow: var($var-yellow);
+// accent-lighter
+$color-green-lighter: var($var-green-lighter, $green-lighter);
+$color-red-lighter: var($var-red-lighter, $red-lighter);
+$color-yellow-lighter: var($var-yellow-lighter, $yellow-lighter);
+// accent opaque
+$color-green-opaque: var($var-green-opaque, $green-opaque);
+$color-red-opaque: var($var-red-opaque, $red-opaque);
+$color-yellow-opaque: var($var-yellow-opaque, $yellow-opaque);
+// common
+$color-gray-dark: var($var-gray-dark, $gray-dark);
+$color-gray-light: var($var-gray-light, $gray-light);
+$color-gray-layer-light: var($var-gray-layer-light, $gray-layer-light);
+$color-gray-layer: var($var-gray-layer, $gray-layer);
+
+$color-white: var($var-white, $white);
+$color-white-opaque: var($var-white-opaque, $white-opaque);
+$color-black: var($var-black, $black);
+
+:root {
+  #{$var-green}: #{$green};
+  #{$var-red}: #{$red};
+  #{$var-yellow}: #{$yellow};
+  #{$var-gray-dark}: #{$gray-dark};
+  #{$var-gray-light}: #{$gray-light};
+  #{$var-gray-layer-light}: #{$gray-layer-light};
+  #{$var-gray-layer}: #{$gray-layer};
+  #{$var-black}: #{$black};
+  #{$var-white}: #{$white};
+  // lighter
+  #{$var-green-lighter}: #{$green-lighter};
+  #{$var-red-lighter}: #{$red-lighter};
+  #{$var-yellow-lighter}: #{$yellow-lighter};
+  // opaque
+  #{$var-green-opaque}: #{$green-opaque};
+  #{$var-red-opaque}: #{$red-opaque};
+  #{$var-yellow-opaque}: #{$yellow-opaque};
+  #{$var-white-opaque}: #{$white-opaque};
+}

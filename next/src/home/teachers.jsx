@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button, SliderButtons } from '../components/buttons'
+import { Button } from '../components/buttons'
 import { TeacherCard } from '../components/cards'
 import { SectionHeading } from '../components/headings'
 
@@ -13,11 +13,6 @@ export const Teachers = ({ title, cards, options }) => {
         <div className="teachers__header">
           <div className="left-side">
             <div className="slider-buttons__wrapper">
-              <SliderButtons className="btn--light" />
-            </div>
-          </div>
-          <div className="right-side">
-            <div className="heading-wrapper">
               <SectionHeading className="--left --light" text={title} />
             </div>
           </div>
@@ -40,7 +35,11 @@ export const Teachers = ({ title, cards, options }) => {
           <div className="right-side">
             <ul className="teachers__options">
               {options.map((option, idx) => {
-                return <span key={idx}>{option}</span>
+                return (
+                  <span key={idx} className="teachers__option">
+                    {option}
+                  </span>
+                )
               })}
             </ul>
           </div>

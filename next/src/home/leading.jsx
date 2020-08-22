@@ -101,7 +101,7 @@ export const Leading = ({ title, optionsTitle, form, options, subscription }) =>
             <div className="additional-msg">
               <div className="additional-msg__arrow">
                 <svg fill="none">
-                  <use xlinkHref="./assets/svg-min/sprite.svg#leading-arrow" />
+                  <use xlinkHref="./assets/sprite.svg#leading-arrow" />
                 </svg>
               </div>
               <span className="additional-msg__text">{subscription}</span>

@@ -16,7 +16,7 @@ const Card = ({ className, icon, title, text }) => {
       <div className="card__inner">
         <div className="card__icon-wrapper">
           <svg width="100%" height="100%">
-            <use xlinkHref={`./assets/svg-min/sprite.svg#${icon}`} />
+            <use xlinkHref={`./assets/sprite.svg#${icon}`} />
           </svg>
         </div>
         <div className="card__text">

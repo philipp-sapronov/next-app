@@ -22,21 +22,27 @@ const ArrowRight = () => {
   )
 }
 
-export const Button = ({ children, className }) => {
+export const Button = ({ children, className, onClick }) => {
   return (
-    <button type="button" className={className}>
+    <button onClick={onClick} type="button" className={className}>
       <span className="btn__label">{children}</span>
     </button>
   )
 }
 
-export const SliderButtons = () => {
+export const SliderButtons = ({ className, onNext, onPrev }) => {
   return (
     <div className="slider-buttons">
-      <Button className="slider-btn prev-btn btn--square btn--medium btn--outlined">
+      <Button
+        onClick={onPrev}
+        className={'slider-btn prev-btn btn--square btn--medium btn--outlined ' + className}
+      >
         <ArrowLeft />
       </Button>
-      <Button className="slider-btn next-btn btn--square btn--medium btn--outlined">
+      <Button
+        onClick={onNext}
+        className={'slider-btn next-btn btn--square btn--medium btn--outlined ' + className}
+      >
         <ArrowRight />
       </Button>
     </div>

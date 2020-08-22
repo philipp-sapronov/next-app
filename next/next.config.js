@@ -1,8 +1,10 @@
-module.exports = {
+const withSass = require('@zeit/next-sass')
+
+module.exports = withSass({
   webpack: (config, { dev }) => {
     if (dev) {
       config.module.rules.push({
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'eslint-loader',
         exclude: ['/node_modules/', '/.next/', '/out/'],
         enforce: 'pre',
@@ -12,6 +14,7 @@ module.exports = {
         },
       })
     }
+
     return config
   },
-}
+})

@@ -27,9 +27,9 @@ const CardHeader = ({ avatar, age, socials, name, className }) => {
   )
 }
 
-const Card = ({ header, content }) => {
+const Card = ({ header, content, className }) => {
   return (
-    <div className="personality__card">
+    <div className={'personality__card ' + className}>
       <div className="card-layer"></div>
       <div className="card__inner">
         {header}
@@ -69,13 +69,19 @@ export const TeacherContent = ({ education, experience, hobbies }) => {
 }
 
 export const FeedbackCard = ({ card }) => {
-  return <Card header={<CardHeader {...card} />} content={<FeedbackContent {...card} />} />
+  return (
+    <Card
+      className="feedbacks_card"
+      header={<CardHeader {...card} />}
+      content={<FeedbackContent {...card} />}
+    />
+  )
 }
 
 export const TeacherCard = ({ card }) => {
   return (
     <Card
-      className="flexible"
+      className="teacher_card flexible"
       header={<CardHeader {...card} />}
       content={<TeacherContent {...card} />}
     />

@@ -1,0 +1,38 @@
+.section {
+  padding: 64px 0 50px;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 50px;
+
+  box-sizing: border-box;
+
+  @media screen and (max-width: $bp-down-small) {
+    padding: 0 20px;
+  }
+}
+
+.main {
+  // overflow-x: hidden;
+}
+
+body {
+  cursor: default;
+  font-family: #{$font-primary};
+  font-weight: 400;
+  color: $color-gray-dark;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}

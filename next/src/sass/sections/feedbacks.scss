@@ -1,0 +1,54 @@
+.feedbacks {
+  overflow: hidden;
+  background-color: $color-gray-light;
+  position: relative;
+
+  & .heading-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    align-items: center;
+
+    @media screen and (max-width: $bp-down-small) {
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    & .slider-buttons__wrapper {
+      @media screen and (max-width: $bp-down-small) {
+        margin: 30px auto 10px auto;
+        width: 100%;
+      }
+    }
+  }
+
+  & .image__wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+  }
+}
+
+.feedbacks {
+  & .feedbacks__carousel-wrapper {
+    & .slick-list {
+      overflow: visible;
+    }
+  }
+
+  & .owl-stage-outer {
+    padding: 10px 0;
+    overflow: visible;
+  }
+
+  & .feedbacks_card {
+    margin: 0 20px;
+  }
+}
+
+.feedbacks__cta {
+  display: flex;
+  justify-content: center;
+  padding-top: $pipeline-offset / 3;
+}

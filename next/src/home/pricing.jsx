@@ -1,7 +1,47 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import Slider from 'react-slick'
 
 import { Button, SliderButtons } from '../components/buttons'
 import { SectionHeading } from '../components/headings'
+
+export const responsive = [
+  {
+    breakpoint: 1024,
+    settings: {
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      infinite: true,
+      dots: true,
+    },
+  },
+  {
+    breakpoint: 600,
+    settings: {
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      initialSlide: 2,
+    },
+  },
+  {
+    breakpoint: 480,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    },
+  },
+]
+
+const settings = {
+  arrows: false,
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  focusOnSelect: false,
+  // centerMode: true,
+  // adaptiveHeight: true,
+}
 
 const TickIcon = () => {
   return (
@@ -37,9 +77,11 @@ const Card = ({ card }) => {
         </div>
         <div className="card__divider"></div>
         <ul className="list">
+          {/*  */}
           {card.items.map((item, idx) => {
             return <ListItem key={idx} text={item} />
           })}
+          {/*  */}
         </ul>
         <div className="price__wrapper">
           <span className="price__amount">270</span>
@@ -51,20 +93,35 @@ const Card = ({ card }) => {
 }
 
 export const Pricing = ({ title, cards }) => {
+  const slider = useRef()
+
+  const handleNext = () => {
+    if (!slider.current) return
+    slider.current.slickNext()
+  }
+
+  const handlePrev = () => {
+    if (!slider.current) return
+    slider.current.slickPrev()
+  }
+
+  console.log(slider, 'SLIDER')
   return (
     <section className="pricing section">
       <div className="pricing__inner container">
         <div className="heading-wrapper">
           <SectionHeading className="--left --light" text={title} />
           <div className="slider-buttons__wrapper">
-            <SliderButtons className="btn--light" />
+            <SliderButtons className="btn--light" onPrev={handlePrev} onNext={handleNext} />
           </div>
         </div>
         <div className="pricing__carousel-wrapper">
           <div id="pricing-carousel" className="pricing-carousel owl-carousel">
-            {cards.map((card, idx) => {
-              return <Card key={idx} card={card} />
-            })}
+            <Slider ref={slider} {...settings}>
+              {[...cards, ...cards].map((card, idx) => {
+                return <Card key={idx} card={card} />
+              })}
+            </Slider>
           </div>
         </div>
         <div className="pricing__cta">
@@ -73,7 +130,7 @@ export const Pricing = ({ title, cards }) => {
       </div>
       <div className="image__wrapper">
         <svg viewBox="0 0 1196 529" fill="none" width="100%" height="100%">
-          <use xlinkHref="./assets/svg-min/sprite.svg#pricing-circles" />
+          <use xlinkHref="./assets/sprite.svg#pricing-circles" />
         </svg>
       </div>
     </section>

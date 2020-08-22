@@ -18,7 +18,7 @@ export const Hero = ({ title, subtitle, tip }) => {
           <div className="additional-msg__wrapper">
             <div className="additional-msg__arrow">
               <svg>
-                <use xlinkHref="./assets/svg-min/sprite.svg#hero-arrow" />
+                <use xlinkHref="./assets/sprite.svg#hero-arrow" />
               </svg>
             </div>
             <p className="additional-msg">{tip}</p>
@@ -37,7 +37,7 @@ export const Hero = ({ title, subtitle, tip }) => {
                   <use
                     className="stroke--yellow"
                     strokeWidth="14"
-                    xlinkHref="./assets/svg-min/sprite.svg#clipping-path"
+                    xlinkHref="./assets/sprite.svg#clipping-path"
                   />
                 </clipPath>
                 {/* BACKGROUND IMAGE */}
@@ -54,7 +54,7 @@ export const Hero = ({ title, subtitle, tip }) => {
                 <use
                   className="stroke--yellow"
                   strokeWidth="14"
-                  xlinkHref="./assets/svg-min/sprite.svg#path"
+                  xlinkHref="./assets/sprite.svg#path"
                 />
                 {/* TEXT LAYER FIRST */}
                 <path
@@ -101,12 +101,12 @@ export const Hero = ({ title, subtitle, tip }) => {
                 <use
                   className="stroke--yellow fill--yellow"
                   strokeWidth="8"
-                  xlinkHref="./assets/svg-min/sprite.svg#point__1"
+                  xlinkHref="./assets/sprite.svg#point__1"
                 />
                 <use
                   className="stroke--yellow"
                   strokeWidth="2"
-                  xlinkHref="./assets/svg-min/sprite.svg#path"
+                  xlinkHref="./assets/sprite.svg#path"
                 />
               </svg>
             </div>
@@ -117,17 +117,17 @@ export const Hero = ({ title, subtitle, tip }) => {
                 <use
                   className="stroke--yellow"
                   strokeWidth="1"
-                  xlinkHref="./assets/svg-min/sprite.svg#path"
+                  xlinkHref="./assets/sprite.svg#path"
                 />
                 <use
                   className="stroke--yellow fill--yellow"
                   strokeWidth="2"
-                  xlinkHref="./assets/svg-min/sprite.svg#point__7"
+                  xlinkHref="./assets/sprite.svg#point__7"
                 />
                 <use
                   className="stroke--yellow fill--yellow"
                   strokeWidth="4"
-                  xlinkHref="./assets/svg-min/sprite.svg#point__4"
+                  xlinkHref="./assets/sprite.svg#point__4"
                 />
               </svg>
             </div>
@@ -139,12 +139,12 @@ export const Hero = ({ title, subtitle, tip }) => {
                   strokeDasharray="4 6"
                   className="stroke--yellow"
                   strokeWidth="1"
-                  xlinkHref="./assets/svg-min/sprite.svg#path"
+                  xlinkHref="./assets/sprite.svg#path"
                 />
                 <use
                   className="stroke--red fill--red"
                   strokeWidth="4"
-                  xlinkHref="./assets/svg-min/sprite.svg#point__6"
+                  xlinkHref="./assets/sprite.svg#point__6"
                 />
               </svg>
             </div>
@@ -156,11 +156,11 @@ export const Hero = ({ title, subtitle, tip }) => {
                   strokeDasharray="2 10"
                   className="stroke--yellow"
                   strokeWidth="1"
-                  xlinkHref="./assets/svg-min/sprite.svg#path"
+                  xlinkHref="./assets/sprite.svg#path"
                 />
                 <use
                   className="stroke--white fill--white"
-                  xlinkHref="./assets/svg-min/sprite.svg#point__8"
+                  xlinkHref="./assets/sprite.svg#point__8"
                 />
               </svg>
             </div>
@@ -172,7 +172,7 @@ export const Hero = ({ title, subtitle, tip }) => {
                   strokeDasharray="2 10"
                   className="stroke--yellow"
                   strokeWidth="1"
-                  xlinkHref="./assets/svg-min/sprite.svg#path"
+                  xlinkHref="./assets/sprite.svg#path"
                 />
                 <use className="fill--yellow" href="#point__3" />
               </svg>
@@ -184,7 +184,7 @@ export const Hero = ({ title, subtitle, tip }) => {
                   strokeDasharray="2 10"
                   className="stroke--yellow"
                   strokeWidth="1"
-                  xlinkHref="./assets/svg-min/sprite.svg#path"
+                  xlinkHref="./assets/sprite.svg#path"
                 />
               </svg>
             </div>
@@ -195,7 +195,7 @@ export const Hero = ({ title, subtitle, tip }) => {
                   strokeDasharray="2 10"
                   className="stroke--yellow"
                   strokeWidth="1"
-                  xlinkHref="./assets/svg-min/sprite.svg#path"
+                  xlinkHref="./assets/sprite.svg#path"
                 />
               </svg>
             </div>
