@@ -7,16 +7,16 @@ import { Pricing } from './pricing'
 import { Teachers } from './teachers'
 import { Why } from './why'
 
-export const Home = () => {
+export const Home = ({ content }) => {
   return (
     <>
-      <Hero />
-      <Pipeline />
-      <Pricing />
-      <Why />
-      <Teachers />
-      <Feedbacks />
-      <Leading />
+      <Hero {...content.hero} />
+      <Pipeline {...content.pipeline} />
+      <Pricing {...content.pricing} />
+      <Why {...content.why} />
+      <Teachers {...content.teachers} />
+      <Feedbacks {...content.feedbacks} />
+      <Leading {...content.leading} />
     </>
   )
 }

@@ -1,40 +1,42 @@
+import React from 'react'
+
 import { Button } from '../components/buttons'
 
-export const Hero = ({ hero }) => {
+export const Hero = ({ title, subtitle, tip }) => {
   return (
-    <div class="hero hero-wrapper">
-      <div class="hero__inner">
-        <div class="title__wrapper">
-          <h2 class="subtitle">{hero.subtitle}</h2>
-          <div class="title__dash" />
-          <h1 class="title">{hero.title}</h1>
-          <div class="hero-cta__wrapper">
+    <div className="hero hero-wrapper">
+      <div className="hero__inner">
+        <div className="title__wrapper">
+          <h2 className="subtitle">{subtitle}</h2>
+          <div className="title__dash" />
+          <h1 className="title">{title}</h1>
+          <div className="hero-cta__wrapper">
             <Button className="cta-btn hero-cta btn--filled btn--red btn--uppercased">
               {'buttons.begin'}
             </Button>
           </div>
-          <div class="additional-msg__wrapper">
-            <div class="additional-msg__arrow">
+          <div className="additional-msg__wrapper">
+            <div className="additional-msg__arrow">
               <svg>
                 <use xlinkHref="./assets/svg-min/sprite.svg#hero-arrow" />
               </svg>
             </div>
-            <p class="additional-msg">{'hero.tip'}</p>
+            <p className="additional-msg">{tip}</p>
           </div>
         </div>
 
         {/* IMAGES */}
 
-        <div class="images">
+        <div className="images">
           {/* IMAGE */}
-          <div class="image__wrapper">
-            <div class="circle__main">
-              <svg class="svg-image" viewBox="0 0 606 480" fill="none">
+          <div className="image__wrapper">
+            <div className="circle__main">
+              <svg className="svg-image" viewBox="0 0 606 480" fill="none">
                 {/* CLIP PATH */}
                 <clipPath id="clip-photo">
                   <use
-                    class="stroke--yellow"
-                    stroke-width="14"
+                    className="stroke--yellow"
+                    strokeWidth="14"
                     xlinkHref="./assets/svg-min/sprite.svg#clipping-path"
                   />
                 </clipPath>
@@ -45,13 +47,13 @@ export const Hero = ({ hero }) => {
                   width="100%"
                   height="100%"
                   preserveAspectRatio="xMinYMin slice"
-                  clip-path="url(#clip-photo)"
+                  clipPath="url(#clip-photo)"
                   xlinkHref="./assets/pic2.png"
                 />
                 {/* STROKE AROUND IMAGE */}
                 <use
-                  class="stroke--yellow"
-                  stroke-width="14"
+                  className="stroke--yellow"
+                  strokeWidth="14"
                   xlinkHref="./assets/svg-min/sprite.svg#path"
                 />
                 {/* TEXT LAYER FIRST */}
@@ -63,10 +65,10 @@ export const Hero = ({ hero }) => {
                   transform="translate(491.644 7.44531) rotate(16.8754)"
                   fill="white"
                   xmlSpace="preserve"
-                  style="white-space: pre"
-                  font-family="Caveat"
-                  font-size="48"
-                  letter-spacing="0em"
+                  style={{ 'white-space': 'pre' }}
+                  fontFamily="Caveat"
+                  fontSize="48"
+                  letterSpacing="0em"
                 >
                   <tspan x="0" y="46.84">
                     Hello!
@@ -81,10 +83,10 @@ export const Hero = ({ hero }) => {
                   transform="translate(38.3743 374.27) rotate(-53.8573)"
                   fill="white"
                   xmlSpace="preserve"
-                  style="white-space: pre"
-                  font-family="Caveat"
-                  font-size="48"
-                  letter-spacing="0em"
+                  style={{ 'white-space': 'pre' }}
+                  fontFamily="Caveat"
+                  fontSize="48"
+                  letterSpacing="0em"
                 >
                   <tspan x="0" y="46.84">
                     Hi!
@@ -94,113 +96,113 @@ export const Hero = ({ hero }) => {
             </div>
 
             {/* USE PATHS */}
-            <div class="circle__1">
+            <div className="circle__1">
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
                 <use
-                  class="stroke--yellow fill--yellow"
-                  stroke-width="8"
+                  className="stroke--yellow fill--yellow"
+                  strokeWidth="8"
                   xlinkHref="./assets/svg-min/sprite.svg#point__1"
                 />
                 <use
-                  class="stroke--yellow"
-                  stroke-width="2"
+                  className="stroke--yellow"
+                  strokeWidth="2"
                   xlinkHref="./assets/svg-min/sprite.svg#path"
                 />
               </svg>
             </div>
 
             {/* USE PATHS */}
-            <div class="circle__2">
+            <div className="circle__2">
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
                 <use
-                  class="stroke--yellow"
-                  stroke-width="1"
+                  className="stroke--yellow"
+                  strokeWidth="1"
                   xlinkHref="./assets/svg-min/sprite.svg#path"
                 />
                 <use
-                  class="stroke--yellow fill--yellow"
-                  stroke-width="2"
+                  className="stroke--yellow fill--yellow"
+                  strokeWidth="2"
                   xlinkHref="./assets/svg-min/sprite.svg#point__7"
                 />
                 <use
-                  class="stroke--yellow fill--yellow"
-                  stroke-width="4"
+                  className="stroke--yellow fill--yellow"
+                  strokeWidth="4"
                   xlinkHref="./assets/svg-min/sprite.svg#point__4"
                 />
               </svg>
             </div>
 
             {/* USE PATHS */}
-            <div class="circle__3">
+            <div className="circle__3">
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
                 <use
-                  stroke-dasharray="4 6"
-                  class="stroke--yellow"
-                  stroke-width="1"
+                  strokeDasharray="4 6"
+                  className="stroke--yellow"
+                  strokeWidth="1"
                   xlinkHref="./assets/svg-min/sprite.svg#path"
                 />
                 <use
-                  class="stroke--red fill--red"
-                  stroke-width="4"
+                  className="stroke--red fill--red"
+                  strokeWidth="4"
                   xlinkHref="./assets/svg-min/sprite.svg#point__6"
                 />
               </svg>
             </div>
 
             {/* USE PATHS */}
-            <div class="circle__4">
+            <div className="circle__4">
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
                 <use
-                  stroke-dasharray="2 10"
-                  class="stroke--yellow"
-                  stroke-width="1"
+                  strokeDasharray="2 10"
+                  className="stroke--yellow"
+                  strokeWidth="1"
                   xlinkHref="./assets/svg-min/sprite.svg#path"
                 />
                 <use
-                  class="stroke--white fill--white"
+                  className="stroke--white fill--white"
                   xlinkHref="./assets/svg-min/sprite.svg#point__8"
                 />
               </svg>
             </div>
 
             {/* USE PATHS */}
-            <div class="circle__5">
+            <div className="circle__5">
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
                 <use
-                  stroke-dasharray="2 10"
-                  class="stroke--yellow"
-                  stroke-width="1"
+                  strokeDasharray="2 10"
+                  className="stroke--yellow"
+                  strokeWidth="1"
                   xlinkHref="./assets/svg-min/sprite.svg#path"
                 />
-                <use class="fill--yellow" href="#point__3" />
+                <use className="fill--yellow" href="#point__3" />
               </svg>
             </div>
 
-            <div class="circle__6">
+            <div className="circle__6">
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
                 <use
-                  stroke-dasharray="2 10"
-                  class="stroke--yellow"
-                  stroke-width="1"
+                  strokeDasharray="2 10"
+                  className="stroke--yellow"
+                  strokeWidth="1"
                   xlinkHref="./assets/svg-min/sprite.svg#path"
                 />
               </svg>
             </div>
 
-            <div class="circle__7">
+            <div className="circle__7">
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
                 <use
-                  stroke-dasharray="2 10"
-                  class="stroke--yellow"
-                  stroke-width="1"
+                  strokeDasharray="2 10"
+                  className="stroke--yellow"
+                  strokeWidth="1"
                   xlinkHref="./assets/svg-min/sprite.svg#path"
                 />
               </svg>
             </div>
           </div>
 
-          <div class="icon__wrapper">
-            <div class="icon__inner" />
+          <div className="icon__wrapper">
+            <div className="icon__inner" />
           </div>
         </div>
       </div>

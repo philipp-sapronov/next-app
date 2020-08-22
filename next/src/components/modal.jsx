@@ -2,20 +2,26 @@ import React from 'react'
 
 import { Button } from './buttons'
 
-const Modal = () => {
+export const Modal = () => {
   return (
-    <div class="modal modal-call-offer">
-      <div class="modal__arrow" />
-      <form class="form">
-        <div class="form__item">
-          <label class="input-label">
+    <div className="modal modal-call-offer">
+      <div className="modal__arrow" />
+      <form className="form">
+        <div className="form__item">
+          <label className="input-label">
             Телефон
-            <span style="color: var(--color-red, red);">*</span>
-            <input class="input-text" placeholder="Телефон..." type="text" />
+            <span
+              style={{
+                color: 'var(--color-red, red)',
+              }}
+            >
+              *
+            </span>
+            <input className="input-text" placeholder="Телефон..." type="text" />
           </label>
         </div>
 
-        <div class="form__submit-wrapper">
+        <div className="form__submit-wrapper">
           <Button className="form__submit-btn btn btn--filled btn--green btn--large btn--uppercased">
             Перезвоните мне
           </Button>

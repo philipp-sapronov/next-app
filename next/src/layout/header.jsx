@@ -1,21 +1,23 @@
 import React from 'react'
 
-import { Logo } from '../components/logo'
+import { Logo, LogoSmall } from '../components/logo'
 import { Button } from '../components/buttons'
 import { PhoneIcon } from '../components/icons'
 
+const phone = '+38 (068) 228-08-08'
+
 export const Header = () => {
   return (
-    <header class="header header-main">
-      <div class="header__inner">
-        <div class="header__logo">
+    <header className="header header-main">
+      <div className="header__inner">
+        <div className="header__logo">
           <Logo variant="full" />
         </div>
-        <div class="header__nav">
-          <a class="phone-btn btn btn--empty btn--light" href="tel: +38 (068) 228-08-08">
-            +38 (068) 228-08-08"
+        <div className="header__nav">
+          <a className="phone-btn btn btn--empty btn--light" href={`tel: ${phone}`}>
+            {phone}
           </a>
-          <button class="call-offer-btn icon--btn btn--outlined btn--light  btn--dropdown">
+          <button className="call-offer-btn icon--btn btn--outlined btn--light  btn--dropdown">
             <PhoneIcon />
           </button>
           <Button
@@ -38,17 +40,16 @@ export const Header = () => {
 
 export const HeaderFloat = () => {
   return (
-    <div class="header header-small">
-      <div class="header__inner">
-        <div class="header__logo">{logo.small()}</div>
-        <div class="header__nav">
-          <a
-            class="phone-btn btn btn--empty btn--hover btn--light"
-            href={'tel:' + '+38 (068) 228-08-08'}
-          >
-            {'+38 (068) 228-08-08'}
+    <div className="header header-small">
+      <div className="header__inner">
+        <div className="header__logo">
+          <LogoSmall />
+        </div>
+        <div className="header__nav">
+          <a className="phone-btn btn btn--empty btn--hover btn--light" href={`tel:${phone}`}>
+            {phone}
           </a>
-          <button class="call-offer-btn icon--btn btn--outlined btn--light  btn--dropdown">
+          <button className="call-offer-btn icon--btn btn--outlined btn--light  btn--dropdown">
             <PhoneIcon />
           </button>
           <Button

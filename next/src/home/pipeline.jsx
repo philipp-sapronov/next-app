@@ -1,34 +1,43 @@
-// import { Button, SliderButtons } from '../components/buttons'
+import React from 'react'
+
 import { SectionHeading } from '../components/headings'
+
+const icons = {
+  warmup: 'warmup',
+  leadin: 'leadin',
+  hometask: 'hometask',
+  presentation: 'presentation',
+  production: 'production',
+}
 
 const Card = ({ className, icon, title, text }) => {
   return (
-    <div class={'pipeline__card ' + className}>
-      <div class="card__inner">
-        <div class="card__icon-wrapper">
+    <div className={'pipeline__card ' + className}>
+      <div className="card__inner">
+        <div className="card__icon-wrapper">
           <svg width="100%" height="100%">
             <use xlinkHref={`./assets/svg-min/sprite.svg#${icon}`} />
           </svg>
         </div>
-        <div class="card__text">
-          <h4 class="card__heading">{title}</h4>
-          <p class="card__content">{text}</p>
+        <div className="card__text">
+          <h4 className="card__heading">{title}</h4>
+          <p className="card__content">{text}</p>
         </div>
       </div>
     </div>
   )
 }
 
-export const Pipeline = () => {
+export const Pipeline = ({ title, card_1, card_2, card_3, card_4, card_5 }) => {
   return (
-    <section class="pipeline section">
-      <div class="bg-layer"></div>
-      <div class="pipeline__inner container">
-        <div class="heading-wrapper">
-          <SectionHeading className="--center" text={pipeline.title} />
+    <section className="pipeline section">
+      <div className="bg-layer" />
+      <div className="pipeline__inner container">
+        <div className="heading-wrapper">
+          <SectionHeading className="--center" text={title} />
         </div>
-        <div class="pipeline__cards">
-          <div class="pipeline__line">
+        <div className="pipeline__cards">
+          <div className="pipeline__line">
             <svg width="3" height="100%">
               <line
                 x1="100%"
@@ -36,69 +45,68 @@ export const Pipeline = () => {
                 x2="0%"
                 y2="100%"
                 stroke="#0BC481"
-                stroke-width="2"
-                stroke-dasharray="3 8"
+                strokeWidth="2"
+                strokeDasharray="3 8"
               ></line>
             </svg>
           </div>
-          <div class="cards__wrapper">
+          <div className="cards__wrapper">
             {/* card */}
-            <div class="cards__row">
-              <div class="pipeline__tips"></div>
-              <div class="pipeline__point --first"></div>
+            <div className="cards__row">
+              <div className="pipeline__tips" />
+              <div className="pipeline__point --first" />
               <Card
                 className="--right"
-                icon="warmup"
-                title={pipeline.card_1.title}
-                text={pipeline.card_1.text}
+                icon={icons.warmup}
+                title={card_1.title}
+                text={card_1.text}
               />
             </div>
             {/* card */}
-            <div class="cards__row --even">
+            <div className="cards__row --even">
               <Card
                 className="--left"
-                icon="leadin"
-                title={pipeline.card_2.title}
-                text={pipeline.card_2.text}
+                icon={icons.leadin}
+                title={card_2.title}
+                text={card_2.text}
               />
-              <div class="pipeline__point --even"></div>
-              <div class="pipeline__tips --right">{pipeline.card_2.tip}</div>
+              <div className="pipeline__point --even" />
+              <div className="pipeline__tips --right">{card_2.tip}</div>
             </div>
             {/* card */}
-            <div class="cards__row">
-              <div class="pipeline__tips"></div>
-              <div class="pipeline__point"></div>
+            <div className="cards__row">
+              <div className="pipeline__tips" />
+              <div className="pipeline__point" />
               <Card
                 className="--right"
-                icon="hometask"
-                title={pipeline.card_3.title}
-                text={pipeline.card_3.text}
+                icon={icons.hometask}
+                title={card_3.title}
+                text={card_3.text}
               />
             </div>
             {/* card */}
-            <div class="cards__row  --even">
+            <div className="cards__row  --even">
               <Card
                 className="--left"
-                icon="presentation"
-                title={pipeline.card_4.title}
-                text={pipeline.card_4.text}
+                icon={icons.presentation}
+                title={card_4.title}
+                text={card_4.text}
               />
 
-              <div class="pipeline__point  --even"></div>
-              <div class="pipeline__tips"></div>
+              <div className="pipeline__point  --even" />
+              <div className="pipeline__tips" />
             </div>
-            {/* card */}
           </div>
         </div>
         {/* card */}
-        <div class="cards__row --last">
-          <div class="pipeline__tips --left">{pipeline.card_5.tip}</div>
-          <div class="pipeline__point --last"></div>
+        <div className="cards__row --last">
+          <div className="pipeline__tips --left">{card_5.tip}</div>
+          <div className="pipeline__point --last" />
           <Card
             className="--right --empty"
-            icon="production"
-            title={pipeline.card_5.title}
-            text={pipeline.card_5.text}
+            icon={icons.production}
+            title={card_5.title}
+            text={card_5.text}
           />
         </div>
       </div>
