@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { SectionHeading } from '../components/headings'
+import { Button } from '../components/buttons'
 
 const getUrl = () => `${window.location.protocol}//${window.location.host}/api/applications/create`
 
@@ -55,7 +56,12 @@ const Form = ({ inputEmail, inputName, inputPhone, confirmText }) => {
   const [state, setState] = useState(initialState)
 
   const handleChangePhone = ({ target }) => {
-    const { value } = target
+    let { value } = target
+
+    if (value.length - state.phone.value.length > 1) {
+      value = target.value.slice(target.value.length - PHONE_LENGTH)
+    }
+
     if (!/^[0-9]{0,9}$/.test(value)) return
     const error = state.phone.error ? matchPhone(value) : state.phone.error
     setState((prev) => ({ ...prev, phone: { value, error } }))
@@ -173,12 +179,12 @@ const Form = ({ inputEmail, inputName, inputPhone, confirmText }) => {
       </div>
 
       <div className="form__submit-wrapper">
-        <button
+        <Button
           className="form__submit-btn btn btn--filled btn--red btn--large btn--uppercased"
           type="submit"
         >
           {'buttons.sendApplication'}
-        </button>
+        </Button>
         <p className="confirm-msg">{confirmText}</p>
       </div>
     </form>

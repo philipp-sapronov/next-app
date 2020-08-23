@@ -1,31 +1,20 @@
 .modal.modal-call-offer {
   // VISIBILITY
-  display: none;
-  opacity: 0;
   transition: opacity 0.3s ease;
-
-  &.visible {
-    opacity: 1;
-  }
-
-  &.active {
-    display: block;
-  }
-
-  // OWN RULES
   position: absolute;
   z-index: 999;
-
   width: 400px;
   box-sizing: border-box;
   background-color: $color-white;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  @include Fade(300);
 
   @media screen and (max-width: $bp-down-small) {
     width: calc(100vw - 40px);
   }
+
   & .form {
     color: $color-gray-dark;
     width: 100%;
@@ -56,7 +45,7 @@
         // own styles
         height: 30px;
         border-radius: 5px;
-        padding: 10px 20px;
+        padding: 10px 20px 10px 85px;
         border: 1px solid $color-gray-dark;
         display: block;
         outline: none;
@@ -80,11 +69,22 @@
         padding: 10px 0;
       }
 
-      & .success {
-        //
-      }
-      & .error {
-        //
+      & .input-wrapper {
+        position: relative;
+
+        & .countryCode {
+          position: absolute;
+          top: 50%;
+          left: 20px;
+          height: 40px;
+          width: 58px;
+          display: flex;
+          align-items: center;
+          transform: translateY(-50%);
+          & > :first-child {
+            margin-right: 5px;
+          }
+        }
       }
     }
   }
@@ -92,7 +92,7 @@
   // ARROW
 
   & .modal__arrow {
-    content: "";
+    content: '';
     display: block;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     background-color: $color-white;

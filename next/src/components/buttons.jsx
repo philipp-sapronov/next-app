@@ -22,10 +22,19 @@ const ArrowRight = () => {
   )
 }
 
-export const Button = ({ children, className, onClick }) => {
+export const Button = ({ children, className, onClick, type }) => {
+  return (
+    <button onClick={onClick} type={type || 'button'} className={className}>
+      <span className="btn__label">{children}</span>
+    </button>
+  )
+}
+
+export const IconButton = ({ children, icon, className, onClick }) => {
   return (
     <button onClick={onClick} type="button" className={className}>
-      <span className="btn__label">{children}</span>
+      {children && <span className="btn__label">{children}</span>}
+      <span className="btn__icon">{icon}</span>
     </button>
   )
 }

@@ -28,7 +28,7 @@
 }
 
 @mixin arrow-dropdown($color: $color-white) {
-  content: "";
+  content: '';
   width: 0;
   height: 0;
   margin-left: 4px;
@@ -49,10 +49,8 @@
   }
 }
 
-.btn {
-  &--uppercased {
-    text-transform: uppercase;
-  }
+.btn * {
+  pointer-events: none;
 }
 
 .btn--dropdown {
@@ -66,6 +64,10 @@
 }
 
 .btn {
+  &--uppercased {
+    text-transform: uppercase;
+  }
+
   &--large {
     padding: 22px 50px 20px 50px;
     &.btn--square {
@@ -209,5 +211,36 @@
   width: max-content;
   @media screen and (max-width: $bp-down-small) {
     margin: 0 auto;
+  }
+}
+
+.icon--btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0;
+  padding: 10px;
+}
+
+.btn--icon-sm {
+  & .btn__icon {
+    display: none;
+    @media screen and (max-width: $bp-down-small) {
+      display: block;
+    }
+
+    &,
+    & svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  & .btn__label {
+    @media screen and (min-width: $bp-up-small) {
+      display: block;
+    }
+
+    display: none;
   }
 }

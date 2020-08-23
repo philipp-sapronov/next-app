@@ -2,26 +2,23 @@ import React, { useEffect, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import { Logo, LogoSmall } from '../components/logo'
-import { Button } from '../components/buttons'
+import { IconButton } from '../components/buttons'
 import { PhoneIcon } from '../components/icons'
+import { useCallOrderDialog } from '../components/callOrderDialog'
 
 const phone = '+38 (068) 228-08-08'
-const heroSection = 'hero'
+const heroSectionClassName = 'hero'
 
 const useHeader = () => {
   const [isShow, setIsShow] = useState(false)
 
   const handleScroll = () => {
-    const $heroSection = document.querySelector(`.${heroSection}`)
-
+    const heroSection = document.querySelector(`.${heroSectionClassName}`)
     if (!heroSection) return
 
-    const rect = $heroSection.getBoundingClientRect()
+    const rect = heroSection.getBoundingClientRect()
 
-    if (window.pageYOffset <= (rect.height || 0)) {
-      return setIsShow(false)
-    }
-
+    if (window.pageYOffset <= (rect.height || 0)) return setIsShow(false)
     setIsShow(true)
   }
 
@@ -35,8 +32,6 @@ const useHeader = () => {
 export const Header = () => {
   const { isShow } = useHeader()
 
-  console.log(isShow)
-
   return (
     <>
       <HeaderMain />
@@ -48,6 +43,8 @@ export const Header = () => {
 }
 
 export const HeaderMain = () => {
+  const [dialog, toggleDialog] = useCallOrderDialog()
+
   return (
     <header className="header header-main">
       <div className="header__inner">
@@ -58,28 +55,24 @@ export const HeaderMain = () => {
           <a className="phone-btn btn btn--empty btn--light" href={`tel: ${phone}`}>
             {phone}
           </a>
-          <button className="call-offer-btn icon--btn btn--outlined btn--light  btn--dropdown">
-            <PhoneIcon />
-          </button>
-          <Button
+          <IconButton
+            onClick={toggleDialog}
             variant="primary"
-            className="call-offer-btn btn btn--outlined btn--light btn--small btn--dropdown default"
+            icon={<PhoneIcon />}
+            className="call-offer-btn btn btn--outlined btn--light btn--small btn--icon-sm"
           >
             Заказать звонок
-          </Button>
-          <Button
-            variant="primary"
-            className="language-menu-btn btn btn--empty btn--hover btn--light btn--small btn--square btn--uppercased btn--dropdown"
-          >
-            ru
-          </Button>
+          </IconButton>
         </div>
       </div>
+      {dialog}
     </header>
   )
 }
 
 export const HeaderFloat = () => {
+  const [dialog, toggleDialog] = useCallOrderDialog()
+
   return (
     <div className="header header-small">
       <div className="header__inner">
@@ -90,23 +83,17 @@ export const HeaderFloat = () => {
           <a className="phone-btn btn btn--empty btn--hover btn--light" href={`tel:${phone}`}>
             {phone}
           </a>
-          <button className="call-offer-btn icon--btn btn--outlined btn--light  btn--dropdown">
-            <PhoneIcon />
-          </button>
-          <Button
+          <IconButton
+            onClick={toggleDialog}
             variant="primary"
-            className="call-offer-btn btn btn--outlined btn--light  btn--dropdown"
+            icon={<PhoneIcon />}
+            className="call-offer-btn btn btn--outlined btn--light btn--small btn--icon-sm"
           >
             Заказать звонок
-          </Button>
-          <Button
-            variant="primary"
-            className="language-menu-btn btn btn--empty btn--hover btn--light btn--square btn--uppercased btn--dropdown"
-          >
-            ru
-          </Button>
+          </IconButton>
         </div>
       </div>
+      {dialog}
     </div>
   )
 }
