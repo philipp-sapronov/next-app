@@ -3,8 +3,10 @@ import React from 'react'
 import { Button } from '../components/buttons'
 import { TeacherCard } from '../components/cards'
 import { SectionHeading } from '../components/headings'
+import { useScrollToForm } from '../hooks/useScrollToForm'
 
 export const Teachers = ({ title, cards, options }) => {
+  const [scrollToForm] = useScrollToForm()
   return (
     <section className="teachers section">
       <div className="teachers__inner ">
@@ -41,8 +43,8 @@ export const Teachers = ({ title, cards, options }) => {
           </div>
         </div>
         <div className="teachers__cta">
-          <Button className="cta-btn btn btn--filled btn--green btn--large">
-            {'buttons.begin'}
+          <Button onClick={scrollToForm} className="cta-btn btn btn--filled btn--green btn--large">
+            {'Начать бесплатно'}
           </Button>
         </div>
       </div>

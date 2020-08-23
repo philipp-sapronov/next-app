@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import { Button, SliderButtons } from '../components/buttons'
 import { FeedbackCard } from '../components/cards'
 import { SectionHeading } from '../components/headings'
+import { useScrollToForm } from '../hooks/useScrollToForm'
 
 const responsive = [
   {
@@ -26,6 +27,8 @@ const settings = {
 }
 
 export const Feedbacks = ({ cards, title }) => {
+  const [scrollToForm] = useScrollToForm()
+
   const slider = useRef()
 
   const handleNext = () => {
@@ -57,8 +60,8 @@ export const Feedbacks = ({ cards, title }) => {
           </div>
         </div>
         <div className="feedbacks__cta">
-          <Button className="cta-btn btn btn--outlined btn--red btn--large">
-            {'buttons.begin'}
+          <Button onClick={scrollToForm} className="cta-btn btn btn--outlined btn--red btn--large">
+            Начать бесплатно
           </Button>
         </div>
       </div>

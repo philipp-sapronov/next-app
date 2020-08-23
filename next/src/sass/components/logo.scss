@@ -1,5 +1,5 @@
 $logo-height: 79px;
-$logo-width: 104px;
+$logo-width: 110px;
 
 .logo {
   width: $logo-width;
@@ -9,6 +9,6 @@ $logo-width: 104px;
     fill: $color-white;
   }
   & .logo__rect {
-    fill: $color-yellow;
+    fill: $color-green;
   }
 }

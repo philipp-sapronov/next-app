@@ -16,12 +16,14 @@ const CardHeader = ({ avatar, age, socials, name, flexible }) => {
         <div className="year">
           <span>{age}</span>
         </div>
-        <div className="socials">
-          {!!socials.length &&
-            socials.map((social) => {
+
+        {!!socials.length && (
+          <div className="socials">
+            {socials.map((social) => {
               return <span key={social}>{social}</span>
             })}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -49,21 +51,17 @@ export const FeedbackContent = ({ text, course }) => {
   )
 }
 
-export const TeacherContent = ({ education, experience, hobbies }) => {
+export const TeacherContent = ({ options }) => {
   return (
     <div className="teacher-card__content">
-      <div className="item">
-        <b className="heading">{education.title}:</b>
-        <span>{education.text}</span>
-      </div>
-      <div className="item">
-        <b className="heading">{experience.title}:</b>
-        <span>{experience.text}</span>
-      </div>
-      <div className="item">
-        <b className="heading">{hobbies.title}:</b>
-        <span>{hobbies.text}</span>
-      </div>
+      {options.map((option, idx) => {
+        return (
+          <div key={idx} className="item">
+            <b className="item__title">{option.title}:</b>
+            <span className="item__text">{option.text}</span>
+          </div>
+        )
+      })}
     </div>
   )
 }

@@ -10,3 +10,8 @@ export class CreateUserDto {
   @IsPhoneNumber('UA', { message: 'Invalid Phone Number' })
   readonly phone: string;
 }
+
+export class callOfferDto {
+  @IsPhoneNumber('UA', { message: 'Invalid Phone Number' })
+  readonly phone: string;
+}

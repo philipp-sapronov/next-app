@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 
 import { Button, SliderButtons } from '../components/buttons'
 import { SectionHeading } from '../components/headings'
+import { useScrollToForm } from '../hooks/useScrollToForm'
 
 const responsive = [
   {
@@ -72,8 +73,8 @@ const Card = ({ card }) => {
           {/*  */}
         </ul>
         <div className="price__wrapper">
-          <span className="price__amount">270</span>
-          <span className="price__unit">грн / час</span>
+          <span className="price__amount">{card.price}</span>
+          <span className="price__unit">{`${card.currency}\n/ ${card.time}`}</span>
         </div>
       </div>
     </div>
@@ -82,6 +83,7 @@ const Card = ({ card }) => {
 
 export const Pricing = ({ title, cards }) => {
   const slider = useRef()
+  const [scrollToForm] = useScrollToForm()
 
   const handleNext = () => {
     if (!slider.current) return
@@ -112,7 +114,9 @@ export const Pricing = ({ title, cards }) => {
           </div>
         </div>
         <div className="pricing__cta">
-          <Button className="cta-btn btn btn--filled btn--red btn--large">{'buttons.begin'}</Button>
+          <Button onClick={scrollToForm} className="cta-btn btn btn--filled btn--red btn--large">
+            {'Начать бесплатно'}
+          </Button>
         </div>
       </div>
       <div className="image__wrapper">

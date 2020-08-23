@@ -112,7 +112,7 @@
 
   & .teachers-card {
     @media screen and (min-width: $bp-up-small) {
-      max-width: 450px;
+      max-width: 500px;
     }
   }
 }
@@ -132,6 +132,7 @@
   padding-left: 50px;
   position: relative;
   height: calc(100% - 40px);
+  max-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

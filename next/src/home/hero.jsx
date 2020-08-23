@@ -1,8 +1,12 @@
 import React from 'react'
 
 import { Button } from '../components/buttons'
+import { HeroSvg } from '../components/icons'
+import { useScrollToForm } from '../hooks/useScrollToForm'
 
 export const Hero = ({ title, subtitle, tip }) => {
+  const [scrollToForm] = useScrollToForm()
+
   return (
     <div className="hero hero-wrapper">
       <div className="hero__inner">
@@ -11,14 +15,17 @@ export const Hero = ({ title, subtitle, tip }) => {
           <div className="title__dash" />
           <h1 className="title">{title}</h1>
           <div className="hero-cta__wrapper">
-            <Button className="cta-btn hero-cta btn--filled btn--red btn--uppercased">
-              {'buttons.begin'}
+            <Button
+              onClick={scrollToForm}
+              className="cta-btn hero-cta btn--filled btn--green btn--uppercased"
+            >
+              {'Начать прямо сейчас'}
             </Button>
           </div>
           <div className="additional-msg__wrapper">
             <div className="additional-msg__arrow">
               <svg>
-                <use xlinkHref="./assets/sprite.svg#hero-arrow" />
+                <use href="#hero-arrow" />
               </svg>
             </div>
             <p className="additional-msg">{tip}</p>
@@ -29,16 +36,13 @@ export const Hero = ({ title, subtitle, tip }) => {
 
         <div className="images">
           {/* IMAGE */}
+          <HeroSvg />
           <div className="image__wrapper">
             <div className="circle__main">
               <svg className="svg-image" viewBox="0 0 606 480" fill="none">
                 {/* CLIP PATH */}
                 <clipPath id="clip-photo">
-                  <use
-                    className="stroke--yellow"
-                    strokeWidth="14"
-                    xlinkHref="./assets/sprite.svg#clipping-path"
-                  />
+                  <use className="stroke--green" strokeWidth="14" href="#clipping-path" />
                 </clipPath>
                 {/* BACKGROUND IMAGE */}
                 <image
@@ -51,15 +55,11 @@ export const Hero = ({ title, subtitle, tip }) => {
                   xlinkHref="./assets/hero-image.jpg"
                 />
                 {/* STROKE AROUND IMAGE */}
-                <use
-                  className="stroke--yellow"
-                  strokeWidth="14"
-                  xlinkHref="./assets/sprite.svg#path"
-                />
+                <use className="stroke--green" strokeWidth="14" href="#path" />
                 {/* TEXT LAYER FIRST */}
                 <path
                   d="M512.779 99.0749L512.723 99.061L493.78 108.975L491.741 92.6891C475.265 84.1662 447.353 76.775 447.606 39.7685C447.858 2.76206 500.323 0.0475382 529.798 2.73596C555.278 2.85584 611.047 15.0945 604.085 67.731C597.133 120.296 526.407 102.503 512.779 99.0749Z"
-                  fill="#FFC700"
+                  className="fill--green"
                 />
                 <text
                   transform="translate(491.644 7.44531) rotate(16.8754)"
@@ -98,37 +98,17 @@ export const Hero = ({ title, subtitle, tip }) => {
             {/* USE PATHS */}
             <div className="circle__1">
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
-                <use
-                  className="stroke--yellow fill--yellow"
-                  strokeWidth="8"
-                  xlinkHref="./assets/sprite.svg#point__1"
-                />
-                <use
-                  className="stroke--yellow"
-                  strokeWidth="2"
-                  xlinkHref="./assets/sprite.svg#path"
-                />
+                <use className="stroke--green" strokeWidth="2" href="#path" />
+                <use className="stroke--white fill--white" strokeWidth="8" href="#point__1" />
               </svg>
             </div>
 
             {/* USE PATHS */}
             <div className="circle__2">
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
-                <use
-                  className="stroke--yellow"
-                  strokeWidth="1"
-                  xlinkHref="./assets/sprite.svg#path"
-                />
-                <use
-                  className="stroke--yellow fill--yellow"
-                  strokeWidth="2"
-                  xlinkHref="./assets/sprite.svg#point__7"
-                />
-                <use
-                  className="stroke--yellow fill--yellow"
-                  strokeWidth="4"
-                  xlinkHref="./assets/sprite.svg#point__4"
-                />
+                <use className="stroke--green" strokeWidth="1" href="#path" />
+                <use className="stroke--green fill--green" strokeWidth="2" href="#point__7" />
+                <use className="stroke--green fill--green" strokeWidth="4" href="#point__4" />
               </svg>
             </div>
 
@@ -136,16 +116,12 @@ export const Hero = ({ title, subtitle, tip }) => {
             <div className="circle__3">
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
                 <use
-                  strokeDasharray="4 6"
-                  className="stroke--yellow"
-                  strokeWidth="1"
-                  xlinkHref="./assets/sprite.svg#path"
+                  strokeDasharray="4 12"
+                  className="stroke--green"
+                  strokeWidth="0.7"
+                  href="#path"
                 />
-                <use
-                  className="stroke--red fill--red"
-                  strokeWidth="4"
-                  xlinkHref="./assets/sprite.svg#point__6"
-                />
+                <use className="stroke--red fill--red" strokeWidth="4" href="#point__6" />
               </svg>
             </div>
 
@@ -154,14 +130,11 @@ export const Hero = ({ title, subtitle, tip }) => {
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
                 <use
                   strokeDasharray="2 10"
-                  className="stroke--yellow"
-                  strokeWidth="1"
-                  xlinkHref="./assets/sprite.svg#path"
+                  className="stroke--green"
+                  strokeWidth="0.5"
+                  href="#path"
                 />
-                <use
-                  className="stroke--white fill--white"
-                  xlinkHref="./assets/sprite.svg#point__8"
-                />
+                <use className="stroke--white fill--white" href="#point__8" />
               </svg>
             </div>
 
@@ -170,33 +143,11 @@ export const Hero = ({ title, subtitle, tip }) => {
               <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
                 <use
                   strokeDasharray="2 10"
-                  className="stroke--yellow"
-                  strokeWidth="1"
-                  xlinkHref="./assets/sprite.svg#path"
+                  className="stroke--green"
+                  strokeWidth="0.5"
+                  href="#path"
                 />
-                <use className="fill--yellow" href="#point__3" />
-              </svg>
-            </div>
-
-            <div className="circle__6">
-              <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
-                <use
-                  strokeDasharray="2 10"
-                  className="stroke--yellow"
-                  strokeWidth="1"
-                  xlinkHref="./assets/sprite.svg#path"
-                />
-              </svg>
-            </div>
-
-            <div className="circle__7">
-              <svg viewBox="0 0 606 480" fill="none" width="100%" height="100%">
-                <use
-                  strokeDasharray="2 10"
-                  className="stroke--yellow"
-                  strokeWidth="1"
-                  xlinkHref="./assets/sprite.svg#path"
-                />
+                <use className="fill--green" href="#point__3" />
               </svg>
             </div>
           </div>

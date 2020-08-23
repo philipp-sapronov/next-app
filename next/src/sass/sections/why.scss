@@ -74,6 +74,10 @@
     }
   }
 
+  & .reason__text {
+    white-space: pre-wrap;
+  }
+
   & .card__bg {
     align-items: center;
     background-color: $color-green;
@@ -182,7 +186,7 @@
   margin-right: 30px;
   &:before {
     background-color: $color-white;
-    content: "";
+    content: '';
     display: block;
     height: 12px;
     width: 60px;

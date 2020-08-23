@@ -76,3 +76,56 @@ export const PricingCircles = () => {
     </svg>
   )
 }
+
+export const HeroSvg = () => {
+  return (
+    <svg style={{ display: 'none' }}>
+      {/* Main path */}
+      <symbol id="path" viewBox="0 0 606 480" width="100%" height="100%">
+        <path
+          id="clipping-path"
+          d="M577 209.507L577 209.629L577.006 209.751C579.429 259.309 563.8 322.455 517.708 373.168C471.723 423.762 394.932 462.507 274 462.507C203.501 462.507 148.824 428.702 110.548 386.439C72.1615 344.054 50.6795 293.596 46.4579 261.358C35.5857 178.334 53.208 120.556 96.4628 83.2951C140.062 45.7373 210.799 28.0068 308.5 28.0067C381.763 28.0066 449.018 33.7587 497.887 59.2996C522.183 71.998 541.865 89.5582 555.518 113.761C569.191 137.999 577 169.223 577 209.507Z"
+        />
+      </symbol>
+      {/*  arrow */}
+      <symbol id="hero-arrow" width="42" height="38" viewBox="0 0 42 38" fill="none">
+        <path d="M3.32075 1.5C3.32075 5 2.8566 12.6 1 15" stroke="white" strokeWidth="2" />
+        <path
+          d="M42 37C29.2359 37 3.78491 30.3 4.09435 3.5"
+          stroke="white"
+          strokeWidth="2"
+          strokeDasharray="2 4"
+        />
+        <path
+          d="M3.3208 1C3.57866 3.83333 5.25476 9.5 9.89627 9.5"
+          stroke="white"
+          strokeWidth="2"
+        />
+      </symbol>
+      <symbol id="point__1" viewBox="0 0 606 480" width="100%" height="100%">
+        <circle cx="239" cy="460" r="4" />
+      </symbol>
+      <symbol id="point__2" viewBox="0 0 606 480" width="100%" height="100%">
+        <circle cx="239" cy="460" r="4" />
+      </symbol>
+      <symbol id="point__3" viewBox="0 0 606 480" width="100%" height="100%">
+        <circle cx="481" cy="403" r="4" />
+      </symbol>
+      <symbol id="point__4" viewBox="0 0 606 480" width="100%" height="100%">
+        <circle cx="578" cy="223" r="2" />
+      </symbol>
+      <symbol id="point__5" viewBox="0 0 606 480" width="100%" height="100%">
+        <circle cx="482" cy="50" r="4" />
+      </symbol>
+      <symbol id="point__6" viewBox="0 0 606 480" width="100%" height="100%">
+        <circle cx="423" cy="37" r="2" />
+      </symbol>
+      <symbol id="point__7" viewBox="0 0 606 480" width="100%" height="100%">
+        <circle cx="154" cy="50" r="4" />
+      </symbol>
+      <symbol id="point__8" viewBox="0 0 606 480" width="100%" height="100%">
+        <circle cx="53" cy="146" r="2" />
+      </symbol>
+    </svg>
+  )
+}

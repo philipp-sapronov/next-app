@@ -132,7 +132,7 @@ $pipeline-offset: 120px;
   }
 
   &:before {
-    content: "";
+    content: '';
     display: block;
     height: 50%;
     left: 50%;
@@ -163,7 +163,7 @@ $pipeline-offset: 120px;
     background-color: $color-green;
     border-radius: 12px;
     position: absolute;
-    content: "";
+    content: '';
     display: block;
     height: 12px;
     left: 50%;
@@ -198,6 +198,7 @@ $pipeline-offset: 120px;
   max-width: calc(50% - 50px);
   width: calc(50% - 50px);
   font-size: 20px;
+  white-space: pre-wrap;
 
   @media screen and (max-width: $bp-down-ipad) {
     align-self: flex-start;
@@ -278,7 +279,7 @@ $pipeline-offset: 120px;
     border: 2px solid $color-green;
     border-radius: 50px;
     box-sizing: border-box;
-    padding: 9px;
+    padding: 12px;
     @media screen and (max-width: $bp-down-medium) {
       margin-bottom: 20px;
     }
@@ -321,6 +322,7 @@ $pipeline-offset: 120px;
 
   & .card__content {
     margin: 0;
+    white-space: pre-wrap;
   }
 }
 

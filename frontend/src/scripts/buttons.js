@@ -17,7 +17,7 @@ const errorMessage = (className) => {
 const subscribeCtaButtons = () => {
   const { mainCtaClass } = buttonsSelectors
 
-  const $buttons = document.querySelectorAll(`.${mainCtaClass}`)
+  const $buttons = document.querySelectorAll(`.cta-btn`)
   if ($buttons.length === 0) return errorMessage(mainCtaClass)
 
   const scrollToForm = () => {

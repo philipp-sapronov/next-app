@@ -80,14 +80,14 @@ export const HeaderFloat = () => {
           <LogoSmall />
         </div>
         <div className="header__nav">
-          <a className="phone-btn btn btn--empty btn--hover btn--light" href={`tel:${phone}`}>
+          <a className="phone-btn btn btn--empty btn--hover btn--dark" href={`tel:${phone}`}>
             {phone}
           </a>
           <IconButton
             onClick={toggleDialog}
             variant="primary"
             icon={<PhoneIcon />}
-            className="call-offer-btn btn btn--outlined btn--light btn--small btn--icon-sm"
+            className="call-offer-btn btn btn--filled btn--green btn--small btn--icon-sm"
           >
             Заказать звонок
           </IconButton>
