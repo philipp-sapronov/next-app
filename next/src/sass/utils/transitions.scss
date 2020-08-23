@@ -1,1 +1,29 @@
 $transition-smooth: 0.5s ease;
+
+@mixin Fade() {
+  transition: opacity 500ms;
+
+  &.fade-enter {
+    opacity: 0;
+  }
+
+  &.fade-enter-active {
+    opacity: 1;
+  }
+
+  &.fade-enter-done {
+    opacity: 1;
+  }
+
+  &.fade-exit {
+    opacity: 1;
+  }
+
+  &.fade-exit-active {
+    opacity: 0;
+  }
+
+  &.fade-exit-done {
+    opacity: 0;
+  }
+}

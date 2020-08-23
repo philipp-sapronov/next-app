@@ -48,7 +48,7 @@ export const Hero = ({ title, subtitle, tip }) => {
                   height="100%"
                   preserveAspectRatio="xMinYMin slice"
                   clipPath="url(#clip-photo)"
-                  xlinkHref="./assets/pic2.png"
+                  xlinkHref="./assets/hero-image.jpg"
                 />
                 {/* STROKE AROUND IMAGE */}
                 <use

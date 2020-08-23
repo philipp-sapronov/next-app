@@ -81,6 +81,8 @@
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   height: 100%;
+  min-height: 625px;
+
   background-color: $color-white;
 
   margin: 0 20px;
@@ -119,8 +121,8 @@
 
   & .card__inner {
     position: relative;
-    //
   }
+
   & .card__divider {
     width: 100%;
     height: 1px;
@@ -132,6 +134,7 @@
       rgba(196, 196, 196, 0) 104.16%
     );
   }
+
   & .heading__wrapper {
     margin-bottom: 20px;
   }
@@ -144,11 +147,13 @@
     margin: 0;
     margin-bottom: 30px;
   }
+
   & .list {
     list-style-type: none;
     padding: 30px 0;
     margin: 0;
   }
+
   & .list__item {
     &-icon {
       margin-right: 15px;
@@ -159,6 +164,7 @@
       margin-bottom: 30px;
     }
   }
+
   & .price__wrapper {
     text-align: center;
   }

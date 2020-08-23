@@ -1,12 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { CSSTransition } from 'react-transition-group'
 
 import { Logo, LogoSmall } from '../components/logo'
 import { Button } from '../components/buttons'
 import { PhoneIcon } from '../components/icons'
 
 const phone = '+38 (068) 228-08-08'
+const heroSection = 'hero'
+
+const useHeader = () => {
+  const [isShow, setIsShow] = useState(false)
+
+  const handleScroll = () => {
+    const $heroSection = document.querySelector(`.${heroSection}`)
+
+    if (!heroSection) return
+
+    const rect = $heroSection.getBoundingClientRect()
+
+    if (window.pageYOffset <= (rect.height || 0)) {
+      return setIsShow(false)
+    }
+
+    setIsShow(true)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+  }, [])
+
+  return { isShow }
+}
 
 export const Header = () => {
+  const { isShow } = useHeader()
+
+  console.log(isShow)
+
+  return (
+    <>
+      <HeaderMain />
+      <CSSTransition in={isShow} classNames="fade" mountOnEnter unmountOnExit timeout={500}>
+        <HeaderFloat />
+      </CSSTransition>
+    </>
+  )
+}
+
+export const HeaderMain = () => {
   return (
     <header className="header header-main">
       <div className="header__inner">

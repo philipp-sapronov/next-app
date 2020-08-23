@@ -8,25 +8,13 @@ export const responsive = [
   {
     breakpoint: 1024,
     settings: {
-      slidesToShow: 3,
-      slidesToScroll: 3,
-      infinite: true,
-      dots: true,
-    },
-  },
-  {
-    breakpoint: 600,
-    settings: {
       slidesToShow: 2,
-      slidesToScroll: 2,
-      initialSlide: 2,
     },
   },
   {
-    breakpoint: 480,
+    breakpoint: 768,
     settings: {
       slidesToShow: 1,
-      slidesToScroll: 1,
     },
   },
 ]
@@ -38,9 +26,9 @@ const settings = {
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,
+  responsive,
   focusOnSelect: false,
   // centerMode: true,
-  // adaptiveHeight: true,
 }
 
 const TickIcon = () => {
@@ -105,7 +93,6 @@ export const Pricing = ({ title, cards }) => {
     slider.current.slickPrev()
   }
 
-  console.log(slider, 'SLIDER')
   return (
     <section className="pricing section">
       <div className="pricing__inner container">

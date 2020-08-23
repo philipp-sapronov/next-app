@@ -41,7 +41,6 @@
 // HEADER SMALL
 
 .header-small {
-  display: none;
   position: fixed;
   top: 0;
   width: 100%;
@@ -49,18 +48,9 @@
   background-color: $color-green;
   z-index: 888;
   height: 52px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
   box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.15);
 
-  &.visible {
-    display: block;
-  }
-
-  &.active {
-    opacity: 1;
-    display: block;
-  }
+  @include Fade();
 
   & .logo {
     width: $logo-width / 3;

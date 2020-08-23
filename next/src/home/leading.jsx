@@ -1,6 +1,189 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { SectionHeading } from '../components/headings'
+
+const getUrl = () => `${window.location.protocol}//${window.location.host}/api/applications/create`
+
+const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+const PHONE_LENGTH = 9
+const NAME_MIN_LENGTH = 2
+
+const CODE_UA = '+380'
+
+const formatPhoneNumber = (value) => {
+  return CODE_UA + value.toString()
+}
+
+const matchName = (value) => {
+  const isMatched = value.trim().length >= NAME_MIN_LENGTH
+  return isMatched ? null : 'Incorrect name'
+}
+
+const matchEmail = (value) => {
+  const isMatched = EMAIL_REGEX.test(value.trim())
+  return isMatched ? null : 'Incorrect email'
+}
+
+const matchPhone = (value) => {
+  const isMatched = value.length === PHONE_LENGTH
+  return isMatched ? null : 'Incorrect phone'
+}
+
+const match = {
+  name: matchName,
+  email: matchEmail,
+  phone: matchPhone,
+}
+
+const initialState = {
+  phone: {
+    value: '',
+    error: null,
+  },
+  name: {
+    value: '',
+    error: null,
+  },
+  email: {
+    value: '',
+    error: null,
+  },
+}
+
+const Form = ({ inputEmail, inputName, inputPhone, confirmText }) => {
+  const [state, setState] = useState(initialState)
+
+  const handleChangePhone = ({ target }) => {
+    const { value } = target
+    if (!/^[0-9]{0,9}$/.test(value)) return
+    const error = state.phone.error ? matchPhone(value) : state.phone.error
+    setState((prev) => ({ ...prev, phone: { value, error } }))
+  }
+
+  const handleChange = ({ target }) => {
+    const { name, value } = target
+    const error = state[name].error ? match[name](value) : state[name].error
+    setState((prev) => ({ ...prev, [name]: { value, error } }))
+  }
+
+  const handleBlur = ({ target }) => {
+    const { name, value } = target
+    const error = match[name](value)
+    setState((prev) => ({ ...prev, [name]: { ...prev[target.name], error } }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (state.email.error || state.name.error || state.phone.error) {
+      return console.error('incorrect input')
+    }
+
+    fetch(getUrl(), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: state.email.value,
+        name: state.name.value,
+        phone: formatPhoneNumber(state.phone.value),
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) return Promise.reject(response)
+        setState(initialState)
+        alert('Your application has been sent successfully!')
+        console.log(response)
+      })
+      .catch((response) => {
+        alert('An error occurred while sending to the server!')
+        return console.error(response)
+      })
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="leading__form form">
+      <div className="form__item success">
+        <label className="input-label" htmlFor="input-name">
+          {inputName.label}
+        </label>
+        <input
+          className="input-text"
+          id="input-name"
+          name="name"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          placeholder={inputName.placeholder}
+          type="text"
+          value={state.name.value}
+        />
+        <span className="input-msg" data-name="name">
+          {state.name.error}
+        </span>
+      </div>
+
+      <div className="form__item">
+        <label className="input-label" htmlFor="input-email">
+          {inputEmail.label}
+        </label>
+        <input
+          className="input-text"
+          id="input-email"
+          name="email"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          placeholder={inputEmail.placeholder}
+          type="text"
+          value={state.email.value}
+        />
+
+        <span className="input-msg" data-name="email">
+          {state.email.error}
+        </span>
+      </div>
+
+      <div className="form__item error">
+        <label className="input-label" htmlFor="input-phone">
+          {inputPhone.label}
+        </label>
+
+        <div className="input-wrapper">
+          <span className="countryCode">
+            <svg width="20" height="12" viewBox="0 0 20 12" fill="none">
+              <rect width="20" height="6" fill="#00D1FF" />
+              <rect y="6" width="20" height="6" fill="#F8EE00" />
+            </svg>
+            {CODE_UA}
+          </span>
+          <input
+            className="input-text"
+            id="input-phone"
+            name="phone"
+            onBlur={handleBlur}
+            onChange={handleChangePhone}
+            placeholder={inputPhone.placeholder}
+            type="text"
+            value={state.phone.value}
+          />
+        </div>
+
+        <span className="input-msg" data-name="phone">
+          {state.phone.error}
+        </span>
+      </div>
+
+      <div className="form__submit-wrapper">
+        <button
+          className="form__submit-btn btn btn--filled btn--red btn--large btn--uppercased"
+          type="submit"
+        >
+          {'buttons.sendApplication'}
+        </button>
+        <p className="confirm-msg">{confirmText}</p>
+      </div>
+    </form>
+  )
+}
 
 export const Leading = ({ title, optionsTitle, form, options, subscription }) => {
   return (
@@ -42,59 +225,7 @@ export const Leading = ({ title, optionsTitle, form, options, subscription }) =>
             <div className="leading__card">
               <div className="card-layer"></div>
               <div className="card__inner">
-                <form className="leading__form form">
-                  <div className="form__item success">
-                    <label className="input-label" htmlFor="input-name">
-                      {form.inputName.label}
-                    </label>
-                    <input
-                      className="input-text"
-                      name="name"
-                      placeholder="{form.inputName.placeholder'}"
-                      id="input-name"
-                      type="text"
-                    />
-                    <span className="input-msg" data-name="name"></span>
-                  </div>
-
-                  <div className="form__item">
-                    <label className="input-label" htmlFor="input-email">
-                      {form.inputEmail.label}
-                    </label>
-                    <input
-                      className="input-text"
-                      name="email"
-                      placeholder="{form.inputEmail.placeholder'}"
-                      id="input-email"
-                      type="text"
-                    />
-                    <span className="input-msg" data-name="email"></span>
-                  </div>
-
-                  <div className="form__item error">
-                    <label className="input-label" htmlFor="input-phone">
-                      {form.inputPhone.label}
-                    </label>
-                    <input
-                      className="input-text"
-                      name="phone"
-                      placeholder="{form.inputPhone.placeholder'}"
-                      id="input-phone"
-                      type="text"
-                    />
-                    <span className="input-msg" data-name="phone"></span>
-                  </div>
-
-                  <div className="form__submit-wrapper">
-                    <button
-                      className="form__submit-btn btn btn--filled btn--red btn--large btn--uppercased"
-                      type="submit"
-                    >
-                      {'buttons.sendApplication'}
-                    </button>
-                    <p className="confirm-msg">{form.confirmText}</p>
-                  </div>
-                </form>
+                <Form {...form} />
               </div>
             </div>
 
