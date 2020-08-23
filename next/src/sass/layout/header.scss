@@ -13,19 +13,16 @@
     padding: 20px;
   }
 
-  & .logo {
-    &.logo--small {
-      display: none;
-    }
-    @media screen and (max-width: $bp-down-small) {
-      width: $logo-width / 1.2;
-      height: $logo-width / 1.2;
+  & .header__logo {
+    & .logo {
+      @media screen and (max-width: $bp-down-small) {
+        width: $logo-width / 1.2;
+        height: $logo-height / 1.2;
 
-      &.logo--small {
-        display: block;
-        width: $logo-width / 3;
-        height: $logo-width / 3;
-        margin-top: 2px;
+        &.logo--small {
+          width: $logo-width / 3;
+          height: $logo-width / 3;
+        }
       }
     }
   }
@@ -77,10 +74,6 @@
 }
 
 .header__nav {
-  @media screen and (max-width: $bp-down-small) {
-    display: flex;
-    align-items: center;
-  }
 }
 
 .call-offer-btn {

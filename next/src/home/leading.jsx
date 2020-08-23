@@ -52,7 +52,7 @@ const initialState = {
   },
 }
 
-const Form = ({ inputEmail, inputName, inputPhone, confirmText }) => {
+const Form = ({ inputEmail, inputName, inputPhone }) => {
   const [state, setState] = useState(initialState)
 
   const handleChangePhone = ({ target }) => {
@@ -185,7 +185,7 @@ const Form = ({ inputEmail, inputName, inputPhone, confirmText }) => {
         >
           {'buttons.sendApplication'}
         </Button>
-        <p className="confirm-msg">{confirmText}</p>
+        {/* <p className="confirm-msg">{confirmText}</p> */}
       </div>
     </form>
   )

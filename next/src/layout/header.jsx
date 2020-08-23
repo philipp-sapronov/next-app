@@ -49,7 +49,7 @@ export const HeaderMain = () => {
     <header className="header header-main">
       <div className="header__inner">
         <div className="header__logo">
-          <Logo variant="full" />
+          <Logo />
         </div>
         <div className="header__nav">
           <a className="phone-btn btn btn--empty btn--light" href={`tel: ${phone}`}>

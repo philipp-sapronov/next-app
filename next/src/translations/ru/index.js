@@ -108,7 +108,7 @@ const teacher = {
   avatar: './assets/pic.png',
   name: 'Александра Никифорова',
   age: '24 года',
-  socials: ['fb', 'in', 'li'],
+  socials: [],
   education: { text: 'Филолог', title: 'Образование' },
   experience: { title: 'Опыт работы', text: '4 года' },
   hobbies: {

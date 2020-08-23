@@ -13,9 +13,12 @@ const HomePage = () => (
     <Head>
       <title>Main Page</title>
       <meta name="description" content="content" />
-      <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+      <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
+
       <link rel="preload" as="image" href="./assets/sprite.svg" />
       <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin />
+      <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:wght@300;400;500;700&display=swap"

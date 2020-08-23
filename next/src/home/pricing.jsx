@@ -4,7 +4,7 @@ import Slider from 'react-slick'
 import { Button, SliderButtons } from '../components/buttons'
 import { SectionHeading } from '../components/headings'
 
-export const responsive = [
+const responsive = [
   {
     breakpoint: 1024,
     settings: {

@@ -32,6 +32,9 @@
 
 .feedbacks {
   & .feedbacks__carousel-wrapper {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+
     & .slick-list {
       overflow: visible;
     }
@@ -42,7 +45,7 @@
     overflow: visible;
   }
 
-  & .feedbacks_card {
+  & .feedbacks-card {
     margin: 0 20px;
     outline: none;
   }

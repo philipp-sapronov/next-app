@@ -3,9 +3,9 @@ import React from 'react'
 import { Avatar } from './avatar'
 
 // flexible
-const CardHeader = ({ avatar, age, socials, name, className }) => {
+const CardHeader = ({ avatar, age, socials, name, flexible }) => {
   return (
-    <div className={'card__header ' + className}>
+    <div className={`card__header ${flexible ? 'flexible' : ''}`}>
       <div className="header__avatar">
         <Avatar image={avatar} />
       </div>
@@ -17,7 +17,7 @@ const CardHeader = ({ avatar, age, socials, name, className }) => {
           <span>{age}</span>
         </div>
         <div className="socials">
-          {socials.length &&
+          {!!socials.length &&
             socials.map((social) => {
               return <span key={social}>{social}</span>
             })}
@@ -71,8 +71,8 @@ export const TeacherContent = ({ education, experience, hobbies }) => {
 export const FeedbackCard = ({ card }) => {
   return (
     <Card
-      className="feedbacks_card"
-      header={<CardHeader {...card} />}
+      className="feedbacks-card"
+      header={<CardHeader flexible {...card} />}
       content={<FeedbackContent {...card} />}
     />
   )
@@ -81,7 +81,7 @@ export const FeedbackCard = ({ card }) => {
 export const TeacherCard = ({ card }) => {
   return (
     <Card
-      className="teacher_card flexible"
+      className="teachers-card"
       header={<CardHeader {...card} />}
       content={<TeacherContent {...card} />}
     />

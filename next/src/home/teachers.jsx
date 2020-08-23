@@ -11,11 +11,7 @@ export const Teachers = ({ title, cards, options }) => {
         {/* --HEADER */}
 
         <div className="teachers__header">
-          <div className="left-side">
-            <div className="slider-buttons__wrapper">
-              <SectionHeading className="--left --light" text={title} />
-            </div>
-          </div>
+          <SectionHeading className="--center --light" text={title} />
         </div>
 
         {/* -- CONTENT */}
@@ -24,7 +20,7 @@ export const Teachers = ({ title, cards, options }) => {
           <div className="left-side">
             <div className="left-side__inner">
               <div className="carousel-wrapper">
-                <div id="teachers-carousel" className="owl-carousel">
+                <div id="teachers-carousel">
                   {cards.map((card, idx) => {
                     return <TeacherCard key={idx} card={card} />
                   })}

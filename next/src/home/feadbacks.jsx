@@ -5,6 +5,15 @@ import { Button, SliderButtons } from '../components/buttons'
 import { FeedbackCard } from '../components/cards'
 import { SectionHeading } from '../components/headings'
 
+const responsive = [
+  {
+    breakpoint: 768,
+    settings: {
+      slidesToShow: 1,
+    },
+  },
+]
+
 const settings = {
   arrows: false,
   dots: false,
@@ -13,8 +22,7 @@ const settings = {
   slidesToShow: 2,
   slidesToScroll: 1,
   focusOnSelect: false,
-  // centerMode: true,
-  // adaptiveHeight: true,
+  responsive,
 }
 
 export const Feedbacks = ({ cards, title }) => {

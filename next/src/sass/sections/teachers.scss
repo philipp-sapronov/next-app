@@ -15,6 +15,7 @@
 
   & .teachers__header {
     display: flex;
+    margin-bottom: 50px;
 
     @media screen and (min-width: $bp-up-medium) {
       padding: 0 $spacing-large;
@@ -24,14 +25,9 @@
       flex-wrap: wrap;
     }
 
-    @media screen and (min-width: $bp-up-small) {
-      margin-bottom: 50px;
-    }
-
     & .left-side {
       width: 50%;
       @media screen and (max-width: $bp-down-medium) {
-        order: 2;
         width: 100%;
       }
       @media screen and (min-width: $bp-up-small) and (max-width: $bp-down-medium) {
@@ -42,7 +38,6 @@
 
     & .right-side {
       @media screen and (max-width: $bp-down-medium) {
-        order: 1;
         width: 100%;
       }
 
@@ -100,16 +95,6 @@
     }
   }
 
-  & .slider-buttons__wrapper {
-    max-width: 620px;
-    margin-left: auto;
-
-    @media screen and (max-width: $bp-down-small) {
-      margin: 30px auto 30px auto;
-      width: 100%;
-    }
-  }
-
   //  -- LEFT SIDE
 }
 
@@ -125,9 +110,10 @@
     }
   }
 
-  & .owl-stage-outer {
-    padding: 10px 0;
-    overflow: unset;
+  & .teachers-card {
+    @media screen and (min-width: $bp-up-small) {
+      max-width: 450px;
+    }
   }
 }
 
@@ -153,10 +139,6 @@
 
   @media screen and (max-width: $bp-down-medium) {
     height: 480px;
-  }
-
-  @media screen and (min-width: $bp-up-ipad) and (max-width: $bp-down-medium) {
-    @include margin-auto();
   }
 
   @media screen and (max-width: $bp-down-small) {
