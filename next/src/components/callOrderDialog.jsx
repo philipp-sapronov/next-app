@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Button } from './buttons'
-import { $bpDownSmall } from '../../../frontend/src/scripts/constants'
 import { Modal } from './modal'
 import { CSSTransition } from 'react-transition-group'
 
@@ -12,7 +11,7 @@ const CODE_UA = '+380'
 
 const matchPhone = (value) => {
   const isMatched = value.length === PHONE_LENGTH
-  return isMatched ? null : 'Incorrect phone'
+  return isMatched ? null : 'Некорректный номер телефона'
 }
 
 const formatPhoneNumber = (value) => {
@@ -20,6 +19,7 @@ const formatPhoneNumber = (value) => {
 }
 
 const initialState = {
+  loading: false,
   phone: { value: '', error: null },
 }
 
@@ -51,6 +51,8 @@ const Form = () => {
       return console.error('incorrect input')
     }
 
+    setState((prev) => ({ ...prev, loading: true }))
+
     fetch(getUrl(), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -59,12 +61,16 @@ const Form = () => {
       }),
     })
       .then((response) => {
+        setState((prev) => ({ ...prev, loading: false }))
+
         if (!response.ok) return Promise.reject(response)
         setState(initialState)
         alert('Your application has been sent successfully!')
         console.log(response)
       })
       .catch((response) => {
+        setState((prev) => ({ ...prev, loading: false }))
+
         alert('An error occurred while sending to the server!')
         return console.error(response)
       })
@@ -91,7 +97,7 @@ const Form = () => {
               {CODE_UA}
             </span>
             <input
-              className="input-text"
+              className={`input-text ${state.phone.error ? 'error' : ''}`}
               id="input-phone"
               name="phone"
               onBlur={handleBlur}
@@ -150,7 +156,7 @@ export const CallOrderDialog = ({ anchorEl }) => {
 
     document.body.style.overflowY = 'hidden'
 
-    if (window.innerWidth <= $bpDownSmall) {
+    if (window.innerWidth <= 600) {
       modal.current.style.right = `20px`
     } else {
       modal.current.style.right = `${window.innerWidth - rect.right}px`

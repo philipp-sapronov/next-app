@@ -28,7 +28,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./next
       target: prod
       args:
         - NODE_ENV=${NODE_ENV}

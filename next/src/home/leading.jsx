@@ -18,17 +18,17 @@ const formatPhoneNumber = (value) => {
 
 const matchName = (value) => {
   const isMatched = value.trim().length >= NAME_MIN_LENGTH
-  return isMatched ? null : 'Incorrect name'
+  return isMatched ? null : 'Некорректное имя'
 }
 
 const matchEmail = (value) => {
   const isMatched = EMAIL_REGEX.test(value.trim())
-  return isMatched ? null : 'Incorrect email'
+  return isMatched ? null : 'Некорректный email'
 }
 
 const matchPhone = (value) => {
   const isMatched = value.length === PHONE_LENGTH
-  return isMatched ? null : 'Incorrect phone'
+  return isMatched ? null : 'Некорректный номер телефона'
 }
 
 const match = {
@@ -38,6 +38,7 @@ const match = {
 }
 
 const initialState = {
+  loading: false,
   phone: {
     value: '',
     error: null,
@@ -81,10 +82,13 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (state.loading) return
 
     if (state.email.error || state.name.error || state.phone.error) {
       return console.error('incorrect input')
     }
+
+    setState((prev) => ({ ...prev, loading: true }))
 
     fetch(getUrl(), {
       method: 'POST',
@@ -96,13 +100,17 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
       }),
     })
       .then((response) => {
+        setState((prev) => ({ ...prev, loading: false }))
+
         if (!response.ok) return Promise.reject(response)
         setState(initialState)
-        alert('Your application has been sent successfully!')
+        alert('Ваша заявка успешно отправлена!')
         console.log(response)
       })
       .catch((response) => {
-        alert('An error occurred while sending to the server!')
+        setState((prev) => ({ ...prev, loading: false }))
+
+        alert('Во время операции произошла ошибка!')
         return console.error(response)
       })
   }
@@ -183,7 +191,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
           className="form__submit-btn btn btn--filled btn--red btn--large btn--uppercased"
           type="submit"
         >
-          {'buttons.sendApplication'}
+          {'Отправить заявку'}
         </Button>
         {/* <p className="confirm-msg">{confirmText}</p> */}
       </div>

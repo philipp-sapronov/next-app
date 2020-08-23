@@ -54,6 +54,11 @@
         box-sizing: border-box;
         background-color: transparent;
 
+        &.error {
+          border-color: red;
+          color: red;
+        }
+
         &::placeholder {
           color: $color-gray-dark;
           opacity: 0.3;
