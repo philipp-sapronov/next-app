@@ -19,7 +19,7 @@ const settings = {
   arrows: false,
   dots: false,
   infinite: true,
-  speed: 500,
+  speed: 300,
   slidesToShow: 2,
   slidesToScroll: 1,
   focusOnSelect: false,

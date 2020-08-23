@@ -79,7 +79,7 @@ export const HeaderFloat = () => {
         <div className="header__logo">
           <LogoSmall />
         </div>
-        <div className="header__nav">
+        <div className="header__nav small">
           <a className="phone-btn btn btn--empty btn--hover btn--dark" href={`tel:${phone}`}>
             {phone}
           </a>
