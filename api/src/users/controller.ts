@@ -27,7 +27,7 @@ export class UsersController {
 
       if (!user) throw new BadRequestException();
 
-      const appMailParams = {
+      const mailParams = {
         createdAt: user.createdAt,
         email: user.email,
         id: user._id,
@@ -40,56 +40,41 @@ export class UsersController {
         name: user.name,
       };
 
-      this.botService.sendMessage(user);
+      this.botService.sendApplication(user);
 
-      const result = await this.mailerService.sendNewApplication(appMailParams);
+      const result = await this.mailerService.sendNewApplication(mailParams);
 
       if (!result?.messageId) {
-        console.log('error email 1');
+        console.log('error email application');
       }
 
       const result2 = await this.mailerService.sendLeadGreetingMessage(clientMailParams);
 
       if (!result2?.messageId) {
-        console.log('error email 2');
+        console.log('error email user notification');
       }
     } catch (e) {
       throw new Error(e);
     }
   }
 
-  @Post('call-offer')
+  @Post('call-order')
   @UsePipes(new ClassValidationPipe())
   async callOffer(@Body() data: callOfferDto): Promise<void> {
     if (!data) throw new BadRequestException();
 
+    const mailParams = {
+      phone: data.phone,
+      createdAt: new Date(),
+    };
+
     try {
-      const user = await this.usersService.create(data);
+      this.botService.sendCallOrder(data);
 
-      if (!user) throw new BadRequestException();
-
-      const appMailParams = {
-        createdAt: user.createdAt,
-        id: user._id,
-        phone: user.phone,
-      };
-
-      const clientMailParams = {
-        email: user.email,
-      };
-
-      this.botService.sendMessage(user);
-
-      const result = await this.mailerService.sendNewCallOffer(appMailParams);
+      const result = await this.mailerService.sendNewCallOrder(mailParams);
 
       if (!result?.messageId) {
-        console.log('error email 1');
-      }
-
-      const result2 = await this.mailerService.sendLeadGreetingMessage(clientMailParams);
-
-      if (!result2?.messageId) {
-        console.log('error email 2');
+        console.log('error email call order');
       }
     } catch (e) {
       throw new Error(e);

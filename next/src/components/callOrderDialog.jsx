@@ -5,7 +5,7 @@ import { Modal } from './modal'
 import { CSSTransition } from 'react-transition-group'
 
 const getUrl = () =>
-  `${window.location.protocol}//${window.location.host}/api/applications/callOrder`
+  `${window.location.protocol}//${window.location.host}/api/applications/call-order`
 
 const PHONE_LENGTH = 9
 const CODE_UA = '+380'

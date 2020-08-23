@@ -20,7 +20,7 @@ const translations = {
   [callbackMessages.SET_AS_READ]: 'Отметить как прочитанное',
 };
 
-const template = (params: IUser): string => {
+const templateApplication = (params: IUser): string => {
   return `
 🚀  *Заявка*
 
@@ -29,6 +29,18 @@ const template = (params: IUser): string => {
 ☎️  Phone: ${params.phone}
 
 ✉️  Email: ${params.email}
+
+🌟  Status: ${ApplicationStatus.active}
+
+📅  ${moment.tz(new Date(), 'Europe/Kiev').format('MMMM DD, YYYY HH:mm')}
+`;
+};
+
+const templateCallOrder = (params: { phone: string }): string => {
+  return `
+🚀  *Звонок*
+
+☎️  Phone: ${params.phone}
 
 🌟  Status: ${ApplicationStatus.active}
 
@@ -90,8 +102,24 @@ export class TelegramBotService {
     });
   }
 
-  async sendMessage(params: IUser): Promise<TelegramBot.Message> {
-    return await this.bot.sendMessage(this.groupId, template(params), {
+  async sendApplication(params: IUser): Promise<TelegramBot.Message> {
+    return await this.bot.sendMessage(this.groupId, templateApplication(params), {
+      parse_mode: 'Markdown',
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: translations[callbackMessages.SET_AS_READ],
+              callback_data: callbackMessages.SET_AS_READ,
+            },
+          ],
+        ],
+      },
+    });
+  }
+
+  async sendCallOrder(params: { phone: string }): Promise<TelegramBot.Message> {
+    return await this.bot.sendMessage(this.groupId, templateCallOrder(params), {
       parse_mode: 'Markdown',
       reply_markup: {
         inline_keyboard: [
