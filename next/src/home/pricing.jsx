@@ -114,7 +114,10 @@ export const Pricing = ({ title, cards }) => {
           </div>
         </div>
         <div className="pricing__cta">
-          <Button onClick={scrollToForm} className="cta-btn btn btn--filled btn--red btn--large">
+          <Button
+            onClick={scrollToForm}
+            className="cta-btn btn btn--filled btn--red btn--large btn--uppercased"
+          >
             {'Начать бесплатно'}
           </Button>
         </div>

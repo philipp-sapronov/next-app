@@ -6,7 +6,7 @@ $pipeline-offset: 120px;
 
   &__inner {
     position: relative;
-    padding-bottom: $pipeline-offset;
+    padding-bottom: $pipeline-offset / 2;
 
     @media screen and (max-width: $bp-down-medium) {
       padding-bottom: $pipeline-offset / 3;
@@ -160,7 +160,7 @@ $pipeline-offset: 120px;
   }
 
   &:after {
-    background-color: $color-green;
+    background-color: $color-red;
     border-radius: 12px;
     position: absolute;
     content: '';
@@ -245,9 +245,10 @@ $pipeline-offset: 120px;
 
   &.--empty {
     background-color: transparent;
-    border: 2px solid $color-green;
+    border: 2px solid $color-red;
     box-shadow: unset;
   }
+
   &.--right {
     margin-left: auto;
     @media screen and (max-width: $bp-down-ipad) {
@@ -276,7 +277,7 @@ $pipeline-offset: 120px;
     width: 70px;
     flex-shrink: 0;
     height: 70px;
-    border: 2px solid $color-green;
+    border: 2px solid $color-red;
     border-radius: 50px;
     box-sizing: border-box;
     padding: 12px;
@@ -299,8 +300,8 @@ $pipeline-offset: 120px;
     height: 100%;
     padding: 12px;
     box-sizing: border-box;
-
     object-fit: contain;
+    stroke: $color-green;
   }
 
   & .card__text {

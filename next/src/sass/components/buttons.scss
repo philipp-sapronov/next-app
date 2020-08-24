@@ -18,7 +18,7 @@
 
 @mixin button-outlined($color: white, $color-hover: white) {
   background-color: transparent;
-  border: 1px solid $color;
+  border: 2px solid $color;
   color: $color;
   transition: all $transition-smooth;
 

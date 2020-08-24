@@ -12,6 +12,8 @@ const NAME_MIN_LENGTH = 2
 
 const CODE_UA = '+380'
 
+const requiredErrorMessage = 'Поле не может быть пустым'
+
 const formatPhoneNumber = (value) => {
   return CODE_UA + value.toString()
 }
@@ -83,6 +85,27 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (state.loading) return
+
+    if (!state.name.value) {
+      return setState((prev) => ({
+        ...prev,
+        name: { ...prev.name, error: requiredErrorMessage },
+      }))
+    }
+
+    if (!state.email.value) {
+      return setState((prev) => ({
+        ...prev,
+        email: { ...prev.email, error: requiredErrorMessage },
+      }))
+    }
+
+    if (!state.phone.value) {
+      return setState((prev) => ({
+        ...prev,
+        phone: { ...prev.phone, error: requiredErrorMessage },
+      }))
+    }
 
     if (state.email.error || state.name.error || state.phone.error) {
       return console.error('incorrect input')
@@ -199,7 +222,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
   )
 }
 
-export const Leading = ({ title, optionsTitle, form, options, subscription }) => {
+export const Leading = ({ title, optionsTitle, form, options, subscription, postscriptum }) => {
   return (
     <section id="leadform-section" className="leading section">
       <div className="leading__inner container">
@@ -209,7 +232,7 @@ export const Leading = ({ title, optionsTitle, form, options, subscription }) =>
 
         <div className="leading__content">
           <div className="left-side">
-            <h4 className="content__heading">{optionsTitle}:</h4>
+            <h4 className="content__heading">{optionsTitle}</h4>
             <ul className="list">
               <div className="content__line">
                 <svg width="3" height="100%">
@@ -233,6 +256,9 @@ export const Leading = ({ title, optionsTitle, form, options, subscription }) =>
                 )
               })}
             </ul>
+            <div className="postcriptum">
+              <span className="postscriptum__text">{postscriptum}</span>
+            </div>
           </div>
 
           <div className="right-side">

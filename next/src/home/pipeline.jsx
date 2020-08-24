@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { SectionHeading } from '../components/headings'
+import { useScrollToForm } from '../hooks/useScrollToForm'
+import { Button } from '../components/buttons'
 
 const icons = {
   warmup: 'warmup',
@@ -29,6 +31,8 @@ const Card = ({ className, icon, title, text }) => {
 }
 
 export const Pipeline = ({ title, card_1, card_2, card_3, card_4, card_5 }) => {
+  const [scrollToForm] = useScrollToForm()
+
   return (
     <section className="pipeline section">
       <div className="bg-layer" />
@@ -44,7 +48,7 @@ export const Pipeline = ({ title, card_1, card_2, card_3, card_4, card_5 }) => {
                 y1="0%"
                 x2="0%"
                 y2="100%"
-                stroke="#0BC481"
+                stroke="#ff6a21"
                 strokeWidth="2"
                 strokeDasharray="3 8"
               ></line>
@@ -109,6 +113,14 @@ export const Pipeline = ({ title, card_1, card_2, card_3, card_4, card_5 }) => {
             text={card_5.text}
           />
         </div>
+      </div>
+      <div className="pricing__cta">
+        <Button
+          onClick={scrollToForm}
+          className="cta-btn btn btn--outlined btn--red btn--large btn--uppercased"
+        >
+          {'Хочу попробовать'}
+        </Button>
       </div>
     </section>
   )

@@ -43,7 +43,10 @@ export const Teachers = ({ title, cards, options }) => {
           </div>
         </div>
         <div className="teachers__cta">
-          <Button onClick={scrollToForm} className="cta-btn btn btn--filled btn--green btn--large">
+          <Button
+            onClick={scrollToForm}
+            className="cta-btn btn btn--filled btn--green btn--large btn--uppercased"
+          >
             {'Начать бесплатно'}
           </Button>
         </div>

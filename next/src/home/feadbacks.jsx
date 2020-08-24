@@ -60,7 +60,10 @@ export const Feedbacks = ({ cards, title }) => {
           </div>
         </div>
         <div className="feedbacks__cta">
-          <Button onClick={scrollToForm} className="cta-btn btn btn--outlined btn--red btn--large">
+          <Button
+            onClick={scrollToForm}
+            className="cta-btn btn btn--outlined btn--red btn--large btn--uppercased"
+          >
             Начать бесплатно
           </Button>
         </div>

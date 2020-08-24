@@ -6,26 +6,26 @@ export const Logo = () => {
       {/* TEXT */}
       <g className="logo__text logo__full-text">
         <text
-          fill="white"
           xmlSpace="preserve"
           style={{ whiteSpace: 'pre' }}
           fontFamily="Roboto"
           fontSize="25"
           fontWeight="300"
           letterSpacing="0.01em"
+          className="logo__text"
         >
           <tspan x="21" y="75">
             please
           </tspan>
         </text>
         <text
-          fill="white"
           xmlSpace="preserve"
           style={{ whiteSpace: 'pre' }}
           fontFamily="Roboto"
           fontSize="25"
           fontWeight="300"
           letterSpacing="0em"
+          className="logo__text"
         >
           <tspan x="55" y="49">
             glish,

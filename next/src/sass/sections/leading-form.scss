@@ -246,6 +246,21 @@ $color-error: #ff2121;
       }
     }
   }
+  & .postcriptum {
+    margin-top: 50px;
+
+    @media screen and (min-width: $bp-up-small) and (max-width: $bp-down-medium) {
+      margin: 50px auto 0;
+      max-width: 600px;
+    }
+
+    & .postscriptum__text {
+      display: block;
+      font-family: $font-secondary;
+      font-size: 24px;
+      white-space: pre-wrap;
+    }
+  }
 
   & .additional-msg {
     position: relative;

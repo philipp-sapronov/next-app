@@ -51,6 +51,13 @@ const Form = () => {
       return console.error('incorrect input')
     }
 
+    if (!state.phone.value) {
+      return setState((prev) => ({
+        ...prev,
+        phone: { ...prev.phone, error: true },
+      }))
+    }
+
     setState((prev) => ({ ...prev, loading: true }))
 
     fetch(getUrl(), {
