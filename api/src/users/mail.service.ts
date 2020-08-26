@@ -3,6 +3,26 @@ import { Injectable } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
 import { SentMessageInfo } from 'nodemailer';
 
+const template = (params: MailParams) => `Здравствуйте, ${params.name}! 
+
+Меня зовут Света и я создатель онлайн-школы «In English, please» 🔔
+
+Спасибо за Вашу заявку! 🙌🏻 
+
+В ближайшее время мы с Вами свяжемся по этому номеру ${params.phone}, чтобы выбрать удобное время для пробного занятия 👌🏻
+
+А вот мой номер на тот случай, если у Вас появятся вопросы +38 (066) 008 21 54 
+
+До связи 📱
+Отличного дня ☀️
+`;
+
+type MailParams = {
+  email: string;
+  name: string;
+  phone: string;
+};
+
 @Injectable()
 export class EmailService {
   constructor(
@@ -10,24 +30,12 @@ export class EmailService {
     private configService: ConfigService,
   ) {}
 
-  sendLeadGreetingMessage({
-    email,
-    name,
-  }: {
-    email: string;
-    name: string;
-  }): Promise<SentMessageInfo> {
-    console.log(this.configService.get('MAILER_FROM'));
-    console.log(this.configService.get('MAILER_TO'));
-    console.log(this.configService.get('MAILER_AUTH_USER'));
-    console.log(this.configService.get('MAILER_AUTH_PASSWORD'));
-
+  sendLeadGreetingMessage(params: MailParams): Promise<SentMessageInfo> {
     return this.mailerService.sendMail({
       from: this.configService.get('MAILER_FROM'),
-      to: email,
-      subject: `Dear ${name} ✔`,
-      text: 'Hello world?',
-      html: '<b>You have been subscribed successfully</b>',
+      to: params.email,
+      subject: `Заявка`,
+      html: template(params),
     });
   }
 

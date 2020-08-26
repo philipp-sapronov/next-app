@@ -6,7 +6,7 @@ import { IconButton } from '../components/buttons'
 import { PhoneIcon } from '../components/icons'
 import { useCallOrderDialog } from '../components/callOrderDialog'
 
-const phone = '+38 (068) 228-08-08'
+const phone = '+38 (066) 008 21 54'
 const heroSectionClassName = 'hero'
 
 const useHeader = () => {

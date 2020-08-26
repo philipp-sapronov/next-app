@@ -81,7 +81,7 @@ const Card = ({ card }) => {
   )
 }
 
-export const Pricing = ({ title, cards }) => {
+export const Pricing = ({ title, cards, sale }) => {
   const slider = useRef()
   const [scrollToForm] = useScrollToForm()
 
@@ -107,11 +107,23 @@ export const Pricing = ({ title, cards }) => {
         <div className="pricing__carousel-wrapper">
           <div id="pricing-carousel" className="pricing-carousel owl-carousel">
             <Slider ref={slider} {...settings}>
-              {[...cards, ...cards].map((card, idx) => {
+              {cards.map((card, idx) => {
                 return <Card key={idx} card={card} />
               })}
             </Slider>
           </div>
+        </div>
+        <div className="sale">
+          <div className="sale__title">{sale.title}</div>
+          <ul className="sale__options">
+            {sale.options.map((option, idx) => {
+              return (
+                <li className="sale__option" key={idx}>
+                  {option}
+                </li>
+              )
+            })}
+          </ul>
         </div>
         <div className="pricing__cta">
           <Button
