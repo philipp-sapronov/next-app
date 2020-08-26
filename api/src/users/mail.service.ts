@@ -1,9 +1,10 @@
+import { IUser } from './interface';
 import { ConfigService } from '@nestjs/config';
 import { Injectable } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
 import { SentMessageInfo } from 'nodemailer';
 
-const template = (params: MailParams) => `Здравствуйте, ${params.name}! 
+const template = (params: IUser) => `Здравствуйте, ${params.name}! 
 
 Меня зовут Света и я создатель онлайн-школы «In English, please» 🔔
 
@@ -17,12 +18,6 @@ const template = (params: MailParams) => `Здравствуйте, ${params.nam
 Отличного дня ☀️
 `;
 
-type MailParams = {
-  email: string;
-  name: string;
-  phone: string;
-};
-
 @Injectable()
 export class EmailService {
   constructor(
@@ -30,7 +25,7 @@ export class EmailService {
     private configService: ConfigService,
   ) {}
 
-  sendLeadGreetingMessage(params: MailParams): Promise<SentMessageInfo> {
+  sendLeadGreetingMessage(params: IUser): Promise<SentMessageInfo> {
     return this.mailerService.sendMail({
       from: this.configService.get('MAILER_FROM'),
       to: params.email,
@@ -39,13 +34,7 @@ export class EmailService {
     });
   }
 
-  sendNewApplication(params: {
-    email: string;
-    name: string;
-    phone: string;
-    createdAt: Date;
-    id: string;
-  }): Promise<SentMessageInfo> {
+  sendNewApplication(params: IUser): Promise<SentMessageInfo> {
     return this.mailerService.sendMail({
       from: this.configService.get('MAILER_FROM'),
       to: this.configService.get('MAILER_TO'),

@@ -1,4 +1,3 @@
-import { MongooseModule } from '@nestjs/mongoose';
 import { Module } from '@nestjs/common';
 import { AppController } from './controller';
 import { AppService } from './service';
@@ -15,17 +14,6 @@ import vars, { EnvVariables } from './config';
       envFilePath: path.join(__dirname, '..', '..', '..', '.env'),
       load: [vars],
       isGlobal: true,
-    }),
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (configService: ConfigService<EnvVariables>) => {
-        return {
-          uri: configService.get('MONGO_URL'),
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-        };
-      },
     }),
     MailerModule.forRootAsync({
       imports: [ConfigModule],

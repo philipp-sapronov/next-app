@@ -1,21 +1,13 @@
 import { TelegramBotService } from './bot.service';
 import { CreateUserDto, callOfferDto } from './dto';
-import { Controller, Post, Body, Get, UsePipes, BadRequestException } from '@nestjs/common';
-import { UsersService } from './user.service';
+import { Controller, Post, Body, UsePipes, BadRequestException } from '@nestjs/common';
 import { EmailService } from './mail.service';
 import { ClassValidationPipe } from '../app/validation.pipe';
 
 @Controller('applications')
 export class UsersController {
-  constructor(
-    private usersService: UsersService,
-    private mailerService: EmailService,
-    private botService: TelegramBotService,
-  ) {}
-  @Get()
-  async find(): Promise<any> {
-    return this.usersService.findAll();
-  }
+  constructor(private mailerService: EmailService, private botService: TelegramBotService) {}
+
   //
   @Post('create')
   @UsePipes(new ClassValidationPipe())
@@ -23,24 +15,15 @@ export class UsersController {
     if (!data) throw new BadRequestException();
 
     try {
-      const user = await this.usersService.create(data);
-
-      if (!user) throw new BadRequestException();
+      if (!data) throw new BadRequestException();
 
       const mailParams = {
-        createdAt: user.createdAt,
-        email: user.email,
-        id: user._id,
-        name: user.name,
-        phone: user.phone,
+        email: data.email,
+        name: data.name,
+        phone: data.phone,
       };
 
-      const clientMailParams = {
-        email: user.email,
-        name: user.name,
-      };
-
-      this.botService.sendApplication(user);
+      this.botService.sendApplication(mailParams);
 
       const result = await this.mailerService.sendNewApplication(mailParams);
 
@@ -48,7 +31,7 @@ export class UsersController {
         console.log('error email application');
       }
 
-      const result2 = await this.mailerService.sendLeadGreetingMessage(clientMailParams);
+      const result2 = await this.mailerService.sendLeadGreetingMessage(mailParams);
 
       if (!result2?.messageId) {
         console.log('error email user notification');
