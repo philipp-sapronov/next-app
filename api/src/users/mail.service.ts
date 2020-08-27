@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
 import { SentMessageInfo } from 'nodemailer';
 
-const template = (params: IUser) => `Здравствуйте, ${params.name}! 
+const template = (params: IUser) => `<pre>Здравствуйте, ${params.name}! 
 
 Меня зовут Света и я создатель онлайн-школы «In English, please» 🔔
 
@@ -16,7 +16,7 @@ const template = (params: IUser) => `Здравствуйте, ${params.name}!
 
 До связи 📱
 Отличного дня ☀️
-`;
+</pre>`;
 
 @Injectable()
 export class EmailService {

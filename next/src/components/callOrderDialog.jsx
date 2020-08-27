@@ -3,15 +3,17 @@ import { Button } from './buttons'
 import { Modal } from './modal'
 import { CSSTransition } from 'react-transition-group'
 
-const getUrl = () =>
-  `${window.location.protocol}//${window.location.host}/api/applications/call-order`
+const phoneMsgRegexp = new RegExp(/phone/, 'igm')
+
+const phoneErrorMsg = 'Некорректный номер телефона'
+const getUrl = () => `${window.location.protocol}//${window.location.host}/api/call-order`
 
 const PHONE_LENGTH = 9
 const CODE_UA = '+380'
 
 const matchPhone = (value) => {
   const isMatched = value.length === PHONE_LENGTH
-  return isMatched ? null : 'Некорректный номер телефона'
+  return isMatched ? null : phoneErrorMsg
 }
 
 const formatPhoneNumber = (value) => {
@@ -44,7 +46,7 @@ const Form = () => {
     setState((prev) => ({ ...prev, [name]: { ...prev[target.name], error } }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (state.phone.error) {
@@ -59,28 +61,28 @@ const Form = () => {
     }
 
     setState((prev) => ({ ...prev, loading: true }))
-
-    fetch(getUrl(), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        phone: formatPhoneNumber(state.phone.value),
-      }),
-    })
-      .then((response) => {
-        setState((prev) => ({ ...prev, loading: false }))
-
-        if (!response.ok) return Promise.reject(response)
-        setState(initialState)
-        alert('Your application has been sent successfully!')
-        console.log(response)
+    try {
+      const response = await fetch(getUrl(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          phone: formatPhoneNumber(state.phone.value),
+        }),
       })
-      .catch((response) => {
-        setState((prev) => ({ ...prev, loading: false }))
 
-        alert('An error occurred while sending to the server!')
-        return console.error(response)
-      })
+      if (!response.ok) return console.log(response)
+      setState(initialState)
+      alert('Ваша заявка успешно отправлена!')
+    } catch (error) {
+      if (error && typeof error.message === 'string' && phoneMsgRegexp.test(error.message)) {
+        setState((prev) => ({ ...prev, phone: { ...prev.phone, error: phoneErrorMsg } }))
+      }
+      alert('Во время операции произошла ошибка!')
+
+      return console.error(error)
+    } finally {
+      setState((prev) => ({ ...prev, loading: false }))
+    }
   }
 
   return (

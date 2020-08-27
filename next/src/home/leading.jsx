@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { SectionHeading } from '../components/headings'
 import { Button } from '../components/buttons'
 
-const getUrl = () => `${window.location.protocol}//${window.location.host}/api/applications/create`
+const getUrl = () => `${window.location.protocol}//${window.location.host}/api/create`
 
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -14,23 +14,31 @@ const CODE_UA = '+380'
 
 const requiredErrorMessage = 'Поле не может быть пустым'
 
+const phoneMsgRegexp = new RegExp(/phone/, 'igm')
+const emailMsgRegexp = new RegExp(/email/, 'igm')
+const nameMsgRegexp = new RegExp(/name/, 'igm')
+
+const phoneErrorMsg = 'Некорректный номер телефона'
+const emailErrorMsg = 'Некорректный email'
+const nameErrorMsg = 'Некорректное имя'
+
 const formatPhoneNumber = (value) => {
   return CODE_UA + value.toString()
 }
 
 const matchName = (value) => {
   const isMatched = value.trim().length >= NAME_MIN_LENGTH
-  return isMatched ? null : 'Некорректное имя'
+  return isMatched ? null : nameErrorMsg
 }
 
 const matchEmail = (value) => {
   const isMatched = EMAIL_REGEX.test(value.trim())
-  return isMatched ? null : 'Некорректный email'
+  return isMatched ? null : emailErrorMsg
 }
 
 const matchPhone = (value) => {
   const isMatched = value.length === PHONE_LENGTH
-  return isMatched ? null : 'Некорректный номер телефона'
+  return isMatched ? null : phoneErrorMsg
 }
 
 const match = {
@@ -82,7 +90,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
     setState((prev) => ({ ...prev, [name]: { ...prev[target.name], error } }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (state.loading) return
 
@@ -113,29 +121,40 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
 
     setState((prev) => ({ ...prev, loading: true }))
 
-    fetch(getUrl(), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: state.email.value,
-        name: state.name.value,
-        phone: formatPhoneNumber(state.phone.value),
-      }),
-    })
-      .then((response) => {
-        setState((prev) => ({ ...prev, loading: false }))
-
-        if (!response.ok) return Promise.reject(response)
-        setState(initialState)
-        alert('Ваша заявка успешно отправлена!')
-        console.log(response)
+    try {
+      const response = await fetch(getUrl(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: state.email.value,
+          name: state.name.value,
+          phone: formatPhoneNumber(state.phone.value),
+        }),
       })
-      .catch((response) => {
-        setState((prev) => ({ ...prev, loading: false }))
 
-        alert('Во время операции произошла ошибка!')
-        return console.error(response)
-      })
+      if (!response.ok) return console.error(response)
+      setState(initialState)
+      console.log(response)
+      alert('Ваша заявка успешно отправлена!')
+    } catch (error) {
+      console.error(error)
+      if (typeof (error || {}).message !== 'string')
+        return alert('Во время операции произошла ошибка!')
+
+      if (phoneMsgRegexp.test(error.message)) {
+        return setState((prev) => ({ ...prev, phone: { ...prev.phone, error: phoneErrorMsg } }))
+      }
+
+      if (emailMsgRegexp.test(error.message)) {
+        return setState((prev) => ({ ...prev, phone: { ...prev.email, error: emailErrorMsg } }))
+      }
+
+      if (nameMsgRegexp.test(error.message)) {
+        return setState((prev) => ({ ...prev, phone: { ...prev.name, error: nameErrorMsg } }))
+      }
+    } finally {
+      setState((prev) => ({ ...prev, loading: false }))
+    }
   }
 
   return (

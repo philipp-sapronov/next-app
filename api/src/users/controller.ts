@@ -4,11 +4,10 @@ import { Controller, Post, Body, UsePipes, BadRequestException } from '@nestjs/c
 import { EmailService } from './mail.service';
 import { ClassValidationPipe } from '../app/validation.pipe';
 
-@Controller('applications')
+@Controller()
 export class UsersController {
   constructor(private mailerService: EmailService, private botService: TelegramBotService) {}
 
-  //
   @Post('create')
   @UsePipes(new ClassValidationPipe())
   async create(@Body() data: CreateUserDto): Promise<void> {
