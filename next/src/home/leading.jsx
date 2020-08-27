@@ -132,9 +132,9 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
         }),
       })
 
-      if (!response.ok) return console.error(response)
+      if (!response.ok) return Promise.reject(response)
+      console.log(response, 'success')
       setState(initialState)
-      console.log(response)
       alert('Ваша заявка успешно отправлена!')
     } catch (error) {
       console.error(error)
