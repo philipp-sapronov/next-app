@@ -1,22 +1,13 @@
+import {
+  emailTemplateGreeting,
+  emailTemplateApplication,
+  emailTemplateCallRequest,
+} from './templates';
 import { IUser } from './interface';
 import { ConfigService } from '@nestjs/config';
 import { Injectable } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
 import { SentMessageInfo } from 'nodemailer';
-
-const template = (params: IUser) => `<pre>Здравствуйте, ${params.name}! 
-
-Меня зовут Света и я создатель онлайн-школы «In English, please» 🔔
-
-Спасибо за Вашу заявку! 🙌🏻 
-
-В ближайшее время мы с Вами свяжемся по этому номеру ${params.phone}, чтобы выбрать удобное время для пробного занятия 👌🏻
-
-А вот мой номер на тот случай, если у Вас появятся вопросы +38 (066) 008 21 54 
-
-До связи 📱
-Отличного дня ☀️
-</pre>`;
 
 @Injectable()
 export class EmailService {
@@ -29,8 +20,8 @@ export class EmailService {
     return this.mailerService.sendMail({
       from: this.configService.get('MAILER_FROM'),
       to: params.email,
-      subject: `Заявка`,
-      html: template(params),
+      subject: `Заявка на вводный урок английского языка`,
+      text: emailTemplateGreeting(params),
     });
   }
 
@@ -38,19 +29,17 @@ export class EmailService {
     return this.mailerService.sendMail({
       from: this.configService.get('MAILER_FROM'),
       to: this.configService.get('MAILER_TO'),
-      subject: 'New Lead',
-      text: 'that text',
-      html: `<pre>${JSON.stringify(params, null, 4)}</pre>`,
+      subject: 'New Application',
+      html: emailTemplateApplication(params),
     });
   }
 
-  sendNewCallOrder(params: { phone: string; createdAt: Date }): Promise<SentMessageInfo> {
+  sendNewCallOrder(params: { phone: string }): Promise<SentMessageInfo> {
     return this.mailerService.sendMail({
       from: this.configService.get('MAILER_FROM'),
       to: this.configService.get('MAILER_TO'),
-      subject: 'New Lead',
-      text: 'that text',
-      html: `<pre>${JSON.stringify(params, null, 4)}</pre>`,
+      subject: 'New Call Request',
+      html: emailTemplateCallRequest(params),
     });
   }
 }

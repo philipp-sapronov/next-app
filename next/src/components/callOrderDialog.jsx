@@ -6,6 +6,8 @@ import { CSSTransition } from 'react-transition-group'
 const phoneMsgRegexp = new RegExp(/phone/, 'igm')
 
 const phoneErrorMsg = 'Некорректный номер телефона'
+const requiredErrorMsg = 'Поле не может быть пустым'
+
 const getUrl = () => `${window.location.protocol}//${window.location.host}/api/call-order`
 
 const PHONE_LENGTH = 9
@@ -56,11 +58,12 @@ const Form = () => {
     if (!state.phone.value) {
       return setState((prev) => ({
         ...prev,
-        phone: { ...prev.phone, error: true },
+        phone: { ...prev.phone, error: requiredErrorMsg },
       }))
     }
 
     setState((prev) => ({ ...prev, loading: true }))
+
     try {
       const response = await fetch(getUrl(), {
         method: 'POST',
@@ -129,6 +132,7 @@ const Form = () => {
 
       <div className="form__submit-wrapper">
         <Button
+          loading={state.loading}
           type="submit"
           className="form__submit-btn btn btn--filled btn--green btn--large btn--uppercased"
         >

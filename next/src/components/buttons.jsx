@@ -1,4 +1,5 @@
 import React from 'react'
+import { Spinner } from './spinner'
 
 const ArrowLeft = () => {
   return (
@@ -22,10 +23,13 @@ const ArrowRight = () => {
   )
 }
 
-export const Button = ({ children, className, onClick, type }) => {
+export const Button = ({ children, className, onClick, type, loading }) => {
   return (
     <button onClick={onClick} type={type || 'button'} className={className}>
-      <span className="btn__label">{children}</span>
+      <span className="btn__label">
+        {loading && <Spinner />}
+        {children}
+      </span>
     </button>
   )
 }

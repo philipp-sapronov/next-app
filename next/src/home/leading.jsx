@@ -233,6 +233,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
 
       <div className="form__submit-wrapper">
         <Button
+          loading={state.loading}
           className="form__submit-btn btn btn--filled btn--red btn--large btn--uppercased"
           type="submit"
         >

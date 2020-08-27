@@ -2,9 +2,9 @@ import { ApplicationStatus, ChatType } from './enums';
 import { Injectable } from '@nestjs/common';
 import { IUser } from './interface';
 import * as TelegramBot from 'node-telegram-bot-api';
-import * as moment from 'moment-timezone';
 import { ConfigService } from '@nestjs/config';
 import { EnvVariables } from '../app/config';
+import { telegramTemplateApplication, telegramTemplateCallRequest } from './templates';
 
 const editTextMessage = (text: string): string => {
   return text
@@ -18,34 +18,6 @@ const callbackMessages = {
 
 const translations = {
   [callbackMessages.SET_AS_READ]: 'Отметить как прочитанное',
-};
-
-const templateApplication = (params: IUser): string => {
-  return `
-🚀  *Заявка*
-
-👩  Name: ${params.name}
-
-☎️  Phone: ${params.phone}
-
-✉️  Email: ${params.email}
-
-🌟  Status: ${ApplicationStatus.active}
-
-📅  ${moment.tz(new Date(), 'Europe/Kiev').format('MMMM DD, YYYY HH:mm')}
-`;
-};
-
-const templateCallOrder = (params: { phone: string }): string => {
-  return `
-🚀  *Звонок*
-
-☎️  Phone: ${params.phone}
-
-🌟  Status: ${ApplicationStatus.active}
-
-📅  ${moment.tz(new Date(), 'Europe/Kiev').format('MMMM DD, YYYY HH:mm')}
-`;
 };
 
 @Injectable()
@@ -103,7 +75,7 @@ export class TelegramBotService {
   }
 
   async sendApplication(params: IUser): Promise<TelegramBot.Message> {
-    return await this.bot.sendMessage(this.groupId, templateApplication(params), {
+    return await this.bot.sendMessage(this.groupId, telegramTemplateApplication(params), {
       parse_mode: 'Markdown',
       reply_markup: {
         inline_keyboard: [
@@ -119,7 +91,7 @@ export class TelegramBotService {
   }
 
   async sendCallOrder(params: { phone: string }): Promise<TelegramBot.Message> {
-    return await this.bot.sendMessage(this.groupId, templateCallOrder(params), {
+    return await this.bot.sendMessage(this.groupId, telegramTemplateCallRequest(params), {
       parse_mode: 'Markdown',
       reply_markup: {
         inline_keyboard: [
