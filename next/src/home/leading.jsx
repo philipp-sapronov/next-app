@@ -133,30 +133,28 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
       })
 
       if (!response.ok) {
-        console.log('!ok')
-        return Promise.reject(response)
+        const error = await response.json()
+
+        if (phoneMsgRegexp.test(error.message)) {
+          return setState((prev) => ({ ...prev, phone: { ...prev.phone, error: phoneErrorMsg } }))
+        }
+
+        if (emailMsgRegexp.test(error.message)) {
+          return setState((prev) => ({ ...prev, email: { ...prev.email, error: emailErrorMsg } }))
+        }
+
+        if (nameMsgRegexp.test(error.message)) {
+          return setState((prev) => ({ ...prev, name: { ...prev.name, error: nameErrorMsg } }))
+        }
+
+        return Promise.reject(error)
       }
 
       console.log(response, 'success')
       setState(initialState)
       alert('Ваша заявка успешно отправлена!')
     } catch (error) {
-      console.error(error, 'ERROR')
-      console.log(error.text(), 'TEXT')
-      if (typeof (error || {}).message !== 'string')
-        return alert('Во время операции произошла ошибка!')
-
-      if (phoneMsgRegexp.test(error.message)) {
-        return setState((prev) => ({ ...prev, phone: { ...prev.phone, error: phoneErrorMsg } }))
-      }
-
-      if (emailMsgRegexp.test(error.message)) {
-        return setState((prev) => ({ ...prev, phone: { ...prev.email, error: emailErrorMsg } }))
-      }
-
-      if (nameMsgRegexp.test(error.message)) {
-        return setState((prev) => ({ ...prev, phone: { ...prev.name, error: nameErrorMsg } }))
-      }
+      return alert('Во время операции произошла ошибка!')
     } finally {
       setState((prev) => ({ ...prev, loading: false }))
     }
@@ -169,7 +167,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
           {inputName.label}
         </label>
         <input
-          className="input-text"
+          className={`input-text ${state.name.error ? 'error' : ''}`}
           id="input-name"
           name="name"
           onBlur={handleBlur}
@@ -188,7 +186,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
           {inputEmail.label}
         </label>
         <input
-          className="input-text"
+          className={`input-text ${state.email.error ? 'error' : ''}`}
           id="input-email"
           name="email"
           onBlur={handleBlur}
@@ -217,7 +215,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
             {CODE_UA}
           </span>
           <input
-            className="input-text"
+            className={`input-text ${state.phone.error ? 'error' : ''}`}
             id="input-phone"
             name="phone"
             onBlur={handleBlur}

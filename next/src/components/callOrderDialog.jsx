@@ -70,16 +70,21 @@ const Form = () => {
         }),
       })
 
-      if (!response.ok) return console.log(response)
+      if (!response.ok) {
+        const error = await response.json()
+
+        if (phoneMsgRegexp.test(error.message)) {
+          return setState((prev) => ({ ...prev, phone: { ...prev.phone, error: phoneErrorMsg } }))
+        }
+
+        return Promise.reject(error)
+      }
+
+      console.log(response, 'success')
       setState(initialState)
       alert('Ваша заявка успешно отправлена!')
     } catch (error) {
-      if (error && typeof error.message === 'string' && phoneMsgRegexp.test(error.message)) {
-        setState((prev) => ({ ...prev, phone: { ...prev.phone, error: phoneErrorMsg } }))
-      }
-      alert('Во время операции произошла ошибка!')
-
-      return console.error(error)
+      return alert('Во время операции произошла ошибка!')
     } finally {
       setState((prev) => ({ ...prev, loading: false }))
     }
@@ -116,6 +121,9 @@ const Form = () => {
               value={state.phone.value}
             />
           </div>
+          <span className="input-msg" data-name="phone">
+            {state.phone.error}
+          </span>
         </label>
       </div>
 
