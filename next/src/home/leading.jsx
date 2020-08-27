@@ -138,6 +138,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
       alert('Ваша заявка успешно отправлена!')
     } catch (error) {
       console.error(error)
+      console.log(error.text(), 'TEXT')
       if (typeof (error || {}).message !== 'string')
         return alert('Во время операции произошла ошибка!')
 
