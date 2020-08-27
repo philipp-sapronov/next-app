@@ -132,12 +132,16 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
         }),
       })
 
-      if (!response.ok) return Promise.reject(response)
+      if (!response.ok) {
+        console.log('!ok')
+        return Promise.reject(response)
+      }
+
       console.log(response, 'success')
       setState(initialState)
       alert('Ваша заявка успешно отправлена!')
     } catch (error) {
-      console.error(error)
+      console.error(error, 'ERROR')
       console.log(error.text(), 'TEXT')
       if (typeof (error || {}).message !== 'string')
         return alert('Во время операции произошла ошибка!')
