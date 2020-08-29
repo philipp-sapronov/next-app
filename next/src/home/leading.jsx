@@ -294,7 +294,7 @@ export const Leading = ({ title, optionsTitle, form, options, subscription, post
 
             <div className="additional-msg">
               <div className="additional-msg__arrow">
-                <svg fill="none">
+                <svg fill="none" width="116" height="115">
                   <use xlinkHref="./assets/sprite.svg#leading-arrow" />
                 </svg>
               </div>

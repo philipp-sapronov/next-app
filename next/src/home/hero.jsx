@@ -24,7 +24,7 @@ export const Hero = ({ title, subtitle, tip }) => {
           </div>
           <div className="additional-msg__wrapper">
             <div className="additional-msg__arrow">
-              <svg>
+              <svg width="42" height="38">
                 <use href="#hero-arrow" />
               </svg>
             </div>

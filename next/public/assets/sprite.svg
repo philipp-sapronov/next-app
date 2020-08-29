@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+  <!-- pipeline icons  -->
+
   <symbol id="leadin" viewBox="0 0 138 106" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M97.5002 59.5459C66 59.5459 59.1669 89.3792 60.5002 103.046H134.5C136.5 90.5459 129.001 59.5459 97.5002 59.5459Z"
@@ -64,7 +67,7 @@
 
   <!--  pricing -->
 
-  <symbol id="pricing-circles" width="100%" height="100%" viewBox="0 0 1196 529" fill="none">
+  <symbol id="pricing-circles" viewBox="0 0 1196 529" fill="none">
     <ellipse cx="1067.5" cy="218" rx="7.5" ry="7" fill="white" fill-opacity="0.8" />
 
     <ellipse cx="735.5" cy="17" rx="5.5" ry="5" fill="white" fill-opacity="0.6" />
@@ -113,7 +116,7 @@
   </symbol>
 
 
-  <symbol id="leading-arrow" viewBox="0 0 116 115" width="116" height="115" fill="none">
+  <symbol id="leading-arrow" viewBox="0 0 116 115" fill="none">
     <path d="M42.1652 3.30163C38.4386 10.4235 29.4733 25.4312 23.4243 28.4868" stroke="white" stroke-width="2" />
     <path d="M77.1506 113.623C53.1323 101.055 12.3749 62.3628 41.492 8.1341" stroke="white" stroke-width="2"
       stroke-dasharray="2 4" />
