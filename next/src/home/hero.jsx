@@ -81,7 +81,7 @@ export const Hero = ({ title, subtitle, tip }) => {
                 />
                 <text
                   transform="translate(38.3743 374.27) rotate(-53.8573)"
-                  fill="white"
+                  fill="FE9780"
                   xmlSpace="preserve"
                   style={{ 'white-space': 'pre' }}
                   fontFamily="Caveat"
