@@ -48,6 +48,10 @@
   & .feedbacks-card {
     margin: 0 20px;
     outline: none;
+
+    @media screen and (max-width: $bp-down-medium) {
+      min-height: 680px;
+    }
   }
 }
 

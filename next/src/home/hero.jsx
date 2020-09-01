@@ -65,7 +65,7 @@ export const Hero = ({ title, subtitle, tip }) => {
                   transform="translate(491.644 7.44531) rotate(16.8754)"
                   fill="white"
                   xmlSpace="preserve"
-                  style={{ 'white-space': 'pre' }}
+                  style={{ whiteSpace: 'pre' }}
                   fontFamily="Caveat"
                   fontSize="48"
                   letterSpacing="0em"
@@ -83,7 +83,7 @@ export const Hero = ({ title, subtitle, tip }) => {
                   transform="translate(38.3743 374.27) rotate(-53.8573)"
                   fill="white"
                   xmlSpace="preserve"
-                  style={{ 'white-space': 'pre' }}
+                  style={{ whiteSpace: 'pre' }}
                   fontFamily="Caveat"
                   fontSize="48"
                   letterSpacing="0em"

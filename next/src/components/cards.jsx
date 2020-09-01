@@ -3,7 +3,7 @@ import React from 'react'
 import { Avatar } from './avatar'
 
 // flexible
-const CardHeader = ({ avatar, age, socials, name, flexible }) => {
+const CardHeader = ({ avatar, age, social, name, flexible }) => {
   return (
     <div className={`card__header ${flexible ? 'flexible' : ''}`}>
       <div className="header__avatar">
@@ -11,17 +11,16 @@ const CardHeader = ({ avatar, age, socials, name, flexible }) => {
       </div>
       <div className="header__content">
         <div className="name">
-          <span>{name}</span>
-        </div>
-        <div className="year">
-          <span>{age}</span>
+          <span>
+            {name}, {age}
+          </span>
         </div>
 
-        {!!socials.length && (
+        {social && (
           <div className="socials">
-            {socials.map((social) => {
-              return <span key={social}>{social}</span>
-            })}
+            <a target="__blank" href={social.link}>
+              {social.text}
+            </a>
           </div>
         )}
       </div>
@@ -42,11 +41,11 @@ const Card = ({ header, content, className }) => {
   )
 }
 
-export const FeedbackContent = ({ text, course }) => {
+export const FeedbackContent = ({ text }) => {
   return (
     <div className="feedback-card__content">
       <p className="text">{text}</p>
-      <span className="details">Курс: {course}</span>
+      {/* <span className="details">Курс: {course}</span> */}
     </div>
   )
 }
@@ -67,6 +66,7 @@ export const TeacherContent = ({ options }) => {
 }
 
 export const FeedbackCard = ({ card }) => {
+  console.log(card, 'card')
   return (
     <Card
       className="feedbacks-card"
