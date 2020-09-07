@@ -307,34 +307,49 @@ export const leading = {
       text: 'Познакомиться (а может и подружиться) с преподавателем.',
     },
   ],
-
-  form: {
-    confirmText: 'Нажимая, вы принимаете условия оферты',
-    inputName: {
-      label: 'Имя',
-      placeholder: 'Вашe Имя...',
-      errorMsg: { required: 'Поле не может быть пустым' },
-    },
-    inputEmail: {
-      label: 'Email',
-      placeholder: 'Ваш Email...',
-      errorMsg: { incorrect: 'Некорректный email' },
-    },
-    inputPhone: {
-      label: 'Телефон',
-      placeholder: 'Ваш телефон...',
-      errorMsg: { incorrect: 'Некорректный номер телефона' },
-    },
-  },
-}
-
-export const buttons = {
-  begin: 'Начать бесплатно',
-  sendApplication: 'Отправить заявку',
 }
 
 export const common = {
-  countryCode: {
-    ['UA']: '+380',
+  link: {
+    text: 'UA',
+    href: '/ua',
   },
+  phone: '+38 (066) 008 21 54',
+  meta: {
+    title: 'In English, Please. Главная',
+    description: 'Онлайн школа английского языка',
+  },
+  button: {
+    startNow: 'Начать прямо сейчас',
+    startFree: 'Начать бесплатно',
+    orderCall: 'Заказать звонок',
+    submit: 'Отправить заявку',
+    wantTry: 'Хочу попробовать',
+  },
+  message: {
+    error: { default: 'Во время операции произошла ошибка!' },
+    success: { applicationSent: 'Ваша заявка успешно отправлена!' },
+  },
+  form: {
+    name: {
+      label: 'Имя',
+      placeholder: 'Вашe Имя...',
+      message: { incorrect: 'Некорректное имя', required: 'Пожалуйста, введите имя' },
+    },
+    email: {
+      label: 'Email',
+      placeholder: 'Ваш Email...',
+      message: { incorrect: 'Некорректный email', required: 'Пожалуйста, введите email' },
+    },
+    phone: {
+      label: 'Телефон',
+      placeholder: 'Ваш телефон...',
+      message: {
+        incorrect: 'Некорректный номер телефона',
+        required: 'Пожалуйста, введите номер телефона',
+      },
+    },
+  },
+
+  code: '+380',
 }

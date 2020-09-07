@@ -10,42 +10,9 @@ const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))
 const PHONE_LENGTH = 9
 const NAME_MIN_LENGTH = 2
 
-const CODE_UA = '+380'
-
-const requiredErrorMessage = 'Поле не может быть пустым'
-
 const phoneMsgRegexp = new RegExp(/phone/, 'igm')
 const emailMsgRegexp = new RegExp(/email/, 'igm')
 const nameMsgRegexp = new RegExp(/name/, 'igm')
-
-const phoneErrorMsg = 'Некорректный номер телефона'
-const emailErrorMsg = 'Некорректный email'
-const nameErrorMsg = 'Некорректное имя'
-
-const formatPhoneNumber = (value) => {
-  return CODE_UA + value.toString()
-}
-
-const matchName = (value) => {
-  const isMatched = value.trim().length >= NAME_MIN_LENGTH
-  return isMatched ? null : nameErrorMsg
-}
-
-const matchEmail = (value) => {
-  const isMatched = EMAIL_REGEX.test(value.trim())
-  return isMatched ? null : emailErrorMsg
-}
-
-const matchPhone = (value) => {
-  const isMatched = value.length === PHONE_LENGTH
-  return isMatched ? null : phoneErrorMsg
-}
-
-const match = {
-  name: matchName,
-  email: matchEmail,
-  phone: matchPhone,
-}
 
 const initialState = {
   loading: false,
@@ -63,8 +30,36 @@ const initialState = {
   },
 }
 
-const Form = ({ inputEmail, inputName, inputPhone }) => {
+const Form = ({ content }) => {
+  const { code, button, message, form } = content
+  const { name, email, phone } = form
+
   const [state, setState] = useState(initialState)
+
+  const formatPhoneNumber = (value) => {
+    return code + value.toString()
+  }
+
+  const matchName = (value) => {
+    const isMatched = value.trim().length >= NAME_MIN_LENGTH
+    return isMatched ? null : name.message.incorrect
+  }
+
+  const matchEmail = (value) => {
+    const isMatched = EMAIL_REGEX.test(value.trim())
+    return isMatched ? null : email.message.incorrect
+  }
+
+  const matchPhone = (value) => {
+    const isMatched = value.length === PHONE_LENGTH
+    return isMatched ? null : phone.message.incorrect
+  }
+
+  const match = {
+    name: matchName,
+    email: matchEmail,
+    phone: matchPhone,
+  }
 
   const handleChangePhone = ({ target }) => {
     let { value } = target
@@ -97,21 +92,21 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
     if (!state.name.value) {
       return setState((prev) => ({
         ...prev,
-        name: { ...prev.name, error: requiredErrorMessage },
+        name: { ...prev.name, error: name.message.required },
       }))
     }
 
     if (!state.email.value) {
       return setState((prev) => ({
         ...prev,
-        email: { ...prev.email, error: requiredErrorMessage },
+        email: { ...prev.email, error: email.message.required },
       }))
     }
 
     if (!state.phone.value) {
       return setState((prev) => ({
         ...prev,
-        phone: { ...prev.phone, error: requiredErrorMessage },
+        phone: { ...prev.phone, error: phone.message.required },
       }))
     }
 
@@ -136,15 +131,24 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
         const error = await response.json()
 
         if (phoneMsgRegexp.test(error.message)) {
-          return setState((prev) => ({ ...prev, phone: { ...prev.phone, error: phoneErrorMsg } }))
+          return setState((prev) => ({
+            ...prev,
+            phone: { ...prev.phone, error: phone.message.incorrect },
+          }))
         }
 
         if (emailMsgRegexp.test(error.message)) {
-          return setState((prev) => ({ ...prev, email: { ...prev.email, error: emailErrorMsg } }))
+          return setState((prev) => ({
+            ...prev,
+            email: { ...prev.email, error: email.message.incorrect },
+          }))
         }
 
         if (nameMsgRegexp.test(error.message)) {
-          return setState((prev) => ({ ...prev, name: { ...prev.name, error: nameErrorMsg } }))
+          return setState((prev) => ({
+            ...prev,
+            name: { ...prev.name, error: name.message.incorrect },
+          }))
         }
 
         return Promise.reject(error)
@@ -152,9 +156,9 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
 
       console.log(response, 'success')
       setState(initialState)
-      alert('Ваша заявка успешно отправлена!')
+      alert(message.success.applicationSent)
     } catch (error) {
-      return alert('Во время операции произошла ошибка!')
+      return alert(message.error.default)
     } finally {
       setState((prev) => ({ ...prev, loading: false }))
     }
@@ -164,7 +168,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
     <form onSubmit={handleSubmit} className="leading__form form">
       <div className="form__item success">
         <label className="input-label" htmlFor="input-name">
-          {inputName.label}
+          {name.label}
         </label>
         <input
           className={`input-text ${state.name.error ? 'error' : ''}`}
@@ -172,7 +176,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
           name="name"
           onBlur={handleBlur}
           onChange={handleChange}
-          placeholder={inputName.placeholder}
+          placeholder={name.placeholder}
           type="text"
           value={state.name.value}
         />
@@ -183,7 +187,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
 
       <div className="form__item">
         <label className="input-label" htmlFor="input-email">
-          {inputEmail.label}
+          {email.label}
         </label>
         <input
           className={`input-text ${state.email.error ? 'error' : ''}`}
@@ -191,7 +195,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
           name="email"
           onBlur={handleBlur}
           onChange={handleChange}
-          placeholder={inputEmail.placeholder}
+          placeholder={email.placeholder}
           type="text"
           value={state.email.value}
         />
@@ -203,7 +207,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
 
       <div className="form__item error">
         <label className="input-label" htmlFor="input-phone">
-          {inputPhone.label}
+          {phone.label}
         </label>
 
         <div className="input-wrapper">
@@ -212,7 +216,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
               <rect width="20" height="6" fill="#00D1FF" />
               <rect y="6" width="20" height="6" fill="#F8EE00" />
             </svg>
-            {CODE_UA}
+            {code}
           </span>
           <input
             className={`input-text ${state.phone.error ? 'error' : ''}`}
@@ -220,7 +224,7 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
             name="phone"
             onBlur={handleBlur}
             onChange={handleChangePhone}
-            placeholder={inputPhone.placeholder}
+            placeholder={phone.placeholder}
             type="text"
             value={state.phone.value}
           />
@@ -237,15 +241,18 @@ const Form = ({ inputEmail, inputName, inputPhone }) => {
           className="form__submit-btn btn btn--filled btn--red btn--large btn--uppercased"
           type="submit"
         >
-          {'Отправить заявку'}
+          {button.submit}
         </Button>
-        {/* <p className="confirm-msg">{confirmText}</p> */}
       </div>
     </form>
   )
 }
 
-export const Leading = ({ title, optionsTitle, form, options, subscription, postscriptum }) => {
+export const Leading = ({ content }) => {
+  const { main, common } = content
+
+  const { title, optionsTitle, options, subscription, postscriptum } = main
+
   return (
     <section id="leadform-section" className="leading section">
       <div className="leading__inner container">
@@ -288,7 +295,7 @@ export const Leading = ({ title, optionsTitle, form, options, subscription, post
             <div className="leading__card">
               <div className="card-layer"></div>
               <div className="card__inner">
-                <Form {...form} />
+                <Form content={common} />
               </div>
             </div>
 

@@ -4,7 +4,7 @@ import { Button } from '../components/buttons'
 import { HeroSvg } from '../components/icons'
 import { useScrollToForm } from '../hooks/useScrollToForm'
 
-export const Hero = ({ title, subtitle, tip }) => {
+export const Hero = ({ title, subtitle, tip, common }) => {
   const [scrollToForm] = useScrollToForm()
 
   return (
@@ -19,7 +19,7 @@ export const Hero = ({ title, subtitle, tip }) => {
               onClick={scrollToForm}
               className="cta-btn hero-cta btn--filled btn--green btn--uppercased"
             >
-              {'Начать прямо сейчас'}
+              {common.button.startNow}
             </Button>
           </div>
           <div className="additional-msg__wrapper">

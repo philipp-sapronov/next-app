@@ -23,9 +23,9 @@ const ArrowRight = () => {
   )
 }
 
-export const Button = ({ children, className, onClick, type, loading }) => {
+export const Button = ({ children, className, onClick, type, loading, style }) => {
   return (
-    <button onClick={onClick} type={type || 'button'} className={className}>
+    <button onClick={onClick} type={type || 'button'} className={className} style={style}>
       <span className="btn__label">
         {loading && <Spinner />}
         {children}

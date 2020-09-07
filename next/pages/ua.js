@@ -6,7 +6,7 @@ import '../src/sass/main.scss'
 import { Home } from '../src/home'
 import { Layout } from '../src/layout'
 
-import * as content from '../src/translations/ru'
+import * as content from '../src/translations/uk'
 
 const HomePage = () => (
   <Layout content={content.common}>
@@ -30,7 +30,6 @@ const HomePage = () => (
         charset="UTF-8"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
       />
-
       <link
         rel="stylesheet"
         type="text/css"

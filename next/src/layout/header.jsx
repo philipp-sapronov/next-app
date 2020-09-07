@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
+import Link from 'next/link'
 
 import { Logo, LogoSmall } from '../components/logo'
 import { IconButton } from '../components/buttons'
 import { PhoneIcon } from '../components/icons'
 import { useCallOrderDialog } from '../components/callOrderDialog'
 
-const phone = '+38 (066) 008 21 54'
 const heroSectionClassName = 'hero'
 
 const useHeader = () => {
@@ -29,21 +29,22 @@ const useHeader = () => {
   return { isShow }
 }
 
-export const Header = () => {
+export const Header = ({ content }) => {
   const { isShow } = useHeader()
 
   return (
     <>
-      <HeaderMain />
+      <HeaderMain content={content} />
       <CSSTransition in={isShow} classNames="fade" mountOnEnter unmountOnExit timeout={500}>
-        <HeaderFloat />
+        <HeaderFloat content={content} />
       </CSSTransition>
     </>
   )
 }
 
-export const HeaderMain = () => {
-  const [dialog, toggleDialog] = useCallOrderDialog()
+export const HeaderMain = ({ content }) => {
+  const { phone, button, link } = content
+  const [dialog, toggleDialog] = useCallOrderDialog({ content })
 
   return (
     <header className="header header-main">
@@ -61,8 +62,11 @@ export const HeaderMain = () => {
             icon={<PhoneIcon />}
             className="call-offer-btn btn btn--outlined btn--light btn--small btn--icon-sm"
           >
-            Заказать звонок
+            {button.orderCall}
           </IconButton>
+          <Link href={link.href}>
+            <a className="btn-lang btn btn--empty btn--light">{link.text}</a>
+          </Link>
         </div>
       </div>
       {dialog}
@@ -70,8 +74,9 @@ export const HeaderMain = () => {
   )
 }
 
-export const HeaderFloat = () => {
-  const [dialog, toggleDialog] = useCallOrderDialog()
+export const HeaderFloat = ({ content }) => {
+  const { phone, button } = content
+  const [dialog, toggleDialog] = useCallOrderDialog({ content })
 
   return (
     <div className="header header-small">
@@ -80,7 +85,11 @@ export const HeaderFloat = () => {
           <LogoSmall />
         </div>
         <div className="header__nav small">
-          <a className="phone-btn btn btn--empty btn--hover btn--dark" href={`tel:${phone}`}>
+          <a
+            className="phone-btn btn btn--empty btn--hover btn--dark"
+            href={`tel:${phone}`}
+            style={{ marginRight: 15 }}
+          >
             {phone}
           </a>
           <IconButton
@@ -89,7 +98,7 @@ export const HeaderFloat = () => {
             icon={<PhoneIcon />}
             className="call-offer-btn btn btn--filled btn--green btn--small btn--icon-sm"
           >
-            Заказать звонок
+            {button.orderCall}
           </IconButton>
         </div>
       </div>

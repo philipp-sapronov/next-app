@@ -66,7 +66,6 @@ export const TeacherContent = ({ options }) => {
 }
 
 export const FeedbackCard = ({ card }) => {
-  console.log(card, 'card')
   return (
     <Card
       className="feedbacks-card"

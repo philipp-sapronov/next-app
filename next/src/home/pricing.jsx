@@ -81,7 +81,7 @@ const Card = ({ card }) => {
   )
 }
 
-export const Pricing = ({ title, cards, sale }) => {
+export const Pricing = ({ title, cards, sale, common }) => {
   const slider = useRef()
   const [scrollToForm] = useScrollToForm()
 
@@ -130,7 +130,7 @@ export const Pricing = ({ title, cards, sale }) => {
             onClick={scrollToForm}
             className="cta-btn btn btn--filled btn--red btn--large btn--uppercased"
           >
-            {'Начать бесплатно'}
+            {common.button.startFree}
           </Button>
         </div>
       </div>

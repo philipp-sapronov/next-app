@@ -26,7 +26,7 @@ const settings = {
   responsive,
 }
 
-export const Feedbacks = ({ cards, title }) => {
+export const Feedbacks = ({ cards, title, common }) => {
   const [scrollToForm] = useScrollToForm()
 
   const slider = useRef()
@@ -64,7 +64,7 @@ export const Feedbacks = ({ cards, title }) => {
             onClick={scrollToForm}
             className="cta-btn btn btn--outlined btn--red btn--large btn--uppercased"
           >
-            Начать бесплатно
+            {common.button.startFree}
           </Button>
         </div>
       </div>

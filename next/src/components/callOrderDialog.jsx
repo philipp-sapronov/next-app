@@ -5,30 +5,27 @@ import { CSSTransition } from 'react-transition-group'
 
 const phoneMsgRegexp = new RegExp(/phone/, 'igm')
 
-const phoneErrorMsg = 'Некорректный номер телефона'
-const requiredErrorMsg = 'Поле не может быть пустым'
-
 const getUrl = () => `${window.location.protocol}//${window.location.host}/api/call-order`
 
 const PHONE_LENGTH = 9
-const CODE_UA = '+380'
-
-const matchPhone = (value) => {
-  const isMatched = value.length === PHONE_LENGTH
-  return isMatched ? null : phoneErrorMsg
-}
-
-const formatPhoneNumber = (value) => {
-  return CODE_UA + value.toString()
-}
 
 const initialState = {
   loading: false,
   phone: { value: '', error: null },
 }
 
-const Form = () => {
+const Form = ({ content }) => {
+  const { code, form, button, message } = content
   const [state, setState] = useState(initialState)
+
+  const matchPhone = (value) => {
+    const isMatched = value.length === PHONE_LENGTH
+    return isMatched ? null : form.phone.message.incorrect
+  }
+
+  const formatPhoneNumber = (value) => {
+    return code + value.toString()
+  }
 
   const handleChangePhone = ({ target }) => {
     let { value } = target
@@ -58,7 +55,7 @@ const Form = () => {
     if (!state.phone.value) {
       return setState((prev) => ({
         ...prev,
-        phone: { ...prev.phone, error: requiredErrorMsg },
+        phone: { ...prev.phone, error: form.phone.message.required },
       }))
     }
 
@@ -77,7 +74,10 @@ const Form = () => {
         const error = await response.json()
 
         if (phoneMsgRegexp.test(error.message)) {
-          return setState((prev) => ({ ...prev, phone: { ...prev.phone, error: phoneErrorMsg } }))
+          return setState((prev) => ({
+            ...prev,
+            phone: { ...prev.phone, error: form.phone.message.incorrect },
+          }))
         }
 
         return Promise.reject(error)
@@ -85,9 +85,9 @@ const Form = () => {
 
       console.log(response, 'success')
       setState(initialState)
-      alert('Ваша заявка успешно отправлена!')
+      alert(message.success.applicationSent)
     } catch (error) {
-      return alert('Во время операции произошла ошибка!')
+      return alert(message.error.default)
     } finally {
       setState((prev) => ({ ...prev, loading: false }))
     }
@@ -111,7 +111,7 @@ const Form = () => {
                 <rect width="20" height="6" fill="#00D1FF" />
                 <rect y="6" width="20" height="6" fill="#F8EE00" />
               </svg>
-              {CODE_UA}
+              {code}
             </span>
             <input
               className={`input-text ${state.phone.error ? 'error' : ''}`}
@@ -136,14 +136,14 @@ const Form = () => {
           type="submit"
           className="form__submit-btn btn btn--filled btn--green btn--large btn--uppercased"
         >
-          Перезвоните мне
+          {button.orderCall}
         </Button>
       </div>
     </form>
   )
 }
 
-export const useCallOrderDialog = () => {
+export const useCallOrderDialog = ({ content }) => {
   const [anchorEl, setAnchorEl] = useState(null)
 
   const handleClose = () => {
@@ -157,11 +157,11 @@ export const useCallOrderDialog = () => {
     setAnchorEl(currentTarget)
   }
 
-  const dialog = <CallOrderDialog anchorEl={anchorEl} />
+  const dialog = <CallOrderDialog anchorEl={anchorEl} content={content} />
   return [dialog, handleClick]
 }
 
-export const CallOrderDialog = ({ anchorEl }) => {
+export const CallOrderDialog = ({ anchorEl, content }) => {
   const modal = useRef()
   const arrow = useRef()
 
@@ -179,11 +179,12 @@ export const CallOrderDialog = ({ anchorEl }) => {
 
     if (window.innerWidth <= 600) {
       modal.current.style.right = `20px`
+      arrow.current.style.right = `${window.innerWidth - rect.right - 20 + rect.width / 2}px`
     } else {
-      modal.current.style.right = `${window.innerWidth - rect.right}px`
+      modal.current.style.right = `${window.innerWidth - rect.right - 15}px`
+      arrow.current.style.right = `${rect.width / 2}px`
     }
 
-    arrow.current.style.right = `${rect.width / 2}px`
     arrow.current.style.transform = `translateX(50%)`
 
     return () => {
@@ -196,7 +197,7 @@ export const CallOrderDialog = ({ anchorEl }) => {
       <CSSTransition in={!!anchorEl} timeout={300} mountOnEnter unmountOnExit classNames="fade">
         <div ref={modal} onClick={handleClick} className="modal modal-call-offer">
           <div ref={arrow} className="modal__arrow" />
-          <Form />
+          <Form content={content} />
         </div>
       </CSSTransition>
     </Modal>

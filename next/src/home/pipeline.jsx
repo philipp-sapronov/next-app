@@ -30,7 +30,7 @@ const Card = ({ className, icon, title, text }) => {
   )
 }
 
-export const Pipeline = ({ title, card_1, card_2, card_3, card_4, card_5 }) => {
+export const Pipeline = ({ title, card_1, card_2, card_3, card_4, card_5, common }) => {
   const [scrollToForm] = useScrollToForm()
 
   return (
@@ -119,7 +119,7 @@ export const Pipeline = ({ title, card_1, card_2, card_3, card_4, card_5 }) => {
           onClick={scrollToForm}
           className="cta-btn btn btn--outlined btn--red btn--large btn--uppercased"
         >
-          {'Хочу попробовать'}
+          {common.button.wantTry}
         </Button>
       </div>
     </section>

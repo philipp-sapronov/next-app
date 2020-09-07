@@ -5,7 +5,7 @@ import { TeacherCard } from '../components/cards'
 import { SectionHeading } from '../components/headings'
 import { useScrollToForm } from '../hooks/useScrollToForm'
 
-export const Teachers = ({ title, cards, options }) => {
+export const Teachers = ({ title, cards, options, common }) => {
   const [scrollToForm] = useScrollToForm()
   return (
     <section className="teachers section">
@@ -47,7 +47,7 @@ export const Teachers = ({ title, cards, options }) => {
             onClick={scrollToForm}
             className="cta-btn btn btn--filled btn--green btn--large btn--uppercased"
           >
-            {'Начать бесплатно'}
+            {common.button.startFree}
           </Button>
         </div>
       </div>
