@@ -125,7 +125,9 @@
     }
 
     & .slick-list {
-      overflow: visible;
+      @media screen and (max-width: 1980px) {
+        overflow: visible;
+      }
     }
   }
 
