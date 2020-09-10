@@ -366,7 +366,7 @@ export const common = {
     href: '/',
   },
   phone: '+38 (066) 008 21 54',
-  phoneWithoutCountryCode: '0660082154',
+  phoneWithoutCountryCode: '380660082154',
   telegramUsername: '@ivan_me',
   meta: {
     title: 'In English, Please. Головна',

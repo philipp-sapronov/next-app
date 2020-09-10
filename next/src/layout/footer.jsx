@@ -123,7 +123,8 @@ export const Footer = ({ content }) => {
                   <ViberIcon />
                 </IconWrapper>
               </a>
-              <a href={`telegram:///${telegramUsername}`} target="__blank">
+
+              <a href={`https://t.me/${telegramUsername}`} target="__blank">
                 <IconWrapper size={18} style={{ marginLeft: 20 }}>
                   <TelegramIcon />
                 </IconWrapper>
