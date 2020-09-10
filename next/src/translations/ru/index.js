@@ -201,7 +201,7 @@ export const why = {
 }
 
 const teacher1 = {
-  avatar: './assets/teacher-photo.jpg',
+  avatar: './assets/teacher-first.jpg',
   name: 'Мельник Светлана',
   age: '25 лет',
   socials: [],
@@ -227,7 +227,7 @@ const teacher1 = {
 }
 
 const teacher2 = {
-  avatar: './assets/teacher-photo.jpg',
+  avatar: './assets/teacher-second.jpg',
   name: 'Голинко Алина',
   age: '24 года',
   socials: [],
