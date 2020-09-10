@@ -200,7 +200,33 @@ export const why = {
   ],
 }
 
-const teacher = {
+const teacher1 = {
+  avatar: './assets/teacher-photo.jpg',
+  name: 'Мельник Светлана',
+  age: '25 лет',
+  socials: [],
+  options: [
+    { text: 'Киевский национальный лингвистический университет', title: 'Образование' },
+
+    { title: 'Опыт работы', text: 'Более 5 лет' },
+    {
+      title: 'Тренинги',
+      text:
+        '\n\nDragonfly. \n\nCreate & Inspire: The Child-centred Early Years Curriculum. \n\nDeveloping Mindsets, Mindfulness and the Thinking Mind',
+    },
+    {
+      title: 'Научные работы',
+      text:
+        '\n\nСтатья в журнале «Іноземні мови» \n\nУчастие в международной научной конференции с докладом на тему «The theory of identity in Modern Linguistics»',
+    },
+    {
+      title: 'Увлечения',
+      text: 'Когнитивная лингвистика, стилистика, дизайн',
+    },
+  ],
+}
+
+const teacher2 = {
   avatar: './assets/teacher-photo.jpg',
   name: 'Мельник Светлана',
   age: '25 лет',
@@ -228,7 +254,7 @@ const teacher = {
 
 export const teachers = {
   title: 'Наши преподователи',
-  cards: [teacher],
+  cards: [teacher1, teacher2],
   options: [
     'Отличаются многолетним опытом работы с различными категориями студентов.',
     'Изучают индивидуальные особенности Вашего восприятия и подберают самую эффективную систему обучения.',

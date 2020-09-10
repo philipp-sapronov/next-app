@@ -37,6 +37,10 @@
     color: $color-gray-dark;
     margin: 0;
     @media screen and (max-width: $bp-down-medium) {
+      font-size: 28px;
+    }
+
+    @media screen and (max-width: $bp-down-small) {
       font-size: 24px;
     }
   }
