@@ -5,24 +5,21 @@ networks:
     driver: bridge
 
 services:
-  proxy:
-    image: nginx:latest
+  nginx:
+    image: umputun/nginx-le:latest
     container_name: proxy
-    # restart: unless-stopped
+    volumes:
+      - ./etc/service-example.conf:/etc/nginx/service.conf
+      # - ./etc/service-example-2.conf:/etc/nginx/service2.conf # more services, should be service*.conf
     ports:
       - "80:80"
       - "443:443"
-    environment:
-      CERTBOT_EMAIL: philipp.sapronov@gmail.com
-    networks:
-      - main
 
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-    volumes:
-      - ./proxy/conf/nginx.conf:/etc/nginx/nginx.conf
-      - ./proxy/snippets:/etc/nginx/snippets
-      - ./proxy/certbot/conf:/etc/letsencrypt
-      - ./proxy/certbot/www:/var/www/certbot
+    environment:
+      - TZ=Europe/Kiev
+      - LETSENCRYPT=true
+      - LE_EMAIL=ph.soff@gmail.com
+      - LE_FQDN=iep.com.ua
 
   api:
     build:
@@ -34,18 +31,6 @@ services:
     command: "yarn start"
     networks:
       - main
-
-  certbot:
-    container_name: certbot
-    image: certbot/certbot
-    restart: unless-stopped
-    networks:
-      - main
-    volumes:
-      - ./proxy/certbot/conf:/etc/letsencrypt
-      - ./proxy/certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 24h & wait $${!}; done;'"
-
 
   frontend:
     build:
