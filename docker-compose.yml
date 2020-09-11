@@ -8,7 +8,7 @@ services:
   proxy:
     image: staticfloat/nginx-certbot
     container_name: proxy
-    restart: unless-stopped
+    # restart: unless-stopped
     ports:
       - 80:80/tcp
       - 443:443/tcp
@@ -17,7 +17,8 @@ services:
     networks:
       - main
     volumes:
-      - ./proxy:/etc/nginx/user.conf.d:ro
+      - ./proxy/conf.d:/etc/nginx/user.conf.d:ro
+      - ./proxy/conf:/etc/nginx:ro
       - letsencrypt:/etc/letsencrypt
 
   api:
