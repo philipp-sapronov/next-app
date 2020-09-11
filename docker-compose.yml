@@ -17,8 +17,9 @@ services:
     networks:
       - main
     volumes:
+      - ./proxy/conf/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./proxy/conf.d:/etc/nginx/user.conf.d:ro
-      - ./proxy/conf:/etc/nginx:ro
+      - ./proxy/snippets:/etc/nginx/snippets:ro
       - letsencrypt:/etc/letsencrypt
 
   api:
