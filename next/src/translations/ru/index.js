@@ -371,7 +371,7 @@ export const common = {
       description: 'Don’t study hard, study smart. Учись легко и качественно!',
       url: 'https://iep.com.ua/ru',
       type: 'website',
-      image: 'https://iep.com.ua/og-image.jpg',
+      image: 'https://iep.com.ua/assests/og-image.jpg',
       imageWidth: '1600',
       imageHeight: '880',
     },
