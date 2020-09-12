@@ -352,7 +352,7 @@ export const common = {
     link: 'https://instagram.com/polina.kudinova?igshid=98uu3jmoxkyz',
   },
   productionBy: {
-    text: 'Phlipp Sapronov',
+    text: 'Philipp Sapronov',
     link: 'https://www.linkedin.com/in/philipp-sapronov',
   },
   email: 'info@iep.com.ua',
