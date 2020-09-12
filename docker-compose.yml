@@ -11,7 +11,7 @@ services:
     volumes:
       - ./proxy/ssl:/etc/nginx/ssl
       - ./proxy/service-proxy.conf:/etc/nginx/service.conf
-      - ./proxy:/etc/nginx/conf.d
+      - ./proxy/conf:/etc/nginx/conf.d
       # - ./etc/service-example-2.conf:/etc/nginx/service2.conf # more services, should be service*.conf
     ports:
       - "80:80"
