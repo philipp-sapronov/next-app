@@ -10,8 +10,7 @@ services:
     container_name: proxy
     volumes:
       - ./proxy/ssl:/etc/nginx/ssl
-      - ./proxy/service-proxy.conf:/etc/nginx/service.conf
-      - ./proxy/conf:/etc/nginx/conf.d
+      - ./proxy/conf/service-proxy.conf:/etc/nginx/service.conf
       # - ./etc/service-example-2.conf:/etc/nginx/service2.conf # more services, should be service*.conf
     ports:
       - "80:80"
