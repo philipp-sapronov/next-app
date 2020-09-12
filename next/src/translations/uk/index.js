@@ -223,7 +223,7 @@ const teacher = {
     {
       title: 'Наукові роботи',
       text:
-        '\n\nСтаття в журналі «Іноземні мови» \n\nУчасть у міжнародній науковій конференції з доповіддю на тему «The theory of identity in Modern Linguistics» \n\n\n\n',
+        '\n\nСтаття в журналі «Іноземні мови» \n\nУчасть у міжнародній науковій конференції з доповіддю на тему «The theory of identity in Modern Linguistics» \n\n\n\n\n',
     },
     {
       title: 'Хобі',
@@ -259,6 +259,7 @@ Dogme ELT: Teaching Unplugged
     {
       title: 'Наукові роботи',
       text: `
+      
 6 наукових публікацій на теми мультимодального та медіа дискурсу, а також на тему прояву соціолінгвістичної та соціокультурної компетентності.
 
 Участь в міжнародних конференціях.
@@ -376,7 +377,7 @@ export const common = {
       description: 'Don’t study hard, study smart. Навчайся легко та якісно!',
       url: 'https://iep.com.ua',
       type: 'website',
-      image: 'https://iep.com.ua/assets/og-image.jpg',
+      image: 'https://iep.com.ua/assets/og-image-x.jpg',
       imageWidth: '1600',
       imageHeight: '880',
     },
