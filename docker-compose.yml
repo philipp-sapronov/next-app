@@ -9,7 +9,7 @@ services:
     image: umputun/nginx-le:latest
     container_name: proxy
     volumes:
-      - ./etc/ssl:/etc/nginx/ssl
+      - ./proxy/ssl:/etc/nginx/ssl
       - ./proxy/service-proxy.conf:/etc/nginx/service.conf
       # - ./etc/service-example-2.conf:/etc/nginx/service2.conf # more services, should be service*.conf
     ports:
