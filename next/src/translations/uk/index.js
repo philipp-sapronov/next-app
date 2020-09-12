@@ -368,7 +368,7 @@ export const common = {
   },
   phone: '+38 (066) 008 21 54',
   phoneWithoutCountryCode: '380660082154',
-  telegramUsername: '@ivan_me',
+  telegramUsername: 'iep_kyiv',
   meta: {
     title: 'In English, Please. Головна',
     description: 'Онлайн школа англійської мови',

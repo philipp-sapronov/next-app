@@ -19,7 +19,7 @@ services:
       - TZ=Europe/Kiev
       - LETSENCRYPT=true
       - LE_EMAIL=ph.soff@gmail.com
-      - LE_FQDN=www.iep.com.ua
+      - LE_FQDN=www.iep.com.ua,iep.com.ua
     depends_on:
       - frontend
       - api
