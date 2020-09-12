@@ -1,6 +1,4 @@
 import React from 'react'
-// import Link from 'next/link'
-import { LogoSmall } from '../components/logo'
 
 const PhoneIcon = () => {
   return (
@@ -93,6 +91,7 @@ const GmailIcon = () => {
 const IconWrapper = ({ children, size, style }) => {
   return <div style={{ width: size, height: size, ...style }}>{children}</div>
 }
+
 export const Footer = ({ content }) => {
   const { phone, email, phoneWithoutCountryCode, telegramUsername } = content
 
@@ -105,29 +104,55 @@ export const Footer = ({ content }) => {
           {/*</div>*/}
           <div className="contacts__grid">
             <div style={{ fontSize: 16, color: 'white' }}>Contacts:</div>
-            <a style={{ display: 'flex' }} href={`mailto://${email}`}>
-              <IconWrapper size={18}>
+            <a style={{ display: 'flex', alignItems: 'center' }} href={`mailto://${email}`}>
+              <IconWrapper size={20}>
                 <GmailIcon />
               </IconWrapper>
               <div style={{ marginLeft: 15 }}>{email}</div>
             </a>
-            <a style={{ display: 'flex' }} href={`tel://${phone}`} target="__blank">
-              <IconWrapper size={16}>
+            <a
+              style={{ display: 'flex', alignItems: 'center' }}
+              href={`tel://${phone}`}
+              target="__blank"
+            >
+              <IconWrapper size={18}>
                 <PhoneIcon />
               </IconWrapper>
               <div style={{ marginLeft: 10 }}>{phone}</div>
             </a>
             <div style={{ display: 'flex' }}>
               <a href={`viber://chat/?number=%2B${phoneWithoutCountryCode}`} target="__blank">
-                <IconWrapper size={20}>
+                <IconWrapper size={22}>
                   <ViberIcon />
                 </IconWrapper>
               </a>
 
               <a href={`https://t.me/${telegramUsername}`} target="__blank">
-                <IconWrapper size={18} style={{ marginLeft: 20 }}>
+                <IconWrapper size={22} style={{ marginLeft: 20 }}>
                   <TelegramIcon />
                 </IconWrapper>
+              </a>
+            </div>
+          </div>
+          <div style={{ opacity: 0.7 }} className="devs__grid">
+            <div style={{ fontSize: 14, fontWeight: 200 }}>
+              Design by:
+              <a
+                className={'--color-green'}
+                style={{ paddingLeft: 10 }}
+                href={content.designBy.link}
+              >
+                {content.designBy.text}
+              </a>
+            </div>
+            <div style={{ fontSize: 14, fontWeight: 200 }}>
+              Production by:
+              <a
+                className={'--color-green'}
+                style={{ paddingLeft: 10 }}
+                href={content.productionBy.link}
+              >
+                {content.productionBy.text}
               </a>
             </div>
           </div>
@@ -135,9 +160,8 @@ export const Footer = ({ content }) => {
       </div>
       <div
         style={{
-          marginTop: 20,
           textAlign: 'center',
-          fontSize: 14,
+          fontSize: 12,
           padding: '10px 50px',
           opacity: 0.5,
         }}
