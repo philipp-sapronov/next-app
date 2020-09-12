@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  nginx:
+  proxy:
     image: umputun/nginx-le:latest
     container_name: proxy
     volumes:
@@ -15,12 +15,14 @@ services:
     ports:
       - "80:80"
       - "443:443"
-
     environment:
       - TZ=Europe/Kiev
       - LETSENCRYPT=true
       - LE_EMAIL=ph.soff@gmail.com
       - LE_FQDN=www.iep.com.ua
+    depends_on:
+      - frontend
+      - api
 
   api:
     build:
