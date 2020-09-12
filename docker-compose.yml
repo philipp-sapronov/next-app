@@ -9,6 +9,7 @@ services:
     image: umputun/nginx-le:latest
     container_name: proxy
     volumes:
+      - ./etc/ssl:/etc/nginx/ssl
       - ./proxy/service-proxy.conf:/etc/nginx/service.conf
       # - ./etc/service-example-2.conf:/etc/nginx/service2.conf # more services, should be service*.conf
     ports:
@@ -19,7 +20,7 @@ services:
       - TZ=Europe/Kiev
       - LETSENCRYPT=true
       - LE_EMAIL=ph.soff@gmail.com
-      - LE_FQDN=iep.com.ua
+      - LE_FQDN=www.iep.com.ua
 
   api:
     build:
