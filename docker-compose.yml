@@ -8,6 +8,7 @@ services:
   proxy:
     image: umputun/nginx-le:latest
     container_name: proxy
+    restart: unless-stopped
     volumes:
       - ./proxy/ssl:/etc/nginx/ssl
       - ./proxy/conf/service-proxy.conf:/etc/nginx/service.conf
