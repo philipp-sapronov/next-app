@@ -15,6 +15,11 @@ const mapLanguageTemplates = {
   UK: emailTemplateGreetingUK,
 };
 
+const mapSubjectLanguage = {
+  UK: 'Заявка на вводний урок англійського мови',
+  RU: 'Заявка на вводный урок английского языка',
+};
+
 @Injectable()
 export class EmailService {
   constructor(
@@ -24,13 +29,14 @@ export class EmailService {
 
   sendLeadGreetingMessage(params: IUser): Promise<SentMessageInfo> {
     const tmpl = mapLanguageTemplates[params.language];
+    const subject = mapSubjectLanguage[params.language];
 
     if (!tmpl) return;
 
     return this.mailerService.sendMail({
       from: this.configService.get('MAILER_FROM'),
       to: params.email,
-      subject: `Заявка на вводный урок английского языка`,
+      subject,
       text: tmpl(params),
     });
   }
