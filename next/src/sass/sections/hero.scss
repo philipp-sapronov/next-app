@@ -153,13 +153,8 @@ $zIndex-circle-main: 20;
   & .additional-msg {
     font-family: $font-secondary;
     color: $color-white;
-    font-size: 28px;
+    font-size: 24px;
     margin: 0;
-
-    @media screen and (max-width: $bp-down-small) {
-      // text-align: center;
-      font-size: 22px;
-    }
   }
 
   // -- IMAGES

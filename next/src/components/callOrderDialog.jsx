@@ -181,7 +181,9 @@ export const CallOrderDialog = ({ anchorEl, content }) => {
       modal.current.style.right = `20px`
       arrow.current.style.right = `${window.innerWidth - rect.right - 20 + rect.width / 2}px`
     } else {
-      modal.current.style.right = `${window.innerWidth - rect.right - 15}px`
+      const isMacLike = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
+      const scrollbarWidth = !isMacLike ? 15 : 0
+      modal.current.style.right = `${window.innerWidth - rect.right - scrollbarWidth}px`
       arrow.current.style.right = `${rect.width / 2}px`
     }
 
