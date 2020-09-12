@@ -20,6 +20,7 @@ export class UsersController {
         email: data.email,
         name: data.name,
         phone: data.phone,
+        language: data.language,
       };
 
       this.botService.sendApplication(mailParams);

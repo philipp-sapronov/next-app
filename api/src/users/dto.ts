@@ -1,6 +1,9 @@
 import { IsEmail, Length, IsPhoneNumber } from 'class-validator';
 
 export class CreateUserDto {
+  @Length(2, 2, { message: 'Invalid langauge' })
+  readonly language: 'RU' | 'UK';
+
   @IsEmail({}, { message: 'Invalid email' })
   readonly email: string;
 

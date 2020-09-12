@@ -2,7 +2,7 @@ import { ApplicationStatus } from './enums';
 import { IUser } from './interface';
 import * as moment from 'moment-timezone';
 
-export const emailTemplateGreeting = (params: IUser): string => `Здравствуйте, ${params.name}! 
+export const emailTemplateGreetingRU = (params: IUser): string => `Здравствуйте, ${params.name}! 
 
 Меня зовут Света и я создатель онлайн-школы «In English, please» 🔔
 
@@ -14,6 +14,20 @@ export const emailTemplateGreeting = (params: IUser): string => `Здравст�
 
 До связи 📱
 Отличного дня ☀️
+`;
+
+export const emailTemplateGreetingUK = (params: IUser): string => `Вітаю, ${params.name}! 
+
+Мене звати Світлана і я засновник онлайн школи «In English, please» 🔔
+
+Дякуємо за Вашу заяку! 🙌🏻 
+
+Найближчим часом ми з Вами зв'яжемося за вказаним Вами номером телефону ${params.phone}, щоб вибрати зручний час для пробного заняття 👌🏻
+
+А це мій номер на виподак, якщо у Вас з'являться питання +38 (066) 008 21 54 
+
+До зустрічі 📱
+Гарного дня ☀️
 `;
 
 export const emailTemplateApplication = (params: IUser): string => {

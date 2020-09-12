@@ -2,6 +2,15 @@ import React, { useState } from 'react'
 
 import { SectionHeading } from '../components/headings'
 import { Button } from '../components/buttons'
+import { useRouter } from 'next/router'
+
+const RU = 'RU'
+const UK = 'UK'
+
+const mapRotuesLang = {
+  '/ru': RU,
+  '/': UK,
+}
 
 const getUrl = () => `${window.location.protocol}//${window.location.host}/api/create`
 
@@ -31,6 +40,10 @@ const initialState = {
 }
 
 const Form = ({ content }) => {
+  const router = useRouter()
+
+  const language = mapRotuesLang[router.route] || UK
+
   const { code, button, message, form } = content
   const { name, email, phone } = form
 
@@ -124,6 +137,7 @@ const Form = ({ content }) => {
           email: state.email.value,
           name: state.name.value,
           phone: formatPhoneNumber(state.phone.value),
+          language,
         }),
       })
 

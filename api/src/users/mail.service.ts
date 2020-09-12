@@ -1,5 +1,6 @@
 import {
-  emailTemplateGreeting,
+  emailTemplateGreetingRU,
+  emailTemplateGreetingUK,
   emailTemplateApplication,
   emailTemplateCallRequest,
 } from './templates';
@@ -9,6 +10,11 @@ import { Injectable } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
 import { SentMessageInfo } from 'nodemailer';
 
+const mapLanguageTemplates = {
+  RU: emailTemplateGreetingRU,
+  UK: emailTemplateGreetingUK,
+};
+
 @Injectable()
 export class EmailService {
   constructor(
@@ -17,11 +23,15 @@ export class EmailService {
   ) {}
 
   sendLeadGreetingMessage(params: IUser): Promise<SentMessageInfo> {
+    const tmpl = mapLanguageTemplates[params.language];
+
+    if (!tmpl) return;
+
     return this.mailerService.sendMail({
       from: this.configService.get('MAILER_FROM'),
       to: params.email,
       subject: `Заявка на вводный урок английского языка`,
-      text: emailTemplateGreeting(params),
+      text: tmpl(params),
     });
   }
 
