@@ -410,4 +410,5 @@ export const common = {
   },
 
   code: '+380',
+  FB_PIXEL_ID: '721751425252037',
 }

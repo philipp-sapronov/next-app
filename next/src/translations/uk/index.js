@@ -414,4 +414,5 @@ export const common = {
       },
     },
   },
+  FB_PIXEL_ID: '721751425252037',
 }
