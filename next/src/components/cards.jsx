@@ -122,9 +122,20 @@ export const FeedbackCard = ({ card }) => {
 export const TeacherCard = ({ card }) => {
   const fullCard = (
     <div className={'modal-content'}>
-      <CardHeader {...card} flexible />
-      <div className="card__divider" style={{ marginBottom: 30 }} />
-      <TeacherFullContent {...card} />
+      <div className={'modal-content__wrapper'}>
+        <CardHeader {...card} flexible />
+        <div className="card__divider" style={{ marginBottom: 30 }} />
+        <TeacherFullContent {...card} />
+      </div>
+      <div
+        className="close-btn"
+        onClick={() => {
+          document.body.click()
+        }}
+      >
+        <div className="left"></div>
+        <div className="right"></div>
+      </div>
     </div>
   )
 
