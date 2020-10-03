@@ -299,7 +299,7 @@ const teacher3 = {
       ],
       title: 'Образование',
     },
-    { title: 'Опыт работы', text: 'Більше 5 років' },
+    { title: 'Опыт работы', text: 'Более 5 лет' },
     { additional: true, title: 'Тренинги', text: ['MyTEFL 120 часовой курс для преподавателей'] },
     {
       additional: true,
@@ -328,7 +328,7 @@ const teacher4 = {
   socials: [],
   options: [
     { text: ['Киевский национальный лингвистический университет'], title: 'Образование' },
-    { title: 'Опыт работы', text: 'Більше 6 років' },
+    { title: 'Опыт работы', text: 'Более 6 лет' },
     {
       additional: true,
       title: 'Тренинги',
@@ -363,7 +363,7 @@ const teacher5 = {
   socials: [],
   options: [
     { text: ['Киевский национальный университет'], title: 'Образование' },
-    { title: 'Опыт работы', text: 'Більше 5 лет' },
+    { title: 'Опыт работы', text: 'Более 5 лет' },
     {
       additional: true,
       title: 'Тренинги',
