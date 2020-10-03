@@ -10,6 +10,7 @@ export const Layout = ({ children, content }) => {
       <main>{children}</main>
       <Footer content={content} />
       <div id="modal-root" />
+      <div id="modal-root-centered" />
     </>
   )
 }

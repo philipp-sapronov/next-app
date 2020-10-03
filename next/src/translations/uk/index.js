@@ -218,6 +218,7 @@ const teacher = {
     },
     { title: 'Досвід роботи', text: 'Більше 5 років' },
     {
+      additional: true,
       title: 'Тренінги',
       text: [
         'Dragonfly',
@@ -226,6 +227,7 @@ const teacher = {
       ],
     },
     {
+      additional: true,
       title: 'Наукові роботи',
       text: [
         'Стаття в журналі «Іноземні мови»',
@@ -253,6 +255,7 @@ const teacher2 = {
     },
     { title: 'Досвід роботи', text: '3 роки' },
     {
+      additional: true,
       title: 'Тренінги',
       text: [
         'Microteaching: A New Approach to Teacher Training and Research',
@@ -262,6 +265,7 @@ const teacher2 = {
       ],
     },
     {
+      additional: true,
       title: 'Наукові роботи',
       text: [
         '6 наукових публікацій на теми мультимодального та медіа дискурсу, а також на тему прояву соціолінгвістичної та соціокультурної компетентності',
@@ -292,10 +296,12 @@ const teacher3 = {
     },
     { title: 'Досвід роботи', text: 'Більше 5 років' },
     {
+      additional: true,
       title: 'Тренінги',
       text: ['MyTEFL 120 годинний курс для викладачів'],
     },
     {
+      additional: true,
       title: 'Наукові роботи',
       text: [
         `Logoe 29.11.19 BELGIQUE
@@ -321,13 +327,12 @@ const teacher4 = {
   socials: [],
   options: [
     {
-      text: `
-
-Київський національний лінгвістичний університет`,
+      text: ['Київський національний лінгвістичний університет'],
       title: 'Освіта',
     },
     { title: 'Досвід роботи', text: 'Більше 6 років' },
     {
+      additional: true,
       title: 'Тренінги',
       text: [
         'Ефективні методи досягнення кращих результатів при вивченні англійської мови дорослими слухачами',
@@ -337,6 +342,7 @@ const teacher4 = {
       ],
     },
     {
+      additional: true,
       title: 'Наукові роботи',
       text: [
         'Linguistic manipulation and ways of its rendering in translation go newspaper discourse texts',
@@ -365,6 +371,7 @@ const teacher5 = {
     },
     { title: 'Досвід роботи', text: 'Більше 5 років' },
     {
+      additional: true,
       title: 'Тренінги',
       text: [
         'British Council - тижневий курс «Teaching for Success»',
@@ -373,6 +380,7 @@ const teacher5 = {
       ],
     },
     {
+      additional: true,
       title: 'Наукові роботи',
       text: [
         'Блог для вивчення англійської мови дістанційно - «Socially distant. Intellectually engaged',
@@ -395,8 +403,8 @@ const teacher6 = {
   options: [
     { text: ['Хмельницький національний університет'], title: 'Освіта' },
     { title: 'Досвід роботи', text: 'Більше 3 років' },
-
     {
+      additional: true,
       title: 'Наукові роботи',
       text: [
         'Участь в конференції "Міжкультурна комунікація" з доповіддю "Особливості перекладу американського сленгу"',
@@ -421,8 +429,8 @@ const teacher7 = {
   options: [
     { text: ['Маріупольский національний гуманітарний університет'], title: 'Освіта' },
     { title: 'Досвід роботи', text: '8 років' },
-
     {
+      additional: true,
       title: 'Наукові роботи',
       text: ['Переклад відео-уроків на YouTube каналі Look and Play'],
     },
@@ -446,6 +454,7 @@ const teacher8 = {
     { title: 'Досвід роботи', text: '17 років' },
 
     {
+      additional: true,
       title: 'Тренінги',
       text: ['Стажування у Великобританії - Шефілд', 'Стажування у Німечинні - Штутгарт'],
     },
@@ -473,6 +482,7 @@ const teacher9 = {
     },
     { title: 'Досвід роботи', text: '37 років' },
     {
+      additional: true,
       title: 'Тренінги',
       text: ['Різноманітні тренінги з методики вивчення іноземних мов'],
     },
@@ -499,6 +509,7 @@ const teacher10 = {
     { title: 'Досвід роботи', text: 'Більше 5 років' },
 
     {
+      additional: true,
       title: 'Наукові роботи',
       text: ['Peculiarities of speech in play "Dangerous corner" by J. B. Priestley'],
     },

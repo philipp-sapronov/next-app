@@ -7,17 +7,12 @@ import { IconButton } from '../components/buttons'
 import { PhoneIcon } from '../components/icons'
 import { useCallOrderDialog } from '../components/callOrderDialog'
 
-const TIMEOUT = 300
 const heroSectionClassName = 'hero'
-
-let position
 
 const useHeader = () => {
   const [isShow, setIsShow] = useState(false)
 
-  // should start at 0
-
-  const showHeader = () => {
+  const handleScroll = () => {
     const heroSection = document.querySelector(`.${heroSectionClassName}`)
     if (!heroSection) return
 
@@ -25,23 +20,6 @@ const useHeader = () => {
 
     if (window.pageYOffset <= (rect.height || 0)) return setIsShow(false)
     setIsShow(true)
-  }
-
-  const hideHeader = () => {
-    return setIsShow(false)
-  }
-
-  const handleScroll = () => {
-    const scroll = window.pageYOffset
-    if (scroll > position) {
-      hideHeader()
-    }
-
-    if (scroll < position) {
-      showHeader()
-    }
-
-    position = scroll
   }
 
   useEffect(() => {
@@ -57,7 +35,7 @@ export const Header = ({ content }) => {
   return (
     <>
       <HeaderMain content={content} />
-      <CSSTransition in={isShow} classNames="fade" mountOnEnter unmountOnExit timeout={TIMEOUT}>
+      <CSSTransition in={isShow} classNames="fade" mountOnEnter unmountOnExit timeout={400}>
         <HeaderFloat content={content} />
       </CSSTransition>
     </>

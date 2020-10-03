@@ -212,6 +212,7 @@ const teacher = {
 
     { title: 'Опыт работы', text: 'Более 5 лет' },
     {
+      additional: true,
       title: 'Тренинги',
       text: [
         'Dragonfly',
@@ -220,6 +221,7 @@ const teacher = {
       ],
     },
     {
+      additional: true,
       title: 'Научные работы',
       text: [
         'Статья в журнале «Іноземні мови»',
@@ -246,6 +248,7 @@ const teacher2 = {
 
     { title: 'Опыт работы', text: '3 года' },
     {
+      additional: true,
       title: 'Тренинги',
       text: [
         'Microteaching: A New Approach to Teacher Training and Research',
@@ -255,6 +258,7 @@ const teacher2 = {
       ],
     },
     {
+      additional: true,
       title: 'Научные работы',
       text: [
         '6 научных публикаций на темы мультимодального и медиа дискурса, а также на тему проявления социолингвистической и социокультурной компетентности',
@@ -281,11 +285,9 @@ const teacher3 = {
       title: 'Образование',
     },
     { title: 'Опыт работы', text: 'Більше 5 років' },
+    { additional: true, title: 'Тренинги', text: ['MyTEFL 120 часовой курс для преподавателей'] },
     {
-      title: 'Тренинги',
-      text: ['MyTEFL 120 часовой курс для преподавателей'],
-    },
-    {
+      additional: true,
       title: 'Научные работы',
       text: [
         `Logoe 29.11.19 BELGIQUE
@@ -313,6 +315,7 @@ const teacher4 = {
     { text: ['Киевский национальный лингвистический университет'], title: 'Образование' },
     { title: 'Опыт работы', text: 'Більше 6 років' },
     {
+      additional: true,
       title: 'Тренинги',
       text: [
         'Эффективные методы достижения лучших результатов при изучении английского языка взрослыми слушателями',
@@ -322,7 +325,8 @@ const teacher4 = {
       ],
     },
     {
-      title: 'Наукові роботи',
+      additional: true,
+      title: 'Научные работы',
       text: [
         'Linguistic manipulation and ways of its rendering in translation go newspaper discourse texts',
         'Language manipulation means in English love discourse and its translation into Ukrainian',
@@ -346,6 +350,7 @@ const teacher5 = {
     { text: ['Киевский национальный университет'], title: 'Образование' },
     { title: 'Опыт работы', text: 'Більше 5 лет' },
     {
+      additional: true,
       title: 'Тренинги',
       text: [
         'British Council - недельный курс развития учителя «Teaching for Success»',
@@ -354,7 +359,8 @@ const teacher5 = {
       ],
     },
     {
-      title: 'Наукові роботи',
+      additional: true,
+      title: 'Научные работы',
       text: [
         'Блог по изучению английского языка дистанционно «Socially distant. Intellectually engaged',
       ],
@@ -377,6 +383,7 @@ const teacher6 = {
     { text: ['Хмельницкий национальный университет'], title: 'Образование' },
     { title: 'Опыт работы', text: 'Более 3 лет' },
     {
+      additional: true,
       title: 'Научные работы',
       text: [
         'Участие в конференции «Межкультурная коммуникация» с докладом на тему «Особенности перевода американского сленга»',
@@ -401,6 +408,7 @@ const teacher7 = {
     { text: ['Мариупольский государственный гуманитарный университет'], title: 'Образование' },
     { title: 'Опыт работы', text: '8 лет' },
     {
+      additional: true,
       title: 'Научные работы',
       text: ['Перевод видеоуроков на YouTube канале Look bad Play'],
     },
@@ -422,6 +430,7 @@ const teacher8 = {
     { text: ['Житомирский педагогический университ'], title: 'Образование' },
     { title: 'Опыт работы', text: '17 лет' },
     {
+      additional: true,
       title: 'Тренинги',
       text: ['Стажировка в Великобритании - Шеффилд', 'Стажировка в Германии - Штутгарт'],
     },
@@ -449,6 +458,7 @@ const teacher9 = {
     },
     { title: 'Опыт работы', text: '37 лет' },
     {
+      additional: true,
       title: 'Тренинги',
       text: ['Различные тренинги по методике изучения иностранных языков'],
     },
@@ -473,6 +483,7 @@ const teacher10 = {
     },
     { title: 'Опыт работы', text: 'Более 5 лет' },
     {
+      additional: true,
       title: 'Научные работы',
       text: ['Peculiarities of speech in play "Dangerous corner" by J. B. Priestley'],
     },

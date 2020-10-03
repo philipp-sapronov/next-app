@@ -36,6 +36,8 @@ const settings = {
   slidesToScroll: 1,
   focusOnSelect: false,
   responsive,
+  // adaptiveHeight: true,
+  // centerMode: true,
 }
 
 export const Teachers = ({ title, cards, options, common }) => {
