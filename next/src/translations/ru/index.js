@@ -257,7 +257,6 @@ const teacher2 = {
     jpg: './assets/photos/teacher2.jpg',
   },
   name: 'Голинко Алина',
-  age: '24 года',
   socials: [],
   options: [
     { text: ['Киевский национальный лингвистический университет'], title: 'Образование' },
