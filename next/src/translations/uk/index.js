@@ -562,7 +562,7 @@ export const feedbacks = {
     {
       avatar: { webp: './assets/photos/maria.webp', jpg: './assets/photos/maria.jpg' },
       name: 'Марія',
-      age: '21 год',
+      age: '21 рік',
       social: {
         link: 'https://instagram.com/mary_blzh?igshid=5vdmm5elmgk7',
         text: 'Профіль в instagram',
@@ -572,7 +572,7 @@ export const feedbacks = {
     {
       avatar: { webp: './assets/photos/nastya.webp', jpg: './assets/photos/nastya.jpg' },
       name: 'Настя',
-      age: '16 лет',
+      age: '16 років',
       social: {
         link: 'https://instagram.com/ns_osterfield?igshid=1ili3gx18n90z',
         text: 'Профіль в instagram',
@@ -583,7 +583,7 @@ export const feedbacks = {
     {
       avatar: { webp: './assets/photos/maxim.webp', jpg: './assets/photos/maxim.jpg' },
       name: 'Максим',
-      age: '25 лет',
+      age: '25 років',
       social: {
         link: 'https://instagram.com/maksimka_dannik?igshid=s7sbib1h80fg',
         text: 'Профіль в instagram',
@@ -594,7 +594,7 @@ export const feedbacks = {
     {
       avatar: { webp: './assets/photos/sofia.webp', jpg: './assets/photos/sofia.jpg' },
       name: 'Софія',
-      age: '23 года',
+      age: '23 роки',
       social: {
         link: 'https://instagram.com/rexms?igshid=1tpzo7rda3zlw',
         text: 'Профіль в instagram',
