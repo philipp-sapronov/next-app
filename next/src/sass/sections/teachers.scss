@@ -50,6 +50,10 @@
     }
 
     & .right-side {
+      @media screen and (min-width: $bp-up-medium) {
+        margin-left: 50px;
+      }
+
       @media screen and (max-width: $bp-down-medium) {
         order: 1;
         width: 100%;
@@ -103,6 +107,10 @@
       width: 50%;
       flex-shrink: 0;
 
+      @media screen and (min-width: $bp-up-medium) {
+        margin-left: 50px;
+      }
+
       @media screen and (max-width: $bp-down-medium) {
         padding: 0 20px;
         width: calc(100% - 40px);
@@ -123,20 +131,12 @@
       max-width: unset;
       margin-right: 0;
     }
-
-    & .slick-list {
-      @media screen and (max-width: 1980px) {
-        overflow: visible;
-      }
-    }
   }
 
   & .teachers-card {
     outline: none;
     margin: 0 20px;
-    max-width: 600px;
-    @media screen and (min-width: $bp-up-medium) {
-    }
+    max-width: 700px;
   }
 }
 

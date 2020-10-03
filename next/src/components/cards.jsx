@@ -11,9 +11,7 @@ const CardHeader = ({ avatar, age, social, name, flexible }) => {
       </div>
       <div className="header__content">
         <div className="name">
-          <span>
-            {name}, {age}
-          </span>
+          <span>{`${name}${age ? ', ' : ''}${age || ''}`}</span>
         </div>
 
         {social && (
@@ -57,7 +55,15 @@ export const TeacherContent = ({ options }) => {
         return (
           <div key={idx} className="item">
             <b className="item__title">{option.title}:</b>
-            <span className="item__text">{option.text}</span>
+            {Array.isArray(option.text) ? (
+              option.text.map((item, idx) => (
+                <p className="item__text" key={idx}>
+                  {item}
+                </p>
+              ))
+            ) : (
+              <span className="item__text">{option.text}</span>
+            )}
           </div>
         )
       })}
