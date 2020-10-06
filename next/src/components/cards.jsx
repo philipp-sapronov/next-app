@@ -50,7 +50,7 @@ export const FeedbackContent = ({ text }) => {
   )
 }
 
-export const TeacherContent = ({ options, onClick }) => {
+export const TeacherContent = ({ options, onClick, buttonName }) => {
   return (
     <div className="card__content teacher-card__content">
       <div className="items">
@@ -77,7 +77,7 @@ export const TeacherContent = ({ options, onClick }) => {
           variant="primary"
           className="btn btn--outlined btn--green btn--small btn--uppercased"
         >
-          Подробнее
+          {buttonName}
         </Button>
       </div>
     </div>
@@ -119,7 +119,7 @@ export const FeedbackCard = ({ card }) => {
   )
 }
 
-export const TeacherCard = ({ card }) => {
+export const TeacherCard = ({ card, buttonName }) => {
   const fullCard = (
     <div className={'modal-content'}>
       <div className={'modal-content__wrapper'}>
@@ -146,7 +146,7 @@ export const TeacherCard = ({ card }) => {
       <Card
         className="teachers-card"
         header={<CardHeader {...card} />}
-        content={<TeacherContent {...card} onClick={toggle} />}
+        content={<TeacherContent {...card} onClick={toggle} buttonName={buttonName} />}
       />
       {dialog}
     </>

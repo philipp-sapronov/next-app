@@ -82,7 +82,7 @@ export const Teachers = ({ title, cards, options, common }) => {
                 <div id="teachers-carousel">
                   <Slider ref={slider} {...settings}>
                     {cards.map((card, idx) => {
-                      return <TeacherCard key={idx} card={card} />
+                      return <TeacherCard key={idx} card={card} buttonName={common.button.about} />
                     })}
                   </Slider>
                 </div>

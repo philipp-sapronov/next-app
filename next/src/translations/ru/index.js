@@ -640,6 +640,7 @@ export const common = {
     orderCall: 'Заказать звонок',
     submit: 'Отправить заявку',
     wantTry: 'Хочу попробовать',
+    about: 'Подробнее',
   },
   message: {
     error: { default: 'Во время операции произошла ошибка!' },
