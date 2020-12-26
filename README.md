@@ -2,9 +2,9 @@
 
 ### Requirements
 
-![node.js logo](/readme/nodejs.png)
 ![docker logo](/readme/docker.png)
 ![docker-compose logo](/readme/docker-compose.png)
+![node.js logo](/readme/nodejs.png)
 
 1. Docker
 2. Docker Compose
@@ -12,7 +12,9 @@
 
 ### Development
 
-sh ./start.sh [options]
+```bash
+$ sh ./start.sh [options]
+```
 
 Options:
 * <service_name>: only starts the specified service
@@ -30,4 +32,3 @@ Options:
 * Next js
 * Nest js
 * Nginx
-
