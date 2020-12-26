@@ -1,0 +1,120 @@
+.header-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  height: 64px;
+  z-index: 888;
+
+  & .header__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  & .logo {
+    &.logo--small {
+      display: none;
+    }
+    @media screen and (max-width: $bp-down-small) {
+      display: none;
+
+      &.logo--small {
+        display: block;
+        width: $logo-width / 3;
+        height: $logo-width / 3;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  & .phone-btn {
+    margin-right: 40px;
+
+    @media screen and (max-width: $bp-down-small) {
+      margin-right: 20px;
+    }
+  }
+}
+
+// HEADER SMALL
+
+.header-small {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  background-color: $color-green;
+  z-index: 888;
+  height: 52px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.15);
+
+  &.visible {
+    display: block;
+  }
+
+  &.active {
+    opacity: 1;
+    display: block;
+  }
+
+  & .logo {
+    width: $logo-width / 3;
+    height: $logo-width / 3;
+    margin-top: 2px;
+  }
+
+  & .header__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 20px;
+    align-items: center;
+  }
+
+  .phone-btn {
+    padding: 8px;
+    margin-right: 20px;
+  }
+
+  & .language-menu-btn {
+    padding: 8px;
+  }
+}
+
+.header__nav {
+  @media screen and (max-width: $bp-down-small) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.call-offer-btn {
+  padding: 8px 15px;
+
+  &.icon--btn {
+    & svg {
+      width: 16px;
+      height: 16px;
+    }
+    display: none;
+  }
+  @media screen and (min-width: $bp-up-small) {
+    border: none;
+  }
+
+  @media screen and (max-width: $bp-down-small) {
+    display: none;
+
+    &.icon--btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0;
+      padding: 10px;
+    }
+  }
+}

@@ -6,7 +6,7 @@ $pipeline-offset: 120px;
 
   &__inner {
     position: relative;
-    padding-bottom: $pipeline-offset / 2;
+    padding-bottom: $pipeline-offset;
 
     @media screen and (max-width: $bp-down-medium) {
       padding-bottom: $pipeline-offset / 3;
@@ -132,7 +132,7 @@ $pipeline-offset: 120px;
   }
 
   &:before {
-    content: '';
+    content: "";
     display: block;
     height: 50%;
     left: 50%;
@@ -160,10 +160,10 @@ $pipeline-offset: 120px;
   }
 
   &:after {
-    background-color: $color-red;
+    background-color: $color-green;
     border-radius: 12px;
     position: absolute;
-    content: '';
+    content: "";
     display: block;
     height: 12px;
     left: 50%;
@@ -197,8 +197,7 @@ $pipeline-offset: 120px;
   align-self: center;
   max-width: calc(50% - 50px);
   width: calc(50% - 50px);
-  font-size: 22px;
-  white-space: pre-wrap;
+  font-size: 20px;
 
   @media screen and (max-width: $bp-down-ipad) {
     align-self: flex-start;
@@ -245,10 +244,9 @@ $pipeline-offset: 120px;
 
   &.--empty {
     background-color: transparent;
-    border: 2px solid $color-red;
+    border: 2px solid $color-green;
     box-shadow: unset;
   }
-
   &.--right {
     margin-left: auto;
     @media screen and (max-width: $bp-down-ipad) {
@@ -277,10 +275,10 @@ $pipeline-offset: 120px;
     width: 70px;
     flex-shrink: 0;
     height: 70px;
-    border: 2px solid $color-red;
+    border: 2px solid $color-green;
     border-radius: 50px;
     box-sizing: border-box;
-    padding: 12px;
+    padding: 9px;
     @media screen and (max-width: $bp-down-medium) {
       margin-bottom: 20px;
     }
@@ -300,8 +298,8 @@ $pipeline-offset: 120px;
     height: 100%;
     padding: 12px;
     box-sizing: border-box;
+
     object-fit: contain;
-    stroke: $color-green;
   }
 
   & .card__text {
@@ -323,7 +321,6 @@ $pipeline-offset: 120px;
 
   & .card__content {
     margin: 0;
-    white-space: pre-wrap;
   }
 }
 

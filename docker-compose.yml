@@ -40,7 +40,7 @@ services:
 
   frontend:
     build:
-      context: ./next
+      context: frontend
       target: prod
       args:
         - NODE_ENV=${NODE_ENV}

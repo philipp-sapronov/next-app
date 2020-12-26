@@ -18,7 +18,7 @@
 
 @mixin button-outlined($color: white, $color-hover: white) {
   background-color: transparent;
-  border: 2px solid $color;
+  border: 1px solid $color;
   color: $color;
   transition: all $transition-smooth;
 
@@ -28,7 +28,7 @@
 }
 
 @mixin arrow-dropdown($color: $color-white) {
-  content: '';
+  content: "";
   width: 0;
   height: 0;
   margin-left: 4px;
@@ -49,8 +49,10 @@
   }
 }
 
-.btn * {
-  pointer-events: none;
+.btn {
+  &--uppercased {
+    text-transform: uppercase;
+  }
 }
 
 .btn--dropdown {
@@ -64,15 +66,14 @@
 }
 
 .btn {
-  &--uppercased {
-    text-transform: uppercase;
-  }
-
   &--large {
     padding: 22px 50px 20px 50px;
-
     &.btn--square {
       padding: 22px 20px 20px;
+    }
+
+    @media screen and (max-width: $bp-down-small) {
+      padding: 22px 30px 20px 30px;
     }
   }
 
@@ -208,36 +209,5 @@
   width: max-content;
   @media screen and (max-width: $bp-down-small) {
     margin: 0 auto;
-  }
-}
-
-.icon--btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 0;
-  padding: 10px;
-}
-
-.btn--icon-sm {
-  & .btn__icon {
-    display: none;
-    @media screen and (max-width: $bp-down-small) {
-      display: block;
-    }
-
-    &,
-    & svg {
-      width: 16px;
-      height: 16px;
-    }
-  }
-
-  & .btn__label {
-    @media screen and (min-width: $bp-up-small) {
-      display: block;
-    }
-
-    display: none;
   }
 }

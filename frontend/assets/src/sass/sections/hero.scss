@@ -12,7 +12,7 @@ $zIndex-circle-main: 20;
 }
 
 .hero {
-  background-color: $color-yellow;
+  background-color: $color-green;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -72,11 +72,14 @@ $zIndex-circle-main: 20;
     position: relative;
     z-index: 2;
 
-    @media screen and (max-width: $bp-down-medium) {
-      max-width: $bp-down-small;
-      width: 100%;
+    @media screen and (min-width: $bp-up-small) and (max-width: $bp-down-medium) {
       text-align: center;
       @include margin-auto();
+    }
+
+    @media screen and (max-width: $bp-down-small) {
+      max-width: $bp-down-small;
+      width: 100%;
     }
   }
 
@@ -89,11 +92,14 @@ $zIndex-circle-main: 20;
 
     @media screen and (max-width: $bp-down-medium) {
       font-size: 48px;
-      text-align: center;
     }
 
     @media screen and (max-width: $bp-down-small) {
       font-size: 42px;
+    }
+
+    @media screen and (min-width: $bp-up-small) and (max-width: $bp-down-medium) {
+      text-align: center;
     }
 
     @media screen and (min-width: $bp-up-medium) and (max-width: $bp-down-large) {
@@ -125,6 +131,9 @@ $zIndex-circle-main: 20;
     @media screen and (max-width: $bp-down-medium) {
       width: 40px;
       height: 6px;
+    }
+
+    @media screen and (min-width: $bp-up-small) and (max-width: $bp-down-medium) {
       @include margin-auto();
     }
   }
@@ -133,9 +142,14 @@ $zIndex-circle-main: 20;
     position: relative;
     transform: translate(40%, 20px);
 
-    @media screen and (max-width: $bp-down-small) {
+    @media screen and (min-width: $bp-up-small) and (max-width: $bp-down-medium) {
       transform: translate(0, 20px);
       @include margin-auto();
+    }
+
+    @media screen and (max-width: $bp-down-small) {
+      transform: translate(0, 20px);
+      max-width: 250px;
     }
   }
 
@@ -145,16 +159,23 @@ $zIndex-circle-main: 20;
     left: -50px;
 
     @media screen and (max-width: $bp-down-small) {
-      top: 0;
-      left: -20px;
+      transform: scale(-1, 1) rotateZ(20deg);
+      top: -10px;
+      left: unset;
+      right: -35px;
     }
   }
 
   & .additional-msg {
     font-family: $font-secondary;
     color: $color-white;
-    font-size: 24px;
+    font-size: 28px;
     margin: 0;
+
+    @media screen and (max-width: $bp-down-small) {
+      // text-align: center;
+      font-size: 22px;
+    }
   }
 
   // -- IMAGES
@@ -200,16 +221,8 @@ $zIndex-circle-main: 20;
     stroke: $color-yellow;
   }
 
-  & .stroke--green {
-    stroke: $color-green;
-  }
-
   & .fill--yellow {
     fill: $color-yellow;
-  }
-
-  & .fill--green {
-    fill: $color-green;
   }
 
   & .fill--white {
@@ -221,11 +234,11 @@ $zIndex-circle-main: 20;
   }
 
   & .fill--red {
-    fill: $color-white;
+    fill: $color-red;
   }
 
   & .stroke--red {
-    stroke: $color-white;
+    stroke: $color-red;
   }
 
   & .circle {
@@ -249,17 +262,17 @@ $zIndex-circle-main: 20;
 
     &__4 {
       @include circle(1.9, 1.7);
-      opacity: 0.5;
+      opacity: 0.7;
     }
 
     &__5 {
       @include circle(2.2, 2);
-      opacity: 0.3;
+      opacity: 0.6;
     }
 
     &__6 {
       @include circle(2.5, 2.4);
-      opacity: 0.2;
+      opacity: 0.5;
     }
 
     &__7 {
