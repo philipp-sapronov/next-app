@@ -12,6 +12,9 @@ module.exports = {
         paths: ['./'],
       },
     },
+    react: {
+      version: 'detect',
+    },
   },
   parser: 'babel-eslint',
   parserOptions: {
