@@ -2,9 +2,9 @@
 
 ### Requirements
 
-![node.js logo](/frontend/src/public/nodejs.png)
-![docker logo](/frontend/src/public/docker.png)
-![docker-compose logo](/frontend/src/public/docker-compose.png)
+![node.js logo](/readme/nodejs.png)
+![docker logo](/readme/docker.png)
+![docker-compose logo](/readme/docker-compose.png)
 
 1. Docker
 2. Docker Compose
@@ -21,10 +21,10 @@ Options:
 
 ### Built With
 
-![react.js logo](/frontend/src/public/react.png)
-![next logo](/frontend/src/public/next-js.png)
-![nest logo](/frontend/src/public/nest-js.png)
-![nginx logo](/frontend/src/public/nginx.png)
+![react.js logo](/readme/react.png)
+![next logo](/readme/next-js.png)
+![nest logo](/readme/nest-js.png)
+![nginx logo](/readme/nginx.png)
 
 * React js
 * Next js
