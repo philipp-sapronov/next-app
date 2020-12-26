@@ -21,9 +21,9 @@ Options:
 
 ### Built With
 
-![react.js logo](/readme/react.png)
-![next logo](/readme/next-js.png)
-![nest logo](/readme/nest-js.png)
+![react logo](/readme/react.png)
+![next logo](/readme/next.png)
+![nest logo](/readme/nest.png)
 ![nginx logo](/readme/nginx.png)
 
 * React js
