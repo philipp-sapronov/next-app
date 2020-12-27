@@ -5,27 +5,9 @@ import { TeacherCard } from '../components/cards'
 import { SectionHeading } from '../components/headings'
 import { useScrollToForm } from '../hooks/useScrollToForm'
 import Slider from 'react-slick'
-
-const responsive = [
-  {
-    breakpoint: 960,
-    settings: {
-      slidesToShow: 1,
-    },
-  },
-  {
-    breakpoint: 959,
-    settings: {
-      slidesToShow: 2,
-    },
-  },
-  {
-    breakpoint: 768,
-    settings: {
-      slidesToShow: 1,
-    },
-  },
-]
+import { useTranslation } from 'react-i18next'
+import { getTeachers } from '../api/teachers'
+import { getRange } from '../helpers'
 
 const settings = {
   arrows: false,
@@ -35,13 +17,32 @@ const settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   focusOnSelect: false,
-  responsive,
-  // adaptiveHeight: true,
-  // centerMode: true,
+  responsive: [
+    {
+      breakpoint: 960,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+    {
+      breakpoint: 959,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
 }
 
-export const Teachers = ({ title, cards, options, common }) => {
+export const Teachers = () => {
+  const { t } = useTranslation()
   const [scrollToForm] = useScrollToForm()
+  const cards = getTeachers()
 
   const slider = useRef()
 
@@ -68,7 +69,7 @@ export const Teachers = ({ title, cards, options, common }) => {
           </div>
           <div className="right-side">
             <div className="heading-wrapper">
-              <SectionHeading className="--left --light" text={title} />
+              <SectionHeading className="--left --light" text={t('teachers:title')} />
             </div>
           </div>
         </div>
@@ -82,7 +83,7 @@ export const Teachers = ({ title, cards, options, common }) => {
                 <div id="teachers-carousel">
                   <Slider ref={slider} {...settings}>
                     {cards.map((card, idx) => {
-                      return <TeacherCard key={idx} card={card} buttonName={common.button.about} />
+                      return <TeacherCard key={idx} card={card} />
                     })}
                   </Slider>
                 </div>
@@ -91,10 +92,11 @@ export const Teachers = ({ title, cards, options, common }) => {
           </div>
           <div className="right-side">
             <ul className="teachers__options">
-              {options.map((option, idx) => {
+              {/* TODO: get array helper */}
+              {getRange(5).map((option, idx) => {
                 return (
                   <span key={idx} className="teachers__option">
-                    {option}
+                    {t(`teachers:options.${idx}`)}
                   </span>
                 )
               })}
@@ -106,7 +108,7 @@ export const Teachers = ({ title, cards, options, common }) => {
             onClick={scrollToForm}
             className="cta-btn btn btn--filled btn--green btn--large btn--uppercased"
           >
-            {common.button.startFree}
+            {t('button:startFree')}
           </Button>
         </div>
       </div>

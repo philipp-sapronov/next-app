@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Button } from './buttons'
 import { Modal } from './modal'
 import { CSSTransition } from 'react-transition-group'
+import { useTranslation } from 'react-i18next'
+import { ukraineCode } from '../constants'
 
 const phoneMsgRegexp = new RegExp(/phone/, 'igm')
 
@@ -14,17 +16,17 @@ const initialState = {
   phone: { value: '', error: null },
 }
 
-const Form = ({ content }) => {
-  const { code, form, button, message } = content
+const Form = () => {
+  const { t } = useTranslation()
   const [state, setState] = useState(initialState)
 
   const matchPhone = (value) => {
     const isMatched = value.length === PHONE_LENGTH
-    return isMatched ? null : form.phone.message.incorrect
+    return isMatched ? null : t('form:fields.phone.message.incorrect')
   }
 
   const formatPhoneNumber = (value) => {
-    return code + value.toString()
+    return ukraineCode + value.toString()
   }
 
   const handleChangePhone = ({ target }) => {
@@ -55,7 +57,7 @@ const Form = ({ content }) => {
     if (!state.phone.value) {
       return setState((prev) => ({
         ...prev,
-        phone: { ...prev.phone, error: form.phone.message.required },
+        phone: { ...prev.phone, error: t('form:fields.phone.message.required') },
       }))
     }
 
@@ -76,7 +78,7 @@ const Form = ({ content }) => {
         if (phoneMsgRegexp.test(error.message)) {
           return setState((prev) => ({
             ...prev,
-            phone: { ...prev.phone, error: form.phone.message.incorrect },
+            phone: { ...prev.phone, error: t('form:fields.phone.message.incorrect') },
           }))
         }
 
@@ -85,9 +87,9 @@ const Form = ({ content }) => {
 
       console.log(response, 'success')
       setState(initialState)
-      alert(message.success.applicationSent)
+      alert(t('message:success.applicationSent'))
     } catch (error) {
-      return alert(message.error.default)
+      return alert(t('message:error.unspecific'))
     } finally {
       setState((prev) => ({ ...prev, loading: false }))
     }
@@ -111,7 +113,7 @@ const Form = ({ content }) => {
                 <rect width="20" height="6" fill="#00D1FF" />
                 <rect y="6" width="20" height="6" fill="#F8EE00" />
               </svg>
-              {code}
+              {ukraineCode}
             </span>
             <input
               className={`input-text ${state.phone.error ? 'error' : ''}`}
@@ -119,7 +121,7 @@ const Form = ({ content }) => {
               name="phone"
               onBlur={handleBlur}
               onChange={handleChangePhone}
-              placeholder={'Телефон...'}
+              placeholder={t('form:fields.phone.placeholder')}
               type="text"
               value={state.phone.value}
             />
@@ -136,14 +138,14 @@ const Form = ({ content }) => {
           type="submit"
           className="form__submit-btn btn btn--filled btn--green btn--large btn--uppercased"
         >
-          {button.orderCall}
+          {t('button:orderCall')}
         </Button>
       </div>
     </form>
   )
 }
 
-export const useCallOrderDialog = ({ content }) => {
+export const useCallOrderDialog = () => {
   const [anchorEl, setAnchorEl] = useState(null)
 
   const handleClose = () => {
@@ -157,11 +159,11 @@ export const useCallOrderDialog = ({ content }) => {
     setAnchorEl(currentTarget)
   }
 
-  const dialog = <CallOrderDialog anchorEl={anchorEl} content={content} />
+  const dialog = <CallOrderDialog anchorEl={anchorEl} />
   return [dialog, handleClick]
 }
 
-export const CallOrderDialog = ({ anchorEl, content }) => {
+export const CallOrderDialog = ({ anchorEl }) => {
   const modal = useRef()
   const arrow = useRef()
 
@@ -181,7 +183,7 @@ export const CallOrderDialog = ({ anchorEl, content }) => {
       modal.current.style.right = `20px`
       arrow.current.style.right = `${window.innerWidth - rect.right - 20 + rect.width / 2}px`
     } else {
-      const isMacLike = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
+      const isMacLike = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)
       const scrollbarWidth = !isMacLike ? 15 : 0
       modal.current.style.right = `${window.innerWidth - rect.right - scrollbarWidth}px`
       arrow.current.style.right = `${rect.width / 2}px`
@@ -199,7 +201,7 @@ export const CallOrderDialog = ({ anchorEl, content }) => {
       <CSSTransition in={!!anchorEl} timeout={300} mountOnEnter unmountOnExit classNames="fade">
         <div ref={modal} onClick={handleClick} className="modal modal-call-offer">
           <div ref={arrow} className="modal__arrow" />
-          <Form content={content} />
+          <Form />
         </div>
       </CSSTransition>
     </Modal>

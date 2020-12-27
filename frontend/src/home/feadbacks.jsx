@@ -5,6 +5,8 @@ import { Button, SliderButtons } from '../components/buttons'
 import { FeedbackCard } from '../components/cards'
 import { SectionHeading } from '../components/headings'
 import { useScrollToForm } from '../hooks/useScrollToForm'
+import { getFeedbacks } from '../api/feedbacks'
+import { useTranslation } from 'react-i18next'
 
 const responsive = [
   {
@@ -26,8 +28,10 @@ const settings = {
   responsive,
 }
 
-export const Feedbacks = ({ cards, title, common }) => {
+export const Feedbacks = () => {
   const [scrollToForm] = useScrollToForm()
+  const feedbacks = getFeedbacks()
+  const { t } = useTranslation()
 
   const slider = useRef()
 
@@ -45,7 +49,7 @@ export const Feedbacks = ({ cards, title, common }) => {
     <section className="feedbacks section">
       <div className="feedbacks__inner container">
         <div className="heading-wrapper">
-          <SectionHeading className="--left" text={title} />
+          <SectionHeading className="--left" text={t('feedbacks:title')} />
           <div className="slider-buttons__wrapper">
             <SliderButtons className="btn--dark" onNext={handleNext} onPrev={handlePrev} />
           </div>
@@ -53,7 +57,7 @@ export const Feedbacks = ({ cards, title, common }) => {
         <div className="feedbacks__carousel-wrapper">
           <div id="feedbacks-carousel" className="feedbacks-carousel owl-carousel">
             <Slider ref={slider} {...settings}>
-              {cards.map((card, idx) => {
+              {feedbacks.map((card, idx) => {
                 return <FeedbackCard key={idx} card={card} />
               })}
             </Slider>
@@ -64,7 +68,7 @@ export const Feedbacks = ({ cards, title, common }) => {
             onClick={scrollToForm}
             className="cta-btn btn btn--outlined btn--red btn--large btn--uppercased"
           >
-            {common.button.startFree}
+            {t('button:startFree')}
           </Button>
         </div>
       </div>

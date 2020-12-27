@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { SectionHeading } from '../components/headings'
+import { useTranslation } from 'react-i18next'
+import { getRange } from '../helpers'
 
 const Plane = () => {
   return (
@@ -66,28 +68,31 @@ const Plane = () => {
   )
 }
 
-const Card = ({ card }) => {
+const Card = ({ index }) => {
+  const { t } = useTranslation()
+
   return (
     <div className="reason__card">
       <div className="card__bg">
         <div className="card__inner">
-          <div className="reason__number">{card.number}</div>
-          <div className="reason__text">{card.text}</div>
+          <div className="reason__number">{t(`why:options.${index}.number`)}</div>
+          <div className="reason__text">{t(`why:options.${index}.text`)}</div>
         </div>
       </div>
     </div>
   )
 }
 
-export const Why = ({ title, cards }) => {
+export const Why = () => {
+  const { t } = useTranslation()
   return (
     <section className="why section">
       <div className="why__inner">
         <div className="heading-wrapper">
-          <SectionHeading className="--center --light" text={title} />
+          <SectionHeading className="--center --light" text={t('why:title')} />
           <div className="why__reasons">
-            {cards.map((card, idx) => {
-              return <Card key={idx} card={card} />
+            {getRange(5).map((it) => {
+              return <Card key={it} index={it} />
             })}
           </div>
         </div>

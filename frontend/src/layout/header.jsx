@@ -6,6 +6,10 @@ import { Logo, LogoSmall } from '../components/logo'
 import { IconButton } from '../components/buttons'
 import { PhoneIcon } from '../components/icons'
 import { useCallOrderDialog } from '../components/callOrderDialog'
+import { useRecoilValue } from 'recoil'
+import { configState } from '../stores/config'
+import { useTranslation } from 'react-i18next'
+import { Route } from '../constants'
 
 const heroSectionClassName = 'hero'
 
@@ -29,22 +33,24 @@ const useHeader = () => {
   return { isShow }
 }
 
-export const Header = ({ content }) => {
+export const Header = () => {
   const { isShow } = useHeader()
 
   return (
     <>
-      <HeaderMain content={content} />
+      <HeaderMain />
       <CSSTransition in={isShow} classNames="fade" mountOnEnter unmountOnExit timeout={400}>
-        <HeaderFloat content={content} />
+        <StickyHeader />
       </CSSTransition>
     </>
   )
 }
 
-export const HeaderMain = ({ content }) => {
-  const { phone, button, link } = content
-  const [dialog, toggleDialog] = useCallOrderDialog({ content })
+export const HeaderMain = () => {
+  const { phoneFormatted: phone } = useRecoilValue(configState)
+  const { t } = useTranslation()
+
+  const [dialog, toggleDialog] = useCallOrderDialog()
 
   return (
     <header className="header header-main">
@@ -62,10 +68,11 @@ export const HeaderMain = ({ content }) => {
             icon={<PhoneIcon />}
             className="call-offer-btn btn btn--outlined btn--light btn--small btn--icon-sm"
           >
-            {button.orderCall}
+            {t('button:orderCall')}
           </IconButton>
-          <Link href={link.href}>
-            <a className="btn-lang btn btn--empty btn--light">{link.text}</a>
+          {/*TODO: to i18next*/}
+          <Link href={Route.ru.link}>
+            <a className="btn-lang btn btn--empty btn--light">{Route.ru.text}</a>
           </Link>
         </div>
       </div>
@@ -74,9 +81,11 @@ export const HeaderMain = ({ content }) => {
   )
 }
 
-export const HeaderFloat = ({ content }) => {
-  const { phone, button } = content
-  const [dialog, toggleDialog] = useCallOrderDialog({ content })
+export const StickyHeader = () => {
+  const { phoneFormatted: phone } = useRecoilValue(configState)
+  const { t } = useTranslation()
+
+  const [dialog, toggleDialog] = useCallOrderDialog()
 
   return (
     <div className="header header-small">
@@ -98,7 +107,7 @@ export const HeaderFloat = ({ content }) => {
             icon={<PhoneIcon />}
             className="call-offer-btn btn btn--filled btn--green btn--small btn--icon-sm"
           >
-            {button.orderCall}
+            {t('button:orderCall')}
           </IconButton>
         </div>
       </div>

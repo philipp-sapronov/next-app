@@ -3,6 +3,7 @@ import React from 'react'
 import { Avatar } from './avatar'
 import { Button } from './buttons'
 import { useDialog } from './TeacherDialog'
+import { useTranslation } from 'react-i18next'
 
 // flexible
 const CardHeader = ({ avatar, age, social, name, flexible }) => {
@@ -31,10 +32,10 @@ const CardHeader = ({ avatar, age, social, name, flexible }) => {
 const Card = ({ header, content, className }) => {
   return (
     <div className={'personality__card ' + className}>
-      <div className="card-layer"></div>
+      <div className="card-layer" />
       <div className="card__inner">
         {header}
-        <div className="card__divider"></div>
+        <div className="card__divider" />
         {content}
       </div>
     </div>
@@ -50,7 +51,9 @@ export const FeedbackContent = ({ text }) => {
   )
 }
 
-export const TeacherContent = ({ options, onClick, buttonName }) => {
+export const TeacherContent = ({ options, onClick }) => {
+  const { t } = useTranslation()
+
   return (
     <div className="card__content teacher-card__content">
       <div className="items">
@@ -77,7 +80,7 @@ export const TeacherContent = ({ options, onClick, buttonName }) => {
           variant="primary"
           className="btn btn--outlined btn--green btn--small btn--uppercased"
         >
-          {buttonName}
+          {t('button:about')}
         </Button>
       </div>
     </div>
@@ -119,7 +122,7 @@ export const FeedbackCard = ({ card }) => {
   )
 }
 
-export const TeacherCard = ({ card, buttonName }) => {
+export const TeacherCard = ({ card }) => {
   const fullCard = (
     <div className={'modal-content'}>
       <div className={'modal-content__wrapper'}>
@@ -133,12 +136,13 @@ export const TeacherCard = ({ card, buttonName }) => {
           document.body.click()
         }}
       >
-        <div className="left"></div>
-        <div className="right"></div>
+        <div className="left" />
+        <div className="right" />
       </div>
     </div>
   )
 
+  // FIXME: use dialog above
   const [dialog, toggle] = useDialog({ content: fullCard })
 
   return (
@@ -146,7 +150,7 @@ export const TeacherCard = ({ card, buttonName }) => {
       <Card
         className="teachers-card"
         header={<CardHeader {...card} />}
-        content={<TeacherContent {...card} onClick={toggle} buttonName={buttonName} />}
+        content={<TeacherContent {...card} onClick={toggle} />}
       />
       {dialog}
     </>

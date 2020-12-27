@@ -3,23 +3,25 @@ import React from 'react'
 import { Button } from '../components/buttons'
 import { HeroSvg } from '../components/icons'
 import { useScrollToForm } from '../hooks/useScrollToForm'
+import { useTranslation } from 'react-i18next'
 
-export const Hero = ({ title, subtitle, tip, common }) => {
+export const Hero = () => {
   const [scrollToForm] = useScrollToForm()
+  const { t } = useTranslation()
 
   return (
     <div className="hero hero-wrapper">
       <div className="hero__inner">
         <div className="title__wrapper">
-          <h2 className="subtitle">{subtitle}</h2>
+          <h2 className="subtitle">{t('hero:subtitle')}</h2>
           <div className="title__dash" />
-          <h1 className="title">{title}</h1>
+          <h1 className="title">{t('hero:title')}</h1>
           <div className="hero-cta__wrapper">
             <Button
               onClick={scrollToForm}
               className="cta-btn hero-cta btn--filled btn--green btn--uppercased"
             >
-              {common.button.startNow}
+              {t('button:startNow')}
             </Button>
           </div>
           <div className="additional-msg__wrapper">
@@ -28,7 +30,7 @@ export const Hero = ({ title, subtitle, tip, common }) => {
                 <use href="#hero-arrow" />
               </svg>
             </div>
-            <p className="additional-msg">{tip}</p>
+            <p className="additional-msg">{t('hero:question')}</p>
           </div>
         </div>
 

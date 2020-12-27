@@ -3,12 +3,12 @@ import React from 'react'
 import { Header } from './header'
 import { Footer } from './footer'
 
-export const Layout = ({ children, content }) => {
+export const Layout = ({ children }) => {
   return (
     <>
-      <Header content={content} />
+      <Header />
       <main>{children}</main>
-      <Footer content={content} />
+      <Footer />
       <div id="modal-root" />
       <div id="modal-root-centered" />
     </>

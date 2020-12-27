@@ -4,21 +4,8 @@ import Slider from 'react-slick'
 import { Button, SliderButtons } from '../components/buttons'
 import { SectionHeading } from '../components/headings'
 import { useScrollToForm } from '../hooks/useScrollToForm'
-
-const responsive = [
-  {
-    breakpoint: 1024,
-    settings: {
-      slidesToShow: 2,
-    },
-  },
-  {
-    breakpoint: 768,
-    settings: {
-      slidesToShow: 1,
-    },
-  },
-]
+import { getCourses } from '../api/courses'
+import { useTranslation } from 'react-i18next'
 
 const settings = {
   arrows: false,
@@ -27,9 +14,21 @@ const settings = {
   speed: 300,
   slidesToShow: 3,
   slidesToScroll: 1,
-  responsive,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
   focusOnSelect: false,
-  // centerMode: true,
 }
 
 const TickIcon = () => {
@@ -81,7 +80,10 @@ const Card = ({ card }) => {
   )
 }
 
-export const Pricing = ({ title, cards, sale, common }) => {
+export const Pricing = () => {
+  const {sale, cards} = getCourses()
+  const { t } = useTranslation()
+
   const slider = useRef()
   const [scrollToForm] = useScrollToForm()
 
@@ -99,7 +101,7 @@ export const Pricing = ({ title, cards, sale, common }) => {
     <section className="pricing section">
       <div className="pricing__inner container">
         <div className="heading-wrapper">
-          <SectionHeading className="--left --light" text={title} />
+          <SectionHeading className="--left --light" text={t('courses:title')} />
           <div className="slider-buttons__wrapper">
             <SliderButtons className="btn--light" onPrev={handlePrev} onNext={handleNext} />
           </div>
@@ -114,9 +116,9 @@ export const Pricing = ({ title, cards, sale, common }) => {
           </div>
         </div>
         <div className="sale">
-          <div className="sale__title">{sale.title}</div>
+          <div className="sale__title">{t('courses:saleTitle')}</div>
           <ul className="sale__options">
-            {sale.options.map((option, idx) => {
+            {sale.map((option, idx) => {
               return (
                 <li className="sale__option" key={idx}>
                   {option}
@@ -130,7 +132,7 @@ export const Pricing = ({ title, cards, sale, common }) => {
             onClick={scrollToForm}
             className="cta-btn btn btn--filled btn--red btn--large btn--uppercased"
           >
-            {common.button.startFree}
+            {t('button:startFree')}
           </Button>
         </div>
       </div>
