@@ -1,11 +1,11 @@
+import * as path from 'path';
 import { Module } from '@nestjs/common';
-import { AppController } from './controller';
-import { AppService } from './service';
-import { UsersModule } from '../users/module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import * as path from 'path';
-import vars, { EnvVariables } from './config';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { ApplicationsModule } from '../applications/applications.module';
+import vars, { EnvVariables } from '../config';
 
 @Module({
   imports: [
@@ -31,7 +31,7 @@ import vars, { EnvVariables } from './config';
         },
       }),
     }),
-    UsersModule,
+    ApplicationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

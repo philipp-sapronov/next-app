@@ -9,7 +9,7 @@ export interface EnvVariables {
   TELEGRAM_GROUP_ID: number;
 }
 
-export default () => ({
+export default (): EnvVariables => ({
   NODE_ENV: 'development',
   MONGO_URL: process.env.MONGO_URL,
   MAILER_HOST: process.env.MAILER_HOST,
@@ -17,5 +17,5 @@ export default () => ({
   MAILER_AUTH_USER: process.env.MAILER_AUTH_USER,
   MAILER_AUTH_PASSWORD: process.env.MAILER_AUTH_PASSWORD,
   TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN,
-  TELEGRAM_GROUP_ID: parseInt(process.env.TELEGRAM_GROUP_ID),
+  TELEGRAM_GROUP_ID: parseInt(process.env.TELEGRAM_GROUP_ID, 10),
 });
