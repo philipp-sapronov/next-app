@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 
-import { RecoilRoot } from 'recoil'
+import { RecoilRoot as Root } from 'recoil'
 
-export const Recoil = ({ children }) => {
+export const RecoilRoot = ({ children }) => {
   useEffect(() => {
     console.log('mount config')
     // save to store process.env.EMAIL
   }, [])
 
-  return <RecoilRoot>{children}</RecoilRoot>
+  return <Root>{children}</Root>
 }
