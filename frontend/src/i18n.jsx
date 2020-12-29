@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import i18next from 'i18next'
-import { initReactI18next, I18nextProvider as Provider, useSSR } from 'react-i18next'
+import { initReactI18next, I18nextProvider as Provider, withSSR } from 'react-i18next'
 
 const MISSING_TRANSLATION_KEY = 'missing_key'
 
@@ -62,19 +62,18 @@ export const setLocale = async (language) => {
   return true
 }
 
-export const init = async (callback) => {
-  // TODO: init language properly
-  const lng = fallbackLng
-
+export const init = async (options = {}, callback) => {
   await i18next
     // .use(translationLoader)
     .use(initReactI18next)
     .init({
       fallbackLng,
-      lng,
+      // resources,
+      // lng,
       whitelist: locales,
       ns,
       defaultNS,
+      ...options,
       parseMissingKeyHandler: (key) => {
         return `${MISSING_TRANSLATION_KEY} "${key}"`
       },
@@ -98,24 +97,30 @@ export const init = async (callback) => {
         },
       },
     })
-    .then(callback)
+
+  if (callback) {
+    callback()
+  }
 
   return i18next
 }
 
-const InitSSR = ({ initialI18nStore, initialLanguage, component: Component }) => {
-  useSSR(initialI18nStore, initialLanguage)
+const InitSSR = ({ initialI18nStore, initialLanguage, component }) => {
+  const WithSSR = withSSR()(component)
 
-  return <Component />
+  console.log(initialI18nStore, initialLanguage, 'INITIAL')
+
+  return <WithSSR initialI18nStore={initialI18nStore} initialLanguage={initialLanguage} />
 }
 
 export const I18nextProvider = ({ i18n, initialI18nStore, initialLanguage, component }) => {
-  const [isInit, setIsInit] = useState(() => i18n !== undefined)
+  const [isInit, setIsInit] = useState(() => i18n !== null)
 
   useEffect(() => {
-    init(() => setIsInit(true))
+    init({ resources: initialI18nStore, lng: initialLanguage }, () => setIsInit(true))
   }, [])
 
+  console.log(i18n, 'Provider')
   return isInit ? (
     <Provider i18n={i18n}>
       <InitSSR

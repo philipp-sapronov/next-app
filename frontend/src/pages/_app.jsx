@@ -4,22 +4,21 @@ import { init, resources, I18nextProvider } from '../i18n'
 import { Layout } from '../layout'
 import { RecoilRoot } from '../components/recoil'
 
-let i18n
-
 class App extends NextApp {
+  static i18n = null
+
   componentDidCatch(error, _errorInfo) {
     super.componentDidCatch(error, _errorInfo)
 
     console.log('Uncaught error:', error.message, _errorInfo)
   }
 
-  static getInitialProps = async (ctx) => {
-    i18n = await init()
+  static getInitialProps = async () => {
+    App.i18n = await init()
 
     return {
       pageProps: {
-        ...ctx.pageProps,
-        initialLanguage: 'ru',
+        initialLanguage: 'uk',
         initialI18nStore: resources,
       },
     }
@@ -39,7 +38,7 @@ class App extends NextApp {
     return (
       <RecoilRoot>
         <I18nextProvider
-          i18n={i18n}
+          i18n={App.i18n}
           initialI18nStore={initialI18nStore}
           initialLanguage={initialLanguage}
           component={component}
