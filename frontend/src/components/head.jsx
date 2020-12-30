@@ -1,5 +1,6 @@
 import React from 'react'
 import NextHead from 'next/head'
+import PropTypes from 'prop-types'
 
 const Roboto =
   'https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:wght@300;400;500;700&display=swap'
@@ -30,18 +31,43 @@ const Slick = () => (
   </NextHead>
 )
 
-export const Meta = ({ title = '', description = '' }) => {
+const MetaProps = {
+  meta: PropTypes.shape({
+    title: PropTypes.title,
+    description: PropTypes.description,
+  }),
+}
+
+export const Meta = ({ meta }) => {
+  // invariant(!meta?.title, 'Unexpected type of meta.title: ' + typeof meta.title)
+  // invariant(!meta?.description, 'Unexpected type of meta.description: ' + typeof meta.description)
+
   return (
     <NextHead>
-      <title>{title}</title>
-      <meta name="description" content={description} />
+      <title>{meta.title}</title>
+      <meta name="description" content={meta.description} />
       <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
       <meta name="msapplication-TileColor" content="#da532c" />
     </NextHead>
   )
 }
 
-export const OpenGraph = ({ type = '', title = '', description = '', image = '', url = '' }) => {
+Meta.propTypes = MetaProps
+
+export const OpenGraphProps = {
+  og: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    url: PropTypes.url,
+  }),
+}
+
+export const OpenGraph = ({ og }) => {
+  if (!og) return null
+
+  const { type, title, description, image, url } = og
+
   return (
     <NextHead>
       <meta property="og:type" content={type} />
@@ -51,6 +77,12 @@ export const OpenGraph = ({ type = '', title = '', description = '', image = '',
       <meta property="og:url" content={url} />
     </NextHead>
   )
+}
+
+OpenGraph.propTypes = OpenGraphProps
+
+const FacebookPixelProps = {
+  id: PropTypes.string,
 }
 
 export const FacebookPixel = ({ id = '' }) => {
@@ -82,6 +114,8 @@ export const FacebookPixel = ({ id = '' }) => {
   )
 }
 
+FacebookPixel.propTypes = FacebookPixelProps
+
 const Icons = () => (
   <NextHead>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -93,17 +127,25 @@ const Icons = () => (
 
 const Manifest = () => <link rel="manifest" href="/site.webmanifest" />
 
-export const Head = ({ facebookPixelId = '', openGraph = {}, title = '', description = '' }) => {
+export const HeadProps = {
+  facebookPixelId: FacebookPixelProps.id,
+  openGraph: OpenGraphProps.og,
+  meta: MetaProps.meta,
+}
+
+export const Head = ({ facebookPixelId, openGraph, meta }) => {
   return (
-    <>
+    <div>
       <GoogleFonts />
-      <Meta title={title} description={description} />
+      <Meta meta={meta} />
       <FacebookPixel id={facebookPixelId} />
-      <OpenGraph {...openGraph} />
+      <OpenGraph og={openGraph} />
       <Images />
       <Slick />
       <Icons />
       <Manifest />
-    </>
+    </div>
   )
 }
+
+Head.propTypes = HeadProps
