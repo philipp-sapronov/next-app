@@ -23,6 +23,8 @@ services:
       context: ./frontend
       target: dev
     command: yarn run dev
+    depends_on:
+      - api
     env_file:
       - ./frontend/.env.local
     ports:

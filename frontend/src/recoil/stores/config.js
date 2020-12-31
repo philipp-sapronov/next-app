@@ -12,6 +12,7 @@ export const configState = atom({
 })
 
 export const initializeConfigStore = ({ set }) => {
+  console.log(process.env, 'PROCESS_ENV')
   const email = process.env.NEXT_PUBLIC_EMAIL
   const facebookPixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID
   const phone = process.env.NEXT_PUBLIC_PHONE
