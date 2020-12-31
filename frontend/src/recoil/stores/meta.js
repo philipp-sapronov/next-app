@@ -1,9 +1,10 @@
 import { atom } from 'recoil'
 
-export const metaState = atom({
-  key: 'meta',
+export const seoState = atom({
+  key: 'seo',
   default: {
-    title: 'initial',
-    description: 'initial',
+    title: null,
+    description: null,
+    openGraph: null,
   },
 })

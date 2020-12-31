@@ -4,8 +4,9 @@ import Slider from 'react-slick'
 import { Button, SliderButtons } from '../components/buttons'
 import { SectionHeading } from '../components/headings'
 import { useScrollToForm } from '../hooks/useScrollToForm'
-import { getCourses } from '../api/courses'
 import { useTranslation } from 'react-i18next'
+import { useRecoilValue } from 'recoil'
+import { coursesState, saleOptionsState } from '../recoil/stores/courses'
 
 const settings = {
   arrows: false,
@@ -81,7 +82,11 @@ const Card = ({ card }) => {
 }
 
 export const Pricing = () => {
-  const {sale, cards} = getCourses()
+  const courses = useRecoilValue(coursesState)
+
+  console.log(courses, '\n\n\n RECOIL COURSES\n')
+  const saleOptions = useRecoilValue(saleOptionsState)
+
   const { t } = useTranslation()
 
   const slider = useRef()
@@ -109,7 +114,7 @@ export const Pricing = () => {
         <div className="pricing__carousel-wrapper">
           <div id="pricing-carousel" className="pricing-carousel owl-carousel">
             <Slider ref={slider} {...settings}>
-              {cards.map((card, idx) => {
+              {courses?.map((card, idx) => {
                 return <Card key={idx} card={card} />
               })}
             </Slider>
@@ -118,7 +123,7 @@ export const Pricing = () => {
         <div className="sale">
           <div className="sale__title">{t('courses:saleTitle')}</div>
           <ul className="sale__options">
-            {sale.map((option, idx) => {
+            {saleOptions?.map((option, idx) => {
               return (
                 <li className="sale__option" key={idx}>
                   {option}

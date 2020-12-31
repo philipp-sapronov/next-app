@@ -34,3 +34,21 @@ export const productionBy = {
   text: 'Philipp Sapronov',
   link: 'https://www.linkedin.com/in/philipp-sapronov',
 }
+
+export const ApiRoute = {
+  teachers: '/teachers',
+  feedback: '/feedback',
+  courses: '/courses',
+  saleOptions: '/sale-options',
+}
+
+export const GetParams = {
+  ln: 'ln',
+}
+
+export const APP_URL = process.env.APP_URL || 'http://localhost:8000'
+
+export const Language = {
+  ru: 'ru',
+  uk: 'uk',
+}

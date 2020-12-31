@@ -8,17 +8,13 @@ const ErrorPage = () => {
 export default ErrorPage
 
 export const getStaticProps = async () => {
-
+  const ln = 'uk'
   return {
     props: {
-      initialLanguage: 'uk',
-      initialI18nStore: getI18nextResources({ locales: ['uk'] }),
-      initialRecoilStore: {
-        meta: {
-          title: '<<<<<<<<<<<<',
-          description: '>>>>>>>>>>>>>>>',
-        },
-      },
+      initialLanguage: ln,
+      initialI18nStore: getI18nextResources({ locales: [ln] }),
     },
   }
 }
+
+// const getStaticPaths = async () => {}

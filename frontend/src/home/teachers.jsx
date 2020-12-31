@@ -6,8 +6,9 @@ import { SectionHeading } from '../components/headings'
 import { useScrollToForm } from '../hooks/useScrollToForm'
 import Slider from 'react-slick'
 import { useTranslation } from 'react-i18next'
-import { getTeachers } from '../api/teachers'
 import { getRange } from '../helpers'
+import { useRecoilValue } from 'recoil'
+import { teachersState } from '../recoil/stores/teachers'
 
 const settings = {
   arrows: false,
@@ -42,7 +43,7 @@ const settings = {
 export const Teachers = () => {
   const { t } = useTranslation()
   const [scrollToForm] = useScrollToForm()
-  const cards = getTeachers()
+  const teachers = useRecoilValue(teachersState)
 
   const slider = useRef()
 
@@ -82,7 +83,7 @@ export const Teachers = () => {
               <div className="carousel-wrapper">
                 <div id="teachers-carousel">
                   <Slider ref={slider} {...settings}>
-                    {cards.map((card, idx) => {
+                    {teachers?.map((card, idx) => {
                       return <TeacherCard key={idx} card={card} />
                     })}
                   </Slider>

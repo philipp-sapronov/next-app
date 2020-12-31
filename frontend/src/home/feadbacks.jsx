@@ -5,8 +5,9 @@ import { Button, SliderButtons } from '../components/buttons'
 import { FeedbackCard } from '../components/cards'
 import { SectionHeading } from '../components/headings'
 import { useScrollToForm } from '../hooks/useScrollToForm'
-import { getFeedbacks } from '../api/feedbacks'
 import { useTranslation } from 'react-i18next'
+import { useRecoilValue } from 'recoil'
+import { feedbackState } from '../recoil/stores/feedback'
 
 const responsive = [
   {
@@ -30,7 +31,7 @@ const settings = {
 
 export const Feedbacks = () => {
   const [scrollToForm] = useScrollToForm()
-  const feedbacks = getFeedbacks()
+  const feedback = useRecoilValue(feedbackState)
   const { t } = useTranslation()
 
   const slider = useRef()
@@ -57,7 +58,7 @@ export const Feedbacks = () => {
         <div className="feedbacks__carousel-wrapper">
           <div id="feedbacks-carousel" className="feedbacks-carousel owl-carousel">
             <Slider ref={slider} {...settings}>
-              {feedbacks.map((card, idx) => {
+              {feedback?.map((card, idx) => {
                 return <FeedbackCard key={idx} card={card} />
               })}
             </Slider>

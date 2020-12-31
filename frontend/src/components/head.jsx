@@ -1,6 +1,8 @@
 import React from 'react'
 import NextHead from 'next/head'
 import PropTypes from 'prop-types'
+import { configState, seoState } from '../recoil'
+import { useRecoilValue } from 'recoil'
 
 const Roboto =
   'https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:wght@300;400;500;700&display=swap'
@@ -44,8 +46,8 @@ export const Meta = ({ meta }) => {
 
   return (
     <NextHead>
-      <title>{meta.title}</title>
-      <meta name="description" content={meta.description} />
+      <title>{meta.title || ''}</title>
+      <meta name="description" content={meta.description || ''} />
       <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
       <meta name="msapplication-TileColor" content="#da532c" />
     </NextHead>
@@ -133,7 +135,13 @@ export const HeadProps = {
   meta: MetaProps.meta,
 }
 
-export const Head = ({ facebookPixelId, openGraph, meta }) => {
+export const Head = () => {
+  const seo = useRecoilValue(seoState)
+  const config = useRecoilValue(configState)
+
+  const { openGraph, ...meta } = seo
+  const { facebookPixelId } = config
+
   return (
     <div>
       <GoogleFonts />
