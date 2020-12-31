@@ -3,10 +3,6 @@
   background-color: $color-gray-light;
   position: relative;
 
-  & .feedbacks__inner {
-    //
-  }
-
   & .heading-wrapper {
     display: flex;
     justify-content: space-between;
@@ -36,78 +32,21 @@
 
 .feedbacks {
   & .feedbacks__carousel-wrapper {
-    // min-height: 1000px;
-  }
+    width: calc(100% + 40px);
+    margin-left: -20px;
 
-  & .owl-stage-outer {
-    padding: 10px 0;
-    overflow: visible;
-  }
-}
-
-.feedbacks__card {
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: 100px 30px 80px;
-  background-color: $color-white;
-  border-radius: 8px;
-  padding-bottom: 50%;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-
-  & .card__bg {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.14);
-    overflow: hidden;
-  }
-
-  & .cta__btn {
-    @include button();
-    border: 2px solid $color-gray-dark;
-    background-color: transparent;
-    width: 100%;
-    padding: 20px;
-    opacity: 0.5;
-
-    &:hover {
-      opacity: 1;
-      // background-color: $colo;
+    & .slick-list {
+      overflow: visible;
     }
   }
 
-  & .card-layer {
-    background-color: $color-gray-layer-light;
-    clip-path: polygon(0 60%, 100% 0, 100% 100%, 0% 100%);
+  & .feedbacks-card {
+    margin: 0 20px;
+    outline: none;
 
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-  }
-
-  & .cta__wrapper {
-    display: flex;
-    justify-content: center;
-  }
-  & .card__inner {
-    position: relative;
-    //
-  }
-  & .card__divider {
-    width: 100%;
-    height: 1px;
-
-    background: linear-gradient(
-      270deg,
-      rgba(196, 196, 196, 0) 0%,
-      #808080 52.27%,
-      rgba(196, 196, 196, 0) 104.16%
-    );
+    @media screen and (max-width: $bp-down-medium) {
+      min-height: 680px;
+    }
   }
 }
 

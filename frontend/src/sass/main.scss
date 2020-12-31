@@ -1,31 +1,32 @@
 // theme
-@import "./utils/normalize.scss";
-@import "./fonts.scss";
-@import "./colors.scss";
-@import "./utils/transitions.scss";
-@import "./utils/breakpoints.scss";
+@import './utils/normalize.scss';
+@import './fonts.scss';
+@import './colors.scss';
+@import './utils/transitions.scss';
+@import './utils/breakpoints.scss';
 
 // components
-@import "./components/buttons.scss";
-@import "./components/headings.scss";
-@import "./components/avatar.scss";
-@import "./components/cards.scss";
-@import "./components/logo.scss";
-@import "./components/modal.scss";
+@import './components/buttons.scss';
+@import './components/headings.scss';
+@import './components/avatar.scss';
+@import './components/cards.scss';
+@import './components/logo.scss';
+@import './components/modal.scss';
+@import './components/spinner.scss';
 
 //layout
-@import "./layout/header.scss";
-@import "./layout/footer.scss";
-@import "./layout/main.scss";
+@import './layout/header.scss';
+@import './layout/footer.scss';
+@import './layout/main.scss';
 
 // sections
-@import "./sections/hero.scss";
-@import "./sections/pipeline.scss";
-@import "./sections/pricing.scss";
-@import "./sections/why.scss";
-@import "./sections/teachers.scss";
-@import "./sections/feedbacks.scss";
-@import "./sections/leading-form.scss";
+@import './sections/hero.scss';
+@import './sections/pipeline.scss';
+@import './sections/pricing.scss';
+@import './sections/why.scss';
+@import './sections/teachers.scss';
+@import './sections/feedbacks.scss';
+@import './sections/leading-form.scss';
 
 body {
   overflow-x: hidden;

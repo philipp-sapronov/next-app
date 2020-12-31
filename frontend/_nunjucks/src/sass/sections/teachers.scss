@@ -1,0 +1,226 @@
+.teachers {
+  overflow: hidden;
+  background-color: $color-yellow;
+  position: relative;
+
+  & .teachers__inner {
+    @media screen and (max-width: $bp-down-medium) {
+      padding: 0 $spacing-large;
+    }
+
+    @media screen and (max-width: $bp-down-small) {
+      padding: 0 $spacing-small;
+    }
+  }
+
+  & .teachers__header {
+    display: flex;
+
+    @media screen and (min-width: $bp-up-medium) {
+      padding: 0 $spacing-large;
+    }
+
+    @media screen and (max-width: $bp-down-small) {
+      flex-wrap: wrap;
+    }
+
+    @media screen and (min-width: $bp-up-small) {
+      margin-bottom: 50px;
+    }
+
+    & .left-side {
+      width: 50%;
+      @media screen and (max-width: $bp-down-medium) {
+        order: 2;
+        width: 100%;
+      }
+      @media screen and (min-width: $bp-up-small) and (max-width: $bp-down-medium) {
+        width: min-content;
+        margin-left: auto;
+      }
+    }
+
+    & .right-side {
+      @media screen and (max-width: $bp-down-medium) {
+        order: 1;
+        width: 100%;
+      }
+
+      @media screen and (min-width: $bp-up-small) and (max-width: $bp-down-medium) {
+        width: 50%;
+      }
+    }
+  }
+
+  & .teachers__content {
+    display: flex;
+
+    @media screen and (max-width: $bp-down-medium) {
+      flex-wrap: wrap;
+
+      & .left-side {
+        margin-bottom: 40px;
+      }
+    }
+
+    & .left-side {
+      width: 50%;
+      flex-shrink: 0;
+
+      @media screen and (max-width: $bp-down-medium) {
+        width: 100%;
+      }
+
+      & .left-side__inner {
+        width: calc(100% - 150px);
+
+        @media screen and (min-width: $bp-down-medium) and (max-width: $bp-down-large) {
+          width: calc(100% - 100px);
+        }
+
+        @media screen and (min-width: $bp-down-medium) {
+          overflow: hidden;
+          padding-left: 50px;
+        }
+
+        @media screen and (max-width: $bp-down-medium) {
+          width: 100%;
+        }
+      }
+    }
+
+    & .right-side {
+      width: 50%;
+      padding-right: 20px;
+      flex-shrink: 0;
+
+      @media screen and (max-width: $bp-down-medium) {
+        width: 100%;
+      }
+    }
+  }
+
+  & .slider-buttons__wrapper {
+    max-width: 620px;
+    margin-left: auto;
+
+    @media screen and (max-width: $bp-down-small) {
+      margin: 30px auto 30px auto;
+      width: 100%;
+    }
+  }
+
+  //  -- LEFT SIDE
+}
+
+.teachers {
+  & .carousel-wrapper {
+    margin-left: auto;
+    margin-right: 20px;
+    max-width: 500px;
+
+    @media screen and (max-width: $bp-down-medium) {
+      max-width: unset;
+      margin-right: 0;
+    }
+  }
+
+  & .owl-stage-outer {
+    padding: 10px 0;
+    overflow: unset;
+  }
+}
+
+.teachers__cta {
+  display: flex;
+  justify-content: center;
+  padding-top: $pipeline-offset / 3;
+}
+
+.teachers__options {
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 0;
+  list-style-type: none;
+  margin: 10px 0 0;
+  padding-left: 50px;
+  position: relative;
+  height: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: default;
+
+  @media screen and (max-width: $bp-down-medium) {
+    height: 480px;
+  }
+
+  @media screen and (min-width: $bp-up-ipad) and (max-width: $bp-down-medium) {
+    @include margin-auto();
+  }
+
+  @media screen and (max-width: $bp-down-small) {
+    padding-left: 20px;
+  }
+
+  @media screen and (max-width: 375px) {
+    height: 500px;
+  }
+
+  &:before {
+    top: 5px;
+    bottom: 5px;
+    left: 0;
+    position: absolute;
+    width: 1px;
+    background-color: $color-white;
+    content: "";
+    display: block;
+  }
+}
+
+.teachers__option {
+  padding: 0;
+  margin: 0;
+  color: $color-white;
+  position: relative;
+  &:not(:last-child) {
+    height: 100%;
+  }
+  &:hover:after {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  &:before {
+    top: 4px;
+    left: -55px;
+    border-radius: 30px;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: $color-white;
+    content: "";
+    display: block;
+
+    @media screen and (max-width: $bp-down-small) {
+      left: -25px;
+    }
+  }
+
+  &:after {
+    top: -4px;
+    bottom: 5px;
+    left: -63px;
+    border-radius: 30px;
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: $color-white;
+    content: "";
+    display: block;
+    opacity: 0;
+    transform: scale(0);
+    transition: all $transition-smooth;
+  }
+}

@@ -1,20 +1,14 @@
 $logo-height: 79px;
-$logo-width: 104px;
+$logo-width: 110px;
 
 .logo {
-  width: $logo-width;
-  height: $logo-height;
+  width: $logo-width / 1.1;
+  height: $logo-height / 1.1;
 
   & .logo__text {
-    fill: $color-white;
+    fill: $color-black;
   }
   & .logo__rect {
-    fill: $color-yellow;
-  }
-
-  @media screen and (max-width: $bp-down-small) {
-    & .logo__full-text {
-      display: none;
-    }
+    fill: $color-green;
   }
 }

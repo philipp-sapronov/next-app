@@ -1,0 +1,15 @@
+import { APP_URL, ApiRoute, GetParams } from '../constants'
+import fetch from 'node-fetch'
+
+export const fetchTeachers = async (ln) => {
+  if (!ln) throw new TypeError('Unexpected type of language')
+
+  const url = `${APP_URL}${ApiRoute.teachers}?${GetParams.ln}=${ln}`
+  const response = await fetch(url)
+
+  if (!response.ok) {
+    throw new `An error has been occured: ${response.status}`()
+  }
+
+  return await response.json()
+}

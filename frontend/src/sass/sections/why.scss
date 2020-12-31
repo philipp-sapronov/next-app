@@ -56,7 +56,7 @@
     margin-left: auto;
     max-width: 640px;
     overflow: hidden;
-    padding: 20px;
+    padding: 20px 50px;
     position: relative;
 
     @media screen and (max-width: $bp-down-medium) {
@@ -72,6 +72,10 @@
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
     }
+  }
+
+  & .reason__text {
+    white-space: pre-wrap;
   }
 
   & .card__bg {
@@ -182,7 +186,7 @@
   margin-right: 30px;
   &:before {
     background-color: $color-white;
-    content: "";
+    content: '';
     display: block;
     height: 12px;
     width: 60px;
