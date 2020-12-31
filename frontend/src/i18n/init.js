@@ -37,10 +37,7 @@ export const init = async (options = {}, callback) => {
     callback,
   )
 
-
-  i18next.on('languageChanged', function(lng) {
+  i18next.on('languageChanged', function (lng) {
     console.log(lng, 'changed')
   })
-
-  console.log('\n ==<<<INIT>>==\n')
 }

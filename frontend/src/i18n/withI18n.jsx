@@ -1,30 +1,29 @@
 import React from 'react'
 import { init } from './init'
-import { I18nextProvider } from './provider'
+import { useI18Next } from './useI18next'
+import { I18nextProvider } from 'react-i18next'
 
-export const withI18next = (App) => {
-  const AppWithI18next = ({ Component, pageProps }) => {
+export const withI18next = (Wrapped) => {
+  const WithI18next = ({ Component, pageProps }) => {
     const { initialI18nStore, initialLanguage, ...rest } = pageProps
 
-    const component = () => <App pageProps={rest} Component={Component} />
+    const i18n = useI18Next(initialI18nStore, initialLanguage)
 
-    return (
-      <I18nextProvider
-        initialI18nStore={initialI18nStore}
-        initialLanguage={initialLanguage}
-        Component={component}
-      />
-    )
+    return i18n ? (
+      <I18nextProvider i18n={i18n}>
+        <Wrapped pageProps={rest} Component={Component} />
+      </I18nextProvider>
+    ) : null
   }
 
-  AppWithI18next.getInitialProps = async (ctx) => {
+  WithI18next.getInitialProps = async (ctx) => {
     await init()
 
-    if (!App.getInitialProps) return {}
-    return await App.getInitialProps(ctx)
+    if (!Wrapped.getInitialProps) return {}
+    return await Wrapped.getInitialProps(ctx)
   }
 
-  AppWithI18next.displayName = App.displayName || App.name || 'AppWithI18next'
+  WithI18next.displayName = Wrapped.displayName || Wrapped.name || 'WithI18next'
 
-  return AppWithI18next
+  return WithI18next
 }
