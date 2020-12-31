@@ -5,7 +5,7 @@ import '../sass/main.scss'
 import { Home } from '../home'
 import { Head } from '../components/head'
 import { useRecoilValue } from 'recoil'
-import { metaState } from '../stores/meta'
+import { metaState } from '../recoil'
 import { getI18nextResources } from '../i18n'
 
 const HomePage = () => {

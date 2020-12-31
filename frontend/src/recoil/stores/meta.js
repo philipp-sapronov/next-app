@@ -1,9 +1,9 @@
 import { atom } from 'recoil'
 
 export const metaState = atom({
-  key: 'meta', // unique ID (with respect to other atoms/selectors)
+  key: 'meta',
   default: {
     title: 'initial',
     description: 'initial',
-  }, // default value (aka initial value)
+  },
 })

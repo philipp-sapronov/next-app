@@ -1,6 +1,5 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { configState } from '../stores/config'
+import { configState } from '../recoil'
 import { designBy, productionBy, ukraineCode } from '../constants'
 import { useRecoilValue } from 'recoil'
 // to constants

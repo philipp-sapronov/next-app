@@ -1,7 +1,7 @@
 import React from 'react'
 import { withI18next } from '../i18n'
 import { Layout } from '../layout'
-import { RecoilRoot } from '../components/recoil'
+import { RecoilRoot } from '../recoil'
 
 const App = (props) => {
   const { Component, pageProps } = props
@@ -9,7 +9,7 @@ const App = (props) => {
   const { initialRecoilStore, ...rest } = pageProps
 
   return (
-    <RecoilRoot initialRecoilStore={initialRecoilStore}>
+    <RecoilRoot store={initialRecoilStore}>
       <Layout>
         <Component {...rest} />
       </Layout>

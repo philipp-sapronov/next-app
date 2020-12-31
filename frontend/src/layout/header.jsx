@@ -7,7 +7,7 @@ import { IconButton } from '../components/buttons'
 import { PhoneIcon } from '../components/icons'
 import { useCallOrderDialog } from '../components/callOrderDialog'
 import { useRecoilValue } from 'recoil'
-import { configState } from '../stores/config'
+import { configState } from '../recoil'
 import { useTranslation } from 'react-i18next'
 import { Route } from '../constants'
 

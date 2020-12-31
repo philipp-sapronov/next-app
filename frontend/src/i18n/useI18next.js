@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { applyStore } from './utils'
 import i18next from 'i18next'
 
+// TODO: handle default parameters
+
 export const useI18Next = (store, language) => {
   const [isInit, setIsInit] = useState(() => i18next?.isInitialized)
 
