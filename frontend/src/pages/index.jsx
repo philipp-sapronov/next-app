@@ -6,7 +6,7 @@ import { Home } from '../home'
 import { Head } from '../components/head'
 import { useRecoilValue } from 'recoil'
 import { metaState } from '../stores/meta'
-import { init, getI18nextResources, resources } from '../i18n'
+import { getI18nextResources } from '../i18n'
 
 const HomePage = () => {
   const meta = useRecoilValue(metaState)
@@ -21,12 +21,7 @@ const HomePage = () => {
 export default HomePage
 
 export const getStaticProps = async () => {
-  await init()
-  console.log('\n === GET STATIC PROPS == \n')
-
-  const r = getI18nextResources({ locales: ['uk'] })
-
-  console.log(r, 'PROVIDED RESOURVES')
+  console.log('\n === GET STATIC PROPS uk == \n')
   return {
     props: {
       initialLanguage: 'uk',
@@ -40,8 +35,3 @@ export const getStaticProps = async () => {
     },
   }
 }
-
-// export const getServerSideProps = async () => {
-//   console.log('\n === GET SERVER SIDE PROPS == \n')
-//   return { c: 'c', g: 'g' }
-// }

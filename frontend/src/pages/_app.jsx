@@ -1,43 +1,20 @@
 import React from 'react'
-import NextApp from 'next/app'
-import { resources, I18nextProvider } from '../i18n'
+import { withI18next } from '../i18n'
 import { Layout } from '../layout'
 import { RecoilRoot } from '../components/recoil'
 
-class App extends NextApp {
-  static i18n = null
+const App = (props) => {
+  const { Component, pageProps } = props
 
-  componentDidCatch(error, _errorInfo) {
-    super.componentDidCatch(error, _errorInfo)
+  const { initialRecoilStore, ...rest } = pageProps
 
-    console.log('Uncaught error:', error.message, _errorInfo)
-  }
-
-  render() {
-    const { Component: PageComponent, pageProps } = this.props
-
-    const { initialI18nStore, initialLanguage, initialRecoilStore } = pageProps
-
-    console.log('pageProps >>> ', pageProps, '<<<< PageProps')
-
-    const component = () => (
+  return (
+    <RecoilRoot initialRecoilStore={initialRecoilStore}>
       <Layout>
-        <PageComponent {...pageProps} />
+        <Component {...rest} />
       </Layout>
-    )
-
-    // return null
-
-    return (
-      <RecoilRoot initialRecoilStore={initialRecoilStore}>
-        <I18nextProvider
-          initialI18nStore={initialI18nStore}
-          initialLanguage={initialLanguage}
-          component={component}
-        />
-      </RecoilRoot>
-    )
-  }
+    </RecoilRoot>
+  )
 }
 
-export default App
+export default withI18next(App)

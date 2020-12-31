@@ -5,7 +5,7 @@ export const Locale = {
   ru: 'ru',
 }
 
-const Namespace = {
+export const Namespace = {
   hero: 'hero',
   button: 'button',
   courses: 'courses',
@@ -44,23 +44,4 @@ export const resources = {
     [Namespace.why]: require('./locales/ru/whySection.json'),
     [Namespace.feedbacks]: require('./locales/ru/feedbacksSection.json'),
   },
-}
-
-export const getI18nextResources = (params) => {
-  if (!params) throw new TypeError('Unexpected type of parameters')
-  // TODO: don't map if parameter not provided
-  const providedNamespaces = params.namespaces?.length ? params.namespaces : ns
-  const providedLocales = locales?.length ? params.locales : locales
-
-  const _resources = {}
-  providedLocales.forEach((locale) => {
-    const resource = resources[locale]
-
-    _resources[locale] = providedNamespaces.reduce((acc, namespace) => {
-      acc[namespace] = resource[namespace]
-      return acc
-    }, {})
-  })
-
-  return _resources
 }

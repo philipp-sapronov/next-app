@@ -3,7 +3,8 @@ import { initReactI18next } from 'react-i18next'
 import { MISSING_TRANSLATION_KEY, ns, locales, fallbackLng } from './settings'
 
 export const init = async (options = {}, callback) => {
-  console.log('\n ==<<<INIT>>==\n')
+  if (i18next.isInitialized) return
+
   await i18next.use(initReactI18next).init(
     {
       fallbackLng,
@@ -15,8 +16,7 @@ export const init = async (options = {}, callback) => {
         return `${MISSING_TRANSLATION_KEY} "${key}"`
       },
       interpolation: {
-        format: (value, format, lang) => {
-          console.log(lang, 'i18n language')
+        format: (value, format) => {
           if (format === 'uppercase') {
             return value.toUpperCase()
           }
@@ -36,4 +36,11 @@ export const init = async (options = {}, callback) => {
     },
     callback,
   )
+
+
+  i18next.on('languageChanged', function(lng) {
+    console.log(lng, 'changed')
+  })
+
+  console.log('\n ==<<<INIT>>==\n')
 }

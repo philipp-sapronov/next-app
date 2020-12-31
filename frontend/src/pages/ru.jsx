@@ -6,7 +6,7 @@ import { Home } from '../home'
 import { Head } from '../components/head'
 import { useRecoilValue } from 'recoil'
 import { metaState } from '../stores/meta'
-import { init, getI18nextResources, resources } from "../i18n";
+import { getI18nextResources } from '../i18n'
 
 const HomePage = () => {
   const meta = useRecoilValue(metaState)
@@ -20,9 +20,7 @@ const HomePage = () => {
 }
 
 export const getStaticProps = async () => {
-  await init()
-  console.log('\n === GET STATIC PROPS == \n')
-
+  console.log('<<<<<<<<<<<< RU >>>>>>>>>>>>>>>')
   return {
     props: {
       initialLanguage: 'ru',
