@@ -5,6 +5,8 @@ import { I18nextProvider } from 'react-i18next'
 
 export const withI18next = (Wrapped) => {
   const WithI18next = ({ Component, pageProps }) => {
+    if (!pageProps) return null
+
     const { initialI18nStore, initialLanguage, ...rest } = pageProps
 
     const i18n = useI18Next(initialI18nStore, initialLanguage)

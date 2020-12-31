@@ -4,7 +4,7 @@ import { SectionHeading } from '../components/headings'
 import { Button } from '../components/buttons'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
-import { ukraineCode } from '../constants'
+import { APP_URL, ukraineCode } from '../constants'
 import { getRange } from '../helpers'
 
 const RU = 'RU'
@@ -16,7 +16,7 @@ const mapRotuesLang = {
   '/': UK,
 }
 
-const getUrl = () => `${window.location.protocol}//${window.location.host}/api/create`
+const getUrl = () => `${APP_URL}/api/create`
 
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 

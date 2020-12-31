@@ -1,10 +1,10 @@
-import { ApiRoute, GetParams, APP_URL } from '../constants'
+import { ApiRoute, GetParams, API_URL } from '../constants'
 import fetch from 'node-fetch'
 
 export const fetchFeedback = async (ln) => {
   if (!ln) throw new TypeError('Unexpected type of language')
 
-  const url = `${APP_URL}${ApiRoute.feedback}?${GetParams.ln}=${ln}`
+  const url = `${API_URL}${ApiRoute.feedback}?${GetParams.ln}=${ln}`
   const response = await fetch(url)
 
   if (!response.ok) {
