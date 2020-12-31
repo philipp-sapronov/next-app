@@ -6,7 +6,7 @@ import { ApplicationDto } from './dto/application.dto';
 import { RequestCalDto } from './dto/request-call.dto';
 
 @Controller()
-export class ApplicationsController {
+export class ApplicationController {
   constructor(private mailerService: EmailService, private botService: TelegramBotService) {}
 
   @Post('new-application')

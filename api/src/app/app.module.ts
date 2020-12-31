@@ -4,7 +4,11 @@ import { MailerModule } from '@nestjs-modules/mailer';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ApplicationsModule } from '../applications/applications.module';
+import { ApplicationModule } from '../application/application.module';
+import { CourseModule } from '../course/course.module';
+import { TeacherModule } from '../teacher/teacher.module';
+import { FeedbackModule } from '../feedback/feedback.module';
+
 import vars, { EnvVariables } from '../config';
 
 @Module({
@@ -31,7 +35,10 @@ import vars, { EnvVariables } from '../config';
         },
       }),
     }),
-    ApplicationsModule,
+    ApplicationModule,
+    CourseModule,
+    FeedbackModule,
+    TeacherModule,
   ],
   controllers: [AppController],
   providers: [AppService],

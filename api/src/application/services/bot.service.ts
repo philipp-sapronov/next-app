@@ -42,13 +42,13 @@ export class TelegramBotService {
 
     // TODO: throw error if token or groupId doesn't exist
 
-    this.bot = new TelegramBot(this.token, {
-      polling: true,
-    });
+    // this.bot = new TelegramBot(this.token, {
+    //   polling: true,
+    // });
 
-    this.onStart();
-    this.onCallbackQuery();
-    this.onGroupId();
+    // this.onStart();
+    // this.onCallbackQuery();
+    // this.onGroupId();
   }
 
   private onStart() {

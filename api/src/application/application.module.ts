@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TelegramBotService } from './services/bot.service';
 import { EmailService } from './services/mail.service';
-import { ApplicationsController } from './applications.controller';
+import { ApplicationController } from './application.controller';
 
 
 @Module({
   imports: [],
-  controllers: [ApplicationsController],
+  controllers: [ApplicationController],
   providers: [EmailService, TelegramBotService],
 })
-export class ApplicationsModule {}
+export class ApplicationModule {}
