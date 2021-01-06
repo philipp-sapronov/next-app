@@ -15,7 +15,7 @@ import vars, { EnvVariables } from '../config';
   imports: [
     ConfigModule.forRoot({
       ignoreEnvFile: process.env.NODE_ENV === 'production',
-      envFilePath: path.join(__dirname, '..', '..', '..', '.env'),
+      // envFilePath: path.join(__dirname, '.env'),
       load: [vars],
       isGlobal: true,
     }),

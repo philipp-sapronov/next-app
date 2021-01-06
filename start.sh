@@ -5,7 +5,7 @@ FRONTEND_SERVICE="frontend"
 PROXY_SERVICE="proxy"
 DEV="dev"
 NO_DOCKER="no-docker"
-
+BUILD="build"
 SERVICES=($FRONTEND_SERVICE $PROXY_SERVICE $API_SERVICE)
 OPTIONS=("$@")
 
@@ -42,6 +42,10 @@ function is_dev () {
   return $(has_argument $DEV)
 }
 
+function get_shold_build() {
+  has_argument $BUILD && echo --build
+}
+
 function get_service () {
   local service=""
   for it in ${SERVICES[@]};
@@ -72,7 +76,7 @@ function start_api () {
   if is_no_docker; then
     cd ./api && run yarn run dev
   else
-    run docker-compose $(get_compose_file) up $API_SERVICE
+    run docker-compose $(get_compose_file) up $(get_shold_build) $API_SERVICE
   fi
 }
 
@@ -80,7 +84,7 @@ function start_frontend () {
   if is_no_docker; then
     cd ./frontend && run yarn run dev
   else
-    run docker-compose $(get_compose_file) up $FRONTEND_SERVICE
+    run docker-compose $(get_compose_file) up $(get_shold_build) $FRONTEND_SERVICE
   fi
 }
 

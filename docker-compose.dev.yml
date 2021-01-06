@@ -1,7 +1,7 @@
 version: "3.4"
 
 networks:
-  main:
+  dev:
     driver: bridge
 
 services:
@@ -10,25 +10,30 @@ services:
       context: ./api
     container_name: api
     restart: unless-stopped
+    ports:
+      - 8000:8000
     env_file:
-      - ./.env
+      - ./api/.env
     command: "yarn start"
     networks:
-      - main
+      - dev
 
   frontend:
     build:
       context: ./frontend
       target: dev
-      args:
-        env: development
-        port: 3000
-    command: npm run dev
-    container_name: dev_elm
-    image: app/frontend:dev
+    command: yarn run dev
+    depends_on:
+      - api
+    env_file:
+      - ./frontend/.env.local
     ports:
-      - 3000:3000
-    # stdin_open: true
-    # tty: true
+      - 8080:8080
+    container_name: frontend
+    image: app/frontend:dev
+    stdin_open: true
+    tty: true
+    networks:
+      - dev
     volumes:
       - ./frontend/src:/usr/app/src

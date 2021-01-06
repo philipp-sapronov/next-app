@@ -1,5 +1,5 @@
 import React from 'react'
-import { Feedbacks } from './feadbacks'
+import { Feedbacks } from './feadback'
 import { Hero } from './hero'
 import { Leading } from './leading'
 import { Pipeline } from './pipeline'

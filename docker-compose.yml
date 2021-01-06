@@ -17,10 +17,10 @@ services:
       - "80:80"
       - "443:443"
     environment:
-      - TZ=Europe/Kiev
+      - TZ=${TZ}
       - LETSENCRYPT=true
-      - LE_EMAIL=ph.soff@gmail.com
-      - LE_FQDN=www.iep.com.ua,iep.com.ua
+      - LE_EMAIL=${LE_EMAIL}
+      - LE_FQDN=${LE_FQDN}
     depends_on:
       - frontend
       - api
@@ -33,7 +33,7 @@ services:
     container_name: api
     restart: unless-stopped
     env_file:
-      - ./.env
+      - ./api/.env
     command: "yarn start"
     networks:
       - main
@@ -42,9 +42,9 @@ services:
     build:
       context: frontend
       target: prod
-      args:
-        - NODE_ENV=${NODE_ENV}
     container_name: frontend
+    env_file:
+      - ./api/.env
     restart: unless-stopped
     volumes:
       - ./frontend/nginx.conf:/etc/nginx/nginx.conf
